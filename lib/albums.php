@@ -20,8 +20,40 @@
 		"0",
 
 		array(
+			["Orange Chase", "img/album/hongkong/hongkong_2_thumb.jpg", "img/album/hongkong/hongkong_2_full.jpg"],
+			["Hong Kong Lightning", "img/album/hongkong/hongkong_1_thumb.jpg", "img/album/hongkong/hongkong_1_full.jpg"],
+			["Colourful City", "img/album/hongkong/hongkong_7_thumb.jpg", "img/album/hongkong/hongkong_7_full.jpg"],
+			["Evening Water", "img/album/hongkong/hongkong_6_thumb.jpg", "img/album/hongkong/hongkong_6_full.jpg"],
+			["Colourful Night", "img/album/hongkong/hongkong_3_thumb.jpg", "img/album/hongkong/hongkong_3_full.jpg"],
 			["New Kind of Hug", "img/album/kenya/kenya_1_thumb.jpg", "img/album/kenya/kenya_1_full.jpg"],
-			["Happy Family", "img/album/kenya/kenya_2_thumb.jpg", "img/album/kenya/kenya_2_full.jpg"]
+			["Happy Family", "img/album/kenya/kenya_2_thumb.jpg", "img/album/kenya/kenya_2_full.jpg"],
+			["Giraffe Head", "img/album/kenya/kenya_4_thumb.jpg", "img/album/kenya/kenya_4_full.jpg"],
+			["Alone Together", "img/album/kenya/kenya_3_thumb.jpg", "img/album/kenya/kenya_3_full.jpg"],
+			["Sunrise on the Dunes", "img/album/vietnam/vietnam_1_thumb.jpg", "img/album/vietnam/vietnam_1_full.jpg"],
+			["Vietnamese Fisherman", "img/album/vietnam/vietnam_2_thumb.jpg", "img/album/vietnam/vietnam_2_full.jpg"],
+			["Sunset at Mũi Né", "img/album/vietnam/vietnam_3_thumb.jpg", "img/album/vietnam/vietnam_3_full.jpg"],
+			["The Sand Dunes of Mũi Né", "img/album/vietnam/vietnam_4_thumb.jpg", "img/album/vietnam/vietnam_4_full.jpg"],
+			["Stormy Beach", "img/album/vietnam/vietnam_5_thumb.jpg", "img/album/vietnam/vietnam_5_full.jpg"],
+			["Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"],
+			["Swan Wings", "img/album/london/london_4_thumb.jpg", "img/album/london/london_4_full.jpg"],
+			["Fox in the Snow", "img/album/london/london_3_thumb.jpg", "img/album/london/london_3_full.jpg"],
+			["Curvature", "img/album/london/london_2_thumb.jpg", "img/album/london/london_2_full.jpg"],
+			["Attention Elsewhere", "img/album/london/london_11_thumb.jpg", "img/album/london/london_11_full.jpg"],
+			["Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"],
+			["Corn", "img/album/yunnan/yunnan_2_thumb.jpg", "img/album/yunnan/yunnan_2_full.jpg"],
+			["Gold", "img/album/yunnan/yunnan_9_thumb.jpg", "img/album/yunnan/yunnan_9_full.jpg"],
+			["Old Town", "img/album/yunnan/yunnan_3_thumb.jpg", "img/album/yunnan/yunnan_3_full.jpg"],
+			["Range", "img/album/yunnan/yunnan_5_thumb.jpg", "img/album/yunnan/yunnan_5_full.jpg"],
+			["Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"],
+			["Chruch", "img/album/korea/korea_2_thumb.jpg", "img/album/korea/korea_2_full.jpg"],
+			["Woman in Gold", "img/album/korea/korea_3_thumb.jpg", "img/album/korea/korea_3_full.jpg"],
+			["Purple Prowess", "img/album/leicester/leicester_1_thumb.jpg", "img/album/leicester/leicester_1_full.jpg"],
+			["Purple Portrait", "img/album/leicester/leicester_3_thumb.jpg", "img/album/leicester/leicester_3_full.jpg"],
+			["Hiding Behind the Clouds", "img/album/queensland/queensland_1_thumb.jpg", "img/album/queensland/queensland_1_full.jpg"],
+			["Wing", "img/album/queensland/queensland_3_thumb.jpg", "img/album/queensland/queensland_3_full.jpg"],
+			["Duchess Door", "img/album/queensland/queensland_4_thumb.jpg", "img/album/queensland/queensland_4_full.jpg"],
+			["Sharp B-17 Prop", "img/album/queensland/queensland_8_thumb.jpg", "img/album/queensland/queensland_8_full.jpg"],
+			["Limit Turn", "img/album/queensland/queensland_14_thumb.jpg", "img/album/queensland/queensland_14_full.jpg"]
 		)
 
 	);
