@@ -2,6 +2,30 @@
 
 
 
+	if ($page == "album") {
+
+		require_once "lib/albums.php";
+
+		if (isset($_GET["album"])) {
+
+			$album_current = $_GET["album"];
+
+		}
+
+		else {
+
+			$album_current = "portfolio";
+
+		};
+
+		$target = $album[$album_current];
+
+	};
+
+
+
+
+
 	function index_featured ($array) {
 
 		for ($i = 0; $i < count($array); $i++) {

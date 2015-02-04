@@ -8,89 +8,6 @@
 
 
 
-<?php
-
-	// Album Name/Location
-	// Timeframe/Date
-	// Geolocation: Longitude
-	// Geolocation: Latitude
-	// Array with the images: thumbnail then fullsize
-
-
-	$album["kenya"] = array(
-
-		"Kenya, South Africa",
-		"12th September 2014 - 12th September 2014",
-		"1.581981",
-		"35.2451",
-
-		array(
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_fox.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_fox.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_fox.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_fox.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_fox.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_fox.jpg"],
-			["blah blah blah", "img/index/featured_photo_lion.jpg", "img/index/featured_photo_lion.jpg"]
-		)
-
-	);
-
-	$album["test"] = array(
-
-		"test",
-		"test",
-		"0",
-		"0",
-
-		array(
-			"img/index/featured_photo_lion.jpg",
-			"img/index/featured_photo_lion.jpg"
-		)
-
-	);
-
-
-
-
-
-	if (isset($_GET["album"])) {
-
-    	$target = $album[$_GET["album"]];
-
-	}
-
-	else {
-
-		$target = $album["kenya"];
-
-	};
-
-
-
-
-
-	//print_r($album);
-
-
-
-
-
-?>
-
-
-
-
-
-
-
-
 
 	<div id="viewer">
 
@@ -115,17 +32,17 @@
 
 				<?php
 
-					for ($i = 0; $i < count($target[4]); $i++) {
+					for ($i = 0; $i < count($target[5]); $i++) {
 
 						if ($i == 0) {
 
-							echo '<li class="current"><a href="#" data-name="' . $target[4][$i][0] . '" data-image="' . $target[4][$i][2] . '"><img src="' . $target[4][$i][1] . '" alt="" /></a></li>';
+							echo '<li class="current"><a href="#" data-name="' . $target[5][$i][0] . '" data-image="' . $target[5][$i][2] . '"><img src="' . $target[5][$i][1] . '" alt="" /></a></li>';
 
 						}
 
 						else {
 
-							echo '<li><a href="#" data-name="' . $target[4][$i][0] . '" data-image="' . $target[4][$i][2] . '"><img src="' . $target[4][$i][1] . '" alt="" /></a></li>';
+							echo '<li><a href="#" data-name="' . $target[5][$i][0] . '" data-image="' . $target[5][$i][2] . '"><img src="' . $target[5][$i][1] . '" alt="" /></a></li>';
 
 						};
 
@@ -158,7 +75,7 @@
 
 			<div>
 
-				<span><span id="navigator-current">1</span> of <span><?php echo count($target[4]); ?></span></span>
+				<span><span id="navigator-current">1</span> of <span><?php echo count($target[5]); ?></span></span>
 
 			</div>
 
@@ -171,13 +88,36 @@
 				<a id="navigator-map" href="#">View Map</a>
 
 				<select>
+				<option value="" disabled selected><?php echo "Viewing: " . $album[$album_current][1]; ?></option>
 					<optgroup label="Places">
-						<option value="">Kenya, South Africa</option>
-						<option value="">London, United Kingdom</option>
+						<?php
+
+							foreach ($album as $key => $value) {
+
+								if ($value[0] == "places") {
+
+									echo '<option value="">' . $value[1] . '</option>';
+
+								};
+
+							};
+
+						?>
 					</optgroup>
 					<optgroup label="Animals">
-						<option value="">Foxes</option>
-						<option value="">Lions</option>
+						<?php
+
+							foreach ($album as $key => $value) {
+
+								if ($value[0] == "animals") {
+
+									echo '<option value="">' . $value[1] . '</option>';
+
+								};
+
+							};
+
+						?>
 					</optgroup>
 				</select>
 
@@ -186,18 +126,6 @@
 		</div>
 
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
