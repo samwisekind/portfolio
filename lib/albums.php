@@ -212,6 +212,30 @@
 
 
 
+	$album["leicester"] = array(
+
+		"places",
+		"Leicester, United Kingdom",
+		"???",
+		"0",
+		"0",
+
+		array(
+			["Purple Prowess", "img/album/leicester/leicester_1_thumb.jpg", "img/album/leicester/leicester_1_full.jpg"],
+			["Purple Family", "img/album/leicester/leicester_2_thumb.jpg", "img/album/leicester/leicester_2_full.jpg"],
+			["Purple Portrait", "img/album/leicester/leicester_3_thumb.jpg", "img/album/leicester/leicester_3_full.jpg"],
+			["Pink Dress", "img/album/leicester/leicester_4_thumb.jpg", "img/album/leicester/leicester_4_full.jpg"],
+			["Paradise", "img/album/leicester/leicester_5_thumb.jpg", "img/album/leicester/leicester_5_full.jpg"],
+			["Flowery Pathway", "img/album/leicester/leicester_6_thumb.jpg", "img/album/leicester/leicester_6_full.jpg"],
+			["Sky and the Flower", "img/album/leicester/leicester_7_thumb.jpg", "img/album/leicester/leicester_7_full.jpg"],
+			["White and Dark", "img/album/leicester/leicester_8_thumb.jpg", "img/album/leicester/leicester_8_full.jpg"],
+			["Small Flower", "img/album/leicester/leicester_9_thumb.jpg", "img/album/leicester/leicester_9_full.jpg"]
+		)
+
+	);
+
+
+
 	$album["lions"] = array(
 
 		"animals",
