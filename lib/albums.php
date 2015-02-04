@@ -107,6 +107,51 @@
 
 
 
+	$album["korea"] = array(
+
+		"places",
+		"제주 (Island of Jeju-do), 한국 (South Korea)",
+		"July 30 2009",
+		"0",
+		"0",
+
+		array(
+			["Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"],
+			["Chruch", "img/album/korea/korea_2_thumb.jpg", "img/album/korea/korea_2_full.jpg"],
+			["Woman in Gold", "img/album/korea/korea_3_thumb.jpg", "img/album/korea/korea_3_full.jpg"],
+			["Red and Yellow Boat", "img/album/korea/korea_4_thumb.jpg", "img/album/korea/korea_4_full.jpg"]
+		)
+
+	);
+
+
+
+	$album["hongkong"] = array(
+
+		"places",
+		"香港 (Hong Kong)",
+		"???",
+		"0",
+		"0",
+
+		array(
+			["Hong Kong Lightning", "img/album/hongkong/hongkong_1_thumb.jpg", "img/album/hongkong/hongkong_1_full.jpg"],
+			["Orange Chase", "img/album/hongkong/hongkong_2_thumb.jpg", "img/album/hongkong/hongkong_2_full.jpg"],
+			["Colourful Night", "img/album/hongkong/hongkong_3_thumb.jpg", "img/album/hongkong/hongkong_3_full.jpg"],
+			["Star Ferry", "img/album/hongkong/hongkong_4_thumb.jpg", "img/album/hongkong/hongkong_4_full.jpg"],
+			["Happy Valley Timelapse", "img/album/hongkong/hongkong_5_thumb.jpg", "img/album/hongkong/hongkong_5_full.jpg"],
+			["Evening Water", "img/album/hongkong/hongkong_6_thumb.jpg", "img/album/hongkong/hongkong_6_full.jpg"],
+			["Colourful City", "img/album/hongkong/hongkong_7_thumb.jpg", "img/album/hongkong/hongkong_7_full.jpg"],
+			["Coloured Rope", "img/album/hongkong/hongkong_8_thumb.jpg", "img/album/hongkong/hongkong_8_full.jpg"],
+			["One Eyed Jack", "img/album/hongkong/hongkong_9_thumb.jpg", "img/album/hongkong/hongkong_9_full.jpg"],
+			["Vintage 9", "img/album/hongkong/hongkong_10_thumb.jpg", "img/album/hongkong/hongkong_10_full.jpg"],
+			["Cinematic Belle", "img/album/hongkong/hongkong_11_thumb.jpg", "img/album/hongkong/hongkong_11_full.jpg"]
+		)
+
+	);
+
+
+
 	$album["lions"] = array(
 
 		"animals",
