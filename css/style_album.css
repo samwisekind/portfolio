@@ -51,7 +51,8 @@ header#header,
 	background: #222222; }
 
 #swipe span {
-	margin-top: 5px;
+	display: block;
+	padding-top: 5px;
 	font-size: 12px;
 	color: #FFFFFF; }
 
