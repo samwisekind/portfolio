@@ -2,11 +2,12 @@
 
 
 
-	// Album Name/Location
-	// Timeframe/Date
-	// Geolocation: Longitude
-	// Geolocation: Latitude
-	// Array with the images: photo name, thumbnail, fullsize
+	// Album catagory ("main", "places", "animals")
+	// Album name
+	// Album timeframe/date
+	// Album geolocation: Longitude
+	// Album geolocation: Latitude
+	// Array with the album images: photo name, photo thumbnail URL, fullsize photo URL
 
 
 
@@ -81,6 +82,28 @@
 
 
 
+	$album["vietnam"] = array(
+
+		"places",
+		"Việt Nam (Vietnam)",
+		"18th July 2011",
+		"0",
+		"0",
+
+		array(
+			["Sunrise on the Dunes", "img/album/vietnam/vietnam_1_thumb.jpg", "img/album/vietnam/vietnam_1_full.jpg"],
+			["Vietnamese Fisherman", "img/album/vietnam/vietnam_2_thumb.jpg", "img/album/vietnam/vietnam_2_full.jpg"],
+			["Sunset at Mũi Né", "img/album/vietnam/vietnam_3_thumb.jpg", "img/album/vietnam/vietnam_3_full.jpg"],
+			["The Sand Dunes of Mũi Né", "img/album/vietnam/vietnam_4_thumb.jpg", "img/album/vietnam/vietnam_4_full.jpg"],
+			["Stormy Beach", "img/album/vietnam/vietnam_5_thumb.jpg", "img/album/vietnam/vietnam_5_full.jpg"],
+			["Hard Worker", "img/album/vietnam/vietnam_6_thumb.jpg", "img/album/vietnam/vietnam_6_full.jpg"],
+			["On the Road to Mũi Né", "img/album/vietnam/vietnam_7_thumb.jpg", "img/album/vietnam/vietnam_7_full.jpg"],
+			["Over the Dunes", "img/album/vietnam/vietnam_8_thumb.jpg", "img/album/vietnam/vietnam_8_full.jpg"],
+			["IMG_0576", "img/album/vietnam/vietnam_9_thumb.jpg", "img/album/vietnam/vietnam_9_full.jpg"],
+			["IMG_0568", "img/album/vietnam/vietnam_10_thumb.jpg", "img/album/vietnam/vietnam_10_full.jpg"]
+		)
+
+	);
 
 
 
@@ -101,10 +124,6 @@
 		)
 
 	);
-
-
-
-
 
 
 
