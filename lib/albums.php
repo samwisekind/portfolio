@@ -152,6 +152,37 @@
 
 
 
+	$album["london"] = array(
+
+		"places",
+		"London",
+		"???",
+		"0",
+		"0",
+
+		array(
+			["Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"],
+			["Curvature", "img/album/london/london_2_thumb.jpg", "img/album/london/london_2_full.jpg"],
+			["Fox in the Snow", "img/album/london/london_3_thumb.jpg", "img/album/london/london_3_full.jpg"],
+			["Swan Wings", "img/album/london/london_4_thumb.jpg", "img/album/london/london_4_full.jpg"],
+			["Calling", "img/album/london/london_5_thumb.jpg", "img/album/london/london_5_full.jpg"],
+			["Swan and the Water", "img/album/london/london_6_thumb.jpg", "img/album/london/london_6_full.jpg"],
+			["Hiding in the Bushes", "img/album/london/london_7_thumb.jpg", "img/album/london/london_7_full.jpg"],
+			["Body of the Swan", "img/album/london/london_8_thumb.jpg", "img/album/london/london_8_full.jpg"],
+			["Food in the Snow", "img/album/london/london_9_thumb.jpg", "img/album/london/london_9_full.jpg"],
+			["One Wing", "img/album/london/london_10_thumb.jpg", "img/album/london/london_10_full.jpg"],
+			["Attention Elsewhere", "img/album/london/london_11_thumb.jpg", "img/album/london/london_11_full.jpg"],
+			["Searching Around", "img/album/london/london_12_thumb.jpg", "img/album/london/london_12_full.jpg"],
+			["Staring", "img/album/london/london_13_thumb.jpg", "img/album/london/london_13_full.jpg"],
+			["Hidden", "img/album/london/london_14_thumb.jpg", "img/album/london/london_14_full.jpg"],
+			["Shy Fox", "img/album/london/london_15_thumb.jpg", "img/album/london/london_15_full.jpg"],
+			["Patience", "img/album/london/london_16_thumb.jpg", "img/album/london/london_16_full.jpg"],
+		)
+
+	);
+
+
+
 	$album["lions"] = array(
 
 		"animals",
