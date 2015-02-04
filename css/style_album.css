@@ -1,0 +1,264 @@
+body#album {
+	overflow: hidden; }
+
+
+
+
+header#header {
+	top: 0;
+	padding: 0;
+	background: #111111; }
+
+header#header h1,
+header#header nav#nav {
+	float: left; }
+
+header#header h1 a,
+header#header nav#nav ul li a {
+	color: #FFFFFF !important; }
+
+header#header nav#nav ul li {
+	display: inline-table; }
+
+header#header nav#nav ul li a {
+	display: table-cell;
+	height: 80px;
+	vertical-align: middle; }
+
+
+
+
+header#header,
+#viewer,
+#navigator {
+	position: absolute; }
+
+
+#content {
+	background: #000000 !important; }
+
+
+
+#viewer {
+	display: table;
+	top: 80px;
+	left: 150px;
+	width: calc(100% - 150px);
+	height: calc(100% - 130px); }
+
+#viewer .viewer-arrow {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	width: 5%;
+	height: 100%; }
+
+#viewer .viewer-arrow.left {
+	left: 0; }
+
+#viewer .viewer-arrow.right {
+	right: 0; }
+
+#viewer .viewer-arrow a {
+	opacity: .25;
+	display: block;
+	height: 100%;
+	background: center center no-repeat transparent;
+	-webkit-transition: opacity .25s;
+	-moz-transition: opacity .25s;
+	-ms-transition: opacity .25s;
+	-o-transition: opacity .25s;
+	transition: opacity .25s;  }
+
+#viewer .viewer-arrow.left a {
+	background-image: url("../img/album/album_arrow_left.svg"); }
+
+#viewer .viewer-arrow.right a {
+	background-image: url("../img/album/album_arrow_right.svg"); }
+
+#viewer .viewer-arrow a:hover {
+	opacity: .75; }
+
+#viewer #viewer-wrapper {
+	z-index: 0;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	width: 90%;
+	height: 90%;
+	background: url("../img/index/featured_photo_lion.jpg") center center no-repeat transparent;
+	background-size: contain; }
+
+#viewer #viewer-wrapper img {
+	width: 100%;
+	height: auto; }
+
+
+
+
+
+
+
+
+/******* THUMBNAILS *******/
+
+#thumbnails {
+	position: absolute;
+	left: 0;
+	top: 80px;
+	width: 150px;
+	height: calc(100% - 80px);
+	background: #111111; }
+
+#thumbnails #thumbnails-list {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 65px 0 65px 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll; }
+
+#thumbnails .thumbnails-arrow {
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 50px; }
+
+#thumbnails .thumbnails-arrow.top {
+	top: 0; }
+
+#thumbnails .thumbnails-arrow.bottom {
+	bottom: 0; }
+
+#thumbnails .thumbnails-arrow a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("../img/album/album_thumbnails_arrows.svg") no-repeat rgba(255, 255, 255, .25); }
+
+#thumbnails .thumbnails-arrow.top a {
+	background-position: center top; }
+
+#thumbnails .thumbnails-arrow.bottom a {
+	background-position: center bottom; }
+
+#thumbnails .thumbnails-arrow a:hover {
+	background-color: rgba(255, 255, 255, .5); }
+
+#thumbnails #thumbnails-list ul,
+#thumbnails #thumbnails-list ul li {
+	display: block;
+	list-style: none; }
+
+#thumbnails #thumbnails-list ul {
+	z-index: 0;
+	position: relative; }
+
+#thumbnails #thumbnails-list ul li {
+	margin: 0 auto 0 auto;
+	width: 125px;
+	margin-bottom: 15px; }
+
+#thumbnails #thumbnails-list ul li:last-child {
+	margin-bottom: 0; }
+
+#thumbnails #thumbnails-list ul li a {
+	opacity: .5;
+	display: block; }
+
+#thumbnails #thumbnails-list ul li a img {
+	width: 100%;
+	height: auto;
+	border: none; }
+
+#thumbnails #thumbnails-list ul li a {
+	-webkit-transition: opacity .25s;
+	-moz-transition: opacity .25s;
+	-ms-transition: opacity .25s;
+	-o-transition: opacity .25s;
+	transition: opacity .25s; }
+
+#thumbnails #thumbnails-list ul li.current a,
+#thumbnails #thumbnails-list ul li a:hover {
+	opacity: 1; }
+
+
+
+/******* NAVIGATOR *******/
+
+#navigator {
+	position: absolute;
+	left: 150px;
+	bottom: 0;
+	width: calc(100% - 150px);
+	height: 50px;
+	background: #222222; }
+
+#navigator > div {
+	display: inline-table;
+	position: absolute;
+	top: 0; }
+
+#navigator > div > div {
+	display: table-cell;
+	vertical-align: middle;
+	height: 50px; }
+
+#navigator #navigator-title {
+	left: 15px; }
+
+#navigator #navigator-title h2 {
+	font-size: 14px;
+	color: #FFFFFF; }
+
+#navigator #navigator-title h3 {
+	font-size: 12px;
+	color: #666666; }
+
+#navigator #navigator-interation {
+	left: 50%;
+	margin-left: -75px;
+	width: 150px;
+	text-align: center; }
+
+#navigator #navigator-interation span {
+	color: #666666; }
+
+#navigator #navigator-interation span > span {
+	color: #FFFFFF; }
+
+
+#navigator #navigator-select {
+	right: 15px; }
+
+#navigator #navigator-select #navigator-map {
+	margin-right: 25px;
+	color: #FFFFFF;
+	text-decoration: none; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body#album footer#footer {
+	display: none; }
