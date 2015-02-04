@@ -86,7 +86,7 @@ header#header,
 	top: 5%;
 	width: 90%;
 	height: 90%;
-	background: url("../img/index/featured_photo_lion.jpg") center center no-repeat transparent;
+	background: center center no-repeat transparent;
 	background-size: contain; }
 
 #viewer #viewer-wrapper img {

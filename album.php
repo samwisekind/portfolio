@@ -14,7 +14,7 @@
 		<div class="viewer-arrow left"><a href="#" data-direction="prev"></a></div>
 		<div class="viewer-arrow right"><a href="#" data-direction="next"></a></div>
 		
-		<div id="viewer-wrapper"></div>
+		<div id="viewer-wrapper" style="background-image: url('<?php echo $album[$album_current][5][0][2]; ?>');"></div>
 
 	</div>
 
