@@ -106,12 +106,12 @@
 
 						?>
 					</optgroup>
-					<optgroup label="Animals">
+					<optgroup label="Things">
 						<?php
 
 							foreach ($album as $key => $value) {
 
-								if ($value[0] == "animals") {
+								if ($value[0] == "things") {
 
 									echo '<option value="' . $key . '">' . $value[1] . '</option>';
 

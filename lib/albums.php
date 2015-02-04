@@ -2,7 +2,7 @@
 
 
 
-	// Album catagory ("main", "places", "animals")
+	// Album catagory ("main", "places", "things")
 	// Album name
 	// Album timeframe/date
 	// Album geolocation: Longitude
@@ -22,6 +22,38 @@
 		array(
 			["New Kind of Hug", "img/album/kenya/kenya_1_thumb.jpg", "img/album/kenya/kenya_1_full.jpg"],
 			["Happy Family", "img/album/kenya/kenya_2_thumb.jpg", "img/album/kenya/kenya_2_full.jpg"]
+		)
+
+	);
+
+
+
+	/* PLACES */
+
+
+
+	$album["yunnan"] = array(
+
+		"places",
+		"云南 (Yúnnán), 中国 (China)",
+		"12th September 2014 - 12th September 2014",
+		"1.581981",
+		"35.2451",
+
+		array(
+			["Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"],
+			["Corn", "img/album/yunnan/yunnan_2_thumb.jpg", "img/album/yunnan/yunnan_2_full.jpg"],
+			["Old Town", "img/album/yunnan/yunnan_3_thumb.jpg", "img/album/yunnan/yunnan_3_full.jpg"],
+			["Farmland", "img/album/yunnan/yunnan_4_thumb.jpg", "img/album/yunnan/yunnan_4_full.jpg"],
+			["Range", "img/album/yunnan/yunnan_5_thumb.jpg", "img/album/yunnan/yunnan_5_full.jpg"],
+			["Incoming Mist", "img/album/yunnan/yunnan_6_thumb.jpg", "img/album/yunnan/yunnan_6_full.jpg"],
+			["Green Path", "img/album/yunnan/yunnan_7_thumb.jpg", "img/album/yunnan/yunnan_7_full.jpg"],
+			["Long Way", "img/album/yunnan/yunnan_8_thumb.jpg", "img/album/yunnan/yunnan_8_full.jpg"],
+			["Gold", "img/album/yunnan/yunnan_9_thumb.jpg", "img/album/yunnan/yunnan_9_full.jpg"],
+			["Far Edge", "img/album/yunnan/yunnan_10_thumb.jpg", "img/album/yunnan/yunnan_10_full.jpg"],
+			["Stone and Water", "img/album/yunnan/yunnan_11_thumb.jpg", "img/album/yunnan/yunnan_11_full.jpg"],
+			["One The Way", "img/album/yunnan/yunnan_12_thumb.jpg", "img/album/yunnan/yunnan_12_full.jpg"],
+			["The Road Ahead", "img/album/yunnan/yunnan_13_thumb.jpg", "img/album/yunnan/yunnan_13_full.jpg"]
 		)
 
 	);
@@ -54,28 +86,31 @@
 
 
 
-	$album["yunnan"] = array(
+	$album["london"] = array(
 
 		"places",
-		"云南 (Yúnnán), 中国 (China)",
-		"12th September 2014 - 12th September 2014",
-		"1.581981",
-		"35.2451",
+		"London",
+		"???",
+		"0",
+		"0",
 
 		array(
-			["Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"],
-			["Corn", "img/album/yunnan/yunnan_2_thumb.jpg", "img/album/yunnan/yunnan_2_full.jpg"],
-			["Old Town", "img/album/yunnan/yunnan_3_thumb.jpg", "img/album/yunnan/yunnan_3_full.jpg"],
-			["Farmland", "img/album/yunnan/yunnan_4_thumb.jpg", "img/album/yunnan/yunnan_4_full.jpg"],
-			["Range", "img/album/yunnan/yunnan_5_thumb.jpg", "img/album/yunnan/yunnan_5_full.jpg"],
-			["Incoming Mist", "img/album/yunnan/yunnan_6_thumb.jpg", "img/album/yunnan/yunnan_6_full.jpg"],
-			["Green Path", "img/album/yunnan/yunnan_7_thumb.jpg", "img/album/yunnan/yunnan_7_full.jpg"],
-			["Long Way", "img/album/yunnan/yunnan_8_thumb.jpg", "img/album/yunnan/yunnan_8_full.jpg"],
-			["Gold", "img/album/yunnan/yunnan_9_thumb.jpg", "img/album/yunnan/yunnan_9_full.jpg"],
-			["Far Edge", "img/album/yunnan/yunnan_10_thumb.jpg", "img/album/yunnan/yunnan_10_full.jpg"],
-			["Stone and Water", "img/album/yunnan/yunnan_11_thumb.jpg", "img/album/yunnan/yunnan_11_full.jpg"],
-			["One The Way", "img/album/yunnan/yunnan_12_thumb.jpg", "img/album/yunnan/yunnan_12_full.jpg"],
-			["The Road Ahead", "img/album/yunnan/yunnan_13_thumb.jpg", "img/album/yunnan/yunnan_13_full.jpg"]
+			["Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"],
+			["Curvature", "img/album/london/london_2_thumb.jpg", "img/album/london/london_2_full.jpg"],
+			["Fox in the Snow", "img/album/london/london_3_thumb.jpg", "img/album/london/london_3_full.jpg"],
+			["Swan Wings", "img/album/london/london_4_thumb.jpg", "img/album/london/london_4_full.jpg"],
+			["Calling", "img/album/london/london_5_thumb.jpg", "img/album/london/london_5_full.jpg"],
+			["Swan and the Water", "img/album/london/london_6_thumb.jpg", "img/album/london/london_6_full.jpg"],
+			["Hiding in the Bushes", "img/album/london/london_7_thumb.jpg", "img/album/london/london_7_full.jpg"],
+			["Body of the Swan", "img/album/london/london_8_thumb.jpg", "img/album/london/london_8_full.jpg"],
+			["Food in the Snow", "img/album/london/london_9_thumb.jpg", "img/album/london/london_9_full.jpg"],
+			["One Wing", "img/album/london/london_10_thumb.jpg", "img/album/london/london_10_full.jpg"],
+			["Attention Elsewhere", "img/album/london/london_11_thumb.jpg", "img/album/london/london_11_full.jpg"],
+			["Searching Around", "img/album/london/london_12_thumb.jpg", "img/album/london/london_12_full.jpg"],
+			["Staring", "img/album/london/london_13_thumb.jpg", "img/album/london/london_13_full.jpg"],
+			["Hidden", "img/album/london/london_14_thumb.jpg", "img/album/london/london_14_full.jpg"],
+			["Shy Fox", "img/album/london/london_15_thumb.jpg", "img/album/london/london_15_full.jpg"],
+			["Patience", "img/album/london/london_16_thumb.jpg", "img/album/london/london_16_full.jpg"],
 		)
 
 	);
@@ -101,25 +136,6 @@
 			["Over the Dunes", "img/album/vietnam/vietnam_8_thumb.jpg", "img/album/vietnam/vietnam_8_full.jpg"],
 			["IMG_0576", "img/album/vietnam/vietnam_9_thumb.jpg", "img/album/vietnam/vietnam_9_full.jpg"],
 			["IMG_0568", "img/album/vietnam/vietnam_10_thumb.jpg", "img/album/vietnam/vietnam_10_full.jpg"]
-		)
-
-	);
-
-
-
-	$album["korea"] = array(
-
-		"places",
-		"제주 (Island of Jeju-do), 한국 (South Korea)",
-		"July 30 2009",
-		"0",
-		"0",
-
-		array(
-			["Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"],
-			["Chruch", "img/album/korea/korea_2_thumb.jpg", "img/album/korea/korea_2_full.jpg"],
-			["Woman in Gold", "img/album/korea/korea_3_thumb.jpg", "img/album/korea/korea_3_full.jpg"],
-			["Red and Yellow Boat", "img/album/korea/korea_4_thumb.jpg", "img/album/korea/korea_4_full.jpg"]
 		)
 
 	);
@@ -152,31 +168,19 @@
 
 
 
-	$album["london"] = array(
+	$album["korea"] = array(
 
 		"places",
-		"London",
-		"???",
+		"제주 (Island of Jeju-do), 한국 (South Korea)",
+		"July 30 2009",
 		"0",
 		"0",
 
 		array(
-			["Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"],
-			["Curvature", "img/album/london/london_2_thumb.jpg", "img/album/london/london_2_full.jpg"],
-			["Fox in the Snow", "img/album/london/london_3_thumb.jpg", "img/album/london/london_3_full.jpg"],
-			["Swan Wings", "img/album/london/london_4_thumb.jpg", "img/album/london/london_4_full.jpg"],
-			["Calling", "img/album/london/london_5_thumb.jpg", "img/album/london/london_5_full.jpg"],
-			["Swan and the Water", "img/album/london/london_6_thumb.jpg", "img/album/london/london_6_full.jpg"],
-			["Hiding in the Bushes", "img/album/london/london_7_thumb.jpg", "img/album/london/london_7_full.jpg"],
-			["Body of the Swan", "img/album/london/london_8_thumb.jpg", "img/album/london/london_8_full.jpg"],
-			["Food in the Snow", "img/album/london/london_9_thumb.jpg", "img/album/london/london_9_full.jpg"],
-			["One Wing", "img/album/london/london_10_thumb.jpg", "img/album/london/london_10_full.jpg"],
-			["Attention Elsewhere", "img/album/london/london_11_thumb.jpg", "img/album/london/london_11_full.jpg"],
-			["Searching Around", "img/album/london/london_12_thumb.jpg", "img/album/london/london_12_full.jpg"],
-			["Staring", "img/album/london/london_13_thumb.jpg", "img/album/london/london_13_full.jpg"],
-			["Hidden", "img/album/london/london_14_thumb.jpg", "img/album/london/london_14_full.jpg"],
-			["Shy Fox", "img/album/london/london_15_thumb.jpg", "img/album/london/london_15_full.jpg"],
-			["Patience", "img/album/london/london_16_thumb.jpg", "img/album/london/london_16_full.jpg"],
+			["Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"],
+			["Chruch", "img/album/korea/korea_2_thumb.jpg", "img/album/korea/korea_2_full.jpg"],
+			["Woman in Gold", "img/album/korea/korea_3_thumb.jpg", "img/album/korea/korea_3_full.jpg"],
+			["Red and Yellow Boat", "img/album/korea/korea_4_thumb.jpg", "img/album/korea/korea_4_full.jpg"]
 		)
 
 	);
@@ -236,9 +240,13 @@
 
 
 
+	/* THINGS */
+
+
+
 	$album["lions"] = array(
 
-		"animals",
+		"things",
 		"Lions",
 		"",
 		"0",
@@ -250,6 +258,90 @@
 			["Curious", "img/album/kenya/kenya_7_thumb.jpg", "img/album/kenya/kenya_7_full.jpg"],
 			["Yawn", "img/album/kenya/kenya_9_thumb.jpg", "img/album/kenya/kenya_9_full.jpg"],
 			["Little Lion", "img/album/kenya/kenya_10_thumb.jpg", "img/album/kenya/kenya_10_full.jpg"]
+		)
+
+	);
+
+
+
+	$album["foxes"] = array(
+
+		"things",
+		"Foxes",
+		"",
+		"0",
+		"0",
+
+		array(
+			["Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"],
+			["Curvature", "img/album/london/london_2_thumb.jpg", "img/album/london/london_2_full.jpg"],
+			["Fox in the Snow", "img/album/london/london_3_thumb.jpg", "img/album/london/london_3_full.jpg"],
+			["Calling", "img/album/london/london_5_thumb.jpg", "img/album/london/london_5_full.jpg"],
+			["Hiding in the Bushes", "img/album/london/london_7_thumb.jpg", "img/album/london/london_7_full.jpg"],
+			["Food in the Snow", "img/album/london/london_9_thumb.jpg", "img/album/london/london_9_full.jpg"],
+			["Attention Elsewhere", "img/album/london/london_11_thumb.jpg", "img/album/london/london_11_full.jpg"],
+			["Searching Around", "img/album/london/london_12_thumb.jpg", "img/album/london/london_12_full.jpg"],
+			["Staring", "img/album/london/london_13_thumb.jpg", "img/album/london/london_13_full.jpg"],
+			["Hidden", "img/album/london/london_14_thumb.jpg", "img/album/london/london_14_full.jpg"],
+			["Shy Fox", "img/album/london/london_15_thumb.jpg", "img/album/london/london_15_full.jpg"],
+			["Patience", "img/album/london/london_16_thumb.jpg", "img/album/london/london_16_full.jpg"]
+		)
+
+	);
+
+
+
+	$album["pets"] = array(
+
+		"things",
+		"Pets",
+		"",
+		"0",
+		"0",
+
+		array(
+			["One Eyed Jack", "img/album/hongkong/hongkong_9_thumb.jpg", "img/album/hongkong/hongkong_9_full.jpg"],
+			["Cinematic Belle", "img/album/hongkong/hongkong_11_thumb.jpg", "img/album/hongkong/hongkong_11_full.jpg"]
+		)
+
+	);
+
+
+
+	$album["landscapes"] = array(
+
+		"things",
+		"Landscapes",
+		"",
+		"0",
+		"0",
+
+		array(
+			["Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"],
+			["Farmland", "img/album/yunnan/yunnan_4_thumb.jpg", "img/album/yunnan/yunnan_4_full.jpg"],
+			["Range", "img/album/yunnan/yunnan_5_thumb.jpg", "img/album/yunnan/yunnan_5_full.jpg"],
+			["Incoming Mist", "img/album/yunnan/yunnan_6_thumb.jpg", "img/album/yunnan/yunnan_6_full.jpg"],
+			["Green Path", "img/album/yunnan/yunnan_7_thumb.jpg", "img/album/yunnan/yunnan_7_full.jpg"],
+			["Long Way", "img/album/yunnan/yunnan_8_thumb.jpg", "img/album/yunnan/yunnan_8_full.jpg"],
+			["Far Edge", "img/album/yunnan/yunnan_10_thumb.jpg", "img/album/yunnan/yunnan_10_full.jpg"],
+			["The Road Ahead", "img/album/yunnan/yunnan_13_thumb.jpg", "img/album/yunnan/yunnan_13_full.jpg"],
+			["Sunrise on the Dunes", "img/album/vietnam/vietnam_1_thumb.jpg", "img/album/vietnam/vietnam_1_full.jpg"],
+			["Sunset at Mũi Né", "img/album/vietnam/vietnam_3_thumb.jpg", "img/album/vietnam/vietnam_3_full.jpg"],
+			["The Sand Dunes of Mũi Né", "img/album/vietnam/vietnam_4_thumb.jpg", "img/album/vietnam/vietnam_4_full.jpg"],
+			["Stormy Beach", "img/album/vietnam/vietnam_5_thumb.jpg", "img/album/vietnam/vietnam_5_full.jpg"],
+			["On the Road to Mũi Né", "img/album/vietnam/vietnam_7_thumb.jpg", "img/album/vietnam/vietnam_7_full.jpg"],
+			["Over the Dunes", "img/album/vietnam/vietnam_8_thumb.jpg", "img/album/vietnam/vietnam_8_full.jpg"],
+			["IMG_0576", "img/album/vietnam/vietnam_9_thumb.jpg", "img/album/vietnam/vietnam_9_full.jpg"],
+			["IMG_0568", "img/album/vietnam/vietnam_10_thumb.jpg", "img/album/vietnam/vietnam_10_full.jpg"],
+			["Hong Kong Lightning", "img/album/hongkong/hongkong_1_thumb.jpg", "img/album/hongkong/hongkong_1_full.jpg"],
+			["Colourful Night", "img/album/hongkong/hongkong_3_thumb.jpg", "img/album/hongkong/hongkong_3_full.jpg"],
+			["Colourful City", "img/album/hongkong/hongkong_7_thumb.jpg", "img/album/hongkong/hongkong_7_full.jpg"],
+			["Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"],
+			["Hiding Behind the Clouds", "img/album/queensland/queensland_1_thumb.jpg", "img/album/queensland/queensland_1_full.jpg"],
+			["Space and Heaven", "img/album/queensland/queensland_2_thumb.jpg", "img/album/queensland/queensland_2_full.jpg"],
+			["Field of Queensland", "img/album/queensland/queensland_6_thumb.jpg", "img/album/queensland/queensland_6_full.jpg"],
+			["A Beach of Queensland", "img/album/queensland/queensland_7_thumb.jpg", "img/album/queensland/queensland_7_full.jpg"],
+			["Emerging", "img/album/queensland/queensland_10_thumb.jpg", "img/album/queensland/queensland_10_full.jpg"]
 		)
 
 	);
