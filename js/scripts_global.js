@@ -1,4 +1,8 @@
+var body_cache;
+
 $(document).ready(function() {
+
+	body_cache = $("body");
 
 	$("#hamburger a").bind("click", function(event) {
 

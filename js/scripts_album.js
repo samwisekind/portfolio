@@ -1,8 +1,16 @@
 var album_image, album_list, album_items, navigator_current;
+var swiped = false;
 
 
 
 function album_change (target, direction) {
+
+	if (swiped == false) {
+
+		body_cache.addClass("swiped");
+		swiped = true;
+
+	};
 
 	if (target == "arrow") {
 

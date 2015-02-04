@@ -8,6 +8,12 @@
 
 
 
+	<div id="swipe">
+
+		<span>Swipe left or right or scroll the thumbnails below</span>
+
+	</div>
+
 
 	<div id="viewer">
 
