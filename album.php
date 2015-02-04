@@ -87,8 +87,9 @@
 				
 				<a id="navigator-map" href="#">View Map</a>
 
-				<select>
-				<option value="" disabled selected><?php echo "Viewing: " . $album[$album_current][1]; ?></option>
+				<select id="navigator-albums">
+					<option value="" disabled selected><?php echo "Viewing: " . $album[$album_current][1]; ?></option>
+					<option disabled></option>
 					<optgroup label="Places">
 						<?php
 
@@ -96,7 +97,7 @@
 
 								if ($value[0] == "places") {
 
-									echo '<option value="">' . $value[1] . '</option>';
+									echo '<option value="' . $key . '">' . $value[1] . '</option>';
 
 								};
 
@@ -111,7 +112,7 @@
 
 								if ($value[0] == "animals") {
 
-									echo '<option value="">' . $value[1] . '</option>';
+									echo '<option value="' . $key . '">' . $value[1] . '</option>';
 
 								};
 

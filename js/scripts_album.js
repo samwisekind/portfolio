@@ -2,13 +2,6 @@ var album_image, album_list, album_items, navigator_current;
 
 
 
-
-
-
-
-
-
-
 function album_change (target, direction) {
 
 	if (target == "arrow") {
@@ -57,20 +50,6 @@ function album_change (target, direction) {
 	album_image.css("background-image", "url(" + target.attr("data-image") + ")");
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -127,6 +106,13 @@ $(document).ready(function() {
 
 	});
 
+
+
+	$("#navigator-albums").change(function() {
+
+		document.location = location.protocol + '//' + location.host + location.pathname + "?album=" + $(this).val();
+
+	});
 
 
 
