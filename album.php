@@ -90,9 +90,7 @@
 
 				<select id="navigator-albums">
 					<option value="" disabled selected><?php echo "Viewing: " . $album[$album_current][1]; ?></option>
-					<option disabled></option>
 					<option value="portfolio"><?php echo $album["portfolio"][1]; ?></option>
-					<option disabled></option>
 					<optgroup label="Places">
 						<?php
 

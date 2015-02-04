@@ -1,9 +1,6 @@
 body#album {
 	overflow: hidden; }
 
-
-
-
 header#header {
 	top: 0;
 	padding: 0;
@@ -25,6 +22,8 @@ header#header nav#nav ul li a {
 	height: 80px;
 	vertical-align: middle; }
 
+body#album footer#footer {
+	display: none; }
 
 
 
@@ -268,5 +267,77 @@ header#header,
 
 
 
-body#album footer#footer {
-	display: none; }
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+
+
+
+	#viewer {
+		left: 0;
+		width: 100%;
+		height: calc(100% - 230px); }
+
+	#viewer .viewer-arrow {
+		display: none; }
+
+	#viewer #viewer-wrapper {
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%; }
+
+	#thumbnails {
+		top: auto;
+		bottom: 0;
+		width: 100%;
+		height: 100px; }
+
+	#navigator {
+		left: 0;
+		bottom: 100px;
+		width: 100%; }
+
+	#navigator #navigator-title {
+		display: none; }
+
+	#navigator #navigator-interation {
+		display: none; }
+
+	#navigator #navigator-select {
+		right: 0;
+		width: 100%; }
+
+	#navigator #navigator-select > div {
+		padding: 0 10px 0 10px; }
+
+	#navigator #navigator-select select {
+		width: 100%; }
+
+	#navigator #navigator-select #navigator-map {
+		display: none; }
+
+	#thumbnails .thumbnails-arrow {
+		display: none; }
+
+	#thumbnails #thumbnails-list {
+		padding: 0 10px 0 10px;
+		overflow-y: hidden;
+		overflow-x: scroll; }
+
+	#thumbnails #thumbnails-list ul {
+		width: 2000px; }
+
+	#thumbnails #thumbnails-list ul li {
+		float: left;
+		display: inline-block;
+		margin: 10px 10px 0 0; }
+
+
+
+}

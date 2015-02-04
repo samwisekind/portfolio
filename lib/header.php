@@ -27,11 +27,12 @@
 
 		<title>Album</title>
 		<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+		<script type="text/javascript" src="js/hammer.min.js"></script>
+		<script type="text/javascript" src="js/jquery.hammer.js"></script>
 
 	<?php }; ?>
 
 </head>
-
 
 
 

@@ -93,8 +93,6 @@ $(document).ready(function() {
 
 	});
 
-
-
 	$("#viewer .viewer-arrow a").bind("click", function(event) {
 
 		event.preventDefault();
@@ -113,14 +111,22 @@ $(document).ready(function() {
 
 	});
 
-
-
 	$("#navigator-albums").change(function() {
 
 		document.location = location.protocol + '//' + location.host + location.pathname + "?album=" + $(this).val();
 
 	});
 
+	album_image.hammer().bind("swipeleft", function() {
 
+		album_change("arrow", "next");
+
+	});
+
+	album_image.hammer().bind("swiperight", function() {
+
+		album_change("arrow", "prev");
+
+	});
 
 });
