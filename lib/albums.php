@@ -81,4 +81,31 @@
 
 
 
+
+
+
+	$album["lions"] = array(
+
+		"animals",
+		"Lions",
+		"",
+		"0",
+		"0",
+
+		array(
+			["New Kind of Hug", "img/album/kenya/kenya_1_thumb.jpg", "img/album/kenya/kenya_1_full.jpg"],
+			["Happy Family", "img/album/kenya/kenya_2_thumb.jpg", "img/album/kenya/kenya_2_full.jpg"],
+			["Curious", "img/album/kenya/kenya_7_thumb.jpg", "img/album/kenya/kenya_7_full.jpg"],
+			["Yawn", "img/album/kenya/kenya_9_thumb.jpg", "img/album/kenya/kenya_9_full.jpg"],
+			["Little Lion", "img/album/kenya/kenya_10_thumb.jpg", "img/album/kenya/kenya_10_full.jpg"]
+		)
+
+	);
+
+
+
+
+
+
+
 ?>
