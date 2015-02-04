@@ -117,13 +117,11 @@ $(document).ready(function() {
 
 	});
 
-	album_image.hammer().bind("swipeleft", function() {
+	$("#viewer").hammer().bind("swipeleft", function() {
 
 		album_change("arrow", "next");
 
-	});
-
-	album_image.hammer().bind("swiperight", function() {
+	}).bind("swiperight", function() {
 
 		album_change("arrow", "prev");
 
