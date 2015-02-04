@@ -183,6 +183,35 @@
 
 
 
+	$album["queensland"] = array(
+
+		"places",
+		"Queensland, Australia",
+		"???",
+		"0",
+		"0",
+
+		array(
+			["Hiding Behind the Clouds", "img/album/queensland/queensland_1_thumb.jpg", "img/album/queensland/queensland_1_full.jpg"],
+			["Space and Heaven", "img/album/queensland/queensland_2_thumb.jpg", "img/album/queensland/queensland_2_full.jpg"],
+			["Wing", "img/album/queensland/queensland_3_thumb.jpg", "img/album/queensland/queensland_3_full.jpg"],
+			["Duchess Door", "img/album/queensland/queensland_4_thumb.jpg", "img/album/queensland/queensland_4_full.jpg"],
+			["Sun Through The Glass", "img/album/queensland/queensland_5_thumb.jpg", "img/album/queensland/queensland_5_full.jpg"],
+			["Field of Queensland", "img/album/queensland/queensland_6_thumb.jpg", "img/album/queensland/queensland_6_full.jpg"],
+			["A Beach of Queensland", "img/album/queensland/queensland_7_thumb.jpg", "img/album/queensland/queensland_7_full.jpg"],
+			["Sharp B-17 Prop", "img/album/queensland/queensland_8_thumb.jpg", "img/album/queensland/queensland_8_full.jpg"],
+			["Duchess Engine", "img/album/queensland/queensland_9_thumb.jpg", "img/album/queensland/queensland_9_full.jpg"],
+			["Emerging", "img/album/queensland/queensland_10_thumb.jpg", "img/album/queensland/queensland_10_full.jpg"],
+			["Proud Cessna", "img/album/queensland/queensland_11_thumb.jpg", "img/album/queensland/queensland_11_full.jpg"],
+			["B-17 Prop Light", "img/album/queensland/queensland_12_thumb.jpg", "img/album/queensland/queensland_12_full.jpg"],
+			["Taxi Way Sleeping", "img/album/queensland/queensland_13_thumb.jpg", "img/album/queensland/queensland_13_full.jpg"],
+			["Limit Turn", "img/album/queensland/queensland_14_thumb.jpg", "img/album/queensland/queensland_14_full.jpg"]
+		)
+
+	);
+
+
+
 	$album["lions"] = array(
 
 		"animals",
