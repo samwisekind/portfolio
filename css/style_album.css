@@ -208,6 +208,7 @@ header#header,
 	height: 50px; }
 
 #navigator #navigator-title {
+	z-index: 10;
 	left: 15px; }
 
 #navigator #navigator-title h2 {
@@ -219,19 +220,26 @@ header#header,
 	color: #666666; }
 
 #navigator #navigator-interation {
-	left: 50%;
-	margin-left: -75px;
-	width: 150px;
-	text-align: center; }
-
-#navigator #navigator-interation span {
-	color: #666666; }
-
-#navigator #navigator-interation span > span {
+	z-index: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
 	color: #FFFFFF; }
 
+#navigator #navigator-interation > span {
+	display: block; }
+
+#navigator #navigator-interation #navigator-name {
+	margin-right: 5px; }
+
+#navigator #navigator-interation .interation-number {
+	color: #666666; }
+
+#navigator #navigator-interation .interation-number > span {
+	color: #FFFFFF; }
 
 #navigator #navigator-select {
+	z-index: 10;
 	right: 15px; }
 
 #navigator #navigator-select #navigator-map {

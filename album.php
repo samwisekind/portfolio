@@ -64,8 +64,8 @@
 
 			<div>
 
-				<h2><?php echo $target[0]; ?></h2>
-				<h3><?php echo $target[1]; ?></h3>
+				<h2><?php echo $target[1]; ?></h2>
+				<h3><?php echo $target[2]; ?></h3>
 
 			</div>
 
@@ -75,7 +75,8 @@
 
 			<div>
 
-				<span><span id="navigator-current">1</span> of <span><?php echo count($target[5]); ?></span></span>
+				<span id="navigator-name"><?php echo $target[5][0][0]; ?></span>
+				<span class="interation-number">(<span id="navigator-current">1</span> of <span><?php echo count($target[5]); ?></span>)</span>
 
 			</div>
 

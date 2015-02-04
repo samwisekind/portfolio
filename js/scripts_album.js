@@ -46,7 +46,8 @@ function album_change (target, direction) {
 	target.parent().addClass("current");
 	album_list.current = target.parent();
 
-	navigator_current.html(album_list.current.index() + 1)
+	navigator_name.html(target.attr("data-name"));
+	navigator_number.html(album_list.current.index() + 1);
 	album_image.css("background-image", "url(" + target.attr("data-image") + ")");
 
 };
@@ -61,7 +62,8 @@ $(document).ready(function() {
 	album_list.current = album_list.find("li.current");
 	album_list.size = album_list.find("li").length;
 	album_items = album_list.find("li a");
-	navigator_current = $("#navigator #navigator-current");
+	navigator_name = $("#navigator #navigator-name");
+	navigator_number = $("#navigator #navigator-current");
 
 	album_items.bind("click", function(event) {
 
