@@ -67,12 +67,15 @@ $(document).ready(function() {
 
 	album_items.bind("click", function(event) {
 
-		event.preventDefault;
+		event.preventDefault();
+		
 		album_change($(this));
 
 	});
 
 	$("#thumbnails .thumbnails-arrow a").bind("click", function(event) {
+
+		event.preventDefault();
 
 		foo = (album_list.height() / 2);
 
@@ -93,6 +96,8 @@ $(document).ready(function() {
 
 
 	$("#viewer .viewer-arrow a").bind("click", function(event) {
+
+		event.preventDefault();
 
 		if ($(this).attr("data-direction") == "prev") {
 
