@@ -1,3 +1,5 @@
+/******* GLOBAL *******/
+
 body#album {
 	overflow: hidden; }
 
@@ -25,21 +27,17 @@ header#header nav#nav ul li a {
 body#album footer#footer {
 	display: none; }
 
-
-
 header#header,
 #viewer,
 #navigator {
 	position: absolute; }
-
 
 #content {
 	background: #000000 !important; }
 
 
 
-
-
+/******* SWIPE *******/
 
 #swipe {
 	display: none;
@@ -58,8 +56,7 @@ header#header,
 
 
 
-
-
+/******* VIEWER *******/
 
 #viewer {
 	display: table;
@@ -117,11 +114,6 @@ header#header,
 
 
 
-
-
-
-
-
 /******* THUMBNAILS *******/
 
 #thumbnails {
@@ -141,6 +133,9 @@ header#header,
 	height: 100%;
 	overflow: hidden;
 	overflow-y: scroll; }
+
+#thumbnails #thumbnails-list ul.width {
+	width: 100% !important; }
 
 #thumbnails .thumbnails-arrow {
 	z-index: 10;
@@ -271,32 +266,13 @@ header#header,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 900px) {
+
+	#viewer .viewer-arrow,
+	#navigator #navigator-title,
+	#navigator #navigator-interation,
+	#navigator #navigator-select #navigator-map {
+		display: none; }
 
 	#swipe {
 		display: block;
@@ -322,9 +298,6 @@ header#header,
 		-o-transition: height .25s;
 		transition: height .25s; }
 
-	#viewer .viewer-arrow {
-		display: none; }
-
 	#viewer #viewer-wrapper {
 		left: 0;
 		top: 0;
@@ -347,7 +320,7 @@ header#header,
 		overflow-x: scroll; }
 
 	#thumbnails #thumbnails-list ul {
-		width: 5000px; }
+		height: 50px; }
 
 	#thumbnails #thumbnails-list ul li {
 		float: left;
@@ -355,18 +328,13 @@ header#header,
 		margin: 10px 10px 0 0;
 		width: 50px; }
 
-
+	#thumbnails #thumbnails-list ul li:last-child {
+		margin-right: 0; }
 
 	#navigator {
 		left: 0;
 		bottom: 0;
 		width: 100%; }
-
-	#navigator #navigator-title {
-		display: none; }
-
-	#navigator #navigator-interation {
-		display: none; }
 
 	#navigator #navigator-select {
 		right: 0;
@@ -377,10 +345,5 @@ header#header,
 
 	#navigator #navigator-select select {
 		width: 100%; }
-
-	#navigator #navigator-select #navigator-map {
-		display: none; }
-
-
 
 }

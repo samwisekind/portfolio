@@ -66,6 +66,7 @@ $(document).ready(function() {
 
 	album_image = $("#viewer-wrapper");
 	album_list = $("#thumbnails-list");
+	album_list.list = album_list.find("ul");
 	album_list.items = album_list.find("li");
 	album_list.current = album_list.find("li.current");
 	album_list.size = album_list.find("li").length;
@@ -134,5 +135,23 @@ $(document).ready(function() {
 		album_change("arrow", "prev");
 
 	});
+
+	album_list.list.css("width", album_list.size * 60);
+
+	window_cache.resize(function() {
+
+		if (body_cache.width() <= 900) {
+
+			album_list.list.removeClass("width");
+
+		}
+
+		else {
+
+			album_list.list.addClass("width");
+
+		};
+
+	}).resize();
 
 });
