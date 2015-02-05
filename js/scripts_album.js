@@ -1,4 +1,4 @@
-var album_image, album_list, album_items, navigator_current;
+var album_image, album_list, album_items, select_previous;
 var swiped = false;
 
 
@@ -73,6 +73,8 @@ $(document).ready(function() {
 	album_items = album_list.find("li a");
 	navigator_name = $("#navigator #navigator-name");
 	navigator_number = $("#navigator #navigator-current");
+	select_previous = $("#navigator-albums").val();
+
 
 	album_items.bind("click", function(event) {
 
@@ -122,7 +124,17 @@ $(document).ready(function() {
 
 	$("#navigator-albums").change(function() {
 
-		document.location = location.protocol + '//' + location.host + location.pathname + "?album=" + $(this).val();
+		if ($(this).val() == select_previous) {
+
+			return false;
+
+		}
+
+		else {
+
+			document.location = location.protocol + '//' + location.host + location.pathname + "?album=" + $(this).val();
+
+		};
 
 	});
 
