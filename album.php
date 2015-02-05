@@ -70,19 +70,8 @@
 
 			<div>
 
-				<h2><?php echo $album[$album_current][1]; ?></h2>
-				<h3><?php echo $album[$album_current][2]; ?></h3>
-
-			</div>
-
-		</div>
-
-		<div id="navigator-interation">
-
-			<div>
-
-				<span id="navigator-name"><?php echo $album[$album_current][5][0][0]; ?></span>
-				<span class="interation-number">(<span id="navigator-current">1</span> of <span><?php echo count($album[$album_current][5]); ?></span>)</span>
+				<h2><?php echo $album[$album_current][1]; ?> <span><?php echo $album[$album_current][2]; ?></span></h2>
+				<h3><span id="navigator-name"><?php echo $album[$album_current][5][0][0]; ?></span> <span class="interation-number">(<span id="navigator-current">1</span> of <span><?php echo count($album[$album_current][5]); ?></span>)</span></h3>
 
 			</div>
 
