@@ -6,19 +6,25 @@
 
 		require_once "lib/albums.php";
 
-		if (isset($_GET["album"])) {
+		$album_list = array();
 
-			$album_current = $_GET["album"];
+		foreach ($album as $key => $value) {
 
-		}
+			array_push($album_list, $key);
+			
+		};
 
-		else {
+		if (!in_array($_GET["album"], $album_list)) {
 
 			$album_current = "portfolio";
 
-		};
+		}
 
-		$target = $album[$album_current];
+		else if (isset($_GET["album"])) {
+
+			$album_current = $_GET["album"];
+
+		};
 
 	};
 

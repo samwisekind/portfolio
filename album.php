@@ -38,17 +38,17 @@
 
 				<?php
 
-					for ($i = 0; $i < count($target[5]); $i++) {
+					for ($i = 0; $i < count($album[$album_current][5]); $i++) {
 
 						if ($i == 0) {
 
-							echo '<li class="current"><a href="#" data-name="' . $target[5][$i][0] . '" data-image="' . $target[5][$i][2] . '"><img src="' . $target[5][$i][1] . '" alt="" /></a></li>';
+							echo '<li class="current"><a href="#" data-name="' . $album[$album_current][5][$i][0] . '" data-image="' . $album[$album_current][5][$i][2] . '"><img src="' . $album[$album_current][5][$i][1] . '" alt="" /></a></li>';
 
 						}
 
 						else {
 
-							echo '<li><a href="#" data-name="' . $target[5][$i][0] . '" data-image="' . $target[5][$i][2] . '"><img src="' . $target[5][$i][1] . '" alt="" /></a></li>';
+							echo '<li><a href="#" data-name="' . $album[$album_current][5][$i][0] . '" data-image="' . $album[$album_current][5][$i][2] . '"><img src="' . $album[$album_current][5][$i][1] . '" alt="" /></a></li>';
 
 						};
 
@@ -70,8 +70,8 @@
 
 			<div>
 
-				<h2><?php echo $target[1]; ?></h2>
-				<h3><?php echo $target[2]; ?></h3>
+				<h2><?php echo $album[$album_current][1]; ?></h2>
+				<h3><?php echo $album[$album_current][2]; ?></h3>
 
 			</div>
 
@@ -81,8 +81,8 @@
 
 			<div>
 
-				<span id="navigator-name"><?php echo $target[5][0][0]; ?></span>
-				<span class="interation-number">(<span id="navigator-current">1</span> of <span><?php echo count($target[5]); ?></span>)</span>
+				<span id="navigator-name"><?php echo $album[$album_current][5][0][0]; ?></span>
+				<span class="interation-number">(<span id="navigator-current">1</span> of <span><?php echo count($album[$album_current][5]); ?></span>)</span>
 
 			</div>
 
