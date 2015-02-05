@@ -27,13 +27,25 @@ header#header nav#nav ul li a {
 body#album footer#footer {
 	display: none; }
 
+
+
+/******* COMMON *******/
+
 header#header,
+#map,
 #viewer,
 #navigator {
 	position: absolute; }
 
 #content {
 	background: #000000 !important; }
+
+#viewer,
+#map {
+	top: 80px;
+	left: 150px;
+	width: calc(100% - 150px);
+	height: calc(100% - 130px); }
 
 
 
@@ -56,14 +68,21 @@ header#header,
 
 
 
+/******* MAP *******/
+
+#map {
+	z-index: 100;
+	background: #111111; }
+
+#map #map-canvas {
+	width: 100%;
+	height: 100%; }
+
+
 /******* VIEWER *******/
 
 #viewer {
-	display: table;
-	top: 80px;
-	left: 150px;
-	width: calc(100% - 150px);
-	height: calc(100% - 130px); }
+	display: table; }
 
 #viewer .viewer-arrow {
 	z-index: 0;
@@ -273,6 +292,7 @@ header#header,
 	right: 15px; }
 
 #navigator #navigator-select #navigator-albums {
+	padding: 0 5px 0 5px;
 	height: 30px;
 	border: none;
 	font-size: 14px;
@@ -280,14 +300,20 @@ header#header,
 	background: #111111; }
 
 #navigator #navigator-select #navigator-map {
-	margin-right: 25px;
+	margin-right: 15px;
+	font-size: 12px;
 	color: #FFFFFF;
+	text-transform: uppercase;
 	text-decoration: none; }
+
+#navigator #navigator-select #navigator-map:hover {
+	text-decoration: underline; }
 
 
 
 @media (max-width: 900px) {
 
+	#map,
 	#viewer .viewer-arrow,
 	#navigator #navigator-title,
 	#navigator #navigator-interation,

@@ -1,4 +1,4 @@
-var album_image, album_list, album_items, select_previous;
+var album_image, album_list, album_items, select_previous, map_cache, navigator_name, navigator_number, map;
 var swiped = false;
 
 
@@ -73,8 +73,38 @@ $(document).ready(function() {
 	album_items = album_list.find("li a");
 	navigator_name = $("#navigator #navigator-name");
 	navigator_number = $("#navigator #navigator-current");
+	map = $("#map");
+	map.button = $("#navigator-map");
+	map.loaded = false;
+	map.opened = false;
 	select_previous = $("#navigator-albums").val();
 
+	map.button.bind("click", function(event) {
+
+		if (map.loaded == false) {
+
+			map.loaded = true;
+			map_load();
+
+		};
+
+		if (map.opened == false) {
+
+			map.opened = true;
+			map.button.html("Close Map");
+
+		}
+
+		else if (map.opened == true) {
+
+			map.opened = false;
+			map.button.html("View Map");
+
+		};
+
+		map.toggleClass("invisible");
+
+	});
 
 	album_items.bind("click", function(event) {
 

@@ -8,11 +8,71 @@
 
 
 
+	<div id="map" class="invisible">
+
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByZ6qLbljzGnzwB2C0qBdJOgVH9x5H1eU"></script>
+
+		<script type="text/javascript">
+
+			function map_load () {
+
+				var location = new google.maps.LatLng(22.1565346, 5.3412861);
+
+				var mapOptions = {
+					center: location,
+					zoom: 2,
+					scrollwheel: false
+				};
+				
+				var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+				var places = [
+					<?php
+
+						foreach ($album as $key => $value) {
+
+							if ($value[0] == "places") {
+
+								echo "['" . $value[1] . "', " . $value[3] . ", " .  $value[4] . ", '" .  strtok($_SERVER["REQUEST_URI"],'?') . "?album=" . $value[0] . "'],";
+
+							};
+
+						};
+
+					?>
+				];
+
+				for (var i = 0; i < places.length; i++) {
+				
+					var marker = new google.maps.Marker({
+
+						title: places[i][0],
+						position: new google.maps.LatLng(places[i][1], places[i][2]),
+						url: places[i][3],
+						map: map,
+
+					});
+
+   				};
+
+			};
+
+			//google.maps.event.addDomListener(window, "load", initialize);
+
+		</script>
+		
+		<div id="map-canvas" style="width: 100%; height: 100%;"></div>
+
+	</div>
+
+
+
 	<div id="swipe">
 
 		<span>Swipe left or right or scroll the thumbnails below</span>
 
 	</div>
+
 
 
 	<div id="viewer">
