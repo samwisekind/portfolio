@@ -38,7 +38,6 @@
 
 <body id="<?php echo $page; ?>">
 
-
 	<div id="wrapper">
 
 		<nav id="nav-outer">
