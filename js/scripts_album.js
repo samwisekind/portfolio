@@ -3,16 +3,9 @@ var swiped = false;
 
 
 
-function album_change (target, direction) {
+function album_change (target, direction, int) {
 
 	album_loader.remove();
-
-	if (swiped == false) {
-
-		body_cache.addClass("swiped");
-		swiped = true;
-
-	};
 
 	if (target == "arrow") {
 
@@ -67,6 +60,17 @@ function album_change (target, direction) {
 		album_image.loading.addClass("invisible");
 
 	});
+
+	if (int != true) {
+
+		if (swiped == false) {
+
+			body_cache.addClass("swiped");
+			swiped = true;
+
+		};
+			
+	};
 
 };
 
@@ -213,6 +217,6 @@ $(document).ready(function() {
 
 	}).resize();
 
-	album_change(album_list.items.eq(0).find("a"));
+	album_change(album_list.items.eq(0).find("a"), null, true);
 
 });
