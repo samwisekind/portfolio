@@ -56,7 +56,7 @@
 	font-weight: 300;
 	border: none;
 	color: #FFFFFF;
-	background: url("../img/work/work_search.svg") 15px center no-repeat #888888; }
+	background: url("../img/work/work_search.svg") 15px center no-repeat #444444; }
 
 #work-search::-webkit-input-placeholder {
 	color: #FFFFFF; }
