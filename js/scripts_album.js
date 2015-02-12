@@ -1,9 +1,11 @@
-var album_image, album_list, album_items, select_previous, map_cache, navigator_name, navigator_number, map;
+var album_loader, album_image, album_list, album_items, select_previous, map_cache, navigator_name, navigator_number, map;
 var swiped = false;
 
 
 
 function album_change (target, direction) {
+
+	album_loader.remove();
 
 	if (swiped == false) {
 
@@ -56,7 +58,15 @@ function album_change (target, direction) {
 
 	navigator_name.html(target.attr("data-name"));
 	navigator_number.html(album_list.current.index() + 1);
-	album_image.css("background-image", "url(" + target.attr("data-image") + ")");
+
+	album_image.loading.removeClass("invisible");
+	album_loader = $("<img/>").attr("src", target.attr("data-image")).load(function() {
+		
+		album_loader.remove();
+		album_image.css("background-image", "url(" + target.attr("data-image") + ")");
+		album_image.loading.addClass("invisible");
+
+	});
 
 };
 
@@ -64,7 +74,9 @@ function album_change (target, direction) {
 
 $(document).ready(function() {
 
+	album_loader = $("<img/>");
 	album_image = $("#viewer-wrapper");
+	album_image.loading = album_image.find("#viewer-loading");
 	album_list = $("#thumbnails-list");
 	album_list.list = album_list.find("ul");
 	album_list.items = album_list.find("li");
@@ -91,6 +103,7 @@ $(document).ready(function() {
 		if (map.opened == false) {
 
 			map.opened = true;
+			body_cache.addClass("map");
 			map.button.html("Close Map");
 
 		}
@@ -98,6 +111,7 @@ $(document).ready(function() {
 		else if (map.opened == true) {
 
 			map.opened = false;
+			body_cache.removeClass("map");
 			map.button.html("View Map");
 
 		};
@@ -109,7 +123,7 @@ $(document).ready(function() {
 	album_items.bind("click", function(event) {
 
 		event.preventDefault();
-		
+
 		album_change($(this));
 
 	});
@@ -195,5 +209,7 @@ $(document).ready(function() {
 		};
 
 	}).resize();
+
+	album_change(album_list.items.eq(0).find("a"));
 
 });

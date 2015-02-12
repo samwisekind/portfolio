@@ -16,7 +16,7 @@
 
 			function map_load () {
 
-				var location = new google.maps.LatLng(22.1565346, 5.3412861);
+				var location = new google.maps.LatLng(20, 0);
 
 				var mapOptions = {
 					center: location,
@@ -33,7 +33,7 @@
 
 							if ($value[0] == "places") {
 
-								echo "['" . $value[1] . "', " . $value[3] . ", " .  $value[4] . ", '" .  strtok($_SERVER["REQUEST_URI"],'?') . "?album=" . $value[0] . "'],";
+								echo "['" . $value[1] . "', " . $value[3] . ", " .  $value[4] . ", '" .  strtok($_SERVER["REQUEST_URI"], "?") . "?album=" . $key . "'],";
 
 							};
 
@@ -46,10 +46,16 @@
 				
 					var marker = new google.maps.Marker({
 
-						title: places[i][0],
 						position: new google.maps.LatLng(places[i][1], places[i][2]),
-						url: places[i][3],
 						map: map,
+						title: places[i][0],
+						url: places[i][3],
+
+					});
+
+					google.maps.event.addListener(marker, "click", function() {
+							
+						window.location.href = this.url;
 
 					});
 
@@ -78,7 +84,15 @@
 		<div class="viewer-arrow left"><a href="#" data-direction="prev"></a></div>
 		<div class="viewer-arrow right"><a href="#" data-direction="next"></a></div>
 		
-		<div id="viewer-wrapper" style="background-image: url('<?php echo $album[$album_current][5][0][2]; ?>');"></div>
+		<div id="viewer-wrapper">
+
+			<div id="viewer-loading" class="invisible">
+
+				<div></div>
+
+			</div>
+
+		</div>
 
 	</div>
 

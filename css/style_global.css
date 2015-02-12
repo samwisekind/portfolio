@@ -17,7 +17,9 @@ body {
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased; }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
 	margin: 0;
 	padding: 0;
 	box-sizing: inherit;  }
@@ -33,6 +35,11 @@ article, section, aside, hgroup, nav, header, footer, figure, figcaption {
 	display: none !important;
 	opacity: 0 !important;
 	content: "" !important; }
+
+.invisible,
+.invisible * {
+	animation-play-state: paused !important;
+	-webkit-animation-play-state: paused !important; }
 
 .cf {
 	display: block;

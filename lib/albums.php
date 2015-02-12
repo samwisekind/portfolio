@@ -68,9 +68,9 @@
 
 		"places",
 		"云南 (Yúnnán), 中国 (China)",
-		"12th September 2014 - 12th September 2014",
-		"1.581981",
-		"35.2451",
+		"08/11/2008 - 12/11/2008",
+		"25.1825484",
+		"101.8628507",
 
 		array(
 			array("Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"),
@@ -96,8 +96,8 @@
 
 		"places",
 		"Kenya, Africa",
-		"12th September 2014 - 12th September 2014",
-		"1.581981",
+		"09/11/2007 - 16/11/2007",
+		"-1.581981",
 		"35.2451",
 
 		array(
@@ -122,9 +122,9 @@
 
 		"places",
 		"London",
-		"???",
-		"0",
-		"0",
+		"11/06/2010 - 17/01/2012",
+		"51.5286416",
+		"-0.1015987",
 
 		array(
 			array("Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"),
@@ -153,9 +153,9 @@
 
 		"places",
 		"Việt Nam (Vietnam)",
-		"18th July 2011",
-		"0",
-		"0",
+		"17/07/2011 - 18/07/2011",
+		"5.9030623",
+		"105.8066791",
 
 		array(
 			array("Sunrise on the Dunes", "img/album/vietnam/vietnam_1_thumb.jpg", "img/album/vietnam/vietnam_1_full.jpg"),
@@ -178,9 +178,9 @@
 
 		"places",
 		"香港 (Hong Kong)",
-		"???",
-		"0",
-		"0",
+		"08/11/2005 - 05/08/2010",
+		"22.3700556",
+		"114.1223784",
 
 		array(
 			array("Hong Kong Lightning", "img/album/hongkong/hongkong_1_thumb.jpg", "img/album/hongkong/hongkong_1_full.jpg"),
@@ -204,9 +204,9 @@
 
 		"places",
 		"제주 (Island of Jeju-do), 한국 (South Korea)",
-		"July 30 2009",
-		"0",
-		"0",
+		"23/10/2009 - 31/07/2009",
+		"33.3354988",
+		"126.5690002",
 
 		array(
 			array("Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"),
@@ -223,9 +223,9 @@
 
 		"places",
 		"Queensland, Australia",
-		"???",
-		"0",
-		"0",
+		"21/07/2007 - 27/07/2007",
+		"-27.5673317",
+		"153.0060665",
 
 		array(
 			array("Hiding Behind the Clouds", "img/album/queensland/queensland_1_thumb.jpg", "img/album/queensland/queensland_1_full.jpg"),
@@ -252,9 +252,9 @@
 
 		"places",
 		"Leicester, United Kingdom",
-		"???",
-		"0",
-		"0",
+		"28/05/2010",
+		"52.607569",
+		"-1.092002",
 
 		array(
 			array("Purple Prowess", "img/album/leicester/leicester_1_thumb.jpg", "img/album/leicester/leicester_1_full.jpg"),
