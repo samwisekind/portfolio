@@ -12,8 +12,8 @@
 
 		<ul id="work-filters">
 			<li class="current" data-filter="all"><a href="#">All</a></li>
-			<li data-filter="webdesign"><a href="#">Web Design</a></li>
-			<li data-filter="photo"><a href="#">Photography</a></li>
+			<li id="filter-webdesign" data-filter="webdesign"><a href="#">Web Design</a></li>
+			<li id="filter-photo" data-filter="photo"><a href="#">Photography</a></li>
 		</ul>
 
 		<input type="text" id="work-search" placeholder="Search projects, keywords, technologies..." />
@@ -34,7 +34,7 @@
 					"Joyce",
 					"Revamping the online identity of Hong Kong's most famous and respected boutique from the ground-up.",
 					"Visual &amp System Design, Frontend &amp; Backend Development, UAT",
-					"HTML5, CSS3, JavaScript, PHP, Wordpress, MySQL, Photoshop, Illustrator",
+					"HTML5, CSS3, JavaScript, jQuery, PHP, Wordpress, MySQL, Photoshop, Illustrator",
 					"21st September 2014 - 21st September 2014",
 					"project.php"
 				),
@@ -45,7 +45,7 @@
 					"K11",
 					"Creating an inter-connected photobooth solution using a 360° panoramic camera.",
 					"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
-					"HTML5, CSS3, JavaScript, REST API, Instagram API, Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
+					"HTML5, CSS3, JavaScript, jQuery, REST API, Instagram API, Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
 					"21st September 2014 - 21st September 2014",
 					"project.php"
 				),
@@ -56,7 +56,7 @@
 					"Enicar",
 					"Complete website re-design for the 100th anniversary of Asia's prominent and longest-lasting timepiece designers.",
 					"Visual &amp; System Design, Frontend & Backend Development, Multilingual Mapping, UAT",
-					"HTML5, CSS3, JavaScript, PHP, Photoshop, Illustrator",
+					"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator",
 					"21st September 2014 - 21st September 2014",
 					"project.php"
 				),
@@ -67,7 +67,7 @@
 					"Yung's Club",
 					"Creating an inter-connected photobooth solution using a 360° panoramic camera.",
 					"Frontend & Backend Development, PhoneGap/Cordava, REST API",
-					"HTML5, CSS3, JavaScript, PHP, Wordpress, MySQL, Photoshop, Illustrator",
+					"HTML5, CSS3, JavaScript, jQuery, PHP, Wordpress, MySQL, Photoshop, Illustrator",
 					"21st September 2014 - 21st September 2014",
 					"project.php"
 				),
@@ -94,7 +94,7 @@
 					"Enicar",
 					"Complete website re-design for the 100th anniversary of Asia's prominent and longest-lasting timepiece designers.",
 					"Visual &amp; System Design, Frontend & Backend Development, Multilingual Mapping, UAT",
-					"HTML5, CSS3, JavaScript, PHP, Photoshop, Illustrator",
+					"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator",
 					"21st September 2014 - 21st September 2014",
 					"project.php"
 				),
@@ -105,7 +105,7 @@
 					"Yung's Club",
 					"Creating an inter-connected photobooth solution using a 360° panoramic camera.",
 					"Frontend & Backend Development, PhoneGap/Cordava, REST API",
-					"HTML5, CSS3, JavaScript, PHP, Wordpress, MySQL, Photoshop, Illustrator",
+					"HTML5, CSS3, JavaScript, jQuery, PHP, Wordpress, MySQL, Photoshop, Illustrator",
 					"21st September 2014 - 21st September 2014",
 					"project.php"
 				),

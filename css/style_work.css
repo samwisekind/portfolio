@@ -23,10 +23,27 @@
 	text-decoration: none;
 	text-transform: uppercase; }
 
+#work-menu #work-filters #filter-webdesign a,
+#work-menu #work-filters #filter-photo a {
+	padding-left: 50px;
+	background: 20px center no-repeat transparent; }
+
+#work-menu #work-filters #filter-webdesign a {
+	background-image: url("../img/work/work_webdesign.svg"); }
+
+#work-menu #work-filters #filter-photo a {
+	background-image: url("../img/work/work_photo.svg"); }
+
 #work-menu #work-filters li.current a {
 	color: #111111;
 	font-weight: 700;
-	background: #FFFFFF; }
+	background-color: #FFFFFF !important; }
+
+#work-menu #work-filters #filter-webdesign.current a {
+	background-image: url("../img/work/work_webdesign_current.svg"); }
+
+#work-menu #work-filters #filter-photo.current a {
+	background-image: url("../img/work/work_photo_current.svg"); }
 
 #work-search {
 	position: absolute;
@@ -157,10 +174,6 @@
 
 #work-list .work-item.photo .details .view:hover {
 	background: #FFFFFF; }
-
-
-
-
 
 
 
