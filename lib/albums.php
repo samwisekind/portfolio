@@ -4,7 +4,7 @@
 
 	// Album catagory ("main", "places", "things")
 	// Album name
-	// Album timeframe/date
+	// Album timeframe/date (DD/MM/YYYY - DD/MM/YYYY)
 	// Album geolocation: Longitude
 	// Album geolocation: Latitude
 	// Array with the album images: photo name, photo thumbnail URL, fullsize photo URL
@@ -15,9 +15,9 @@
 
 		"test",
 		"Portfolio",
-		"test",
-		"0",
-		"0",
+		"",
+		"",
+		"",
 
 		array(
 			array("Orange Chase", "img/album/hongkong/hongkong_2_thumb.jpg", "img/album/hongkong/hongkong_2_full.jpg"),
@@ -281,8 +281,8 @@
 		"things",
 		"Lions",
 		"",
-		"0",
-		"0",
+		"",
+		"",
 
 		array(
 			array("New Kind of Hug", "img/album/kenya/kenya_1_thumb.jpg", "img/album/kenya/kenya_1_full.jpg"),
@@ -301,8 +301,8 @@
 		"things",
 		"Foxes",
 		"",
-		"0",
-		"0",
+		"",
+		"",
 
 		array(
 			array("Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"),
@@ -328,8 +328,8 @@
 		"things",
 		"Pets",
 		"",
-		"0",
-		"0",
+		"",
+		"",
 
 		array(
 			array("One Eyed Jack", "img/album/hongkong/hongkong_9_thumb.jpg", "img/album/hongkong/hongkong_9_full.jpg"),
@@ -345,8 +345,8 @@
 		"things",
 		"Landscapes",
 		"",
-		"0",
-		"0",
+		"",
+		"",
 
 		array(
 			array("Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"),
