@@ -48,9 +48,9 @@
 			array(
 				"photo",
 				"img/index/featured_photo_lion.jpg",
-				"Masai Mara, Kenya",
-				"15th November 2007",
-				""
+				"Portfolio",
+				"",
+				"portfolio"
 			),
 
 			array(

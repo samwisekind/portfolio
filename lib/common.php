@@ -38,7 +38,7 @@
 			$image = $array[$i][1];
 			$title = $array[$i][2];
 			$subtitle = $array[$i][3];
-			$link = $array[$i][5];
+			$link = $array[$i][4];
 
 			if ($type == "work") {
 
@@ -71,7 +71,7 @@
 
 					<article class="photo">
 
-						<a href="' . $link . '">
+						<a href="' . strtok($_SERVER["REQUEST_URI"], "?") . "album.php?album=" . $link . '">
 
 							<div class="featured-caption">
 
