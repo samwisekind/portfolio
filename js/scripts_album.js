@@ -96,7 +96,12 @@ $(document).ready(function() {
 		if (map.loaded == false) {
 
 			map.loaded = true;
-			map_load();
+
+			setTimeout(function() {
+
+				map_load();
+
+			}, 250);
 
 		};
 
@@ -115,8 +120,6 @@ $(document).ready(function() {
 			map.button.html("View Map");
 
 		};
-
-		map.toggleClass("invisible");
 
 	});
 

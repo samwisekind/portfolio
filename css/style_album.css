@@ -94,11 +94,20 @@ header#header,
 
 #map {
 	z-index: 100;
-	background: #111111; }
+	background: #111111;
+	max-height: 0;
+	-webkit-transition: max-height .25s;
+	-moz-transition: max-height .25s;
+	-ms-transition: max-height .25s;
+	-o-transition: max-height .25s;
+	transition: max-height .25s; }
 
 #map #map-canvas {
 	width: 100%;
 	height: 100%; }
+
+body.map #map {
+	max-height: 100%; }
 
 
 
@@ -382,7 +391,6 @@ body.map #navigator #navigator-select #navigator-map {
 	border: none;
 	font-size: 14px;
 	color: #848E92;
-	text-indent: 10px;
 	background: url("../img/album/album_select.svg") calc(100% - 8px) center no-repeat #111111;
 	-webkit-appearance: none;
 	-moz-appearance: none; }
@@ -390,7 +398,7 @@ body.map #navigator #navigator-select #navigator-map {
 
 
 @media (max-width: 900px) {
-	
+
 	#viewer .viewer-arrow,
 	#navigator #navigator-title,
 	#navigator #navigator-interation {

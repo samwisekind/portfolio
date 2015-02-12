@@ -8,7 +8,7 @@
 
 
 
-	<div id="map" class="invisible">
+	<div id="map">
 
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByZ6qLbljzGnzwB2C0qBdJOgVH9x5H1eU"></script>
 
