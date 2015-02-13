@@ -13,7 +13,8 @@ header#header h1 {
 	margin: 0 15px 0 15px; }
 
 header#header h1,
-header#header nav#nav {
+header#header nav#nav,
+header#header nav#nav ul li {
 	float: left; }
 
 header#header h1,
@@ -424,7 +425,7 @@ body.map #navigator #navigator-select #navigator-map {
 		height: calc(100% - 120px); }
 
 	#viewer {
-		height: calc(100% - 200px); }
+		height: calc(100% - 190px); }
 
 	body.swiped #viewer {
 		height: calc(100% - 170px);
