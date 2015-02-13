@@ -156,8 +156,19 @@
 				<a id="navigator-map" href="#">View Map</a>
 
 				<select id="navigator-albums">
-					<option value="" disabled selected><?php echo "Viewing: " . $album[$album_current][1]; ?></option>
-					<option value="portfolio"><?php echo $album["portfolio"][1]; ?></option>
+					<?php
+						if ($album_current == "portfolio") {
+
+							echo '<option disabled selected>Viewing: ' . $album["portfolio"][1] . '</option>';
+
+						}
+
+						else {
+
+							echo '<option value="portfolio">' . $album["portfolio"][1] . '</option>';
+
+						};
+					?>
 					<optgroup label="Places">
 						<?php
 
@@ -165,7 +176,17 @@
 
 								if ($value[0] == "places") {
 
-									echo '<option value="' . $key . '">' . $value[1] . '</option>';
+									if ($key == $album_current) {
+
+										echo '<option disabled selected>Viewing: ' . $album[$album_current][1] . '</option>';
+
+									}
+
+									else {
+
+										echo '<option value="' . $key . '">' . $value[1] . '</option>';
+
+									}
 
 								};
 
@@ -180,7 +201,17 @@
 
 								if ($value[0] == "things") {
 
-									echo '<option value="' . $key . '">' . $value[1] . '</option>';
+									if ($key == $album_current) {
+
+										echo '<option disabled selected>Viewing: ' . $album[$album_current][1] . '</option>';
+
+									}
+
+									else {
+
+										echo '<option value="' . $key . '">' . $value[1] . '</option>';
+
+									};
 
 								};
 

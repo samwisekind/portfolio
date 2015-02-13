@@ -1,4 +1,4 @@
-var album_loader, album_image, album_list, album_items, select_previous, map_cache, navigator_name, navigator_number, map;
+var album_loader, album_image, album_list, album_items, select_previous, map_cache, navigator_name, navigator_number, map, mode;
 var swiped = false;
 
 
@@ -51,6 +51,20 @@ function album_change (target, direction, int) {
 
 	navigator_name.html(target.attr("data-name"));
 	navigator_number.html(album_list.current.index() + 1);
+
+	if (mode == "small") {
+
+		foo = (album_list.current.index() * (album_list.current.width() + 10)) - ((album_list.width() / 2) - (album_list.current.width() / 2));
+
+	}
+
+	else if (mode == "wide") {
+
+		foo = (album_list.current.index() * (album_list.current.height() + 15)) - ((album_list.height() / 2) - (album_list.current.height() / 2));
+
+	};
+
+	album_list.scrollTo(foo, 250);
 
 	album_image.loading.removeClass("invisible");
 	album_loader = $("<img/>").attr("src", target.attr("data-image")).load(function() {
@@ -206,12 +220,14 @@ $(document).ready(function() {
 		if (body_cache.width() <= 900) {
 
 			album_list.list.removeClass("width");
+			mode = "small";
 
 		}
 
 		else {
 
 			album_list.list.addClass("width");
+			mode = "wide";
 
 		};
 
