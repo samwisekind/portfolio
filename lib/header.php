@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
 	<title>Personal</title>
-	<link href="//fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700|Oxygen:300,400,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/style_global.css" />
 	<link rel="stylesheet" type="text/css" href="css/style_<?php echo $page; ?>.css" />
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
