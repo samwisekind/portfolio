@@ -213,6 +213,22 @@ $(document).ready(function() {
 
 	});
 
+	$(document).keydown(function(event) {
+
+		if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 80 || event.keyCode == 65) {
+
+			album_change("arrow", "prev");
+
+		}
+
+		else if (event.keyCode == 39 || event.keyCode == 40 || event.keyCode == 78 || event.keyCode == 68) {
+
+			album_change("arrow", "next");
+
+		};
+
+	});
+
 	album_list.list.css("width", album_list.size * 60);
 
 	window_cache.resize(function() {
