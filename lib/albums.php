@@ -11,58 +11,7 @@
 
 
 
-	$album["portfolio"] = array(
-
-		"test",
-		"Portfolio",
-		"",
-		"",
-		"",
-
-		array(
-			array("Orange Chase", "img/album/hongkong/hongkong_2_thumb.jpg", "img/album/hongkong/hongkong_2_full.jpg"),
-			array("Hong Kong Lightning", "img/album/hongkong/hongkong_1_thumb.jpg", "img/album/hongkong/hongkong_1_full.jpg"),
-			array("Colourful City", "img/album/hongkong/hongkong_7_thumb.jpg", "img/album/hongkong/hongkong_7_full.jpg"),
-			array("Evening Water", "img/album/hongkong/hongkong_6_thumb.jpg", "img/album/hongkong/hongkong_6_full.jpg"),
-			array("Colourful Night", "img/album/hongkong/hongkong_3_thumb.jpg", "img/album/hongkong/hongkong_3_full.jpg"),
-			array("New Kind of Hug", "img/album/kenya/kenya_1_thumb.jpg", "img/album/kenya/kenya_1_full.jpg"),
-			array("Happy Family", "img/album/kenya/kenya_2_thumb.jpg", "img/album/kenya/kenya_2_full.jpg"),
-			array("Giraffe Head", "img/album/kenya/kenya_4_thumb.jpg", "img/album/kenya/kenya_4_full.jpg"),
-			array("Alone Together", "img/album/kenya/kenya_3_thumb.jpg", "img/album/kenya/kenya_3_full.jpg"),
-			array("Sunrise on the Dunes", "img/album/vietnam/vietnam_1_thumb.jpg", "img/album/vietnam/vietnam_1_full.jpg"),
-			array("Vietnamese Fisherman", "img/album/vietnam/vietnam_2_thumb.jpg", "img/album/vietnam/vietnam_2_full.jpg"),
-			array("Sunset at Mũi Né", "img/album/vietnam/vietnam_3_thumb.jpg", "img/album/vietnam/vietnam_3_full.jpg"),
-			array("The Sand Dunes of Mũi Né", "img/album/vietnam/vietnam_4_thumb.jpg", "img/album/vietnam/vietnam_4_full.jpg"),
-			array("Stormy Beach", "img/album/vietnam/vietnam_5_thumb.jpg", "img/album/vietnam/vietnam_5_full.jpg"),
-			array("Suprised Fox", "img/album/london/london_1_thumb.jpg", "img/album/london/london_1_full.jpg"),
-			array("Swan Wings", "img/album/london/london_4_thumb.jpg", "img/album/london/london_4_full.jpg"),
-			array("Fox in the Snow", "img/album/london/london_3_thumb.jpg", "img/album/london/london_3_full.jpg"),
-			array("Curvature", "img/album/london/london_2_thumb.jpg", "img/album/london/london_2_full.jpg"),
-			array("Attention Elsewhere", "img/album/london/london_11_thumb.jpg", "img/album/london/london_11_full.jpg"),
-			array("Valley", "img/album/yunnan/yunnan_1_thumb.jpg", "img/album/yunnan/yunnan_1_full.jpg"),
-			array("Corn", "img/album/yunnan/yunnan_2_thumb.jpg", "img/album/yunnan/yunnan_2_full.jpg"),
-			array("Gold", "img/album/yunnan/yunnan_9_thumb.jpg", "img/album/yunnan/yunnan_9_full.jpg"),
-			array("Old Town", "img/album/yunnan/yunnan_3_thumb.jpg", "img/album/yunnan/yunnan_3_full.jpg"),
-			array("Range", "img/album/yunnan/yunnan_5_thumb.jpg", "img/album/yunnan/yunnan_5_full.jpg"),
-			array("Perfect Hills", "img/album/korea/korea_1_thumb.jpg", "img/album/korea/korea_1_full.jpg"),
-			array("Chruch", "img/album/korea/korea_2_thumb.jpg", "img/album/korea/korea_2_full.jpg"),
-			array("Woman in Gold", "img/album/korea/korea_3_thumb.jpg", "img/album/korea/korea_3_full.jpg"),
-			array("Purple Prowess", "img/album/leicester/leicester_1_thumb.jpg", "img/album/leicester/leicester_1_full.jpg"),
-			array("Purple Portrait", "img/album/leicester/leicester_3_thumb.jpg", "img/album/leicester/leicester_3_full.jpg"),
-			array("Hiding Behind the Clouds", "img/album/queensland/queensland_1_thumb.jpg", "img/album/queensland/queensland_1_full.jpg"),
-			array("Wing", "img/album/queensland/queensland_3_thumb.jpg", "img/album/queensland/queensland_3_full.jpg"),
-			array("Duchess Door", "img/album/queensland/queensland_4_thumb.jpg", "img/album/queensland/queensland_4_full.jpg"),
-			array("Sharp B-17 Prop", "img/album/queensland/queensland_8_thumb.jpg", "img/album/queensland/queensland_8_full.jpg"),
-			array("Limit Turn", "img/album/queensland/queensland_14_thumb.jpg", "img/album/queensland/queensland_14_full.jpg")
-		)
-
-	);
-
-
-
 	/* PLACES */
-
-
 
 	$album["yunnan"] = array(
 
@@ -90,8 +39,6 @@
 
 	);
 
-
-
 	$album["kenya"] = array(
 
 		"places",
@@ -115,8 +62,6 @@
 		)
 
 	);
-
-
 
 	$album["london"] = array(
 
@@ -147,8 +92,6 @@
 
 	);
 
-
-
 	$album["vietnam"] = array(
 
 		"places",
@@ -171,8 +114,6 @@
 		)
 
 	);
-
-
 
 	$album["hongkong"] = array(
 
@@ -198,8 +139,6 @@
 
 	);
 
-
-
 	$album["korea"] = array(
 
 		"places",
@@ -216,8 +155,6 @@
 		)
 
 	);
-
-
 
 	$album["queensland"] = array(
 
@@ -246,8 +183,6 @@
 
 	);
 
-
-
 	$album["leicester"] = array(
 
 		"places",
@@ -274,8 +209,6 @@
 
 	/* THINGS */
 
-
-
 	$album["lions"] = array(
 
 		"things",
@@ -293,8 +226,6 @@
 		)
 
 	);
-
-
 
 	$album["foxes"] = array(
 
@@ -321,8 +252,6 @@
 
 	);
 
-
-
 	$album["pets"] = array(
 
 		"things",
@@ -337,8 +266,6 @@
 		)
 
 	);
-
-
 
 	$album["landscapes"] = array(
 
@@ -374,6 +301,55 @@
 			array("Field of Queensland", "img/album/queensland/queensland_6_thumb.jpg", "img/album/queensland/queensland_6_full.jpg"),
 			array("A Beach of Queensland", "img/album/queensland/queensland_7_thumb.jpg", "img/album/queensland/queensland_7_full.jpg"),
 			array("Emerging", "img/album/queensland/queensland_10_thumb.jpg", "img/album/queensland/queensland_10_full.jpg")
+		)
+
+	);
+
+
+
+	/* PORTFOLIO */
+
+	$album["portfolio"] = array(
+
+		"",
+		"Portfolio",
+		"",
+		"",
+		"",
+
+		array(
+
+			$album["hongkong"][5][1], //orange chase
+			$album["hongkong"][5][0], //hong kong lightning
+			$album["kenya"][5][0], //new kind of hug
+			$album["london"][5][0], //surprised fox
+			$album["london"][5][1], //curvature
+			$album["yunnan"][5][0], //valley
+			$album["vietnam"][5][0], //sunrise on the dunes
+			$album["vietnam"][5][1], //vietnamese fisherman
+			$album["kenya"][5][2], //alone together
+			$album["hongkong"][5][2], //colourful night
+			$album["kenya"][5][1], //happy family
+			$album["kenya"][5][3], //giraffe head
+			$album["vietnam"][5][2], //sunset at mui ne
+			$album["vietnam"][5][3], //the sand dunes of mui ne
+			$album["vietnam"][5][4], //storm beach
+			$album["london"][5][2], //fox in the snow
+			$album["london"][5][3], //swan wings
+			$album["london"][5][10], //attention elsewhere
+			$album["yunnan"][5][1], //corn
+			$album["yunnan"][5][2], //old town
+			$album["yunnan"][5][3], //farmland
+			$album["yunnan"][5][4], //range
+			$album["korea"][5][0], //perfect hills
+			$album["leicester"][5][0], //purple prowess
+			$album["leicester"][5][2], //purple portrait
+			$album["queensland"][5][0], //hiding behind the clouds
+			$album["queensland"][5][2], //wing
+			$album["queensland"][5][3], //duchess door
+			$album["queensland"][5][7], //sharp b-17 prop
+			$album["queensland"][5][13], //limit turn
+
 		)
 
 	);
