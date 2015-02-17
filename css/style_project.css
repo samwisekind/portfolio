@@ -1,172 +1,111 @@
-	.project-banner {
-	width: 100%;
-	height: auto;
-	border: none; }
-
-
-
-.section {
-	position: relative;
-	padding: 50px 80px 50px 80px; }
-
-
-
-
-
-
-
-
-main#project #intro {
+#intro {
 	margin: 0 0 50px 0;
 	padding: 0 80px 0 80px;
 	width: 100%;
-	max-width: 1500px; }
+	max-width: 1300px; }
 
-main#project #intro h2, main#project #intro h3 {
+#intro h2,
+#intro h3 {
+	font-family: "Oxygen", Helvetica, Arial, sans-serif;
 	font-weight: 300; }
 
-main#project #intro h2 {
+#intro h2 {
 	margin-bottom: 10px;
 	font-size: 64px; }
 
-main#project #intro h3 {
+#intro h3 {
 	margin-bottom: 50px;
 	font-size: 24px;
 	color: #555555;
 	line-height: 35px; }
 
-main#project #intro ul {
+#intro ul {
 	list-style: none; }
 
-main#project #intro ul li {
+#intro ul li {
 	width: 250px;
 	float: left;
 	margin-right: 50px;
 	list-style: none;
 	color: #555555;
 	font-size: 12px;
-	font-weight: 300; }
-
-main#project #intro ul li:last-child {
-	margin-right: 0; }
-
-main#project #intro ul li span {
-	display: block;
-	width: 100px;
 	font-weight: 400; }
 
-main#project #intro ul li a {
+#intro ul li:last-child {
+	margin-right: 0; }
+
+#intro ul li span {
+	display: block;
+	width: 100px;
+	font-weight: 700; }
+
+#intro ul li a {
 	color: inherit; }
 
+.project-banner {
+	width: 100%;
+	height: auto;
+	border: none; }
 
+.section {
+	position: relative;
+	margin: 0 auto 0 auto;
+	padding: 50px 50px 50px 50px;
+	width: 100%;
+	max-width: 1050px; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-main#project .section h4 {
+.section h4 {
 	margin-bottom: 15px;
 	font-size: 18px;
 	font-weight: 700;
 	color: #111111;
 	text-transform: uppercase; }
 
-main#project .section p {
-	max-width: 800px;
+.section p {
 	margin-bottom: 15px;
 	font-size: 16px;
 	line-height: 30px;
 	font-weight: 300;
+	text-align: justify;
 	color: #575757; }
 
-main#project .section p.large {
+.section p.large {
 	font-size: 20px;
 	line-height: 35px; }
 
-main#project .section a {
+.section a {
 	color: inherit; }
 
-main#project .section img {
+.section img {
 	float: right; }
 
-main#project .section .project-list {
-	position: absolute;
-	top: 100px;
-	right: 80px;
-	width: 475px;
-	list-style: none; }
-
-main#project .section .project-list li {
-	margin-bottom: 25px;
-	list-style: none;
-	float: left;
-	width: 225px
-	height: 150px; }
-
-main#project .section .project-list li:nth-child(even) {
-	float: right; }
-
-main#project .section .project-list li a {
-	display: block; }
-
-main#project .section .project-list li a img {
-	border: none; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-main#project .project-preview {
+.project-preview {
 	position: relative;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin: 50px auto 50px auto;
 	width: 800px;
 	height: 435px;
 	background: url("../img/project/project_preview_large.png") center center no-repeat transparent; }
 
-main#project .project-preview img {
+.project-preview img {
 	pointer-events: none;
 	display: none;
 	position: absolute;
 	border: none; }
 
-main#project .project-preview .project-preview-large {
+.project-preview .project-preview-large {
 	display: block;
 	left: 125px;
 	top: 27px;
 	width: 550px;
 	height: 345px; }
 
-main#project .project-preview .project-preview-medium {
+.project-preview .project-preview-medium {
 	left: 39px;
 	top: 34px;
 	width: 320px;
 	height: 240px; }
 
-main#project .project-preview .project-preview-small {
+.project-preview .project-preview-small {
 	left: 29px;
 	top: 100px;
 	width: 265px;
@@ -174,36 +113,55 @@ main#project .project-preview .project-preview-small {
 
 
 
-@media (max-width: 800px) {
 
-	main#project .project-preview {
+@media (max-width: 1050px) {
+
+	#intro {
+		padding-left: 50px;
+		padding-right: 50px; }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+	.project-preview {
 		margin: 50px auto 50px auto;
 		width: 400px;
 		height: 308px;
 		background-image: url("../img/project/project_preview_medium.png") !important; }
 
-	main#project .project-preview .project-preview-large {
+	.project-preview .project-preview-large {
 		display: none; }
 
-	main#project .project-preview .project-preview-medium {
+	.project-preview .project-preview-medium {
 		display: block; }
 
 }
-	
+
 
 
 @media (max-width: 500px) {
 
-	main#project .project-preview {
+	.project-preview {
 		margin: 25px auto 25px auto;
 		width: 320px;
 		height: 672px;
 		background-image: url("../img/project/project_preview_small.png") !important; }
 
-	main#project .project-preview .project-preview-medium {
+	.project-preview .project-preview-medium {
 		display: none; }
 
-	main#project .project-preview .project-preview-small {
+	.project-preview .project-preview-small {
 		display: block; }
 
 }
@@ -223,76 +181,10 @@ main#project .project-preview .project-preview-small {
 
 
 
-main#project #intro, .section {
+#intro, .section {
 	-webkit-transition: all .25s;
 	-moz-transition: all .25s;
 	-ms-transition: all .25s;
 	-o-transition: all .25s;
 	transition: all .25s; }
 
-
-
-@media (max-width: 1500px) {
-
-	main#project .section .project-list {
-		margin-top: 50px;
-		position: static;
-		width: 800px; }
-
-	main#project .section .project-list li {
-		margin-right: 25px; }
-
-	main#project .section .project-list li:nth-child(even) {
-		float: left; }
-
-	main#project .section .project-list li:nth-child(3n + 3) {
-		margin-right: 0; }
-
-
-}
-
-@media (max-width: 1010px) {
-
-	.section {
-		padding: 50px; } 
-
-	main#project #intro {
-		margin: 0 0 25px 0;
-		padding: 0 50px 0 50px; }
-
-	main#project #details li {
-		margin-bottom: 50px;
-		width: calc(50% - 25px) !important; }
-
-	main#project #details li:nth-child(2) {
-		margin-right: 0; }
-
-	main#project #details li:nth-child(3) {
-		clear: both; }
-
-}
-
-
-@media (max-width: 500px) {
-
-	main#project #intro {
-		margin: 0 0 25px 0;
-		padding: 0 25px 0 25px; }
-
-	main#project #intro h1 {
-		font-size: 32px; }
-	
-	main#project #intro h2 {
-		margin-bottom: 25px;
-		font-size: 18px;
-		line-height: 25px; }
-
-	main#project #details li {
-		margin-right: 0 !important;
-		margin-bottom: 25px;
-		width: 100% !important; }
-
-	main#project #details li:last-child {
-		margin: 0; }
-
-}

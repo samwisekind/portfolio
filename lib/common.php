@@ -124,6 +124,7 @@
 						<div class="details">
 
 							<h2><a href="' . $link . '">' . $title . '</a></h2>
+							<a class="view" href="' . $link . '">View Project</a>
 							<h3>' . $subtitle . '</h3>
 
 							<ul>
@@ -131,8 +132,6 @@
 								<li><span>Technology:</span> ' . $technology . '</li>
 								<li><span>Timeframe:</span> ' . $timeframe . '</li>
 							</ul>
-
-							<a class="view" href="' . $link . '">View Project</a>
 
 							<div class="cf"></div>
 

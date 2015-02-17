@@ -22,8 +22,7 @@ header#header nav#nav ul li {
 	display: inline-table; }
 
 header#header h1 a {
-	font-size: 22px;
-	text-transform: uppercase; }
+	font-size: 22px; }
 
 header#header h1 a,
 header#header nav#nav ul li a {
@@ -45,6 +44,9 @@ header#header nav#nav ul li.current a span {
 
 header#header nav#nav ul li a:hover span {
 	border-color: #111111; }
+
+header#header #hamburger {
+	background-image: url("../img/global/header_hamburger_light.svg"); }
 
 body#album footer#footer {
 	display: none; }
@@ -213,7 +215,7 @@ body.map #map {
 	right: 0;
 	top: 70px;
 	width: 150px;
-	height: calc(100% - 70px);
+	height: calc(100% - 120px);
 	background: #111111; }
 
 #thumbnails #thumbnails-list {
@@ -302,7 +304,7 @@ body.map #map {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	width: calc(100% - 150px);
+	width: 100%;
 	height: 50px;
 	background: #222222; }
 
@@ -395,6 +397,15 @@ body.map #navigator #navigator-select #navigator-map {
 	background: url("../img/album/album_select.svg") calc(100% - 8px) center no-repeat #111111;
 	-webkit-appearance: none;
 	-moz-appearance: none; }
+
+
+
+@media (max-width: 600px) {
+
+	header#header {
+		padding: 0 !important; }
+
+}
 
 
 
