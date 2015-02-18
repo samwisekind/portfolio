@@ -7,94 +7,97 @@
 
 
 
-
-
-
-
 	<h1>Featured Work</h1>
+
 
 
 	<?php
 
 		$featured_array = array(
 
-			array(
-				"work",
-				"img/index/featured_work_joyce.jpg",
-				"Joyce",
-				"Revamping the online identity of Hong Kong's most famous and respected boutique from the ground-up.",
-				"Design, Frontend & Backend Development, Responsive, IE8+ Support, Wordpress",
-				"project.php"
-			),
-
-			array(
-				"work",
-				"img/index/featured_work_k11.jpg",
-				"K11",
-				"Creating an inter-connected photobooth solution using a 360° panorama camera.",
-				"Frontend & Backend Development, Phonegap/Cordava, REST API",
-				"project.php"
-			),
-
-			array(
-				"work",
-				"img/index/featured_work_enicar.jpg",
-				"Enicar",
-				"Complete website re-design for the 100th anniversary of Asia's prominent and longest-lasting timepiece designers.",
-				"Frontend & Backend Development, Responsive, HTML5, PHP",
-				"project.php"
-			),
-
-			array(
-				"photo",
-				"img/index/featured_photo_lion.jpg",
-				"Portfolio",
-				"",
-				"portfolio"
-			),
-
-			array(
-				"work",
-				"img/index/featured_5_image.jpg",
-				"Steve Madden",
-				"???",
-				"???",
-				"project.php"
-			),
-
-			array(
-				"work",
-				"img/index/featured_6_image.jpg",
-				"Hong Kong Jockey Club",
-				"???",
-				"???",
-				"project.php"
-			),
-
-			array(
-				"photo",
-				"img/index/featured_photo_fox.jpg",
-				"London, United Kingdom",
-				"19th June 2010",
-				""
-			)
+			array("project", "joyce"),
+			array("project", "k11"),
+			array("project", "enicar"),
+			array("album", "portfolio"),
+			array("project", "yungsclub"),
+			array("project", "portfolio"),
+			array("album", "kenya"),
 
 		);
 
-		index_featured($featured_array);
+		for ($i = 0; $i < count($featured_array); $i++) {
+
+			$type = $featured_array[$i][0];
+			$link = $featured_array[$i][1];
+
+			if ($type == "project") {
+
+				$image = $project[$featured_array[$i][1]][0];
+				$title = $project[$featured_array[$i][1]][1];
+				$subtitle = $project[$featured_array[$i][1]][2];
+
+				echo '
+
+					<article class="project">
+
+						<div class="featured-image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
+
+						<div class="featured-content">
+
+							<h2><a href="' . $link . '">' . $title . '</a></h2>
+							<h3>' . $subtitle . '</h3>
+
+							<a class="featured-link" href="' . $link . '">View Project <span>&#10095;</span></a>
+
+						</div>
+
+						<div class="cf"></div>
+
+					</article>
+
+				';
+
+			}
+
+			else if ($type == "album") {
+
+				$image = $album[$featured_array[$i][1]][5][0][2];
+				$title = $album[$featured_array[$i][1]][1];
+				$subtitle = $album[$featured_array[$i][1]][2];
+
+				echo '
+
+					<article class="album">
+
+						<a href="' . strtok($_SERVER["REQUEST_URI"], "?") . "album.php?album=" . $link . '">
+
+							<div class="featured-caption">
+
+								<h2>' . $title. '</h2>
+								<h3>' . $subtitle . '</h3>
+
+								<span class="featured-link" href="' . $link . '">View Album <span>&#10095;</span></span>
+
+							</div>
+
+							<img src="' . $image . '" alt="" />
+
+						</a>
+
+					</article>
+
+				';
+
+			};
+
+		};
 
 	?>
 
 
 
-
-
-
-
-
-
-
 	<div class="cf"></div>
+
 
 
 <?php require "lib/footer.php"; ?>
