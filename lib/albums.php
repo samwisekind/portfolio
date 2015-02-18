@@ -142,7 +142,7 @@
 	$album["korea"] = array(
 
 		"places",
-		"제주 (Island of Jeju-do), 한국 (South Korea)",
+		"제주 (Island of Jeju-do), South Korea",
 		"23/10/2009 - 31/07/2009",
 		"33.3354988",
 		"126.5690002",

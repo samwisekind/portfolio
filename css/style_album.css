@@ -7,10 +7,10 @@ header#header {
 	top: 0;
 	padding: 0;
 	height: 70px;
-	background: #111111; }
+	background: #222222; }
 
 header#header h1 {
-	margin: 0 15px 0 15px; }
+	margin: 0 25px 0 25px; }
 
 header#header h1,
 header#header nav#nav,
@@ -236,7 +236,8 @@ body.map #map {
 	position: absolute;
 	left: 0;
 	width: 100%;
-	height: 50px; }
+	height: 50px;
+	background: #111111; }
 
 #thumbnails .thumbnails-arrow.top {
 	top: 0; }
@@ -245,10 +246,11 @@ body.map #map {
 	bottom: 0; }
 
 #thumbnails .thumbnails-arrow a {
+	opacity: .5;
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: url("../img/album/album_thumbnails_arrows.svg") no-repeat #111111; }
+	background: url("../img/album/album_thumbnails_arrows.svg") no-repeat transparent; }
 
 #thumbnails .thumbnails-arrow.top a {
 	background-position: center top; }
@@ -257,7 +259,7 @@ body.map #map {
 	background-position: center bottom; }
 
 #thumbnails .thumbnails-arrow a:hover {
-	background-color: #222222; }
+	opacity: 1; }
 
 #thumbnails #thumbnails-list ul,
 #thumbnails #thumbnails-list ul li {
