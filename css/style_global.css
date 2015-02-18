@@ -92,7 +92,8 @@ header#header nav#nav ul li:last-child a {
 	padding-right: 0; }
 
 header#header nav#nav ul li.current a span {
-	border-bottom: 2px solid #111111; }
+	font-weight: 700;
+	border-bottom: 1px solid #111111; }
 
 
 
@@ -200,24 +201,12 @@ main > h1 {
 
 
 #wrapper {
-	perspective: 2000px;
-	min-width: 320px;
-	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	width: auto;
-	height: auto;
-	overflow: hidden;
-	background: rgb(67,206,162);
-	background: -moz-linear-gradient(-45deg,  rgba(67,206,162,1) 0%, rgba(24,90,157,1) 100%);
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(67,206,162,1)), color-stop(100%,rgba(24,90,157,1)));
-	background: -webkit-linear-gradient(-45deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
-	background: -o-linear-gradient(-45deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
-	background: -ms-linear-gradient(-45deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
-	background: linear-gradient(135deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#43cea2', endColorstr='#185a9d',GradientType=1 ); }
+	height: auto; }
 
 #nav-outer {
 	display: none;
@@ -257,17 +246,15 @@ body.menu #nav-outer {
 #nav-outer #nav-outer-wrapper li a:hover {
 	background: rgba(255, 255, 255, .1); }
 
-#content, #content-overlay {
-	position: absolute;
+#content,
+#content-overlay {
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	width: auto;
 	height: auto;
-	overflow-y: auto;
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch; }
+	overflow-x: hidden; }
 
 #content {
 	z-index: 0;
@@ -324,6 +311,26 @@ footer#footer p.small {
 
 
 @media (max-width: 600px) {
+
+	#wrapper {
+		perspective: 2000px;
+		min-width: 320px;
+		position: absolute;
+		overflow: hidden;
+		background: rgb(67,206,162);
+		background: -moz-linear-gradient(-45deg,  rgba(67,206,162,1) 0%, rgba(24,90,157,1) 100%);
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(67,206,162,1)), color-stop(100%,rgba(24,90,157,1)));
+		background: -webkit-linear-gradient(-45deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
+		background: -o-linear-gradient(-45deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
+		background: -ms-linear-gradient(-45deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
+		background: linear-gradient(135deg,  rgba(67,206,162,1) 0%,rgba(24,90,157,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#43cea2', endColorstr='#185a9d',GradientType=1 ); }
+
+	#content,
+	#content-overlay {
+		position: absolute;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch; }
 
 	header#header {
 		margin-bottom: 25px;
