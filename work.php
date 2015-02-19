@@ -1,7 +1,6 @@
 <?php
 
 	$page = "work";
-
 	require "lib/header.php";
 
 ?>
@@ -28,109 +27,95 @@
 
 		<?php
 
-			$work_list = array(
+			$work_array = array(
 
-				array(
-					"work",
-					"img/index/featured_work_joyce.jpg",
-					"Joyce",
-					"Revamping the online identity of Hong Kong's most famous and respected boutique from the ground-up.",
-					"Visual &amp System Design, Frontend &amp; Backend Development, UAT",
-					"HTML5, CSS3, JavaScript, jQuery, PHP, Wordpress, MySQL, Photoshop, Illustrator",
-					"21st September 2014 - 21st September 2014",
-					"project.php"
-				),
-
-				array(
-					"work",
-					"img/index/featured_work_k11.jpg",
-					"K11",
-					"Creating an inter-connected photobooth solution using a 360° panoramic camera.",
-					"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
-					"HTML5, CSS3, JavaScript, jQuery, REST API, Instagram API, Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
-					"21st September 2014 - 21st September 2014",
-					"project.php"
-				),
-
-				array(
-					"work",
-					"img/index/featured_work_enicar.jpg",
-					"Enicar",
-					"Complete website re-design for the 100th anniversary of Asia's prominent and longest-lasting timepiece designers.",
-					"Visual &amp; System Design, Frontend & Backend Development, Multilingual Mapping, UAT",
-					"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator",
-					"21st September 2014 - 21st September 2014",
-					"project.php"
-				),
-
-				array(
-					"work",
-					"img/index/featured_work_k11.jpg",
-					"Yung's Club",
-					"Creating an inter-connected photobooth solution using a 360° panoramic camera.",
-					"Frontend & Backend Development, PhoneGap/Cordava, REST API",
-					"HTML5, CSS3, JavaScript, jQuery, PHP, Wordpress, MySQL, Photoshop, Illustrator",
-					"21st September 2014 - 21st September 2014",
-					"project.php"
-				),
-
-				array(
-					"album",
-					"img/album/hongkong/hongkong_2_full.jpg",
-					"Portfolio",
-					"Landscapes, Nature, Foxes, Lions",
-					"album.php?album=portfolio"
-				),
-
-				array(
-					"album",
-					"img/album/yunnan/yunnan_1_full.jpg",
-					"云南 (Yúnnán), China",
-					"Landscapes, Nature",
-					"album.php?album=yunnan"
-				),
-
-				array(
-					"work",
-					"img/index/featured_work_enicar.jpg",
-					"Enicar",
-					"Complete website re-design for the 100th anniversary of Asia's prominent and longest-lasting timepiece designers.",
-					"Visual &amp; System Design, Frontend & Backend Development, Multilingual Mapping, UAT",
-					"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator",
-					"21st September 2014 - 21st September 2014",
-					"project.php"
-				),
-
-				array(
-					"work",
-					"img/index/featured_work_k11.jpg",
-					"Yung's Club",
-					"Creating an inter-connected photobooth solution using a 360° panoramic camera.",
-					"Frontend & Backend Development, PhoneGap/Cordava, REST API",
-					"HTML5, CSS3, JavaScript, jQuery, PHP, Wordpress, MySQL, Photoshop, Illustrator",
-					"21st September 2014 - 21st September 2014",
-					"project.php"
-				),
-
-				array(
-					"album",
-					"img/album/kenya/kenya_1_full.jpg",
-					"Kenya, Africa",
-					"Nature, Animals, Lions",
-					"album.php?album=kenya"
-				),
-
-				array(
-					"album",
-					"img/album/hongkong/hongkong_1_full.jpg",
-					"Hong Kong",
-					"Landscapes, Animals",
-					"album.php?album=hongkong"
-				)
+				array("project", "joyce"),
+				array("project", "k11"),
+				array("project", "enicar"),
+				array("album", "portfolio"),
+				array("project", "yungsclub"),
+				array("project", "portfolio"),
+				array("album", "kenya"),
 
 			);
 
-			work_list($work_list);
+			for ($i = 0; $i < count($work_array); $i++) {
+
+				$type = $work_array[$i][0];
+				$link = $featured_array[$i][1];
+
+				if ($type == "project") {
+
+					$image = $project[$work_array[$i][1]][0];
+					$title = $project[$work_array[$i][1]][1];
+					$subtitle = $project[$work_array[$i][1]][2];
+					$responsibilities = $project[$work_array[$i][1]][3];
+					$technology = $project[$work_array[$i][1]][4];
+					$timeframe = $project[$work_array[$i][1]][5];
+					$link = $directory . "projects/" . $work_array[$i][1] . "/";
+
+					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle . " " . $responsibilities . " " . $technology));
+
+					echo '
+
+						<article class="work-item webdesign" data-search="' . $search . '">
+
+							<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
+
+							<div class="details">
+
+								<h2><a href="' . $link . '">' . $title . '</a></h2>
+								<a class="special-link" href="' . $link . '">View Project <span>&#10095;</span></a>
+								<h3>' . $subtitle . '</h3>
+
+								<ul>
+									<li><span>Responsibilities:</span> ' . $responsibilities . '</li>
+									<li><span>Technology:</span> ' . $technology . '</li>
+									<li><span>Timeframe:</span> ' . $timeframe . '</li>
+								</ul>
+
+								<div class="cf"></div>
+
+							</div>
+
+						</article>
+
+					';
+
+				}
+
+				else if ($type == "album") {
+
+					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle));
+
+					$image = $album[$work_array[$i][1]][5][0][2];
+					$title = $album[$work_array[$i][1]][1];
+					$subtitle = $album[$work_array[$i][1]][2];
+					$link = $directory . "album.php?album=" . $work_array[$i][1];
+
+					echo '
+
+						<article class="work-item album" data-search="' . $search . '">
+
+							<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
+
+							<div class="details">
+
+								<h2><a href="' . $link . '">' . $title . '</a></h2>
+								<a class="special-link" href="' . $link . '">View Album <span>&#10095;</span></a>
+								<h3>' . $subtitle . '</h3>
+
+								<div class="cf"></div>
+
+							</div>
+
+						</article>
+
+					';
+
+				};
+
+			};
 
 		?>
 

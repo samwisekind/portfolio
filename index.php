@@ -28,13 +28,13 @@
 		for ($i = 0; $i < count($featured_array); $i++) {
 
 			$type = $featured_array[$i][0];
-			$link = $featured_array[$i][1];
 
 			if ($type == "project") {
 
 				$image = $project[$featured_array[$i][1]][0];
 				$title = $project[$featured_array[$i][1]][1];
 				$subtitle = $project[$featured_array[$i][1]][2];
+				$link = $directory . "projects/" . $featured_array[$i][1] . "/";
 
 				echo '
 
@@ -64,12 +64,13 @@
 				$image = $album[$featured_array[$i][1]][5][0][2];
 				$title = $album[$featured_array[$i][1]][1];
 				$subtitle = $album[$featured_array[$i][1]][2];
+				$link = $directory . "album.php?album=" . $featured_array[$i][1];
 
 				echo '
 
 					<article class="album">
 
-						<a href="' . strtok($_SERVER["REQUEST_URI"], "?") . "album.php?album=" . $link . '">
+						<a href="' . $link . '">
 
 							<img src="' . $image . '" alt="" />
 
