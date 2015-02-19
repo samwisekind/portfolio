@@ -1,34 +1,16 @@
 <?php
 
 	$page = "project";
-
-	$project_title = "Joyce";
-	$project_subtitle = "Revamping the online identity of Hong Kong's most famous and respected boutique from the ground-up.";
-
-	require "lib/header.php";
+	$project_name = "joyce";
+	require "../../lib/header.php";
 
 ?>
 
 
 
-	<div id="intro">
+	<img src="joyce_banner_1.jpg" alt="" class="banner" />
 
-		<h2><?php echo $project_title; ?></h2>
-		<h3><?php echo $project_subtitle; ?></h3>
-
-		<ul id="details">
-			<li><span>Responsibilities:</span> Design, Frontend &amp; Backend Development, Wordpress Implimentation</li>
-			<li><span>Technology:</span> HTML5, CSS3, JavaScript, PHP, Wordpress, MySQL, Photoshop, Illustrator</li>
-			<li><span>Timeframe:</span> 21st September 2014 - 21st September 2014</li>
-		</ul>
-
-		<div class="cf"></Div>
-
-	</div>
-
-	<img src="img/project/joyce/project_joyce_banner_1.jpg" alt="" class="project-banner" />
-
-	<div id="idea" class="section">
+	<div class="section">
 
 		<h4>The Idea</h4>
 
@@ -40,10 +22,9 @@
 
 			$project_preview = array(
 
-				"img/project/joyce/project_joyce_preview_1_large.jpg",
-				"img/project/joyce/project_joyce_preview_1_medium.jpg",
-				"img/project/joyce/project_joyce_preview_1_small.jpg",
-
+				"joyce_preview_1_large.jpg",
+				"joyce_preview_1_medium.jpg",
+				"joyce_preview_1_small.jpg",
 
 			);
 
@@ -55,9 +36,9 @@
 
 	</div>
 
-	<img src="img/project/joyce/project_joyce_banner_2.jpg" alt="" class="project-banner" />
+	<img src="joyce_banner_2.jpg" alt="" class="banner" />
 
-	<div id="challenges" class="section">
+	<div class="section">
 
 		<h4>Challenges</h4>
 
@@ -69,9 +50,9 @@
 
 	</div>
 
-	<img src="img/project/joyce/project_joyce_banner_3.jpg" alt="" class="project-banner" />
+	<img src="joyce_banner_3.jpg" alt="" class="banner" />
 
-	<div id="solution" class="section">
+	<div class="section">
 
 		<h4>Solution &amp; Result</h4>
 
@@ -85,7 +66,4 @@
 
 
 
-
-
-
-<?php require "lib/footer.php"; ?>
+<?php require "../../lib/footer.php"; ?>

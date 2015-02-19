@@ -5,6 +5,12 @@
 		require "projects.php";
 		require "albums.php";
 
+	}
+
+	else if ($page == "project") {
+
+		require "projects.php";
+
 	};
 
 	require "common.php";
@@ -16,11 +22,11 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
 	<title>Personal</title>
 	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700|Oxygen:300,400" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="css/style_global.css" />
-	<link rel="stylesheet" type="text/css" href="css/style_<?php echo $page; ?>.css" />
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/scripts_global.js"></script>
-	<script type="text/javascript" src="js/scripts_<?php echo $page; ?>.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo $directory; ?>css/style_global.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $directory; ?>css/style_<?php echo $page; ?>.css" />
+	<script type="text/javascript" src="<?php echo $directory; ?>js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_global.js"></script>
+	<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_<?php echo $page; ?>.js"></script>
 
 	<?php if ($page == "index") { ?>
 
@@ -56,9 +62,9 @@
 			<div id="nav-outer-wrapper">
 
 				<ul>
-					<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="index.php"><span>Home</span></a></li>
-					<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="work.php"><span>Work</span></a></li>
-					<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="#"><span>About &amp; Contact</span></a></li>
+					<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>"><span>Home</span></a></li>
+					<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work.php"><span>Work</span></a></li>
+					<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>about/"><span>About &amp; Contact</span></a></li>
 				</ul>
 
 			</div>
@@ -71,14 +77,14 @@
 
 			<header id="header">
 					
-				<h1><a href="./">Sam's Portfolio</a></h1>
+				<h1><a href="<?php echo $directory; ?>">Sam's Portfolio</a></h1>
 
 				<nav id="nav">
 						
 					<ul>
-						<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="./"><span>Home</span></a></li>
-						<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="work.php"><span>Work</span></a></li>
-						<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="#"><span>About &amp; Contact</span></a></li>
+						<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>"><span>Home</span></a></li>
+						<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work.php"><span>Work</span></a></li>
+						<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>about/"><span>About &amp; Contact</span></a></li>
 					</ul>
 
 					<div class="cf"></div>
@@ -90,3 +96,22 @@
 			</header>
 
 			<main id="<?php echo $page; ?>" class="main">
+
+			<?php if ($page == "project") { ?>
+
+				<div id="intro">
+
+					<h2><?php echo $project[$project_name][1]; ?></h2>
+					<h3><?php echo $project[$project_name][2]; if (isset($project[$project_name][6]) == true) { echo " <a href='" . $project[$project_name][6] . "' class='site-link'>View Site <span>&#10095;</span></a>"; }; ?></h3>
+
+					<ul id="details">
+						<li id="details-responsibilities"><span>Responsibilities:</span> <?php echo $project[$project_name][3]; ?></li>
+						<li id="details-technology"><span>Technology:</span> <?php echo $project[$project_name][4]; ?></li>
+						<li id="details-timeframe"><span>Timeframe:</span> <?php echo $project[$project_name][5]; ?></li>
+					</ul>
+
+					<div class="cf"></Div>
+
+				</div>
+
+			<?php }; ?>
