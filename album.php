@@ -1,7 +1,6 @@
 <?php
 
 	$page = "album";
-
 	require "lib/header.php";
 
 ?>

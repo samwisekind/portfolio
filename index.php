@@ -40,7 +40,7 @@
 
 					<article class="project">
 
-						<div class="featured-image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
+						<div class="featured-image"><a href="' . $link . '"><img src="' . $directory . $image . '" alt="" /></a></div>
 
 						<div class="featured-content">
 
