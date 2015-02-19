@@ -58,7 +58,7 @@
 						<div class="details">
 
 							<h2><a href="' . $link . '">' . $title . '</a></h2>
-							<a class="view" href="' . $link . '">View Project</a>
+							<a class="special-link" href="' . $link . '">View Project <span>&#10095;</span></a>
 							<h3>' . $subtitle . '</h3>
 
 							<ul>
@@ -77,7 +77,7 @@
 
 			}
 
-			else if ($type == "photo") {
+			else if ($type == "album") {
 
 				$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle));
 
@@ -85,16 +85,15 @@
 
 				echo '
 
-					<article class="work-item photo" data-search="' . $search . '">
+					<article class="work-item album" data-search="' . $search . '">
 
 						<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
 
 						<div class="details">
 
 							<h2><a href="' . $link . '">' . $title . '</a></h2>
+							<a class="special-link" href="' . $link . '">View Album <span>&#10095;</span></a>
 							<h3>' . $subtitle . '</h3>
-
-							<a class="view" href="' . $link . '">View Album</a>
 
 							<div class="cf"></div>
 

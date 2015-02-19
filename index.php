@@ -47,7 +47,7 @@
 							<h2><a href="' . $link . '">' . $title . '</a></h2>
 							<h3>' . $subtitle . '</h3>
 
-							<a class="featured-link" href="' . $link . '">View Project <span>&#10095;</span></a>
+							<a class="special-link" href="' . $link . '">View Project <span>&#10095;</span></a>
 
 						</div>
 
@@ -71,16 +71,16 @@
 
 						<a href="' . strtok($_SERVER["REQUEST_URI"], "?") . "album.php?album=" . $link . '">
 
+							<img src="' . $image . '" alt="" />
+
 							<div class="featured-caption">
 
 								<h2>' . $title. '</h2>
 								<h3>' . $subtitle . '</h3>
 
-								<span class="featured-link" href="' . $link . '">View Album <span>&#10095;</span></span>
+								<span class="special-link" href="' . $link . '">View Album <span>&#10095;</span></span>
 
 							</div>
-
-							<img src="' . $image . '" alt="" />
 
 						</a>
 

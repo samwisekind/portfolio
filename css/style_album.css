@@ -7,6 +7,7 @@ header#header {
 	top: 0;
 	padding: 0;
 	height: 70px;
+	border: none;
 	background: #222222; }
 
 header#header h1 {
@@ -39,10 +40,13 @@ header#header nav#nav ul li a:hover {
 	color: #111111 !important;
 	background: #FFFFFF; }
 
+header#header nav#nav ul li a:hover span {
+	border-color: transparent; }
+
 header#header nav#nav ul li.current a span {
 	border-color: #FFFFFF; }
 
-header#header nav#nav ul li a:hover span {
+header#header nav#nav ul li.current a:hover span {
 	border-color: #111111; }
 
 header#header #hamburger {
@@ -116,7 +120,8 @@ body.map #map {
 /******* VIEWER *******/
 
 #viewer {
-	display: table; }
+	display: table;
+	background: #000000 }
 
 #viewer .viewer-arrow {
 	z-index: 0;

@@ -27,9 +27,9 @@ function work_filter (target, reset) {
 
 		}
 
-		else if (target == "photo") {
+		else if (target == "album") {
 
-			work_items.photo.removeClass("invisible");
+			work_items.album.removeClass("invisible");
 
 		}
 	
@@ -91,7 +91,7 @@ $(document).ready(function() {
 	work_items = $("#work-list");
 	work_items.items = work_items.find(".work-item");
 	work_items.webdesign = work_items.find(".webdesign");
-	work_items.photo = work_items.find(".photo");
+	work_items.album = work_items.find(".album");
 
 	work_menu.buttons.bind("click", function(event) {
 

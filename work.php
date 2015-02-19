@@ -13,10 +13,12 @@
 		<ul id="work-filters">
 			<li class="current" data-filter="all"><a href="#">All</a></li>
 			<li id="filter-webdesign" data-filter="webdesign"><a href="#">Web Design</a></li>
-			<li id="filter-photo" data-filter="photo"><a href="#">Photography</a></li>
+			<li id="filter-album" data-filter="album"><a href="#">Photography</a></li>
 		</ul>
 
 		<input type="text" id="work-search" placeholder="Search projects, keywords, technologies..." />
+
+		<div class="cf"></div>
 
 	</div>
 
@@ -73,7 +75,7 @@
 				),
 
 				array(
-					"photo",
+					"album",
 					"img/album/hongkong/hongkong_2_full.jpg",
 					"Portfolio",
 					"Landscapes, Nature, Foxes, Lions",
@@ -81,9 +83,9 @@
 				),
 
 				array(
-					"photo",
+					"album",
 					"img/album/yunnan/yunnan_1_full.jpg",
-					"云南 (Yúnnán), 中国 (China)",
+					"云南 (Yúnnán), China",
 					"Landscapes, Nature",
 					"album.php?album=yunnan"
 				),
@@ -111,7 +113,7 @@
 				),
 
 				array(
-					"photo",
+					"album",
 					"img/album/kenya/kenya_1_full.jpg",
 					"Kenya, Africa",
 					"Nature, Animals, Lions",
@@ -119,7 +121,7 @@
 				),
 
 				array(
-					"photo",
+					"album",
 					"img/album/hongkong/hongkong_1_full.jpg",
 					"Hong Kong",
 					"Landscapes, Animals",

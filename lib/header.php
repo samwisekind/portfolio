@@ -56,9 +56,9 @@
 			<div id="nav-outer-wrapper">
 
 				<ul>
-					<li><a href="index.php"><span>Home</span></a></li>
-					<li><a href="work.php"><span>Work</span></a></li>
-					<li><a href="#"><span>About &amp; Contact</span></a></li>
+					<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="index.php"><span>Home</span></a></li>
+					<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="work.php"><span>Work</span></a></li>
+					<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="#"><span>About &amp; Contact</span></a></li>
 				</ul>
 
 			</div>
@@ -89,4 +89,4 @@
 
 			</header>
 
-			<main id="<?php echo $page; ?>">
+			<main id="<?php echo $page; ?>" class="main">
