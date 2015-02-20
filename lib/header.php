@@ -2,18 +2,18 @@
 
 	if ($page == "index" || $page == "work") {
 
-		require "projects.php";
-		require "albums.php";
+		require_once "projects.php";
+		require_once "albums.php";
 
 	}
 
 	else if ($page == "project") {
 
-		require "projects.php";
+		require_once "projects.php";
 
 	};
 
-	require "common.php";
+	require_once "common.php";
 
 ?>
 

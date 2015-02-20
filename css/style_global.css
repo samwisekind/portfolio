@@ -47,31 +47,6 @@ article, section, aside, hgroup, nav, header, footer, figure, figcaption {
 .noscroll {
 	overflow: hidden; }
 
-.special-link {
-	float: right;
-	display: inline-block;
-	padding: 5px 0 5px 0;
-	font-weight: 400;
-	font-size: 14px;
-	text-decoration: none;
-	text-transform: uppercase;
-	color: #555555;
-	border-bottom: 1px solid transparent; }
-
-.special-link:hover {
-	color: #111111;
-	border-color: #CCCCCC; }
-
-.special-link span {
-	margin-left: 5px;
-	font-weight: 300; }
-
-article.album .special-link {
-	color: #AAAAAA; }
-
-article.album a:hover .special-link {
-	color: #EEEEEE;
-	border-color: #CCCCCC; }
 
 
 
@@ -187,7 +162,7 @@ header#header h1 {
 header#header h1 a {
 	font-weight: 400;
 	font-size: 24px;
-	color: #111111;
+	color: #222222;
 	text-decoration: none;
 	text-transform: uppercase; }
 
@@ -201,7 +176,7 @@ header#header nav#nav ul li {
 header#header nav#nav ul li a {
 	padding: 0 10px 0 10px;
 	font-size: 12px;
-	color: inherit;
+	color: #222222;
 	text-decoration: none;
 	text-transform: uppercase; }
 
@@ -234,6 +209,165 @@ main.main > h1 {
 	font-size: 18px;
 	font-weight: 700;
 	text-transform: uppercase; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******** GLOBAL LIST ********/
+
+#global-list article {
+	margin: 0 auto 0 auto;
+	width: 100%; }
+
+#global-list article h2,
+#global-list article p {
+	font-family: "Oxygen", Helvetica, Arial, sans-serif; }
+
+#global-list article h2 {
+	z-index: 0;
+	font-weight: 400; }
+
+#global-list article h2 a {
+	display: block;
+	color: #222222;
+	text-decoration: none; }
+
+#global-list article p {
+	color: #555555;
+	text-align: justify; }
+
+#global-list article .content {
+	position: relative; }
+
+#global-list article .image a,
+#global-list article .image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border: none; }
+
+#global-list article.album {
+	position: relative;
+	background: #222222; }
+
+#global-list article.album .content {
+	background: #222222; }
+
+#global-list article.album h2 a {
+	color: #FFFFFF; }
+
+#global-list article.album p {
+	margin-bottom: 0;
+	color: #CCCCCC; }
+
+
+
+
+.special-link {
+	z-index: 10;
+	float: right;
+	display: inline-block;
+	padding-bottom: 2px;
+	font-weight: 400;
+	font-size: 14px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #555555;
+	border-bottom: 1px solid transparent; }
+
+.special-link:hover {
+	color: #111111;
+	border-color: #CCCCCC; }
+
+.special-link span {
+	font-family: Verdana, sans-serif;
+	margin-left: 4px;
+	font-weight: 300; }
+
+article.album .special-link {
+	color: #AAAAAA; }
+
+article.album a:hover .special-link {
+	color: #EEEEEE;
+	border-color: #CCCCCC; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********* TRANSITION *********/
+
+article,
+article .featured-image,
+article .featured-content,
+article h2,
+article p,
+article .featured-link {
+	-webkit-transition: all .25s ease-out;
+	-moz-transition: all .25s ease-out;
+	-ms-transition: all .25s ease-out;
+	-o-transition: all .25s ease-out;
+	transition: all .25s ease-out; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -298,11 +432,6 @@ footer#footer p {
 
 @media (max-width: 700px) {
 
-	.special-link {
-		position: absolute;
-		top: 20px;
-		right: 20px; }
-
 	#nav-outer {
 		display: table; }
 
@@ -346,11 +475,11 @@ footer#footer p {
 		box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 3px; }
 
 	header#header {
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 		height: 50px; }
 
 	header#header h1 {
-		margin: 0 0 0 25px; }
+		margin: 0 0 0 20px; }
 
 	header#header h1 a {
 		font-size: 16px; }
@@ -362,11 +491,44 @@ footer#footer p {
 		display: block; }
 
 	main.main > h1 {
-		margin: 0 0 25px 25px;
+		margin: 0 0 20px 20px;
 		font-size: 14px; }
 
+	#global-list article.project {
+		display: block !important; }
+
+	#global-list article .image,
+	#global-list article .content {
+		float: none !important;
+		width: 100% !important; }
+
+	#global-list article .content {
+		padding: 20px 20px 40px 20px !important; }
+
+	#global-list article h2 a {
+		font-size: 16px !important;
+		line-height: 16px !important; }
+
+	#global-list article p {
+		margin-bottom: 0 !important;
+		font-size: 12px !important;
+		line-height: 15px !important; }
+
+	#global-list article .special-link {
+		margin-top: 0 !important;
+		position: absolute;
+		top: 22px;
+		right: 20px; }
+
+	#global-list article.album .content {
+		position: relative !important; }
+
+	#global-list article.album h2 {
+		display: inline-block !important;
+		padding-right: 0 !important; }
+
 	footer#footer {
-		padding: 25px; }
+		padding: 20px; }
 
 	footer#footer p {
 		font-size: 10px !important; }
