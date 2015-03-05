@@ -1,0 +1,114 @@
+/********* ABOUT & CONTACT *********/
+
+main#about {
+	margin: 0 auto 0 auto;
+	padding: 0 50px 0 50px;
+	width: 100%;
+	max-width: 900px; }
+
+main#about h1 {
+	margin-left: 0; }
+
+main#about p {
+	margin-bottom: 25px;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: justify; }
+
+main#about p:last-child {
+	margin-bottom: 0; }
+
+main#about p a {
+	color: inherit; }
+
+
+
+/********* CONTACT FORM *********/
+
+#contact-form {
+	margin: 50px auto 0 auto;
+	width: 100%;
+	max-width: 600px; }
+
+#contact-form ul,
+#contact-form ul li {
+	list-style: none; }
+
+#contact-form li {
+	margin-bottom: 15px; }
+
+#contact-form li:last-child {
+	margin-bottom: 0; }
+
+#contact-form li span {
+	float: left;
+	display: inline-block;
+	padding-top: 8px; }
+
+#contact-form .contact-field {
+	float: right;
+	padding: 10px;
+	width: 500px;
+	border: 1px solid #CCCCCC; }
+
+#contact-form #contact-message {
+	height: 150px;
+	resize: vertical; }
+
+#contact-form .parsley-errors-list {
+	clear: both;
+	display: block;
+	font-size: 12px; }
+
+#contact-form .parsley-errors-list li {
+	text-align: right; }
+
+#contact-form #contact-sending {
+	display: none; }
+
+#contact-form #contact-buttons {
+	text-align: right; }
+
+#contact-form #contact-reset {
+	margin-right: 10px; }
+
+
+
+/********* RESPONSIVE *********/
+
+@media (max-width: 700px) {
+
+	main#about {
+		padding: 0 20px 0 20px; }
+
+	main#about p {
+		margin-bottom: 10px;
+		font-size: 12px;
+		line-height: 18px; }
+
+	#contact-form {
+		margin-top: 20px;
+		width: 100%;
+		max-width: 100%; }
+
+	#contact-form li {
+		margin-bottom: 10px; }
+
+	#contact-form li span {
+		padding-top: 0;
+		margin-bottom: 5px;
+		font-size: 10px;
+		line-height: 10px; }
+
+	#contact-form .contact-field {
+		float: none;
+		padding: 5px;
+		width: 100%; }
+
+	#contact-form .parsley-errors-list {
+		font-size: 10px; }
+
+	#contact-form #contact-buttons {
+		text-align: center; }
+
+}
