@@ -32,7 +32,8 @@ article, section, aside, hgroup, nav, header, footer, figure, figcaption {
 .invisible {
 	display: none !important;
 	opacity: 0 !important;
-	content: "" !important; }
+	content: "" !important;
+	visibility: hidden !important }
 
 .invisible,
 .invisible * {
@@ -46,8 +47,6 @@ article, section, aside, hgroup, nav, header, footer, figure, figcaption {
 
 .noscroll {
 	overflow: hidden; }
-
-
 
 
 
@@ -197,12 +196,15 @@ header#header #hamburger {
 	top: 0;
 	right: 0;
 	width: 85px;
-	height: 100%;
-	background: url("../img/global/header_hamburger.svg") center center no-repeat transparent; }
+	height: 100%; }
 
 header#header #hamburger a {
 	display: block;
-	height: 100%; }
+	height: 100%;
+	background: url("../img/global/header_hamburger.svg") left center no-repeat transparent; }
+
+body.menu header#header #hamburger a {
+	background-position: right center; }
 
 main.main > h1 {
 	margin: 0 0 25px 50px;
@@ -212,39 +214,11 @@ main.main > h1 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /******** GLOBAL LIST ********/
 
 #global-list article {
 	margin: 0 auto 0 auto;
 	width: 100%; }
-
-#global-list article h2,
-#global-list article p {
-	font-family: "Oxygen", Helvetica, Arial, sans-serif; }
-
-#global-list article h2 {
-	z-index: 0;
-	font-weight: 400; }
-
-#global-list article h2 a {
-	display: block;
-	color: #222222;
-	text-decoration: none; }
-
-#global-list article p {
-	color: #555555;
-	text-align: justify; }
 
 #global-list article .content {
 	position: relative; }
@@ -255,6 +229,24 @@ main.main > h1 {
 	width: 100%;
 	height: auto;
 	border: none; }
+
+#global-list article .content h2,
+#global-list article .content p {
+	font-family: "Oxygen", Helvetica, Arial, sans-serif;
+	text-align: left; }
+
+#global-list article .content h2 {
+	z-index: 0; }
+
+#global-list article .content h2 a {
+	display: block;
+	font-weight: 400;
+	color: #222222;
+	text-decoration: none; }
+
+#global-list article .content p {
+	color: #555555;
+	text-align: justify; }
 
 #global-list article.album {
 	position: relative;
@@ -267,11 +259,8 @@ main.main > h1 {
 	color: #FFFFFF; }
 
 #global-list article.album p {
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 	color: #CCCCCC; }
-
-
-
 
 .special-link {
 	z-index: 10;
@@ -303,74 +292,6 @@ article.album a:hover .special-link {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/********* TRANSITION *********/
-
-article,
-article .featured-image,
-article .featured-content,
-article h2,
-article p,
-article .featured-link {
-	-webkit-transition: all .25s ease-out;
-	-moz-transition: all .25s ease-out;
-	-ms-transition: all .25s ease-out;
-	-o-transition: all .25s ease-out;
-	transition: all .25s ease-out; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /******** FOOTER ********/
 
 footer#footer {
@@ -388,7 +309,7 @@ footer#footer p.small {
 
 
 
-/********* TRANSITION *********/
+/********* TRANSITIONS *********/
 
 header#header {
 	-webkit-transition: margin-bottom .25s ease-out;
@@ -400,6 +321,12 @@ header#header {
 header#header h1,
 header#header h1 a,
 main.main > h1,
+article,
+article .featured-image,
+article .featured-content,
+article h2,
+article p,
+article .featured-link ,
 footer#footer,
 footer#footer p {
 	-webkit-transition: all .25s ease-out;
@@ -437,6 +364,7 @@ footer#footer p {
 
 	#wrapper {
 		perspective: 2000px;
+		-webkit-perspective: 2000px;
 		min-width: 320px;
 		position: absolute;
 		overflow: hidden;
@@ -494,6 +422,9 @@ footer#footer p {
 		margin: 0 0 20px 20px;
 		font-size: 14px; }
 
+	#global-list article {
+		width: 100% !important; }
+
 	#global-list article.project {
 		display: block !important; }
 
@@ -517,8 +448,8 @@ footer#footer p {
 	#global-list article .special-link {
 		margin-top: 0 !important;
 		position: absolute;
-		top: 22px;
-		right: 20px; }
+		top: 21px !important;
+		right: 20px !important; }
 
 	#global-list article.album .content {
 		position: relative !important; }

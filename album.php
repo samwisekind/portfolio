@@ -156,17 +156,15 @@
 
 				<select id="navigator-albums">
 					<?php
-						if ($album_current == "portfolio") {
 
-							echo '<option disabled selected>Viewing: ' . $album["portfolio"][1] . '</option>';
+						echo '<option disabled selected>Viewing: ' . $album[$album_current][1] . '</option>';
 
-						}
+					?>
+					<option disabled></option>
+					<?php
 
-						else {
+						echo '<option value="portfolio">' . $album["portfolio"][1] . '</option>';
 
-							echo '<option value="portfolio">' . $album["portfolio"][1] . '</option>';
-
-						};
 					?>
 					<optgroup label="Places">
 						<?php
@@ -174,18 +172,8 @@
 							foreach ($album as $key => $value) {
 
 								if ($value[0] == "places") {
-
-									if ($key == $album_current) {
-
-										echo '<option disabled selected>Viewing: ' . $album[$album_current][1] . '</option>';
-
-									}
-
-									else {
-
-										echo '<option value="' . $key . '">' . $value[1] . '</option>';
-
-									}
+									
+									echo '<option value="' . $key . '">' . $value[1] . '</option>';
 
 								};
 
@@ -200,17 +188,7 @@
 
 								if ($value[0] == "things") {
 
-									if ($key == $album_current) {
-
-										echo '<option disabled selected>Viewing: ' . $album[$album_current][1] . '</option>';
-
-									}
-
-									else {
-
-										echo '<option value="' . $key . '">' . $value[1] . '</option>';
-
-									};
+									echo '<option value="' . $key . '">' . $value[1] . '</option>';
 
 								};
 

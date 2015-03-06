@@ -11,7 +11,7 @@
 
 		<ul id="work-filters">
 			<li class="current" data-filter="all"><a href="#">All</a></li>
-			<li id="filter-webdesign" data-filter="webdesign"><a href="#">Web Design</a></li>
+			<li id="filter-webdesign" data-filter="project"><a href="#">Web Design</a></li>
 			<li id="filter-album" data-filter="album"><a href="#">Photography</a></li>
 		</ul>
 
@@ -23,7 +23,7 @@
 
 
 
-	<div id="work-list">
+	<div id="global-list">
 
 		<?php
 
@@ -58,15 +58,15 @@
 
 					echo '
 
-						<article class="work-item webdesign" data-search="' . $search . '">
+						<article class="project" data-search="' . $search . '">
 
 							<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
 
-							<div class="details">
+							<div class="content">
 
 								<h2><a href="' . $link . '">' . $title . '</a></h2>
 								<a class="special-link" href="' . $link . '">View Project <span>&#10095;</span></a>
-								<h3>' . $subtitle . '</h3>
+								<p>' . $subtitle . '</p>
 
 								<ul>
 									<li><span>Responsibilities:</span> ' . $responsibilities . '</li>
@@ -86,24 +86,24 @@
 
 				else if ($type == "album") {
 
-					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle));
-
 					$image = $album[$work_array[$i][1]][5][0][2];
 					$title = $album[$work_array[$i][1]][1];
 					$subtitle = $album[$work_array[$i][1]][2];
 					$link = $directory . "album.php?album=" . $work_array[$i][1];
 
+					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle));
+
 					echo '
 
-						<article class="work-item album" data-search="' . $search . '">
+						<article class="album" data-search="' . $search . '">
 
 							<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
 
-							<div class="details">
+							<div class="content">
 
 								<h2><a href="' . $link . '">' . $title . '</a></h2>
 								<a class="special-link" href="' . $link . '">View Album <span>&#10095;</span></a>
-								<h3>' . $subtitle . '</h3>
+								<p>' . $subtitle . '</p>
 
 								<div class="cf"></div>
 
@@ -114,6 +114,12 @@
 					';
 
 				};
+
+			};
+
+			for ($i = 0; $i < 2; $i++) {
+
+				echo '<article class="spacer">';
 
 			};
 

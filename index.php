@@ -7,7 +7,7 @@
 
 
 
-	<h1>Featured Work</h1>
+	<h1>Featured Work <a href="work.php">View all work <span>❯</span></a></h1>
 
 	<div id="global-list">
 

@@ -21,9 +21,9 @@ function work_filter (target, reset) {
 
 		work_items.items.addClass("invisible");
 
-		if (target == "webdesign") {
+		if (target == "project") {
 
-			work_items.webdesign.removeClass("invisible");
+			work_items.project.removeClass("invisible");
 
 		}
 
@@ -88,9 +88,9 @@ $(document).ready(function() {
 	work_menu.buttons = work_menu.find("#work-filters li");
 	work_menu.field = work_menu.find("#work-search");
 
-	work_items = $("#work-list");
-	work_items.items = work_items.find(".work-item");
-	work_items.webdesign = work_items.find(".webdesign");
+	work_items = $("#global-list");
+	work_items.items = work_items.find("article");
+	work_items.project = work_items.find(".project");
 	work_items.album = work_items.find(".album");
 
 	work_menu.buttons.bind("click", function(event) {

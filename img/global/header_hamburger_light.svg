@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-<rect x="5" y="17" fill="#FFFFFF" width="40" height="2"/>
-<rect x="10" y="24" fill="#FFFFFF" width="35" height="2"/>
-<rect x="15" y="31" fill="#FFFFFF" width="30" height="2"/>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="170px"
+	 height="50px" viewBox="0 0 170 50" enable-background="new 0 0 170 50" xml:space="preserve">
+<g id="Light">
+	<g id="Close_1_">
+		<path fill="#FFFFFF" d="M146.278,20.161L141.44,25l4.839,4.839c0.72,0.72,0.72,1.886,0,2.606c-0.36,0.36-0.831,0.54-1.302,0.54
+			c-0.472,0-0.944-0.18-1.303-0.54l-4.84-4.84l-4.839,4.839c-0.36,0.36-0.831,0.54-1.303,0.54c-0.472,0-0.943-0.18-1.303-0.54
+			c-0.72-0.72-0.72-1.886,0-2.606L136.227,25l-4.839-4.839c-0.72-0.72-0.72-1.886,0-2.606c0.72-0.719,1.885-0.719,2.605,0
+			l4.84,4.839l4.839-4.839c0.72-0.719,1.886-0.719,2.605,0C146.998,18.274,146.998,19.441,146.278,20.161z"/>
+	</g>
+	<rect x="22.5" y="17" fill="#FFFFFF" width="40" height="2"/>
+	<rect x="27.5" y="24" fill="#FFFFFF" width="35" height="2"/>
+	<rect x="32.5" y="31" fill="#FFFFFF" width="30" height="2"/>
+</g>
+<g id="Dark">
+	<g id="Hamburger">
+	</g>
+</g>
 </svg>

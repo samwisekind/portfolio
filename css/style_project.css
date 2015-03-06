@@ -8,6 +8,7 @@ header#header {
 /******* INTRO *******/
 
 #intro {
+	position: relative;
 	padding: 0 50px 50px 50px;
 	width: 100%;
 	max-width: 1300px; }
@@ -18,18 +19,22 @@ header#header {
 	font-weight: 300; }
 
 #intro h2 {
-	margin-bottom: 10px;
-	font-size: 64px; }
+	margin-bottom: 15px;
+	font-size: 64px;
+	line-height: 64px; }
 
 #intro h3 {
 	margin-bottom: 50px;
 	font-size: 24px;
-	color: #555555;
-	line-height: 35px; }
+	line-height: 36px;
+	color: #555555; }
+
+#intro h3 span {
+	display: inline;
+	margin-right: 10px; }
 
 #intro h3 .site-link {
 	display: inline-block;
-	margin-left: 10px;
 	font-size: 16px;
 	color: #AAAAAA;
 	text-decoration: none; }
@@ -52,12 +57,13 @@ header#header {
 	list-style: none;
 	color: #555555;
 	font-size: 12px;
+	line-height: 18px;
 	font-weight: 400; }
 
 #intro ul li:last-child {
 	margin-right: 0; }
 
-#intro ul li span {
+#intro ul li .title {
 	display: block;
 	font-weight: 700; }
 
@@ -88,6 +94,7 @@ header#header {
 .section h4 {
 	margin-bottom: 15px;
 	font-size: 18px;
+	line-height: 18px;
 	font-weight: 700;
 	color: #111111;
 	text-transform: uppercase; }
@@ -148,7 +155,7 @@ header#header {
 
 
 
-/********* TRANSITION *********/
+/********* TRANSITIONS *********/
 
 #intro,
 #intro h2,
@@ -173,12 +180,13 @@ header#header {
 		margin-bottom: 50px !important; }
 
 	#intro h2 {
-		font-size: 48px; }
+		font-size: 48px;
+		line-height: 48px; }
 
 	#intro h3 {
 		margin-bottom: 25px;
 		font-size: 20px;
-		line-height: 25px; }
+		line-height: 30px; }
 
 	#intro h3 .site-link {
 		font-size: 14px; }
@@ -211,38 +219,54 @@ header#header {
 
 }
 
-
-
 @media (max-width: 700px) {
 
 	header#header {
-		margin-bottom: 25px !important; }
+		margin-bottom: 20px !important; }
 
 	#intro,
 	.section {
-		padding: 0 25px 25px 25px; }
+		padding: 0 20px 20px 20px; }
 
 	.section {
-		padding-top: 25px; }
+		padding-top: 20px; }
 
 	#intro h2 {
 		margin-bottom: 5px;
-		font-size: 32px; }
+		font-size: 24px;
+		line-height: 24px; }
 
 	#intro h3 {
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 		font-size: 14px;
-		line-height: 20px; }
+		line-height: 20px;
+		text-align: justify; }
 
 	#intro h3 .site-link {
-		margin-left: 5px;
-		font-size: 10px; }
+		position: absolute;
+		right: 20px;
+		top: 5px;
+		font-size: 12px; }
+
+	#intro h3 span {
+		margin-right: 0; }
 
 	#intro ul li {
 		width: 100%;
 		margin: 0 0 10px 0 !important;
-		font-size: 8px;
+		font-size: 10px;
+		line-height: 14px;
 		text-align: justify; }
+
+	#intro ul li .title {
+		float: left;
+		width: 100px; }
+
+	#intro ul li .content {
+		float: right;
+		width: calc(100% - 100px);
+		width: -moz-calc(100% - 100px);
+		width: -webkit-calc(100% - 100px); }
 
 	#intro ul #details-timeframe {
 		margin-bottom: 0 !important; }
@@ -252,18 +276,19 @@ header#header {
 		margin-bottom: 10px; }
 
 	.section h4 {
-		font-size: 16px; }
+		font-size: 16px;
+		line-height: 24px; }
 
 	.section p.large {
 		font-size: 14px;
-		line-height: 20px; }
+		line-height: 22px; }
 
 	.section p {
 		font-size: 12px;
 		line-height: 20px; }
 
 	.project-preview {
-		margin: 25px auto 25px auto;
+		margin: 20px auto 20px auto;
 		width: 320px;
 		height: 672px;
 		background-image: url("../img/project/project_preview_small.png") !important; }

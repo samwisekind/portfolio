@@ -1,7 +1,8 @@
 /******* GLOBAL *******/
 
 body#album {
-	overflow: hidden; }
+	overflow: hidden;
+	background: #000000; }
 
 header#header {
 	top: 0;
@@ -49,7 +50,7 @@ header#header nav#nav ul li.current a span {
 header#header nav#nav ul li.current a:hover span {
 	border-color: #111111; }
 
-header#header #hamburger {
+header#header #hamburger a {
 	background-image: url("../img/global/header_hamburger_light.svg"); }
 
 body#album footer#footer {
@@ -73,7 +74,11 @@ header#header,
 	top: 70px;
 	left: 0;
 	width: calc(100% - 150px);
-	height: calc(100% - 120px); }
+	width: -moz-calc(100% - 150px);
+	width: -webkit-calc(100% - 150px);
+	height: calc(100% - 120px);
+	height: -moz-calc(100% - 120px);
+	height: -webkit-calc(100% - 120px); }
 
 
 
@@ -221,6 +226,8 @@ body.map #map {
 	top: 70px;
 	width: 150px;
 	height: calc(100% - 120px);
+	height: -moz-calc(100% - 120px);
+	height: -webkit-calc(100% - 120px);
 	background: #111111; }
 
 #thumbnails #thumbnails-list {
@@ -401,11 +408,16 @@ body.map #navigator #navigator-select #navigator-map {
 	border: none;
 	font-size: 14px;
 	color: #848E92;
-	background: url("../img/album/album_select.svg") calc(100% - 8px) center no-repeat #111111;
+	background: url("../img/album/album_select.svg") center no-repeat #111111;
+	background-position: calc(100% - 8px);
+	background-position: -moz-calc(100% - 8px);
+	background-position: -webkit-calc(100% - 8px);
 	-webkit-appearance: none;
 	-moz-appearance: none; }
 
 
+
+/******* RESPONSIVE *******/
 
 @media (max-width: 600px) {
 
@@ -413,8 +425,6 @@ body.map #navigator #navigator-select #navigator-map {
 		padding: 0 !important; }
 
 }
-
-
 
 @media (max-width: 900px) {
 
@@ -440,13 +450,19 @@ body.map #navigator #navigator-select #navigator-map {
 		width: 100%; }
 
 	#map {
-		height: calc(100% - 120px); }
+		height: calc(100% - 120px);
+		height: -moz-calc(100% - 120px);
+		height: -webkit-calc(100% - 120px); }
 
 	#viewer {
-		height: calc(100% - 190px); }
+		height: calc(100% - 190px);
+		height: -moz-calc(100% - 190px);
+		height: -webkit-calc(100% - 190px); }
 
 	body.swiped #viewer {
 		height: calc(100% - 170px);
+		height: -moz-calc(100% - 170px);
+		height: -webkit-calc(100% - 170px);
 		-webkit-transition: height .25s;
 		-moz-transition: height .25s;
 		-ms-transition: height .25s;
@@ -509,6 +525,8 @@ body.map #navigator #navigator-select #navigator-map {
 
 	#navigator #navigator-select #navigator-albums {
 		float: right;
-		width: calc(100% - 100px); }
+		width: calc(100% - 100px);
+		width: -moz-calc(100% - 100px);
+		width: -webkit-calc(100% - 100px); }
 
 }
