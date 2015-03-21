@@ -83,7 +83,47 @@ function album_change (target, direction, int) {
 			swiped = true;
 
 		};
+
+		if (map.opened == true) {
+
+			map_toggle();
+
+		};
 			
+	};
+
+};
+
+
+
+function map_toggle () {
+
+	if (map.loaded == false) {
+
+		map.loaded = true;
+
+		setTimeout(function() {
+
+			map_load();
+
+		}, 250);
+
+	};
+
+	if (map.opened == false) {
+
+		map.opened = true;
+		body_cache.addClass("map");
+		map.button.html("Close Map");
+
+	}
+
+	else if (map.opened == true) {
+
+		map.opened = false;
+		body_cache.removeClass("map");
+		map.button.html("View Map");
+
 	};
 
 };
@@ -111,33 +151,7 @@ $(document).ready(function() {
 
 	map.button.bind("click", function(event) {
 
-		if (map.loaded == false) {
-
-			map.loaded = true;
-
-			setTimeout(function() {
-
-				map_load();
-
-			}, 250);
-
-		};
-
-		if (map.opened == false) {
-
-			map.opened = true;
-			body_cache.addClass("map");
-			map.button.html("Close Map");
-
-		}
-
-		else if (map.opened == true) {
-
-			map.opened = false;
-			body_cache.removeClass("map");
-			map.button.html("View Map");
-
-		};
+		map_toggle();
 
 	});
 

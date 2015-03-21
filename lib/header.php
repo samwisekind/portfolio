@@ -60,7 +60,7 @@
 
 
 
-<body id="<?php echo $page; ?>">
+<body id="page-<?php echo $page; ?>">
 
 	<div id="wrapper">
 
@@ -109,7 +109,7 @@
 				<div id="intro">
 
 					<h2><?php echo $project[$project_name][1]; ?></h2>
-					<h3><span><?php echo $project[$project_name][2]; ?></span><?php if (isset($project[$project_name][6]) == true) { echo " <a href='" . $project[$project_name][6] . "' class='site-link'>View Site <span>&#10095;</span></a>"; }; ?><span class="cf"></span></h3>
+					<h3><span><?php echo $project[$project_name][2]; ?></span><?php if (isset($project[$project_name][6]) == true) { echo " <a href='" . $project[$project_name][6] . "' class='title-link'>View Site <span>&#10095;</span></a>"; }; ?><span class="cf"></span></h3>
 
 					<ul id="details">
 						<li id="details-responsibilities"><span class="title">Responsibilities:</span> <span class="content"><?php echo $project[$project_name][3]; ?></span></li>

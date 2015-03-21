@@ -46,7 +46,8 @@
 
 				if ($type == "project") {
 
-					$image = $project[$work_array[$i][1]][0];
+					$image = $project[$work_array[$i][1]][0][0];
+					$image_large = $project[$work_array[$i][1]][0][1];
 					$title = $project[$work_array[$i][1]][1];
 					$subtitle = $project[$work_array[$i][1]][2];
 					$responsibilities = $project[$work_array[$i][1]][3];
@@ -60,7 +61,7 @@
 
 						<article class="project" data-search="' . $search . '">
 
-							<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
+							<div class="image"><a href="' . $link . '"><img src="' . $directory . $image . '" srcset="' . $directory . $image . ' 1x, ' . $directory . $image_large . ' 2x" alt="Project: ' . $title . '" /></a></div>
 
 							<div class="content">
 
@@ -86,7 +87,8 @@
 
 				else if ($type == "album") {
 
-					$image = $album[$work_array[$i][1]][5][0][2];
+					$image = $album[$work_array[$i][1]][4][0];
+					$image_large = $album[$work_array[$i][1]][4][1];
 					$title = $album[$work_array[$i][1]][1];
 					$subtitle = $album[$work_array[$i][1]][2];
 					$link = $directory . "album.php?album=" . $work_array[$i][1];
@@ -97,7 +99,7 @@
 
 						<article class="album" data-search="' . $search . '">
 
-							<div class="image"><a href="' . $link . '"><img src="' . $image . '" alt="" /></a></div>
+							<div class="image"><a href="' . $link . '"><img src="' . $directory . $image . '" srcset="' . $directory . $image . ' 1x, ' . $directory . $image_large . ' 2x" alt="Album: ' . $title . '" /></a></div>
 
 							<div class="content">
 

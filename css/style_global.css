@@ -48,6 +48,23 @@ article, section, aside, hgroup, nav, header, footer, figure, figcaption {
 .noscroll {
 	overflow: hidden; }
 
+.title-link {
+	display: inline-block;
+	font-family: "Oxygen", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 16px;
+	color: #AAAAAA;
+	text-transform: none;
+	text-decoration: none; }
+
+.title-link:hover {
+	text-decoration: underline; }
+
+.title-link span {
+	font-family: Verdana, sans-serif;
+	font-weight: 300; }
+
 
 
 /******** WRAPPER & CONTENT ********/
@@ -344,6 +361,10 @@ footer#footer p {
 	.special-link {
 		font-size: 12px; }
 
+	.title-link {
+		font-size: 14px;
+		line-height: 14px; }
+
 	header#header {
 		margin-bottom: 50px;
 		height: 75px; }
@@ -358,6 +379,12 @@ footer#footer p {
 }
 
 @media (max-width: 700px) {
+
+	.title-link {
+		position: absolute;
+		right: 20px;
+		font-size: 12px;
+		line-height: 12px; }
 
 	#nav-outer {
 		display: table; }
@@ -392,7 +419,8 @@ footer#footer p {
 	body.menu #content-overlay:hover {
 		cursor: pointer; }
 
-	body.menu #content, #content-overlay {
+	body.menu #content,
+	#content-overlay {
 		-webkit-transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg);
 		-moz-transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg);
 		-ms-transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg);
@@ -400,17 +428,18 @@ footer#footer p {
 		transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg); }
 
 	body.menu #content {
+		overflow: hidden;
 		box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 3px; }
 
 	header#header {
 		margin-bottom: 40px;
-		height: 50px; }
+		height: 50px !important; }
 
 	header#header h1 {
-		margin: 0 0 0 20px; }
+		margin: 0 0 0 20px !important; }
 
 	header#header h1 a {
-		font-size: 16px; }
+		font-size: 16px !important; }
 
 	header#header nav#nav {
 		display: none; }
@@ -425,16 +454,14 @@ footer#footer p {
 	#global-list article {
 		width: 100% !important; }
 
-	#global-list article.project {
-		display: block !important; }
-
 	#global-list article .image,
 	#global-list article .content {
 		float: none !important;
 		width: 100% !important; }
 
 	#global-list article .content {
-		padding: 20px 20px 40px 20px !important; }
+		padding: 20px 20px 40px 20px !important;
+		text-align: left; }
 
 	#global-list article h2 a {
 		font-size: 16px !important;

@@ -1,36 +1,21 @@
 /******* GLOBAL *******/
 
-body#album {
+body#page-album {
 	overflow: hidden;
 	background: #000000; }
 
 header#header {
 	top: 0;
-	padding: 0;
 	height: 70px;
 	border: none;
 	background: #222222; }
 
 header#header h1 {
-	margin: 0 25px 0 25px; }
-
-header#header h1,
-header#header nav#nav,
-header#header nav#nav ul li {
-	float: left; }
-
-header#header h1,
-header#header nav#nav ul li {
-	display: inline-table; }
-
-header#header h1 a {
-	font-size: 22px; }
+  margin-left: 25px;
+  margin-right: 25px; }
 
 header#header h1 a,
 header#header nav#nav ul li a {
-	display: table-cell;
-	vertical-align: middle;
-	height: 70px;
 	color: #FFFFFF !important; }
 
 header#header nav#nav ul li a {
@@ -53,8 +38,8 @@ header#header nav#nav ul li.current a:hover span {
 header#header #hamburger a {
 	background-image: url("../img/global/header_hamburger_light.svg"); }
 
-body#album footer#footer {
-	display: none; }
+footer#footer {
+	display: none !important; }
 
 
 
@@ -105,7 +90,7 @@ header#header,
 
 #map {
 	z-index: 100;
-	background: #111111;
+	background: url("../img/album/album_map_icon.svg") center center no-repeat #111111;
 	max-height: 0;
 	-webkit-transition: max-height .25s;
 	-moz-transition: max-height .25s;
@@ -120,6 +105,8 @@ header#header,
 body.map #map {
 	max-height: 100%; }
 
+body.menu #map-canvas {
+	display: none; }
 
 
 /******* VIEWER *******/
@@ -427,6 +414,12 @@ body.map #navigator #navigator-select #navigator-map {
 }
 
 @media (max-width: 900px) {
+
+	header#header {
+		margin-bottom: 0 !important; }
+
+	header#header h1 a {
+		height: auto !important; }
 
 	#viewer .viewer-arrow,
 	#navigator #navigator-title,

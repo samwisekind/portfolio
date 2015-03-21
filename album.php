@@ -1,6 +1,29 @@
 <?php
 
 	$page = "album";
+
+	require_once "lib/albums.php";
+
+	$album_list = array();
+
+	foreach ($album as $key => $value) {
+
+		array_push($album_list, $key);
+		
+	};
+
+	if (!in_array($_GET["album"], $album_list)) {
+
+		$album_current = "portfolio";
+
+	}
+
+	else if (isset($_GET["album"])) {
+
+		$album_current = $_GET["album"];
+
+	};
+
 	require "lib/header.php";
 
 ?>
@@ -32,7 +55,7 @@
 
 							if ($value[0] == "places") {
 
-								echo "['" . $value[1] . "', " . $value[3] . ", " .  $value[4] . ", '" .  strtok($_SERVER["REQUEST_URI"], "?") . "?album=" . $key . "'],";
+								echo "['" . $value[1] . "', " . $value[3][0] . ", " .  $value[3][1] . ", '" .  strtok($_SERVER["REQUEST_URI"], "?") . "?album=" . $key . "'],";
 
 							};
 

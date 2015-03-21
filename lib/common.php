@@ -6,33 +6,6 @@
 
 
 
-	if ($page == "album") {
-
-		require_once "lib/albums.php";
-
-		$album_list = array();
-
-		foreach ($album as $key => $value) {
-
-			array_push($album_list, $key);
-			
-		};
-
-		if (!in_array($_GET["album"], $album_list)) {
-
-			$album_current = "portfolio";
-
-		}
-
-		else if (isset($_GET["album"])) {
-
-			$album_current = $_GET["album"];
-
-		};
-
-	};
-
-
 
 	function project_preview ($array) {
 

@@ -11,7 +11,7 @@
 
 	<p>My name is Sam and I am a designer, web developer and photographer.</p>
 
-	<p>My main areas of expertise are in HTML5, CSS3, JavaScript, jQuery, Cordova/PhoneGap, PHP and WordPress. I also have experience in SQL and ASP, and am an active wildlife and nature photographer. I like to develop creative and elegant solutions to complex problems, with a constant focus on the psychology of end-users.</p>
+	<p>My main areas of expertise are in HTML5, CSS3, JavaScript, jQuery, GreenSock, Cordova/PhoneGap, PHP and WordPress. I also have experience in SQL and ASP, and am an active wildlife and nature photographer. I like to develop creative and elegant solutions to complex problems, with a constant focus on the psychology of end-users.</p>
 
 	<p>I have worked with numerous clients in Hong Kong and around the world, developing a variety of digital solutions ranging from modern responsive websites to ad-hoc mobile applications. You can view some of these projects and my photography albums <a href="<?php echo $directory; ?>work.php">here</a>.</p>
 
