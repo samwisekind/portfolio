@@ -3,6 +3,7 @@
 html {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	box-sizing: border-box; }
 
 body {
@@ -22,7 +23,15 @@ body {
 	padding: 0;
 	box-sizing: inherit;  }
 
-article, section, aside, hgroup, nav, header, footer, figure, figcaption {
+article,
+section,
+aside,
+hgroup,
+nav,
+header,
+footer,
+figure,
+figcaption {
 	display: block; }
 
 
@@ -50,7 +59,7 @@ article, section, aside, hgroup, nav, header, footer, figure, figcaption {
 
 .title-link {
 	display: inline-block;
-	font-family: "Oxygen", Helvetica, Arial, sans-serif;
+	font-family: "Oxygen",	Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	font-size: 16px;
 	line-height: 16px;
@@ -343,7 +352,7 @@ article .featured-image,
 article .featured-content,
 article h2,
 article p,
-article .featured-link ,
+article .featured-link,
 footer#footer,
 footer#footer p {
 	-webkit-transition: all .25s ease-out;
@@ -396,13 +405,13 @@ footer#footer p {
 		position: absolute;
 		overflow: hidden;
 		background: #3F4257;
-		background: -moz-linear-gradient(-45deg,  #3F4257 0%, #727998 100%);
-		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#3F4257), color-stop(100%,#727998));
-		background: -webkit-linear-gradient(-45deg,  #3F4257 0%,#727998 100%);
-		background: -o-linear-gradient(-45deg,  #3F4257 0%,#727998 100%);
-		background: -ms-linear-gradient(-45deg,  #3F4257 0%,#727998 100%);
-		background: linear-gradient(135deg,  #3F4257 0%,#727998 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4257', endColorstr='#727998',GradientType=1 ); }
+		background: -moz-linear-gradient(-45deg, #3F4257 0%, #727998 100%);
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #3F4257), color-stop(100%, #727998));
+		background: -webkit-linear-gradient(-45deg, #3F4257 0%, #727998 100%);
+		background: -o-linear-gradient(-45deg, #3F4257 0%, #727998 100%);
+		background: -ms-linear-gradient(-45deg, #3F4257 0%, #727998 100%);
+		background: linear-gradient(135deg, #3F4257 0%, #727998 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f4257", endColorstr="#727998", GradientType=1 ); }
 
 	#content,
 	#content-overlay {
