@@ -461,11 +461,13 @@ footer#footer p {
 		font-size: 14px; }
 
 	#global-list article {
+		display: block !important;
 		width: 100% !important; }
 
 	#global-list article .image,
 	#global-list article .content {
-		float: none !important; }
+		float: none !important;
+		width: 100% !important;	}
 
 	#global-list article .content {
 		padding: 20px 20px 40px 20px !important;
