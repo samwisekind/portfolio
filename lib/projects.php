@@ -32,16 +32,16 @@
 	);
 
 	$project["enicar"] = array(
-		array("img/index/featured_work_enicar.jpg", "img/index/featured_work_k11.jpg"),
+		array("projects/enicar/enicar_cover.jpg", "projects/enicar/enicar_cover@2x.jpg"),
 		"Enicar",
-		"Complete website re-design for the 100th anniversary of one of Asia's most prominent and longest-lasting timepiece designers.",
+		"Complete website re-design for the 100th anniversary of Asia's most prominent and longest-lasting timepiece designer.",
 		"Visual &amp; System Design, Frontend & Backend Development, Multilingual Mapping, UAT",
-		"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator",
-		"21st September 2014 - 21st September 2014",
+		"HTML5, CSS3, JavaScript, jQuery, Skrollr, TweenMax, PHP, Photoshop, Illustrator",
+		"4th April 2014 - 12th February 2015",
 		"http://www.enicar.com/"
 	);
 
-		$project["steamcast"] = array(
+	$project["steamcast"] = array(
 		array("projects/steamcast/steamcast_cover.jpg", "projects/steamcast/steamcast_cover@2x.jpg"),
 		"Steamcast",
 		"Gaming podcast with 15,000+ monthly listeners and 4,000,000+ annual views, spanning over 100 episodes.",
