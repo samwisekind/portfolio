@@ -111,34 +111,21 @@ header#header {
 .project-preview {
 	position: relative;
 	margin: 50px auto 50px auto;
-	width: 800px;
-	height: 435px;
-	background: url("../img/project/project_preview_large.png") center center no-repeat transparent; }
+	width: 750px;
+	height: 430px;
+	background: url("../img/project/project_preview.svg") no-repeat transparent; }
 
-.project-preview img {
-	pointer-events: none;
-	display: none;
+.project-preview .project-preview-image {
 	position: absolute;
-	border: none; }
+	left: 90px;
+	top: 25px;
+	width: 570px;
+	height: 355px;
+	background: no-repeat transparent; }
 
-.project-preview .project-preview-large {
-	display: block;
-	left: 125px;
-	top: 27px;
-	width: 550px;
-	height: 345px; }
-
-.project-preview .project-preview-medium {
-	left: 39px;
-	top: 34px;
-	width: 320px;
-	height: 240px; }
-
-.project-preview .project-preview-small {
-	left: 29px;
-	top: 100px;
-	width: 265px;
-	height: 474px; }
+.project-preview,
+.project-preview-image {
+	background-position: left top !important }
 
 
 
@@ -191,15 +178,18 @@ header#header {
 
 	.project-preview {
 		margin: 50px auto 50px auto;
-		width: 400px;
-		height: 308px;
-		background-image: url("../img/project/project_preview_medium.png") !important; }
+		width: 440px;
+		height: 310px; }
 
-	.project-preview .project-preview-large {
-		display: none; }
+	.project-preview .project-preview-image {
+		left: 38px;
+		top: 19px;
+		width: 360px;
+		height: 270px; }
 
-	.project-preview .project-preview-medium {
-		display: block; }
+	.project-preview,
+	.project-preview-image {
+		background-position: left bottom !important }
 
 }
 
@@ -270,14 +260,17 @@ header#header {
 
 	.project-preview {
 		margin: 20px auto 20px auto;
-		width: 320px;
-		height: 672px;
-		background-image: url("../img/project/project_preview_small.png") !important; }
+		width: 225px;
+		height: 475px; }
 
-	.project-preview .project-preview-medium {
-		display: none; }
+	.project-preview .project-preview-image {
+		left: 12px;
+		top: 64px;
+		width: 200px;
+		height: 340px; }
 
-	.project-preview .project-preview-small {
-		display: block; }
+	.project-preview,
+	.project-preview-image {
+		background-position: right top !important; }
 
 }

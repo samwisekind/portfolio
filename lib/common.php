@@ -7,15 +7,13 @@
 
 
 
-	function project_preview ($array) {
+	function project_preview ($image) {
 
 		echo '
 
 			<div class="project-preview">
 
-				<img src="' . $array[0] . '" class="project-preview-large" alt="" />
-				<img src="' . $array[1] . '" class="project-preview-medium" alt="" />
-				<img src="' . $array[2] . '" class="project-preview-small" alt="" />
+				<div class="project-preview-image" style="background-image: url(' . $image . ');"></div>
 
 			</div>
 
