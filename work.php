@@ -35,7 +35,7 @@
 				array("album", "portfolio"),
 				array("project", "yungsclub"),
 				array("project", "portfolio"),
-				array("album", "kenya"),
+				array("album", "kenya")
 
 			);
 
@@ -46,6 +46,7 @@
 
 				if ($type == "project") {
 
+					$name = "Project";
 					$image = $project[$work_array[$i][1]][0][0];
 					$image_large = $project[$work_array[$i][1]][0][1];
 					$title = $project[$work_array[$i][1]][1];
@@ -57,36 +58,11 @@
 
 					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle . " " . $responsibilities . " " . $technology));
 
-					echo '
-
-						<article class="project" data-search="' . $search . '">
-
-							<div class="image"><a href="' . $link . '"><img src="' . $directory . $image . '" srcset="' . $directory . $image . ' 1x, ' . $directory . $image_large . ' 2x" alt="Project: ' . $title . '" /></a></div>
-
-							<div class="content">
-
-								<h2><a href="' . $link . '">' . $title . '</a></h2>
-								<a class="special-link" href="' . $link . '">View Project <span>&#10095;</span></a>
-								<p>' . $subtitle . '</p>
-
-								<ul>
-									<li><span>Responsibilities:</span> ' . $responsibilities . '</li>
-									<li><span>Technology:</span> ' . $technology . '</li>
-									<li><span>Timeframe:</span> ' . $timeframe . '</li>
-								</ul>
-
-								<div class="cf"></div>
-
-							</div>
-
-						</article>
-
-					';
-
 				}
 
 				else if ($type == "album") {
 
+					$name = "Album";
 					$image = $album[$work_array[$i][1]][4][0];
 					$image_large = $album[$work_array[$i][1]][4][1];
 					$title = $album[$work_array[$i][1]][1];
@@ -95,37 +71,56 @@
 
 					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle));
 
-					echo '
-
-						<article class="album" data-search="' . $search . '">
-
-							<div class="image"><a href="' . $link . '"><img src="' . $directory . $image . '" srcset="' . $directory . $image . ' 1x, ' . $directory . $image_large . ' 2x" alt="Album: ' . $title . '" /></a></div>
-
-							<div class="content">
-
-								<h2><a href="' . $link . '">' . $title . '</a></h2>
-								<a class="special-link" href="' . $link . '">View Album <span>&#10095;</span></a>
-								<p>' . $subtitle . '</p>
-
-								<div class="cf"></div>
-
-							</div>
-
-						</article>
-
-					';
 
 				};
 
-			};
+			?>
 
-			for ($i = 0; $i < 2; $i++) {
+				<article class="<?php echo $type; ?>" data-search="<?php echo $search; ?>">
 
-				echo '<article class="spacer">';
+					<div class="image"><a href="<?php echo $link; ?>"><img src="<?php echo $directory . $image; ?>" srcset="<?php echo $directory . $image; ?> 1x, <?php echo $directory . $image_large; ?> 2x" alt="<?php echo $name; ?>: <?php echo $title; ?>" /></a></div>
 
-			};
+					<div class="content">
 
-		?>
+						<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
+						<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&#10095;</span></a>
+						<p><?php echo $subtitle; ?></p>
+
+						<?php
+
+							if ($type == "project") {
+
+						?>
+
+							<ul>
+								<li><span>Responsibilities:</span> <?php echo $responsibilities; ?></li>
+								<li><span>Technology:</span> <?php echo $technology; ?></li>
+								<li><span>Timeframe:</span> <?php echo $timeframe; ?></li>
+							</ul>
+
+						<?php
+
+							};
+
+						?>
+
+						<div class="cf"></div>
+
+					</div>
+
+				</article>
+
+			<?php
+
+				};
+
+				for ($i = 0; $i < 2; $i++) {
+
+					echo '<article class="spacer">';
+
+				};
+
+			?>
 
 		<div class="cf"></div>
 
