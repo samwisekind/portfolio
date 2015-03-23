@@ -175,7 +175,7 @@
 
 			<div>
 				
-				<a id="navigator-map" href="#">View Map</a>
+				<a id="navigator-map" href="#"><span id="map-open">View Map</span><span id="map-close">Close Map</span></a>
 
 				<select id="navigator-albums">
 					<?php

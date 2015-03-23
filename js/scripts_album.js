@@ -114,7 +114,6 @@ function map_toggle () {
 
 		map.opened = true;
 		body_cache.addClass("map");
-		map.button.html("Close Map");
 
 	}
 
@@ -122,7 +121,6 @@ function map_toggle () {
 
 		map.opened = false;
 		body_cache.removeClass("map");
-		map.button.html("View Map");
 
 	};
 

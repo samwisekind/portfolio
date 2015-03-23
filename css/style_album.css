@@ -372,18 +372,27 @@ body.menu #map-canvas {
 	background: #222222; }
 
 #navigator #navigator-select #navigator-map {
-	margin-right: 25px;
-	padding: 2px 0 2px 25px;
+	margin-right: 20px;
+	padding: 2px 25px 2px 0;
 	font-size: 12px;
 	color: #FFFFFF;
+	text-align: right;
 	text-transform: uppercase;
 	text-decoration: none;
-	background: url("../img/album/album_map_open.svg") left center no-repeat transparent;
+	background: url("../img/album/album_map_open.svg") right center no-repeat transparent;
 	background-size: contain; }
 
 body.map #navigator #navigator-select #navigator-map {
-	padding: 0 0 0 20px;
+	padding: 0 20px 0 0;
 	background-image: url("../img/album/album_map_close.svg"); }
+
+#navigator #navigator-select #navigator-map #map-open,
+body.map #navigator #navigator-select #navigator-map #map-close {
+	display: inline; }
+
+#navigator #navigator-select #navigator-map #map-close,
+body.map #navigator #navigator-select #navigator-map #map-open {
+	display: none; }
 
 #navigator #navigator-select #navigator-map:hover {
 	text-decoration: underline; }
