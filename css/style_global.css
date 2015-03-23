@@ -465,8 +465,7 @@ footer#footer p {
 
 	#global-list article .image,
 	#global-list article .content {
-		float: none !important;
-		width: 100% !important; }
+		float: none !important; }
 
 	#global-list article .content {
 		padding: 20px 20px 40px 20px !important;
