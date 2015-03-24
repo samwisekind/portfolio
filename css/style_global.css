@@ -110,6 +110,14 @@ figcaption {
 #nav-outer li:last-child {
 	margin-bottom: 0; }
 
+#nav-outer #nav-outer-wrapper li {
+	opacity: 0;
+	-webkit-transition: opacity .25s ease-out;
+	-moz-transition: opacity .25s ease-out;
+	-ms-transition: opacity .25s ease-out;
+	-o-transition: opacity .25s ease-out;
+	transition: opacity .25s ease-out; }
+
 #nav-outer #nav-outer-wrapper li a {
 	display: block;
 	padding: 20px 10% 20px 0;
@@ -118,11 +126,11 @@ figcaption {
 	color: #FFFFFF;
 	text-align: right;
 	text-decoration: none;
-	-webkit-transition: background .25s;
-	-moz-transition: background .25s;
-	-ms-transition: background .25s;
-	-o-transition: background .25s;
-	transition: background .25s; }
+	-webkit-transition: background .25s ease-out;
+	-moz-transition: background .25s ease-out;
+	-ms-transition: background .25s ease-out;
+	-o-transition: background .25s ease-out;
+	transition: background .25s ease-out; }
 
 #nav-outer #nav-outer-wrapper li.current a,
 #nav-outer #nav-outer-wrapper li a:hover {
@@ -305,9 +313,8 @@ main.main > h1 {
 	border-color: #CCCCCC; }
 
 .special-link span {
-	font-family: Verdana, sans-serif;
-	margin-left: 4px;
-	font-weight: 300; }
+	margin-left: 2px;
+	font-weight: 700; }
 
 article.album .special-link {
 	color: #AAAAAA; }
@@ -459,6 +466,30 @@ footer#footer p {
 	main.main > h1 {
 		margin: 0 0 20px 20px;
 		font-size: 14px; }
+
+	body.menu #nav-outer #nav-outer-wrapper li {
+		opacity: 1; }
+
+	body.menu #nav-outer #nav-outer-wrapper li:nth-child(1) {
+		-webkit-transition-delay: .15s;
+		-moz-transition-delay: .15s;
+		-ms-transition-delay: .15s;
+		-o-transition-delay: .15s;
+		transition-delay: .15s; }
+
+	body.menu #nav-outer #nav-outer-wrapper li:nth-child(2) {
+		-webkit-transition-delay: .2s;
+		-moz-transition-delay: .2s;
+		-ms-transition-delay: .2s;
+		-o-transition-delay: .2s;
+		transition-delay: .2s; }
+
+	body.menu #nav-outer #nav-outer-wrapper li:nth-child(3) {
+		-webkit-transition-delay: .25s;
+		-moz-transition-delay: .25s;
+		-ms-transition-delay: .25s;
+		-o-transition-delay: .25s;
+		transition-delay: .25s; }
 
 	#global-list article {
 		display: block !important;
