@@ -7,7 +7,7 @@
 
 
 
-	<h1><span>Featured Work</span> <a href="work.php" class="title-link">View all work <span>❯</span></a></h1>
+	<h1><span>Featured Work</span> <a href="work.php" class="title-link">View all work <span>&raquo;</span></a></h1>
 
 	<div id="global-list">
 
@@ -62,7 +62,7 @@
 					<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
 					<p><?php echo $subtitle; ?></p>
 
-					<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&#10095;</span></a>
+					<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&raquo;</span></a>
 
 				</div>
 

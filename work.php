@@ -83,7 +83,7 @@
 					<div class="content">
 
 						<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
-						<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&#10095;</span></a>
+						<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&raquo;</span></a>
 						<p><?php echo $subtitle; ?></p>
 
 						<?php
