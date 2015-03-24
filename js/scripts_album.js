@@ -245,7 +245,7 @@ $(document).ready(function() {
 
 	window_cache.resize(function() {
 
-		if (body_cache.width() <= 900) {
+		if (body_cache.width() <= 700) {
 
 			album_list.list.removeClass("width");
 			mode = "small";

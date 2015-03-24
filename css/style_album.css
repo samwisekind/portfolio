@@ -1,7 +1,7 @@
 /******* GLOBAL *******/
 
-body#page-album {
-	overflow: hidden;
+body {
+	overflow: hidden !important;
 	background: #000000; }
 
 header#header {
@@ -37,6 +37,10 @@ header#header nav#nav ul li.current a:hover span {
 
 header#header #hamburger a {
 	background-image: url("../img/global/header_hamburger_light.svg"); }
+
+#content,
+#content #wrapper {
+	overflow: hidden !important; }
 
 footer#footer {
 	display: none !important; }
@@ -415,14 +419,7 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 
 /******* RESPONSIVE *******/
 
-@media (max-width: 600px) {
-
-	header#header {
-		padding: 0 !important; }
-
-}
-
-@media (max-width: 900px) {
+@media (max-width: 700px) {
 
 	header#header {
 		margin-bottom: 0 !important; }
@@ -449,22 +446,23 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 	#map,
 	#viewer {
 		left: 0;
+		top: 50px;
 		width: 100%; }
 
 	#map {
-		height: calc(100% - 120px);
-		height: -moz-calc(100% - 120px);
-		height: -webkit-calc(100% - 120px); }
+		height: calc(100% - 100px);
+		height: -moz-calc(100% - 100px);
+		height: -webkit-calc(100% - 100px); }
 
 	#viewer {
-		height: calc(100% - 190px);
-		height: -moz-calc(100% - 190px);
-		height: -webkit-calc(100% - 190px); }
-
-	body.swiped #viewer {
 		height: calc(100% - 170px);
 		height: -moz-calc(100% - 170px);
-		height: -webkit-calc(100% - 170px);
+		height: -webkit-calc(100% - 170px); }
+
+	body.swiped #viewer {
+		height: calc(100% - 150px);
+		height: -moz-calc(100% - 150px);
+		height: -webkit-calc(100% - 150px);
 		-webkit-transition: height .25s;
 		-moz-transition: height .25s;
 		-ms-transition: height .25s;
@@ -523,7 +521,14 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 	#navigator #navigator-select #navigator-map {
 		float: left;
 		margin-right: 0;
-		margin-top: 5px; }
+		margin-top: 8px;
+		padding: 0 0 0 20px;
+		padding-right: 0 !important;
+		text-align: left;
+		background-position: left center; }
+
+	body.map #navigator #navigator-select #navigator-map {
+		padding: 0 0 0 20px; }
 
 	#navigator #navigator-select #navigator-albums {
 		float: right;
