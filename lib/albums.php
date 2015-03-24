@@ -121,7 +121,7 @@
 		"香港 (Hong Kong)",
 		"08/11/2005 - 05/08/2010",
 		array("22.3700556", "114.1223784"),
-		array("albums/kenya/kenya_cover.jpg", "albums/kenya/kenya_cover@2x.jpg"),
+		array("albums/hongkong/hongkong_cover.jpg", "albums/hongkong/hongkong_cover@2x.jpg"),
 
 		array(
 			array("Hong Kong Lightning", "albums/hongkong/hongkong_1_thumb.jpg", "albums/hongkong/hongkong_1_full.jpg"),
@@ -315,7 +315,7 @@
 		"Portfolio",
 		"",
 		array("", ""),
-		array($album["kenya"][4][0], $album["kenya"][4][1]),
+		array($album["hongkong"][4][0], $album["hongkong"][4][1]),
 
 		array(
 
