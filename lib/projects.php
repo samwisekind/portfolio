@@ -17,7 +17,7 @@
 		"Joyce",
 		"Revamping the online identity of Hong Kong's most famous and respected fashion retailer from the ground-up.",
 		"Visual &amp System Design, Frontend &amp; Backend Development, UAT",
-		"HTML5, CSS3, JavaScript, jQuery, PHP, WordPress, MySQL, Photoshop, Illustrator",
+		"HTML5, CSS3, JavaScript, jQuery, PHP, WordPress, Magento, MySQL, Photoshop, Illustrator",
 		"21st September 2014 - 21st September 2014",
 		"http://www.joyce.com/"
 	);
