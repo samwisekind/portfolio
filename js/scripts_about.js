@@ -3,13 +3,13 @@ var contact_cache;
 
 function contact_validate () {
 
-	if ($("#contact-form").parsley().validate() == false) {
+	if (contact_cache.parsley().validate() == false) {
 
 		return false;
 
 	}
 
-	else if ($("#contact-form").parsley().validate() == true) {
+	else if (contact_cache.parsley().validate() == true) {
 
 		contact_cache.addClass("disabled");
 		contact_cache.inputs.prop("disabled", true);
@@ -33,14 +33,14 @@ function contact_send () {
 			"message": {
 				"from_email": contact_cache.email.val(),
 				"from_name": contact_cache.name.val(),
-				"to": [{"email": "enicarswiss@gmail.com"}, {"email": "1931368316@qq.com"}],
+				"to": [{"email": "sam@flamov.com"}],
 				"autotext": "true",
-				"subject": "Message from " + contact_cache.name.val() + " (" + contact_cache.email.val() + ") via Enicar.com Contact Form",
+				"subject": "Message from " + contact_cache.name.val() + " (" + contact_cache.email.val() + ") via Flamov.com Contact Form",
 				"html": contact_cache.message.val()
 			}
 		}, error: function() {
 
-			alert(contact_error_message);
+			alert("error sending email");
 
 			contact_cache.removeClass("disabled");
 			contact_cache.inputs.prop("disabled", false);
@@ -49,7 +49,7 @@ function contact_send () {
 
 		}, success: function() {
 
-			alert(contact_success_messsage);
+			alert("email sent");
 
 			contact_cache.removeClass("disabled");
 			contact_cache.inputs.prop("disabled", false);
@@ -64,19 +64,27 @@ function contact_send () {
 
 $(document).ready(function() {
 
-	contact_cache = $("#contact");
+	contact_cache = $("#contact-form");
+
 	contact_cache.inputs = contact_cache.find("input, textarea");
 	contact_cache.fields = contact_cache.find(".contact-field");
-	contact_cache.name = $("#contact").find("#contact-name");
-	contact_cache.email = $("#contact").find("#contact-email");
-	contact_cache.message = $("#contact").find("#contact-message");
 
-	$("#contact-form").parsley();
+	contact_cache.name = contact_cache.find("#contact-name");
+	contact_cache.email = contact_cache.find("#contact-email");
+	contact_cache.message = contact_cache.find("#contact-message");
+
+	contact_cache.parsley();
 
 	$("#contact-submit").bind("click", function(event) {
 
 		event.preventDefault();
 		contact_validate();
+
+	});
+
+	$("#contact-reset").bind("click", function(event) {
+
+		contact_cache.parsley().reset();
 
 	});
 
