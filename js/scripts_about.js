@@ -40,7 +40,7 @@ function contact_send () {
 			}
 		}, error: function() {
 
-			alert("error sending email");
+			alert("Error sending email, please try again.");
 
 			contact_cache.removeClass("disabled");
 			contact_cache.inputs.prop("disabled", false);
@@ -49,7 +49,7 @@ function contact_send () {
 
 		}, success: function() {
 
-			alert("email sent");
+			alert("Email sent, thank you!");
 
 			contact_cache.removeClass("disabled");
 			contact_cache.inputs.prop("disabled", false);
@@ -65,10 +65,8 @@ function contact_send () {
 $(document).ready(function() {
 
 	contact_cache = $("#contact-form");
-
 	contact_cache.inputs = contact_cache.find("input, textarea");
 	contact_cache.fields = contact_cache.find(".contact-field");
-
 	contact_cache.name = contact_cache.find("#contact-name");
 	contact_cache.email = contact_cache.find("#contact-email");
 	contact_cache.message = contact_cache.find("#contact-message");
