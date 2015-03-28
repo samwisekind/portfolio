@@ -42,7 +42,7 @@ figcaption {
 	display: none !important;
 	opacity: 0 !important;
 	content: "" !important;
-	visibility: hidden !important }
+	visibility: hidden !important; }
 
 .invisible,
 .invisible * {
@@ -492,7 +492,7 @@ footer#footer p {
 		transition-delay: .25s; }
 
 	#global-list article {
-		display: block !important;
+		display: block;
 		width: 100% !important; }
 
 	#global-list article .image,
