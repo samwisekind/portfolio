@@ -27,13 +27,13 @@
 
 		echo '
 
-			<div class="project-image">
+			<figure class="project-image">
 
 				<img src="' . $image . '" alt="' . $caption . '" />
 
 				<figcaption class="project-image-caption">' . $caption . '</figcaption>
 
-			</div>
+			</figure>
 
 		';
 
