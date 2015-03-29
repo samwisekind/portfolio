@@ -125,7 +125,7 @@ body.menu #map-canvas {
 	z-index: 0;
 	position: absolute;
 	top: 0;
-	width: 6%;
+	width: 50px;
 	height: 100%; }
 
 #viewer .viewer-arrow.left {
@@ -138,7 +138,7 @@ body.menu #map-canvas {
 	opacity: .25;
 	display: block;
 	height: 100%;
-	background: center center no-repeat transparent;
+	background: url("../img/album/album_viewer_arrows.svg") no-repeat transparent;
 	-webkit-transition: opacity .25s;
 	-moz-transition: opacity .25s;
 	-ms-transition: opacity .25s;
@@ -146,10 +146,10 @@ body.menu #map-canvas {
 	transition: opacity .25s; }
 
 #viewer .viewer-arrow.left a {
-	background-image: url("../img/album/album_arrow_left.svg"); }
+	background-position: 0 center; }
 
 #viewer .viewer-arrow.right a {
-	background-image: url("../img/album/album_arrow_right.svg"); }
+	background-position: -50px center; }
 
 #viewer .viewer-arrow a:hover {
 	opacity: .75; }
@@ -157,9 +157,11 @@ body.menu #map-canvas {
 #viewer #viewer-wrapper {
 	z-index: 0;
 	position: absolute;
-	left: 6%;
+	left: 50px;
 	top: 5%;
-	width: 88%;
+	width: calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
 	height: 90%;
 	background: center center no-repeat transparent;
 	background-size: contain; }
