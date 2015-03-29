@@ -22,15 +22,6 @@
 		"http://www.joyce.com/"
 	);
 
-	$project["k11"] = array(
-		array("img/index/featured_work_k11.jpg", "img/index/featured_work_k11.jpg"),
-		"K11",
-		"Creating a real-time inter-connected photobooth solution using a 360° panoramic camera.",
-		"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
-		"HTML5, CSS3, JavaScript, jQuery, REST API, Instagram API, Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
-		"21st September 2014 - 21st September 2014"
-	);
-
 	$project["enicar"] = array(
 		array("projects/enicar/enicar_cover.jpg", "projects/enicar/enicar_cover@2x.jpg"),
 		"Enicar",
@@ -49,6 +40,15 @@
 		"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator, Audacity, GarageBand, Adobe Soundbooth",
 		"21st September 2014 - 21st September 2014",
 		"http://www.steamcast.com/"
+	);
+
+	$project["k11"] = array(
+		array("img/index/featured_work_k11.jpg", "img/index/featured_work_k11.jpg"),
+		"K11",
+		"Creating a real-time inter-connected photobooth solution using a 360° panoramic camera.",
+		"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
+		"HTML5, CSS3, JavaScript, jQuery, REST API, Instagram API, Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
+		"21st September 2014 - 21st September 2014"
 	);
 
 	$project["hkjc"] = array(
@@ -72,7 +72,7 @@
 
 	$project["yungsclub"] = array(
 		array("projects/steamcast/steamcast_cover.jpg", "projects/steamcast/steamcast_cover@2x.jpg"),
-		"Yungsclub",
+		"Yungs Club",
 		"Gaming podcast with 15,000+ monthly listeners and 4,000,000+ annual views, spanning over 100 episodes.",
 		"Visual &amp System Design, Frontend &amp; Backend Development, Audio Editing",
 		"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator, Audacity, GarageBand, Adobe Soundbooth",
@@ -88,6 +88,7 @@
 		"HTML5, CSS3, JavaScript, jQuery, REST API, Instagram API, Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
 		"21st September 2014 - 21st September 2014"
 	);
+
 
 
 ?>
