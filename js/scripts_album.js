@@ -56,15 +56,17 @@ function album_change (target, direction, int) {
 
 		foo = (album_list.current.index() * (album_list.current.width() + 10)) - ((album_list.width() / 2) - (album_list.current.width() / 2));
 
+		TweenLite.to(album_list, .25, {scrollTo: {x: foo}});
+
 	}
 
 	else if (mode == "wide") {
 
 		foo = (album_list.current.index() * (album_list.current.height() + 15)) - ((album_list.height() / 2) - (album_list.current.height() / 2));
 
-	};
+		TweenLite.to(album_list, .25, {scrollTo: {y: foo}});
 
-	album_list.scrollTo(foo, 250);
+	};
 
 	album_image.loading.removeClass("invisible");
 	album_loader = $("<img/>").attr("src", target.attr("data-image")).load(function() {
@@ -165,19 +167,19 @@ $(document).ready(function() {
 
 		event.preventDefault();
 
-		foo = (album_list.height() / 2);
-
 		if ($(this).attr("data-direction") == "up") {
 
-			album_list.scrollTo("-=" + foo + "px", 250);
+			scroll_position = album_list.scrollTop() - 250;
 
 		}
 
 		else if ($(this).attr("data-direction") == "down") {
 
-			album_list.scrollTo("+=" + foo + "px", 250);
+			scroll_position = album_list.scrollTop() + 250;
 
 		};
+
+		TweenLite.to(album_list, .25, {scrollTo: {y: scroll_position}});
 
 	});
 

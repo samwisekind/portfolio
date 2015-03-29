@@ -120,7 +120,6 @@
 
 
 
-
 	<div id="thumbnails">
 
 		<div class="thumbnails-arrow top"><a href="#" data-direction="up"></a></div>

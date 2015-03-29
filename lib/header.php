@@ -46,7 +46,8 @@
 
 		<title>Flamov.com - Album: <?php echo $album[$album_current][1]; ?></title>
 		<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_album.js"></script>
-		<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+		<script type="text/javascript" src="js/TweenLite.min.js"></script>
+		<script type="text/javascript" src="js/ScrollToPlugin.min.js"></script>
 		<script type="text/javascript" src="js/hammer.min.js"></script>
 		<script type="text/javascript" src="js/jquery.hammer.js"></script>
 
