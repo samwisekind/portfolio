@@ -182,7 +182,6 @@
 						echo '<option disabled selected>Currently Viewing: ' . $album[$album_current][1] . '</option>';
 
 					?>
-					<option disabled></option>
 					<optgroup label="Collections">
 					<?php
 
