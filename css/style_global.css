@@ -96,13 +96,18 @@ figcaption {
 	height: 100%; }
 
 #nav-outer #nav-outer-wrapper {
-	display: table-cell;
-	vertical-align: middle;
+	display: table;
+	width: 100%;
 	height: 100%; }
 
 #nav-outer ul,
 #nav-outer li {
 	list-style: none; }
+
+#nav-outer ul {
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle; }
 
 #nav-outer li {
 	margin-bottom: 15px; }
@@ -345,6 +350,9 @@ footer#footer p.small {
 	font-size: 11px;
 	color: #AAAAAA; }
 
+footer#footer p:last-child {
+	margin-bottom: 0; }
+
 
 
 /********* TRANSITIONS *********/
@@ -407,7 +415,7 @@ footer#footer p {
 		line-height: 12px; }
 
 	#nav-outer {
-		display: table; }
+		display: block; }
 
 	#wrapper {
 		perspective: 2000px;
