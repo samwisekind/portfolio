@@ -6,11 +6,11 @@
 	display: inline; }
 
 #global-list article .content h2 {
-	margin-bottom: 10px;
 	font-size: 32px;
 	line-height: 32px; }
 
 #global-list article .content p {
+	margin-top: 10px;
 	margin-bottom: 25px;
 	font-weight: 300;
 	font-size: 18px;
@@ -34,7 +34,6 @@
 	float: left; }
 
 #global-list article.project .content {
-	display: table;
 	float: right;
 	padding: 0 50px 0 50px; }
 
@@ -44,9 +43,6 @@
 	right: 0;
 	bottom: 0;
 	padding: 25px 50px 25px 25px; }
-
-#global-list article.album .content h2 {
-	margin-bottom: 5px; }
 
 #global-list article.album .special-link {
 	margin-top: 25px; }
@@ -74,6 +70,9 @@
 
 	#intro h1 > span {
 		margin-right: 0; }
+
+	#global-list article.project {
+		display: block; }
 
 	.title-link {
 		top: 3px; }

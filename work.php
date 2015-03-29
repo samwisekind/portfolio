@@ -3,6 +3,17 @@
 	$page = "work";
 	require "lib/header.php";
 
+	if (isset($_GET["filter"])) {
+
+		if ($_GET["filter"] == "project" || $_GET["filter"] == "album") {
+
+			echo '<script type="text/javascript">work_query = "' . $_GET["filter"] . '";</script>';
+
+
+		};
+
+	};
+
 ?>
 
 
@@ -11,7 +22,7 @@
 
 		<ul id="work-filters">
 			<li class="current" data-filter="all"><a href="#">All</a></li>
-			<li id="filter-webdesign" data-filter="project"><a href="#">Web Design</a></li>
+			<li id="filter-project" data-filter="project"><a href="#">Web Design</a></li>
 			<li id="filter-album" data-filter="album"><a href="#">Photography</a></li>
 		</ul>
 
@@ -30,12 +41,19 @@
 			$work_array = array(
 
 				array("project", "joyce"),
-				array("project", "k11"),
 				array("project", "enicar"),
 				array("album", "portfolio"),
+				array("project", "steamcast"),
+				array("project", "k11"),
+				array("album", "kenya"),
+				array("album", "yunnan"),
+				array("project", "hkjc"),
+				array("project", "phonicshero"),
+				array("album", "foxes"),
 				array("project", "yungsclub"),
-				array("project", "portfolio"),
-				array("album", "kenya")
+				array("project", "stevemadden"),
+				array("album", "vietnam"),
+				array("album", "landscapes")
 
 			);
 
@@ -66,10 +84,21 @@
 					$image = $album[$work_array[$i][1]][4][0];
 					$image_large = $album[$work_array[$i][1]][4][1];
 					$title = $album[$work_array[$i][1]][1];
-					$subtitle = $album[$work_array[$i][1]][2];
 					$link = $directory . "album.php?album=" . $work_array[$i][1];
 
-					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title . " " . $subtitle));
+					if (isset($album[$work_array[$i][1]][2]) == true) {
+
+						$subtitle = $album[$work_array[$i][1]][2];
+
+					}
+
+					else {
+
+						$subtitle = null;
+
+					};
+
+					$search = strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $title));
 
 
 				};
@@ -84,7 +113,16 @@
 
 						<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
 						<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&raquo;</span></a>
-						<p><?php echo $subtitle; ?></p>
+						
+						<?php
+
+							if ($subtitle != null) {
+
+								echo '<p>' . $subtitle . '</p>';
+
+							};
+
+						?>
 
 						<?php
 

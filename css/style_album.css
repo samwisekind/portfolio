@@ -423,6 +423,10 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 
 @media (max-width: 700px) {
 
+	#wrapper,
+	#content {
+		position: absolute; }
+
 	header#header {
 		margin-bottom: 0 !important; }
 

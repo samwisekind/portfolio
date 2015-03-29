@@ -16,11 +16,10 @@
 			$list_array = array(
 
 				array("project", "joyce"),
-				array("project", "k11"),
 				array("project", "enicar"),
 				array("album", "portfolio"),
 				array("project", "steamcast"),
-				array("project", "yungsclub"),
+				array("project", "k11"),
 				array("album", "kenya")
 
 			);
@@ -46,7 +45,19 @@
 					$image = $album[$list_array[$i][1]][4][0];
 					$image_large = $album[$list_array[$i][1]][4][1];
 					$title = $album[$list_array[$i][1]][1];
-					$subtitle = $album[$list_array[$i][1]][2];
+
+					if (isset($album[$list_array[$i][1]][2]) == true) {
+
+						$subtitle = $album[$list_array[$i][1]][2];
+
+					}
+
+					else {
+
+						$subtitle = null;
+
+					};
+
 					$link = $directory . "album.php?album=" . $list_array[$i][1];
 
 				};
@@ -60,7 +71,16 @@
 				<div class="content">
 
 					<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
-					<p><?php echo $subtitle; ?></p>
+					
+					<?php
+
+						if ($subtitle != null) {
+
+							echo '<p>' . $subtitle . '</p>';
+
+						};
+
+					?>
 
 					<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&raquo;</span></a>
 

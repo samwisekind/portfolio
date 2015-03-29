@@ -91,9 +91,6 @@
 #global-list article.album .content {
 	padding: 25px; }
 
-#global-list article .content h2 {
-	margin-bottom: 5px; }
-
 #global-list article .content h2 a {
 	font-size: 20px;
 	line-height: 20px; }
@@ -134,6 +131,19 @@
 
 
 /******* RESPONSIVE *******/
+
+@media (min-width: 1840px) {
+
+	#work-menu {
+		max-width: 1750px; }
+
+	#work-menu #work-search {
+		width: 700px; }
+
+	#global-list {
+		max-width: 1840px; }
+
+}
 
 @media (max-width: 1390px) {
 
