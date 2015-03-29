@@ -1,4 +1,5 @@
 var work_menu, work_items;
+var work_query = null;
 
 
 
@@ -89,7 +90,7 @@ $(document).ready(function() {
 	work_menu.field = work_menu.find("#work-search");
 
 	work_items = $("#global-list");
-	work_items.items = work_items.find("article");
+	work_items.items = work_items.find(".project, .album");
 	work_items.project = work_items.find(".project");
 	work_items.album = work_items.find(".album");
 
@@ -103,5 +104,21 @@ $(document).ready(function() {
 	});
 
 	work_menu.field.on("input", work_search);
+
+	if (work_query == "project") {
+
+		work_filter("project", false);
+		work_menu.buttons.removeClass("current");
+		work_menu.find("#filter-project").addClass("current");
+
+	}
+
+	else if (work_query == "album") {
+
+		work_filter("album", false);
+		work_menu.buttons.removeClass("current");
+		work_menu.find("#filter-album").addClass("current");
+		
+	};
 	
 });

@@ -11,7 +11,7 @@
 
 	<p>My name is Sam and I am a designer, web developer and photographer. I like to develop creative and elegant solutions to complex problems, with a constant focus on the psychology of end-users.</p>
 
-	<p>My main areas of expertise are in HTML5, CSS3, JavaScript, jQuery, GreenSock, Cordova/PhoneGap, PHP and WordPress. I have worked with numerous clients in Hong Kong and around the world, developing a variety of digital solutions including modern responsive websites, ad-hoc mobile applications, and interactive digital displays. You can <a href="<?php echo $directory; ?>work.php">view some of those projects here</a>.</p>
+	<p>My main areas of expertise are in HTML5, CSS3, JavaScript, jQuery, GreenSock, Cordova/PhoneGap, PHP and WordPress. I have worked with numerous clients in Hong Kong and around the world, developing a variety of digital solutions including modern responsive websites, ad-hoc mobile applications, and interactive digital displays. You can <a href="<?php echo $directory; ?>work.php?filter=project">view some of those projects here</a>.</p>
 
 	<ul id="about-logos">
 		<li id="about-logos-html5"><a href="http://www.w3.org/TR/html5/"><span>HTML5</span></a></li>
@@ -26,7 +26,7 @@
 
 	<div class="cf"></div>
 
-	<p>I am also an active wildlife and nature photographer. You can <a href="<?php echo $directory; ?>album.php">view my photography portfolio here</a> along with other albums.</p>
+	<p>I am also an active wildlife and nature photographer. You can <a href="<?php echo $directory; ?>album.php">view my photography portfolio here</a> along with <a href="<?php echo $directory; ?>work.php?filter=album">other albums</a>.</p>
 
 	<p>I am currently working freelance so if you would like contact me with any prospective projects or find out more about me or my work, please feel free to email me at <a href="mailto:sam@flamov.com">sam@flamov.com</a> or use the contact form below:</p>
 
