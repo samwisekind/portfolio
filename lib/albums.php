@@ -19,7 +19,7 @@
 		"云南 (Yúnnán), China",
 		"08/11/2008 - 12/11/2008",
 		array("25.1825484", "101.8628507"),
-		array("albums/kenya/kenya_cover.jpg", "albums/kenya/kenya_cover@2x.jpg"),
+		array("albums/yunnan/yunnan_cover.jpg", "albums/yunnan/yunnan_cover@2x.jpg"),
 
 		array(
 			array("Valley", "albums/yunnan/yunnan_1_thumb.jpg", "albums/yunnan/yunnan_1_full.jpg"),
@@ -98,7 +98,7 @@
 		"Việt Nam (Vietnam)",
 		"17/07/2011 - 18/07/2011",
 		array("5.9030623", "105.8066791"),
-		array("albums/kenya/kenya_cover.jpg", "albums/kenya/kenya_cover@2x.jpg"),
+		array("albums/vietnam/vietnam_cover.jpg", "albums/vietnam/vietnam_cover@2x.jpg"),
 
 		array(
 			array("Sunrise on the Dunes", "albums/vietnam/vietnam_1_thumb.jpg", "albums/vietnam/vietnam_1_full.jpg"),
@@ -233,7 +233,7 @@
 		"Foxes",
 		"",
 		array("", ""),
-		array("albums/kenya/kenya_cover.jpg", "albums/kenya/kenya_cover@2x.jpg"),
+		array("albums/london/london_cover.jpg", "albums/london/london_cover@2x.jpg"),
 
 		array(
 			array("Suprised Fox", "albums/london/london_1_thumb.jpg", "albums/london/london_1_full.jpg"),
@@ -273,7 +273,7 @@
 		"Landscapes",
 		"",
 		array("", ""),
-		array("albums/kenya/kenya_cover.jpg", "albums/kenya/kenya_cover@2x.jpg"),
+		array("albums/vietnam/vietnam_cover.jpg", "albums/vietnam/vietnam_cover@2x.jpg"),
 
 		array(
 			array("Valley", "albums/yunnan/yunnan_1_thumb.jpg", "albums/yunnan/yunnan_1_full.jpg"),
