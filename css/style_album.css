@@ -11,8 +11,10 @@ header#header {
 	background: #222222; }
 
 header#header h1 {
-  margin-left: 25px;
-  margin-right: 25px; }
+	margin: 0 !important; }
+
+header#header h1 a {
+	padding: 0 25px 0 25px; }
 
 header#header h1 a,
 header#header nav#nav ul li a {
@@ -328,7 +330,15 @@ body.menu #map-canvas {
 #navigator #navigator-title {
 	z-index: 0;
 	z-index: 10;
-	left: 10px; }
+	left: 10px;
+	-webkit-transition: opacity .25s;
+	-moz-transition: opacity .25s;
+	-ms-transition: opacity .25s;
+	-o-transition: opacity .25s;
+	transition: opacity .25s; }
+
+body.map #navigator #navigator-title {
+	opacity: .25;}
 
 #navigator #navigator-title h2,
 #navigator #navigator-title h3 {
@@ -425,7 +435,9 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 
 	#wrapper,
 	#content {
-		position: absolute; }
+		position: absolute;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: auto; }
 
 	header#header {
 		margin-bottom: 0 !important; }

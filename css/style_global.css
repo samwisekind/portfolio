@@ -195,11 +195,8 @@ header#header ul li a {
 	display: table-cell;
 	vertical-align: middle; }
 
-header#header h1 {
-	margin-left: 50px;
-	margin-right: 50px; }
-
 header#header h1 a {
+	padding: 0 50px 0 50px;
 	font-weight: 400;
 	font-size: 24px;
 	color: #222222;
@@ -393,9 +390,8 @@ footer#footer p {
 		margin-bottom: 50px;
 		height: 75px; }
 
-	header#header h1 {
-		margin-left: 25px;
-		margin-right: 25px; }
+	header#header h1 a {
+		padding: 0 25px 0 25px; }
 
 	main.main > h1 {
 		margin: 0 0 25px 25px; }
@@ -429,8 +425,7 @@ footer#footer p {
 
 	#content,
 	#content-overlay {
-		overflow-x: hidden;
-		-webkit-overflow-scrolling: touch; }
+		overflow-x: hidden; }
 
 	#content-overlay {
 		position: absolute; }
@@ -464,10 +459,8 @@ footer#footer p {
 		margin-bottom: 40px;
 		height: 50px !important; }
 
-	header#header h1 {
-		margin: 0 0 0 20px !important; }
-
 	header#header h1 a {
+		padding: 0 20px 0 20px !important;
 		font-size: 16px !important; }
 
 	header#header nav#nav {
