@@ -154,11 +154,12 @@ figcaption {
 	overflow-x: hidden; }
 
 #content-overlay {
-	z-index: 10;
+	z-index: 20;
 	display: none; }
 
 #content {
-	z-index: 0;
+	position: relative;
+	z-index: 10;
 	background: #FFFFFF;
 	-webkit-transition: all .4s cubic-bezier(0.190, 1.000, 0.220, 1.000);
 	-moz-transition: all .4s cubic-bezier(0.190, 1.000, 0.220, 1.000);
@@ -413,9 +414,6 @@ footer#footer p {
 		font-size: 12px;
 		line-height: 12px; }
 
-	#nav-outer {
-		display: block; }
-
 	#wrapper {
 		perspective: 2000px;
 		-webkit-perspective: 2000px;
@@ -443,9 +441,6 @@ footer#footer p {
 
 	body.menu #content-overlay {
 		display: block;	}
-
-	body.menu #content-overlay {
-		display: block; }
 
 	body.menu #content-overlay:hover {
 		cursor: pointer; }
@@ -479,6 +474,9 @@ footer#footer p {
 	main.main > h1 {
 		margin: 0 0 20px 20px;
 		font-size: 14px; }
+
+	#nav-outer {
+		display: block; }
 
 	body.menu #nav-outer #nav-outer-wrapper li {
 		opacity: 1; }
