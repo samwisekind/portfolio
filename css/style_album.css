@@ -118,11 +118,12 @@ body.menu #map-canvas {
 /******* VIEWER *******/
 
 #viewer {
+	z-index: 10;
 	display: table;
 	background: #000000 }
 
 #viewer .viewer-arrow {
-	z-index: 0;
+	z-index: 10;
 	position: absolute;
 	top: 0;
 	width: 50px;
@@ -153,6 +154,25 @@ body.menu #map-canvas {
 
 #viewer .viewer-arrow a:hover {
 	opacity: .75; }
+
+#viewer #viewer-zoom {
+	display: none;
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 50px;
+	height: 50px; }
+
+#viewer #viewer-zoom a {
+	opacity: .5;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("../img/album/album_zoom.svg") left center no-repeat transparent; }
+
+body.zoom #viewer #viewer-zoom a {
+	background-position: right center; }
 
 #viewer #viewer-wrapper {
 	z-index: 0;
@@ -216,6 +236,7 @@ body.menu #map-canvas {
 /******* THUMBNAILS *******/
 
 #thumbnails {
+	z-index: 0p;
 	position: absolute;
 	right: 0;
 	top: 70px;
@@ -312,6 +333,7 @@ body.menu #map-canvas {
 /******* NAVIGATOR *******/
 
 #navigator {
+	z-index: 0;
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -340,7 +362,7 @@ body.menu #map-canvas {
 	transition: opacity .25s; }
 
 body.map #navigator #navigator-title {
-	opacity: .25;}
+	opacity: .25; }
 
 #navigator #navigator-title h2,
 #navigator #navigator-title h3 {
@@ -452,6 +474,11 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 	#navigator #navigator-interation {
 		display: none; }
 
+	body.zoom #swipe,
+	body.zoom #thumbnails,
+	body.zoom #navigator {
+		pointer-events: none; }
+
 	#swipe {
 		display: block;
 		-webkit-transition: max-height .25s;
@@ -477,17 +504,25 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 	#viewer {
 		height: calc(100% - 170px);
 		height: -moz-calc(100% - 170px);
-		height: -webkit-calc(100% - 170px); }
+		height: -webkit-calc(100% - 170px);
+		-webkit-transition: height .25s ease-in-out;
+		-moz-transition: height .25s ease-in-out;
+		-ms-transition: height .25s ease-in-out;
+		-o-transition: height .25s ease-in-out;
+		transition: height .25s ease-in-out; }
 
 	body.swiped #viewer {
 		height: calc(100% - 150px);
 		height: -moz-calc(100% - 150px);
-		height: -webkit-calc(100% - 150px);
-		-webkit-transition: height .25s;
-		-moz-transition: height .25s;
-		-ms-transition: height .25s;
-		-o-transition: height .25s;
-		transition: height .25s; }
+		height: -webkit-calc(100% - 150px); }
+
+	body.zoom #viewer {
+		height: calc(100% - 50px);
+		height: -moz-calc(100% - 50px);
+		height: -webkit-calc(100% - 50px); }
+
+	#viewer #viewer-zoom {
+		display: block; }
 
 	#viewer #viewer-wrapper {
 		left: 0;

@@ -106,6 +106,8 @@
 		<div class="viewer-arrow left"><a href="#" data-direction="prev"></a></div>
 		<div class="viewer-arrow right"><a href="#" data-direction="next"></a></div>
 		
+		<div id="viewer-zoom"><a href="#"></a></div>
+
 		<div id="viewer-wrapper">
 
 			<div id="viewer-loading" class="invisible">

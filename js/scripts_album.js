@@ -201,6 +201,14 @@ $(document).ready(function() {
 
 	});
 
+	$("#viewer #viewer-zoom a").bind("click", function(event) {
+
+		event.preventDefault();
+
+		body_cache.toggleClass("zoom");
+
+	});
+
 	$("#navigator-albums").change(function() {
 
 		if ($(this).val() == select_previous) {
