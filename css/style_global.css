@@ -158,7 +158,6 @@ figcaption {
 	display: none; }
 
 #content {
-	position: relative;
 	z-index: 10;
 	background: #FFFFFF;
 	-webkit-transition: all .4s cubic-bezier(0.190, 1.000, 0.220, 1.000);
@@ -431,6 +430,9 @@ footer#footer p {
 	#content,
 	#content-overlay {
 		overflow-x: hidden; }
+
+	#content {
+		position: relative; }
 
 	#content-overlay {
 		position: absolute; }
