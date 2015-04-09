@@ -441,6 +441,10 @@ footer#footer p {
 	body.position #content {
 		position: absolute; }
 
+	body.position #content {
+		overflow: hidden;
+		box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 3px; }
+
 	body.menu #content-overlay {
 		display: block;	}
 
@@ -454,10 +458,6 @@ footer#footer p {
 		-ms-transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg);
 		-o-transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg);
 		transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg); }
-
-	body.menu #content {
-		overflow: hidden;
-		box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 3px; }
 
 	header#header {
 		margin-bottom: 40px;
