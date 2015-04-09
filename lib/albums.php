@@ -66,7 +66,7 @@
 	$album["london"] = array(
 
 		"places",
-		"London",
+		"London, United Kingdom",
 		"11/06/2010 - 17/01/2012",
 		array("51.5286416", "-0.1015987"),
 		array("albums/kenya/kenya_cover.jpg", "albums/kenya/kenya_cover@2x.jpg"),
@@ -273,7 +273,7 @@
 		"Landscapes",
 		"",
 		array("", ""),
-		array("albums/vietnam/vietnam_cover.jpg", "albums/vietnam/vietnam_cover@2x.jpg"),
+		array("albums/things/landscapes_cover.jpg", "albums/things/landscapes_cover@2x.jpg"),
 
 		array(
 			array("Valley", "albums/yunnan/yunnan_1_thumb.jpg", "albums/yunnan/yunnan_1_full.jpg"),
@@ -348,7 +348,7 @@
 			$album["queensland"][5][2], //wing
 			$album["queensland"][5][3], //duchess door
 			$album["queensland"][5][7], //sharp b-17 prop
-			$album["queensland"][5][13], //limit turn
+			$album["queensland"][5][13] //limit turn
 
 		)
 
