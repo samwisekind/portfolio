@@ -95,7 +95,7 @@
 
 	<div id="swipe">
 
-		<span id="swipe-span">Swipe left or right <span>or scroll the thumbnails below</span></span>
+		<span id="swipe-span">Swipe left or right<span>, or scroll the thumbnails below</span></span>
 
 	</div>
 
