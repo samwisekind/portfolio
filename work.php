@@ -43,7 +43,7 @@
 				array("project", "joyce"),
 				array("project", "enicar"),
 				array("album", "portfolio"),
-				array("project", "steamcast"),
+				array("project", "steamchat"),
 				array("project", "k11"),
 				array("album", "kenya"),
 				array("album", "yunnan"),
