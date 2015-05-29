@@ -2,8 +2,8 @@
 
 
 
-	$directory = "http://localhost:8888/flamov-portfolio/";
-	//$directory = "http://10.0.1.5:8888/flamov-portfolio/";
+	//$directory = "http://localhost:8888/flamov-portfolio/";
+	$directory = "http://10.0.1.5:8888/flamov-portfolio/";
 	//$directory = "http://www.flamov.com/new/";
 
 
@@ -32,6 +32,24 @@
 				<img src="' . $image . '" alt="' . $caption . '" />
 
 				<figcaption class="project-image-caption">' . $caption . '</figcaption>
+
+			</figure>
+
+		';
+
+	};
+
+
+
+	function project_video ($video, $caption) {
+
+		echo '
+
+			<figure class="project-video">
+
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/' . $video . '?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+				<figcaption class="project-video-caption">' . $caption . '</figcaption>
 
 			</figure>
 
