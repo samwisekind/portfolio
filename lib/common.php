@@ -29,15 +29,13 @@
 
 			<figure class="project-image">
 
-				<img src="' . $image . '" alt="' . $caption . '" />';
+				<img src="' . $image . '" alt="' . $caption . '" />
 
-				if (isSet($caption) == true) {
+				<figcaption class="project-image-caption">' . $caption . '</figcaption>
 
-					echo '<figcaption class="project-image-caption">' . $caption . '</figcaption>';
+			</figure>
 
-				};
-
-			echo '</figure> ';
+		';
 
 	};
 
