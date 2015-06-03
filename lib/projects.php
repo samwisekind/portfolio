@@ -83,7 +83,7 @@
 	$project["stevemadden"] = array(
 		array("projects/stevemadden/stevemadden_cover.jpg", "projects/stevemadden/stevemadden_cover@2x.jpg"),
 		"Steve Madden",
-		"A photo submission app for Facebook",
+		"A photo submission app for Facebook.",
 		"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
 		"HTML5, CSS3, JavaScript, jQuery, Facebook Graph API, PHP",
 		"23rd May 2014 - 8th July 2014"
@@ -91,11 +91,11 @@
 
 	$project["esm"] = array(
 		array("projects/esm/esm_cover.jpg", "projects/esm/esm_cover@2x.jpg"),
-		"Steve Madden",
-		"A photo submission app for Facebook",
-		"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
-		"HTML5, CSS3, JavaScript, jQuery, Facebook Graph API, PHP",
-		"21st September 2014 - 21st September 2014"
+		"ESM",
+		"Proof of concept for real-time eSports betting.",
+		"Visual Design, Frontend Development",
+		"HTML5, CSS3, JavaScript, jQuery",
+		"1st August 2013 - 12th December 2013"
 	);
 
 
