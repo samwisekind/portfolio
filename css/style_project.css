@@ -115,11 +115,11 @@ footer#footer {
 	font-size: 16px;
 	font-weight: 400;
 	text-align: justify;
+	line-height: 30px;
 	color: #444444; }
 
 .section p {
-	margin-bottom: 15px;
-	line-height: 30px; }
+	margin-bottom: 15px; }
 
 .section p.spacer {
 	margin-bottom: 30px; }
@@ -253,9 +253,7 @@ footer#footer {
 
 	.section p,
 	.section li {
-		font-size: 14px; }
-
-	.section p {
+		font-size: 14px;
 		line-height: 25px; }
 
 }
@@ -344,10 +342,11 @@ footer#footer {
 
 	.section p,
 	.section li {
+		font-size: 12px;
 		line-height: 20px; }
 
-	.section p {
-		font-size: 12px; }
+	.section li {
+		margin-bottom: 5px; }
 
 	.project-preview,
 	.section .project-image {
