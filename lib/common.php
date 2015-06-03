@@ -31,7 +31,7 @@
 
 				<img src="' . $image . '" alt="' . $caption . '" />';
 
-				if (isSet($caption) == true) {
+				if ($caption != "") {
 
 					echo '<figcaption class="project-image-caption">' . $caption . '</figcaption>';
 
