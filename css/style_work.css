@@ -130,7 +130,7 @@
 
 #global-list #spacer {
 	display: inline-table;
-	width: 900px; }
+	width: 500px; }
 
 
 
@@ -149,7 +149,8 @@
 		max-width: 1840px; }
 
 	#global-list #spacer {
-		width: 1350px; }
+		display: inline-table;
+		width: 900px; }
 
 }
 
