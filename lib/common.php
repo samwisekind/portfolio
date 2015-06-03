@@ -4,7 +4,7 @@
 
 	//$directory = "http://localhost:8888/flamov-portfolio/";
 	$directory = "http://10.0.1.5:8888/flamov-portfolio/";
-	//$directory = "http://www.flamov.com/new/";
+	//$directory = "http://www.flamov.com/";
 
 
 
