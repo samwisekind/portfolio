@@ -97,7 +97,7 @@
 		"places",
 		"Việt Nam (Vietnam)",
 		"17/07/2011 - 18/07/2011",
-		array("5.9030623", "105.8066791"),
+		array("10.768451", "106.6943626"),
 		array("albums/vietnam/vietnam_cover.jpg", "albums/vietnam/vietnam_cover@2x.jpg"),
 
 		array(
