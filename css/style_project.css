@@ -3,6 +3,9 @@
 header#header {
 	margin-bottom: 100px !important; }
 
+footer#footer {
+	background: #FFFFFF; }
+
 
 
 /******* INTRO *******/
@@ -80,6 +83,12 @@ header#header {
 	margin: 0 auto 0 auto;
 	max-width: 750px; }
 
+.section p:last-child,
+.section ul:last-child,
+.section ol:last-child,
+.section li:last-child {
+	margin-bottom: 0; }
+
 .section h4,
 .section h5 {
 	color: #111111;
@@ -90,6 +99,9 @@ header#header {
 	font-size: 18px;
 	line-height: 18px;
 	font-weight: 700;}
+
+.section h4.spacer {
+	margin-top: 50px; }
 
 .section h5 {
 	margin-top: 30px;
@@ -212,6 +224,9 @@ header#header {
 
 	header#header {
 		margin-bottom: 50px !important; }
+
+	body.position footer#footer {
+		display: none; }
 
 	#intro h2 {
 		font-size: 48px;
