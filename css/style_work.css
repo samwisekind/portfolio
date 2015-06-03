@@ -128,6 +128,11 @@
 #global-list article.album .special-link {
 	right: 25px; }
 
+#global-list #spacer {
+	display: inline-table;
+	width: 900px; }
+
+
 
 
 /******* RESPONSIVE *******/
@@ -143,6 +148,9 @@
 	#global-list {
 		max-width: 1840px; }
 
+	#global-list #spacer {
+		width: 1350px; }
+
 }
 
 @media (max-width: 1390px) {
@@ -155,6 +163,11 @@
 
 	#global-list {
 		max-width: 940px; }
+
+	#global-list #spacer {
+		display: none;
+		width: 0; }
+
 
 }
 
