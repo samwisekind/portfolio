@@ -52,7 +52,7 @@
 				array("album", "foxes"),
 				//array("project", "yungsclub"),
 				array("project", "stevemadden"),
-				array("project", "esm"),
+				//array("project", "esm"),
 				array("album", "vietnam"),
 				array("album", "landscapes")
 
