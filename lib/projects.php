@@ -39,7 +39,7 @@
 		"Visual &amp System Design, Frontend &amp; Backend Development, Audio Editing",
 		"HTML5, CSS3, JavaScript, jQuery, PHP, Photoshop, Illustrator, Audacity, GarageBand, Adobe Soundbooth, Apple Motion",
 		"7th June 2009 - 19th November 2013",
-		"http://www.steamchat.com/"
+		"http://www.thesteamchat.com/"
 	);
 
 	$project["k11"] = array(
