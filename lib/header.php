@@ -93,8 +93,8 @@
 						
 					<ul>
 						<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>"><span>Home</span></a></li>
-						<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work.php"><span>Work</span></a></li>
-						<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>about.php"><span>About &amp; Contact</span></a></li>
+						<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work"><span>Work</span></a></li>
+						<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>about"><span>About &amp; Contact</span></a></li>
 					</ul>
 
 					<div class="cf"></div>

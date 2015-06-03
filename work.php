@@ -52,7 +52,7 @@
 				array("album", "foxes"),
 				//array("project", "yungsclub"),
 				array("project", "stevemadden"),
-				//array("project", "esm"),
+				array("project", "esm"),
 				array("album", "vietnam"),
 				array("album", "landscapes")
 
@@ -85,7 +85,7 @@
 					$image = $album[$work_array[$i][1]][4][0];
 					$image_large = $album[$work_array[$i][1]][4][1];
 					$title = $album[$work_array[$i][1]][1];
-					$link = $directory . "album.php?album=" . $work_array[$i][1];
+					$link = $directory . "album?album=" . $work_array[$i][1];
 
 					if (isset($album[$work_array[$i][1]][2]) == true) {
 

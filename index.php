@@ -58,7 +58,7 @@
 
 					};
 
-					$link = $directory . "album.php?album=" . $list_array[$i][1];
+					$link = $directory . "album?album=" . $list_array[$i][1];
 
 				};
 

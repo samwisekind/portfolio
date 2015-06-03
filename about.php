@@ -26,7 +26,7 @@
 
 	<div class="cf"></div>
 
-	<p>I am also an active wildlife and nature photographer. You can <a href="<?php echo $directory; ?>album.php?album=portfolio">view my photography portfolio here</a> along with <a href="<?php echo $directory; ?>work.php?filter=album">other albums</a>.</p>
+	<p>I am also an active wildlife and nature photographer. You can <a href="<?php echo $directory; ?>album?album=portfolio">view my photography portfolio here</a> along with <a href="<?php echo $directory; ?>work?filter=album">other albums</a>.</p>
 
 	<p>I am currently working freelance so if you would like contact me with any prospective projects or find out more about me or my work, please feel free to email me at <a href="mailto:sam@flamov.com">sam@flamov.com</a> or use the contact form below:</p>
 
