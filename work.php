@@ -50,8 +50,9 @@
 				array("project", "hkjc"),
 				array("project", "phonicshero"),
 				array("album", "foxes"),
-				array("project", "yungsclub"),
+				//array("project", "yungsclub"),
 				array("project", "stevemadden"),
+				array("project", "esm"),
 				array("album", "vietnam"),
 				array("album", "landscapes")
 
@@ -148,17 +149,9 @@
 
 				</article>
 
-			<?php
+			<?php }; ?>
 
-				};
-
-				for ($i = 0; $i < 2; $i++) {
-
-					echo '<article class="spacer">';
-
-				};
-
-			?>
+			<div id="spacer"></div>
 
 		<div class="cf"></div>
 
