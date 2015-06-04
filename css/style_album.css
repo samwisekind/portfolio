@@ -6,9 +6,13 @@ body {
 
 header#header {
 	top: 0;
-	height: 70px;
 	border: none;
 	background: #222222; }
+
+header#header,
+header#header h1,
+header#header ul li {
+	height: 70px; }
 
 header#header h1 {
 	margin: 0 !important; }
