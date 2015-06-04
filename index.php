@@ -7,7 +7,7 @@
 
 
 
-	<h1><span>Featured Work</span> <a href="work.php" class="title-link">View all work <span>&raquo;</span></a></h1>
+	<h1><span>Featured Work</span> <a href="work" class="title-link">View all work <span>&raquo;</span></a></h1>
 
 	<div id="global-list">
 
@@ -97,6 +97,8 @@
 		?>
 
 	</div>
+
+	<div id="more"><a href="#">View all projects and albums</a></div>
 
 	<div class="cf"></div>
 

@@ -12,8 +12,8 @@
 #global-list article .content p {
 	margin-top: 10px;
 	margin-bottom: 25px;
-	font-weight: 300;
 	font-size: 18px;
+	font-weight: 300;
 	line-height: 27px; }
 
 #global-list article.project {
@@ -49,6 +49,35 @@
 
 
 
+/********* MORE *********/
+
+#more {
+	width: 100%; }
+
+#more a {
+	display: block;
+	padding: 80px 50px 80px 50px;
+	width: 100%;
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 24px; 
+	text-align: center;
+	color: #AAAAAA;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #EEEEEE;
+	-webkit-transition: all .25s ease-out;
+	-moz-transition: all .25s ease-out;
+	-ms-transition: all .25s ease-out;
+	-o-transition: all .25s ease-out;
+	transition: all .25s ease-out; }
+
+#more a:hover {
+	color: #888888;
+	background: #DEDEDE; }
+
+
+
 /********* RESPONSIVE *********/
 
 @media (max-width: 1000px) {
@@ -64,6 +93,11 @@
 		font-size: 14px;
 		line-height: 21px; }
 
+	#more a {
+		font-size: 20px;
+		line-height: 20px;
+		padding: 50px 25px 50px 25px; }
+
 }
 
 @media (max-width: 700px) {
@@ -76,5 +110,13 @@
 
 	.title-link {
 		top: 3px; }
+
+	#more {
+		margin-top: 20px; }
+
+	#more a {
+		font-size: 14px;
+		line-height: 14px;
+		padding: 20px; }
 
 }
