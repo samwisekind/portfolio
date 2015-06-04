@@ -66,7 +66,11 @@
 
 		<p>Individual store pages contain important information such as telephone numbers, addresses, opening/closing times, and coordinates for the Google Maps API-powered map. Brands that have been defined in the CMS can be linked with any of the created stores, and these links will persist throughout the entire website and are automatically managed across the different website languages.</p>
 
-		<p>The Joyce Card, Joyce Gift Card, and Joyce Careers sections also received a design overhaul. Due to time constraints we were unable to modify the Magento installation directly, and as such we were limited to only being able to attach customised stylesheets. This was quite a challenging task, due to having to support cross-browser compatibility without being able to change the HTML or include JavaScript files, but in the end it was very rewarding having achieved this under such challenging constraints.</p>
+		<p>The Joyce Card, Joyce Gift Card, Joyce eShop, and Joyce Careers sections also received a design overhaul. Due to time constraints we were unable to modify the Magento installation directly, and as such we were limited to only being able to attach customised stylesheets. This was quite a challenging task, due to having to support cross-browser compatibility without being able to change the HTML or include JavaScript files, but in the end it was very rewarding having achieved this under such challenging constraints. Furthermore, I also worked on some preliminary Joyce eShop mockups.</p>
+
+		<?php project_image("joyce_image_5.jpg", "Joyce eShop Mockup."); ?>
+
+		<?php project_image("joyce_image_6.jpg", "A global cart was designed to be integrated globally across all pages on the site."); ?>
 
 		<h5>Cross-Browser Compatibility</h5>
 
