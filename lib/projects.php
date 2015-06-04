@@ -16,7 +16,7 @@
 		array("projects/joyce/joyce_cover.jpg", "projects/joyce/joyce_cover@2x.jpg"),
 		"Joyce",
 		"Revamping the online identity of Hong Kong's most famous and respected fashion retailer from the ground-up.",
-		"Visual &amp System Design, Frontend &amp; Backend Development, UAT",
+		"Visual &amp System Design, Frontend &amp; Backend Development, UAT, eShop Mockups",
 		"HTML5, CSS3, JavaScript, jQuery, PHP, WordPress, Magento, MySQL, Photoshop, Illustrator",
 		"4th April 2014 - 12th February 2015",
 		"http://www.joyce.com/"
