@@ -48,7 +48,7 @@
 		"Creating a real-time inter-connected photo booth solution using a 360° panoramic camera.",
 		"Visual &amp Systems Design, Frontend &amp; Backend Development, UAT",
 		"HTML5, CSS3, JavaScript, jQuery, REST API, Instagram API, Facebook Graph API, Twitter API, Flash, PHP, Photoshop, Illustrator",
-		"21st September 2014 - 21st September 2014"
+		"10th May 2014 - 10th June 2014"
 	);
 
 	$project["hkjc"] = array(
