@@ -29,7 +29,7 @@ function contact_send () {
 		type: "POST",
 		url: "https://mandrillapp.com/api/1.0/messages/send.js",
 		data: {
-			"key": "rESch3-B5EW7d5-EpgodaQ",
+			"key": "6r1mmggHlM07HmKeTJPX6Q",
 			"message": {
 				"from_email": contact_cache.email.val(),
 				"from_name": contact_cache.name.val(),
