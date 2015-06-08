@@ -36,6 +36,9 @@ footer#footer {
 	display: inline;
 	margin-right: 10px; }
 
+#intro h3 .title-link {
+	margin-top: 10px; }
+
 #intro ul,
 #intro ul li {
 	list-style: none; }
