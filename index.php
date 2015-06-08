@@ -1,6 +1,18 @@
 <?php
 
 	$page = "index";
+
+	$list_array = array(
+
+		array("project", "joyce"),
+		array("project", "enicar"),
+		array("album", "portfolio"),
+		array("project", "steamchat"),
+		array("project", "k11"),
+		array("album", "kenya")
+
+	);
+
 	require "lib/header.php";
 
 ?>
@@ -12,17 +24,6 @@
 	<div id="global-list">
 
 		<?php
-
-			$list_array = array(
-
-				array("project", "joyce"),
-				array("project", "enicar"),
-				array("album", "portfolio"),
-				array("project", "steamchat"),
-				array("project", "k11"),
-				array("album", "kenya")
-
-			);
 
 			for ($i = 0; $i < count($list_array); $i++) {
 

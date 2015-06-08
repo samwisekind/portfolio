@@ -22,6 +22,9 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+	<meta property="og:description" content="My web design and photography portfolio." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
 	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700|Oxygen:300,400" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $directory; ?>css/style_global.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $directory; ?>css/style_<?php echo $page; ?>.css" />
@@ -31,20 +34,28 @@
 	<?php if ($page == "index") { ?>
 
 		<title>Flamov.com</title>
+		<meta property="og:title" content="Sam's Creative Portfolio" />
+		<meta property="og:image" content="<?php echo $directory . $project[$list_array[0][1]][0][1]; ?>">
 
 	<?php } else if ($page == "work") { ?>
 
 		<title>Flamov.com - Work</title>
+		<meta property="og:title" content="Flamov.com - Work" />
+		<meta property="og:image" content="<?php echo $directory . $project[$work_array[0][1]][0][1]; ?>">
 		<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_work.js"></script>
 
 	<?php } else if ($page == "project") { ?>
 
 		<title>Flamov.com - Project: <?php echo $project[$project_name][1]; ?></title>
+		<meta property="og:title" content="Flamov.com - Project: <?php echo $project[$project_name][1]; ?>" />
+		<meta property="og:image" content="<?php echo $directory . $project[$project_name][0][1]; ?>">
 		<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_project.js"></script>
 
 	<?php } else if ($page == "album") { ?>
 
 		<title>Flamov.com - Album: <?php echo $album[$album_current][1]; ?></title>
+		<meta property="og:title" content="Flamov.com - Album: <?php echo $album[$album_current][1]; ?>" />
+		<meta property="og:image" content="<?php echo $directory . $album[$album_current][4][1]; ?>">
 		<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_album.js"></script>
 		<script type="text/javascript" src="js/TweenLite.min.js"></script>
 		<script type="text/javascript" src="js/ScrollToPlugin.min.js"></script>
@@ -54,6 +65,7 @@
 	<?php } else if ($page == "about") { ?>
 
 		<title>Flamov.com - About</title>
+		<meta property="og:title" content="Flamov.com - About" />
 		<script type="text/javascript" src="<?php echo $directory; ?>js/scripts_about.js"></script>
 		<script type="text/javascript" src="<?php echo $directory; ?>js/parsley.min.js"></script>
 

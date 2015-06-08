@@ -1,6 +1,28 @@
 <?php
 
 	$page = "work";
+
+
+	$work_array = array(
+
+		array("project", "joyce"),
+		array("project", "enicar"),
+		array("album", "portfolio"),
+		array("project", "steamchat"),
+		array("project", "k11"),
+		array("album", "kenya"),
+		array("album", "yunnan"),
+		array("project", "hkjc"),
+		array("project", "phonicshero"),
+		array("album", "foxes"),
+		//array("project", "yungsclub"),
+		array("project", "stevemadden"),
+		array("project", "esm"),
+		array("album", "vietnam"),
+		array("album", "landscapes")
+
+	);
+
 	require "lib/header.php";
 
 	if (isset($_GET["filter"])) {
@@ -37,26 +59,6 @@
 	<div id="global-list">
 
 		<?php
-
-			$work_array = array(
-
-				array("project", "joyce"),
-				array("project", "enicar"),
-				array("album", "portfolio"),
-				array("project", "steamchat"),
-				array("project", "k11"),
-				array("album", "kenya"),
-				array("album", "yunnan"),
-				array("project", "hkjc"),
-				array("project", "phonicshero"),
-				array("album", "foxes"),
-				//array("project", "yungsclub"),
-				array("project", "stevemadden"),
-				array("project", "esm"),
-				array("album", "vietnam"),
-				array("album", "landscapes")
-
-			);
 
 			for ($i = 0; $i < count($work_array); $i++) {
 
