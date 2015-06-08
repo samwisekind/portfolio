@@ -39,7 +39,7 @@
 			<li><a href="http://www.thesteamchat.com/episode.php?type=snack&number=2">Interview with Harry Robins</a></li>
 		</ul>
 
-		<?php project_image("joyce_image_1.jpg", "The homepage featured a dramatic header image that also served as an interactive audio player for the latest episode. The header images were edited to overlay the navigation for dramatic effect."); ?>
+		<?php project_image("steamchat_image_1.jpg", "The homepage featured a dramatic header image that also served as an interactive audio player for the latest episode. The header images were edited to overlay the navigation for dramatic effect."); ?>
 
 		<p>The website helped improve the quality of the listening experience. The homepage featured a large header that served as an audio player for the latest episode. Users could click on the header from the edges of the screen to seek through the episode audio, or click on the episode's title to go directly to the episode page. This, combined with a large dramatic header image, guided users towards the latest episode without making it difficult for them to browse the archives.</p>
 
