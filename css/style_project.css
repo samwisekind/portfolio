@@ -303,11 +303,12 @@ footer#footer {
 		line-height: 20px;
 		text-align: justify; }
 
-	.title-link {
-		top: 8px; }
-
 	#intro h3 span {
 		margin-right: 0; }
+
+	#intro h3 .title-link {
+		top: 8px;
+		margin-top: 0; }
 
 	#intro ul li {
 		width: 100%;
