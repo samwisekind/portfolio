@@ -99,7 +99,7 @@
 
 	</div>
 
-	<div id="more"><a href="#">View all projects and albums</a></div>
+	<div id="more"><a href="work">View all projects and albums</a></div>
 
 	<div class="cf"></div>
 
