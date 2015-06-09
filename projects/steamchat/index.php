@@ -57,7 +57,7 @@
 
 		<p>It also improved my communication skills. Firstly, it taught me how to deal with both positive and negative feedback, learning to politely praise those who praised us, but also listen to and understand feedback that listeners had given us in order to improve the show. Having a show structured around interactions with the community, it was very important that we communicated correctly and built a healthy and positive relationship with them. Secondly, it also taught me how to discuss a variety of different issues with two very different personalities. It improved my ability to communicate in a way that I was able to appreciate their opinions and perspectives, and not only provide interesting and provocative feedback and responses, but also in such a manner that was not only easy for the other hosts to understand, but also for the listeners.</p>
 
-		<p>P.S. Extra-special thanks to Justin, Sebastian, Brett, Vic, Alex, Tanya, and Sasso for their invaluable help with making Steamchat what it was.</p>
+		<p>P.S. Extra-special thanks to Justin, Sebastian, Brett, Vic, Alex, Jeromy, Tanya, and Sasso for their invaluable help with making Steamchat what it was.</p>
 
 	</div>
 
