@@ -1,3 +1,4 @@
+# Enable Apache rewrite directive
 RewriteEngine on
 
 # Page: Index
@@ -9,8 +10,8 @@ RewriteRule ^work/?$ pages/work.php [L]
 # Page: Projects
 RewriteRule ^projects/([a-zA-Z0-9-]+)/?$ pages/projects/$1/index.php [L]
 
-# Page: About
-RewriteRule ^about/?$ pages/about.php [L]
-
 # Page: Photography
 RewriteRule ^photography/?$ pages/photography.php [L]
+
+# Page: About
+RewriteRule ^about/?$ pages/about.php [L]
