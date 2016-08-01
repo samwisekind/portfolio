@@ -1,12 +1,9 @@
-<?php
-
-	require_once 'common.php';
-
-?>
+<?php require_once 'common.php'; ?>
 
 <html lang="en">
 
 	<head>
+
 		<meta charset="utf-8" />
 		<link href="<?php echo $directory; ?>css/min/styleGlobal.min.css" rel="stylesheet" type="text/css" />
 		<link href="<?php echo $directory; ?>css/min/style<?php echo ucfirst($page); ?>.min.css" rel="stylesheet" type="text/css" />
