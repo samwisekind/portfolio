@@ -161,4 +161,4 @@
 
 
 
-<?php require "lib/footer.php"; ?>
+<?php require "../lib/footer.php"; ?>
