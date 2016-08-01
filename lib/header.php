@@ -108,7 +108,8 @@
 
 				<ul>
 					<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>"><span>Home</span></a></li>
-					<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work"><span>Work</span></a></li>
+					<li <?php if ($page == "work" || $page == "project") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work"><span>Work</span></a></li>
+					<li <?php if ($page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>photography"><span>Photography</span></a></li>
 					<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>about"><span>About &amp; Contact</span></a></li>
 				</ul>
 
@@ -121,14 +122,15 @@
 		<div id="content">
 
 			<header id="header">
-					
+
 				<h1><a href="<?php echo $directory; ?>">Sam's Portfolio</a></h1>
 
 				<nav id="nav">
-						
+
 					<ul>
 						<li <?php if ($page == "index") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>"><span>Home</span></a></li>
-						<li <?php if ($page == "work" || $page == "project" || $page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work"><span>Work</span></a></li>
+						<li <?php if ($page == "work" || $page == "project") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>work"><span>Work</span></a></li>
+							<li <?php if ($page == "album") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>photography"><span>Photography</span></a></li>
 						<li <?php if ($page == "about") echo 'class="current"'; ?>><a href="<?php echo $directory; ?>about"><span>About &amp; Contact</span></a></li>
 					</ul>
 
