@@ -42,7 +42,7 @@ header#header nav#nav ul li.current a:hover span {
 	border-color: #111111; }
 
 header#header #hamburger a {
-	background-image: url("../img/global/header_hamburger_light.svg"); }
+	background-image: url("../../img/global/header_hamburger_light.svg"); }
 
 #content,
 #content #wrapper {
@@ -112,7 +112,7 @@ header#header,
 
 #map {
 	z-index: 100;
-	background: url("../img/album/album_map_icon.svg") center center no-repeat #111111;
+	background: url("../../img/photography/photography_map_icon.svg") center center no-repeat #111111;
 	max-height: 0;
 	-webkit-transition: max-height .25s;
 	-moz-transition: max-height .25s;
@@ -156,7 +156,7 @@ body.menu #map-canvas {
 	opacity: .25;
 	display: block;
 	height: 100%;
-	background: url("../img/album/album_viewer_arrows.svg") no-repeat transparent;
+	background: url("../../img/photography/photography_viewer_arrows.svg") no-repeat transparent;
 	-webkit-transition: opacity .25s;
 	-moz-transition: opacity .25s;
 	-ms-transition: opacity .25s;
@@ -186,7 +186,7 @@ body.menu #map-canvas {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: url("../img/album/album_zoom.svg") left center no-repeat transparent; }
+	background: url("../../img/photography/photography_zoom.svg") left center no-repeat transparent; }
 
 body.zoom #viewer #viewer-zoom a {
 	background-position: right center; }
@@ -274,7 +274,7 @@ body.zoom #viewer #viewer-zoom a {
 	height: -moz-calc(100% - 120px);
 	height: -ms-calc(100% - 120px);
 	height: -o-calc(100% - 120px);
-	height: calc(100% - 120px);	
+	height: calc(100% - 120px);
 	background: #111111; }
 
 #thumbnails #thumbnails-list {
@@ -287,7 +287,7 @@ body.zoom #viewer #viewer-zoom a {
 	height: -moz-calc(100% - 100px);
 	height: -ms-calc(100% - 100px);
 	height: -o-calc(100% - 100px);
-	height: calc(100% - 100px);	
+	height: calc(100% - 100px);
 	overflow: hidden;
 	overflow-y: scroll; }
 
@@ -313,7 +313,7 @@ body.zoom #viewer #viewer-zoom a {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: url("../img/album/album_thumbnails_arrows.svg") no-repeat transparent; }
+	background: url("../../img/photography/photography_thumbnails_arrows.svg") no-repeat transparent; }
 
 #thumbnails .thumbnails-arrow.top a {
 	background-position: center top; }
@@ -452,12 +452,12 @@ body.map #navigator #navigator-title {
 	text-align: right;
 	text-transform: uppercase;
 	text-decoration: none;
-	background: url("../img/album/album_map_open.svg") right center no-repeat transparent;
+	background: url("../../img/photography/photography_map_open.svg") right center no-repeat transparent;
 	background-size: contain; }
 
 body.map #navigator #navigator-select #navigator-map {
 	padding: 0 20px 0 0;
-	background-image: url("../img/album/album_map_close.svg"); }
+	background-image: url("../../img/photography/photography_map_close.svg"); }
 
 #navigator #navigator-select #navigator-map #map-open,
 body.map #navigator #navigator-select #navigator-map #map-close {
@@ -477,7 +477,7 @@ body.map #navigator #navigator-select #navigator-map #map-open {
 	border: none;
 	font-size: 14px;
 	color: #848E92;
-	background: url("../img/album/album_select.svg") center no-repeat #111111;
+	background: url("../../img/photography/photography_select.svg") center no-repeat #111111;
 	background-position: -webkit-calc(100% - 8px);
 	background-position: -moz-calc(100% - 8px);
 	background-position: -ms-calc(100% - 8px);

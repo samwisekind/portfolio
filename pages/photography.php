@@ -1,8 +1,8 @@
 <?php
 
-	$page = "album";
+	$page = "photography";
 
-	require_once "lib/albums.php";
+	require_once "../lib/albums.php";
 
 	$album_list = array();
 
@@ -24,7 +24,7 @@
 
 	};
 
-	require "lib/header.php";
+	require "../lib/header.php";
 
 ?>
 
@@ -137,13 +137,13 @@
 
 						if ($i == 0) {
 
-							echo '<li class="current"><a href="#" data-name="' . $album[$album_current][5][$i][0] . '" data-image="' . $album[$album_current][5][$i][2] . '"><img src="' . $album[$album_current][5][$i][1] . '" alt="" /></a></li>';
+							echo '<li class="current"><a href="#" data-name="' . $album[$album_current][5][$i][0] . '" data-image="' . $album[$album_current][5][$i][2] . '"><img src="' . $directory . 'img/photography/albums/' . $album[$album_current][5][$i][1] . '" alt="" /></a></li>';
 
 						}
 
 						else {
 
-							echo '<li><a href="#" data-name="' . $album[$album_current][5][$i][0] . '" data-image="' . $album[$album_current][5][$i][2] . '"><img src="' . $album[$album_current][5][$i][1] . '" alt="" /></a></li>';
+							echo '<li><a href="#" data-name="' . $album[$album_current][5][$i][0] . '" data-image="' . $album[$album_current][5][$i][2] . '"><img src="' . $directory . 'img/photography/albums/' . $album[$album_current][5][$i][1] . '" alt="" /></a></li>';
 
 						};
 

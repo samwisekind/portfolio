@@ -45,7 +45,7 @@ main#about #about-logos li a {
 	display: block;
 	padding-top: 80px;
 	width: 70px;
-	background: url("../img/about/about_logos.svg") no-repeat transparent;
+	background: url("../../img/about/about_logos.svg") no-repeat transparent;
 	-webkit-animation: fadein ease-out 1s forwards;
 	-moz-animation: fadein ease-out 1s forwards;
 	-o-animation: fadein ease-out 1s forwards;
@@ -203,7 +203,7 @@ main#about #contact-form.disabled #contact-sending {
 
 main#about #contact-form #contact-sending span {
 	padding-left: 25px;
-	background: url("../img/about/about_sending.gif") left center no-repeat transparent; }
+	background: url("../../img/about/about_sending.gif") left center no-repeat transparent; }
 
 main#about #contact-form #contact-buttons {
 	text-align: right; }

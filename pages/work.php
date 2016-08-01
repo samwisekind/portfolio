@@ -23,7 +23,7 @@
 
 	);
 
-	require "lib/header.php";
+	require "../lib/header.php";
 
 	if (isset($_GET["filter"])) {
 
@@ -116,7 +116,7 @@
 
 						<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
 						<a class="special-link" href="<?php echo $link; ?>">View <?php echo $name; ?> <span>&raquo;</span></a>
-						
+
 						<?php
 
 							if ($subtitle != null) {

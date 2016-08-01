@@ -13,7 +13,7 @@
 
 	);
 
-	require "lib/header.php";
+	require "../lib/header.php";
 
 ?>
 
@@ -72,7 +72,7 @@
 				<div class="content">
 
 					<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
-					
+
 					<?php
 
 						if ($subtitle != null) {

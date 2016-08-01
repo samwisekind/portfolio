@@ -1,7 +1,7 @@
 <?php
 
 	$page = "about";
-	require "lib/header.php";
+	require "../lib/header.php";
 
 ?>
 
@@ -59,7 +59,7 @@
 					<div class="cf"></div>
 				</label>
 			</li>
-	
+
 			<li id="contact-buttons" class="contact-item">
 				<div id="contact-sending"><span>Sending...</span></div>
 				<input type="reset" value="Reset" id="contact-reset" class="contact-button">

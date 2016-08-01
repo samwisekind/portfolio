@@ -1,6 +1,16 @@
 RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(work)/?$ /$1.php [L,NC]
-RewriteRule ^(album)/?$ /$1.php [L,NC]
-RewriteRule ^(about)/?$ /$1.php [L,NC]
+
+# Page: Index
+DirectoryIndex pages/index.php
+
+# Page: Work
+RewriteRule ^work/?$ pages/work.php [L]
+
+# Page: Projects
+RewriteRule ^projects/([a-zA-Z0-9-]+)/?$ pages/projects/$1/index.php [L]
+
+# Page: About
+RewriteRule ^about/?$ pages/about.php [L]
+
+# Page: Photography
+RewriteRule ^photography/?$ pages/photography.php [L]

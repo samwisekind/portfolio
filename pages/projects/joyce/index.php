@@ -2,7 +2,7 @@
 
 	$page = "project";
 	$project_name = "joyce";
-	require "../../lib/header.php";
+	require "../../../lib/header.php";
 
 ?>
 
