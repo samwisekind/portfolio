@@ -4,6 +4,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var changed = require('gulp-changed');
 var using = require('gulp-using');
+var closureCompiler = require('google-closure-compiler').gulp();
+var argv = require('yargs').argv;
 
 gulp.task('sass', function () {
 
@@ -31,6 +33,42 @@ gulp.task('sass', function () {
 
 });
 
-gulp.task('scss', ['sass']);
+gulp.task('js', function () {
 
+	if (argv.target === undefined) {
+
+		console.error('You must use the --target flag!');
+		return false;
+
+	}
+	else if (argv.target === true) {
+
+		console.error('You must define a file name after the --target flag!');
+		return false;
+
+	}
+	else {
+
+		var compilerOptions = {
+			compilation_level: 'ADVANCED',
+			language_in: 'ECMASCRIPT6',
+			language_out: 'ECMASCRIPT5',
+			js_output_file: argv.target + '.min.js'
+		};
+
+		if (argv.pretty === true) {
+
+			compilerOptions.formatting = 'pretty_print';
+
+		}
+
+		return gulp.src('js/' + argv.target + '.js')
+			.pipe(closureCompiler(compilerOptions))
+			.pipe(gulp.dest('js/min'));
+
+	}
+
+});
+
+gulp.task('scss', ['sass']);
 gulp.task('default');
