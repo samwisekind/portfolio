@@ -12,10 +12,10 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    return view('master');
 });
 
-$app->get('/photography[/{album}]', function ($album = 'portfolio') {
+$app->get('/album[/{album}]', function ($album = 'portfolio') {
 
 	// Key the album ID from the URL query key
 	$target_album = app('db')->table('albums')
@@ -42,8 +42,10 @@ $app->get('/photography[/{album}]', function ($album = 'portfolio') {
 		return 'No album found';
 	}
 
-    return view('welcome', [
-    	'photos' => $photos
-    ]);
+});
+
+$app->get('/photography', function () {
+
+	return view('layout.photography');
 
 });
