@@ -744,6 +744,16 @@ module.exports = function bind(fn, thisArg) {
 window.Vue = __webpack_require__(30);
 window.axios = __webpack_require__(10);
 
+var selection = Vue.component('selection', {
+	props: ['albumList'],
+	template: '<transition>\n\t\t\t<div id="selection">\n\t\t\t\t<div v-for="album in albumList" class="album">\n\t\t\t\t\t<a href="#" class="preview" v-on:click="openAlbum(album.key)">\n\t\t\t\t\t\t<img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="" />\n\t\t\t\t\t</a>\n\t\t\t\t\t<h2><a href="#" v-on:click="openAlbum(album.key)">{{ album.title }}</a></h2>\n\t\t\t\t\t<p v-if="album.location">{{ album.location }}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</transition>',
+	methods: {
+		openAlbum: function openAlbum(key) {
+			photography.getAlbumData(key);
+		}
+	}
+});
+
 var viewer = Vue.component('viewer', {
 	props: ['photo'],
 	template: '<div class="viewer">\n\t\t\t<p v-on:click="prevPhoto">Back</p>\n\t\t\t<p v-if="photo">{{ photo.title }}</p>\n\t\t\t<p v-on:click="nextPhoto">Next</p>\n\t\t</div>',
@@ -777,17 +787,17 @@ var navigator = Vue.component('navigator', {
 
 var sidebar = Vue.component('sidebar', {
 	props: ['albumData', 'photoIndex'],
-	template: '<div class="sidebar">\n\t\t\t<ul>\n\t\t\t\t<li v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)">{{ photo.title }}</li>\n\t\t\t</ul>\n\t\t</div>',
+	template: '<div class="sidebar">\n\t\t\t<div v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === photoIndex }" class="sidebar-thumb" style="background-image: url(\'http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg\');"></div>\n\t\t</div>',
 	methods: {
 		changePhoto: function changePhoto(index) {
-			photography.changePhoto(index(selector / element));
+			photography.changePhoto(index);
 		}
 	}
 });
 
 var album = Vue.component('album', {
 	props: ['albumList', 'albumData', 'album', 'photoIndex'],
-	template: '<div id="album">\n\t\t\t<viewer v-bind:photo="photoData"></viewer>\n\t\t\t<navigator v-bind:photo="photoData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:photoIndex="photoIndex"></sidebar>\n\t\t</div>',
+	template: '<transition>\n\t\t\t<div id="album">\n\t\t\t\t<viewer v-bind:photo="photoData"></viewer>\n\t\t\t\t<navigator v-bind:photo="photoData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album"></navigator>\n\t\t\t\t<sidebar v-bind:albumData="albumData" v-bind:photoIndex="photoIndex"></sidebar>\n\t\t\t</div>\n\t\t</transition>',
 	computed: {
 		photoData: function photoData() {
 			return this.albumData[this.photoIndex];
@@ -797,7 +807,7 @@ var album = Vue.component('album', {
 
 var photography = new Vue({
 	el: '#photography',
-	template: '<div id="photography">\n\t\t\t<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex"></album>\n\t\t\t<ul v-if="!albumData">\n\t\t\t\t<li v-for="album in albumList" v-on:click="getAlbumData(album.key)">{{ album.key }}</li>\n\t\t\t</ul>\n\t\t</div>',
+	template: '<div id="photography">\n\t\t\t<selection v-if="!albumData" v-bind:albumList="albumList"></selection>\n\t\t\t<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex"></album>\n\t\t</div>',
 	data: {
 		albumList: null,
 		albumData: null,

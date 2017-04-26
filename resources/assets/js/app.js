@@ -1,6 +1,26 @@
 window.Vue = require('vue');
 window.axios = require('axios');
 
+var selection = Vue.component('selection', {
+	props: ['albumList'],
+	template: `<transition>
+			<div id="selection">
+				<div v-for="album in albumList" class="album">
+					<a href="#" class="preview" v-on:click="openAlbum(album.key)">
+						<img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="" />
+					</a>
+					<h2><a href="#" v-on:click="openAlbum(album.key)">{{ album.title }}</a></h2>
+					<p v-if="album.location">{{ album.location }}</p>
+				</div>
+			</div>
+		</transition>`,
+	methods: {
+		openAlbum: function(key) {
+			photography.getAlbumData(key);
+		}
+	}
+});
+
 var viewer = Vue.component('viewer', {
 	props: ['photo'],
 	template: `<div class="viewer">
@@ -44,24 +64,24 @@ var navigator = Vue.component('navigator', {
 var sidebar = Vue.component('sidebar', {
 	props: ['albumData', 'photoIndex'],
 	template: `<div class="sidebar">
-			<ul>
-				<li v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)">{{ photo.title }}</li>
-			</ul>
+			<div v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === photoIndex }" class="sidebar-thumb" style="background-image: url('http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg');"></div>
 		</div>`,
 	methods: {
 		changePhoto: function(index) {
-			photography.changePhoto(index(selector/element));
+			photography.changePhoto(index);
 		}
 	}
 });
 
 var album = Vue.component('album', {
 	props: ['albumList', 'albumData', 'album', 'photoIndex'],
-	template: `<div id="album">
-			<viewer v-bind:photo="photoData"></viewer>
-			<navigator v-bind:photo="photoData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album"></navigator>
-			<sidebar v-bind:albumData="albumData" v-bind:photoIndex="photoIndex"></sidebar>
-		</div>`,
+	template: `<transition>
+			<div id="album">
+				<viewer v-bind:photo="photoData"></viewer>
+				<navigator v-bind:photo="photoData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album"></navigator>
+				<sidebar v-bind:albumData="albumData" v-bind:photoIndex="photoIndex"></sidebar>
+			</div>
+		</transition>`,
 	computed: {
 		photoData: function() {
 			return this.albumData[this.photoIndex];
@@ -72,10 +92,8 @@ var album = Vue.component('album', {
 var photography = new Vue({
 	el: '#photography',
 	template: `<div id="photography">
+			<selection v-if="!albumData" v-bind:albumList="albumList"></selection>
 			<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex"></album>
-			<ul v-if="!albumData">
-				<li v-for="album in albumList" v-on:click="getAlbumData(album.key)">{{ album.key }}</li>
-			</ul>
 		</div>`,
 	data: {
 		albumList: null,

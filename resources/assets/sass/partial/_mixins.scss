@@ -1,3 +1,9 @@
+@mixin clearFix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 @mixin browserPrefix ($property, $value) {
 	-webkit-#{$property}: #{$value};
 	-moz-#{$property}: #{$value};
@@ -12,4 +18,28 @@
 	#{$property}: -ms-calc(#{$expression});
 	#{$property}: -o-calc(#{$expression});
 	#{$property}: calc(#{$expression});
+}
+
+@mixin transform ($transform) {
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-ms-transform: $transform;
+	-o-transform: $transform;
+	transform: $transform;
+}
+
+@mixin transition ($transition) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+
+@mixin transitionTransform ($transition) {
+	-webkit-transition: -webkit-transform $transition;
+	-moz-transition: -moz-transform $transition;
+	-ms-transition: -ms-transform $transition;
+	-o-transition: -o-transform $transition;
+	transition: transform $transition;
 }
