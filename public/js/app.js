@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -380,7 +380,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(24);
+var normalizeHeaderName = __webpack_require__(25);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -471,7 +471,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
 /* 2 */
@@ -481,12 +481,12 @@ module.exports = defaults;
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(16);
-var buildURL = __webpack_require__(19);
-var parseHeaders = __webpack_require__(25);
-var isURLSameOrigin = __webpack_require__(23);
+var settle = __webpack_require__(17);
+var buildURL = __webpack_require__(20);
+var parseHeaders = __webpack_require__(26);
+var isURLSameOrigin = __webpack_require__(24);
 var createError = __webpack_require__(5);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(18);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(19);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -582,7 +582,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(21);
+      var cookies = __webpack_require__(22);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -702,7 +702,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(15);
+var enhanceError = __webpack_require__(16);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -741,30 +741,121 @@ module.exports = function bind(fn, thisArg) {
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.Vue = __webpack_require__(28);
-window.axios = __webpack_require__(9);
+window.Vue = __webpack_require__(30);
+window.axios = __webpack_require__(10);
+
+var viewer = Vue.component('viewer', {
+	props: ['photo'],
+	template: '<div class="viewer">\n\t\t\t<p v-on:click="prevPhoto">Back</p>\n\t\t\t<p v-if="photo">{{ photo.title }}</p>\n\t\t\t<p v-on:click="nextPhoto">Next</p>\n\t\t</div>',
+	methods: {
+		prevPhoto: function prevPhoto() {
+			photography.prevPhoto();
+		},
+		nextPhoto: function nextPhoto() {
+			photography.nextPhoto();
+		}
+	}
+});
+
+var navigator = Vue.component('navigator', {
+	props: ['albumList', 'albumData', 'selectedAlbum'],
+	template: '<div class="navigator">\n\t\t\t<select v-if="albumList" v-model="currentAlbum" v-on:change="changeAlbum">\n\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t</select>\n\t\t\t<p v-on:click="closeAlbum">Close</p>\n\t\t</div>',
+	data: function data() {
+		return {
+			currentAlbum: this.selectedAlbum
+		};
+	},
+	methods: {
+		changeAlbum: function changeAlbum() {
+			photography.changeAlbum(this.currentAlbum);
+		},
+		closeAlbum: function closeAlbum() {
+			photography.closeAlbum();
+		}
+	}
+});
 
 var sidebar = Vue.component('sidebar', {
-	props: ['photos'],
-	template: '<ul>\n\t\t\t<li v-for="photo in photos" :key="photo">{{ photo.title }}</li>\n\t\t</ul>'
+	props: ['albumData', 'photoIndex'],
+	template: '<div class="sidebar">\n\t\t\t<ul>\n\t\t\t\t<li v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)">{{ photo.title }}</li>\n\t\t\t</ul>\n\t\t</div>',
+	methods: {
+		changePhoto: function changePhoto(index) {
+			photography.changePhoto(index(selector / element));
+		}
+	}
+});
+
+var album = Vue.component('album', {
+	props: ['albumList', 'albumData', 'album', 'photoIndex'],
+	template: '<div id="album">\n\t\t\t<viewer v-bind:photo="photoData"></viewer>\n\t\t\t<navigator v-bind:photo="photoData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:photoIndex="photoIndex"></sidebar>\n\t\t</div>',
+	computed: {
+		photoData: function photoData() {
+			return this.albumData[this.photoIndex];
+		}
+	}
 });
 
 var photography = new Vue({
 	el: '#photography',
-	template: '\n\t\t<div>\n\t\t\t<h1>Hello world!</h1>\n\t\t\t<select v-model="selectedAlbum" v-on:input="getAlbumData">\n\t\t\t\t<option value="portfolio">Portfolio</option>\n\t\t\t\t<option value="hongkong">Hong Kong</option>\n\t\t\t</select>\n\t\t\t<h2>Select photos:</h2>\n\t\t\t<sidebar v-bind:photos="albumData"></sidebar>\n\t\t</div>',
+	template: '<div id="photography">\n\t\t\t<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex"></album>\n\t\t\t<ul v-if="!albumData">\n\t\t\t\t<li v-for="album in albumList" v-on:click="getAlbumData(album.key)">{{ album.key }}</li>\n\t\t\t</ul>\n\t\t</div>',
 	data: {
-		selectedAlbum: 'portfolio',
-		albumData: null
+		albumList: null,
+		albumData: null,
+		selectedAlbum: null,
+		photoIndex: null
 	},
 	methods: {
-		getAlbumData: function getAlbumData() {
+		getAlbumList: function getAlbumList() {
 
-			axios.get('/album/' + this.selectedAlbum).then(function (response) {
-				photography.albumData = response.data;
+			axios.get('/api/album').then(function (response) {
+				photography.albumList = response.data;
 			}).catch(function (error) {
 				console.log(error);
 			});
+		},
+		getAlbumData: function getAlbumData(album) {
+
+			axios.get('/api/album/' + album).then(function (response) {
+				photography.albumData = response.data;
+				photography.selectedAlbum = album;
+				photography.photoIndex = 0;
+			}).catch(function (error) {
+				console.log(error);
+			});
+		},
+		changeAlbum: function changeAlbum(album) {
+			this.getAlbumData(album);
+		},
+		changePhoto: function changePhoto(newPhotoIndex) {
+			this.photoIndex = newPhotoIndex;
+		},
+		prevPhoto: function prevPhoto() {
+
+			if (this.photoIndex <= 0) {
+				this.photoIndex = this.albumLength;
+			} else {
+				this.photoIndex--;
+			}
+		},
+		nextPhoto: function nextPhoto() {
+
+			if (this.photoIndex >= this.albumLength) {
+				this.photoIndex = 0;
+			} else {
+				this.photoIndex++;
+			}
+		},
+		closeAlbum: function closeAlbum() {
+			this.albumData = null;
 		}
+	},
+	computed: {
+		albumLength: function albumLength() {
+			return this.albumData.length - 1;
+		}
+	},
+	mounted: function mounted() {
+		this.getAlbumList();
 	}
 });
 
@@ -776,12 +867,18 @@ var photography = new Vue({
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(10);
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(11);
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -789,7 +886,7 @@ module.exports = __webpack_require__(10);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
-var Axios = __webpack_require__(12);
+var Axios = __webpack_require__(13);
 var defaults = __webpack_require__(1);
 
 /**
@@ -824,14 +921,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(3);
-axios.CancelToken = __webpack_require__(11);
+axios.CancelToken = __webpack_require__(12);
 axios.isCancel = __webpack_require__(4);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(26);
+axios.spread = __webpack_require__(27);
 
 module.exports = axios;
 
@@ -840,7 +937,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -904,7 +1001,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -912,10 +1009,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(1);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(13);
-var dispatchRequest = __webpack_require__(14);
-var isAbsoluteURL = __webpack_require__(22);
-var combineURLs = __webpack_require__(20);
+var InterceptorManager = __webpack_require__(14);
+var dispatchRequest = __webpack_require__(15);
+var isAbsoluteURL = __webpack_require__(23);
+var combineURLs = __webpack_require__(21);
 
 /**
  * Create a new instance of Axios
@@ -996,7 +1093,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1055,14 +1152,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(17);
+var transformData = __webpack_require__(18);
 var isCancel = __webpack_require__(4);
 var defaults = __webpack_require__(1);
 
@@ -1141,7 +1238,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1167,7 +1264,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1199,7 +1296,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1226,7 +1323,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1269,7 +1366,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1344,7 +1441,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1363,7 +1460,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1423,7 +1520,7 @@ module.exports = (
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1444,7 +1541,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1519,7 +1616,7 @@ module.exports = (
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1538,7 +1635,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1582,7 +1679,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1616,7 +1713,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1802,7 +1899,8 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 28 */
+/* 29 */,
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11127,10 +11225,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11157,11 +11255,12 @@ module.exports = g;
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(7);
-module.exports = __webpack_require__(8);
+__webpack_require__(8);
+module.exports = __webpack_require__(9);
 
 
 /***/ })

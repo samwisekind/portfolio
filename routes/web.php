@@ -15,7 +15,15 @@ $app->get('/', function () use ($app) {
     return view('master');
 });
 
-$app->get('/album[/{album}]', function ($album = 'portfolio') {
+$app->get('/api/album', function ($album = 'portfolio') {
+
+	$result = app('db')->table('albums')->get();
+
+	return $result;
+
+});
+
+$app->get('/api/album/{album}', function ($album) {
 
 	// Key the album ID from the URL query key
 	$target_album = app('db')->table('albums')

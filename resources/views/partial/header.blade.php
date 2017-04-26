@@ -4,7 +4,8 @@
 
 	<head>
 		<title>Flamov</title>
-		<link href="/css/app.css" rel="stylesheet">
+		<link href="/css/global.css" rel="stylesheet">
+		<link href="/css/photography.css" rel="stylesheet">
 	</head>
 
 	<body>
