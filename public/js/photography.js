@@ -757,7 +757,7 @@ var selection = Vue.component('selection', {
 
 var viewer = Vue.component('viewer', {
 	props: ['photo'],
-	template: '<div class="viewer">\n\t\t\t<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>\n\t\t\t<div href="#" class="arrow next" v-on:click="nextPhoto"></div>\n\t\t\t<div class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>\n\t\t</div>',
+	template: '<div class="viewer">\n\t\t\t<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>\n\t\t\t<div href="#" class="arrow next" v-on:click="nextPhoto"></div>\n\t\t\t<div v-if="photo" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>\n\t\t</div>',
 	methods: {
 		prevPhoto: function prevPhoto() {
 			// Call parent method to show the previous photo
@@ -770,14 +770,15 @@ var viewer = Vue.component('viewer', {
 	},
 	computed: {
 		backgroundURL: function backgroundURL() {
+			// Return background image string
 			return 'url("img/albums/' + this.photo.image_url + '")';
 		}
 	}
 });
 
 var navigator = Vue.component('navigator', {
-	props: ['albumList', 'albumData', 'selectedAlbum', 'photoIndex'],
-	template: '<div class="navigator">\n\t\t\t<ul class="details">\n\t\t\t\t<li class="title">{{ photoTitle }}</li>\n\t\t\t\t<li class="index">Photo {{ photoIndex + 1 }} of {{ albumLength }}</li>\n\t\t\t</ul>\n\t\t\t<a v-on:click="closeAlbum" href="#" class="close"></a>\n\t\t\t<select v-if="albumList" v-model="currentAlbum" v-on:change="changeAlbum" class="selector">\n\t\t\t\t<optgroup label="Albums">\n\t\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t\t</optgroup>\n\t\t\t</select>\n\t\t</div>',
+	props: ['albumList', 'albumData', 'selectedAlbum', 'photoIndex', 'selectedIndex'],
+	template: '<div class="navigator">\n\t\t\t<ul class="details" v-if="showDetails">\n\t\t\t\t<li class="title">{{ photoTitle }}</li>\n\t\t\t\t<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>\n\t\t\t</ul>\n\t\t\t<a v-on:click="closeAlbum" href="#" class="close"></a>\n\t\t\t<select v-if="albumList" v-model="currentAlbum" v-on:change="changeAlbum" class="selector">\n\t\t\t\t<optgroup label="Albums">\n\t\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t\t</optgroup>\n\t\t\t</select>\n\t\t</div>',
 	data: function data() {
 		return {
 			// Save prop as data
@@ -795,9 +796,13 @@ var navigator = Vue.component('navigator', {
 		}
 	},
 	computed: {
+		showDetails: function showDetails() {
+			// Need to compute the v-if bind as a photo index of 0 behaves the same as false
+			return this.selectedIndex !== null;
+		},
 		photoTitle: function photoTitle() {
 			// Return the title of currently selected photo by its index
-			return this.albumData[this.photoIndex].title;
+			return this.albumData[this.selectedIndex].title;
 		},
 		albumLength: function albumLength() {
 			// Return the number of photos in the current album
@@ -807,22 +812,23 @@ var navigator = Vue.component('navigator', {
 });
 
 var sidebar = Vue.component('sidebar', {
-	props: ['albumData', 'photoIndex'],
-	template: '<div class="sidebar">\n\t\t\t<a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === photoIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>\n\t\t</div>',
+	props: ['albumData', 'selectedIndex'],
+	template: '<div class="sidebar">\n\t\t\t<a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === selectedIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>\n\t\t</div>',
 	methods: {
 		changePhoto: function changePhoto(index) {
 			// Call parent method to change photo index
 			photography.changePhoto(index);
 		},
 		returnBackgroundURL: function returnBackgroundURL(url) {
+			// Return background image string
 			return 'url("img/albums/' + url + '")';
 		}
 	}
 });
 
 var album = Vue.component('album', {
-	props: ['albumList', 'albumData', 'album', 'photoIndex'],
-	template: '<transition>\n\t\t\t<div id="album">\n\t\t\t\t<viewer v-bind:photo="photoData"></viewer>\n\t\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album" v-bind:photoIndex="photoIndex"></navigator>\n\t\t\t\t<sidebar v-bind:albumData="albumData" v-bind:photoIndex="photoIndex"></sidebar>\n\t\t\t</div>\n\t\t</transition>',
+	props: ['albumList', 'albumData', 'album', 'photoIndex', 'selectedIndex'],
+	template: '<transition>\n\t\t\t<div id="album">\n\t\t\t\t<viewer v-bind:photo="photoData"></viewer>\n\t\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex"></navigator>\n\t\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>\n\t\t\t</div>\n\t\t</transition>',
 	computed: {
 		photoData: function photoData() {
 			return this.albumData[this.photoIndex];
@@ -832,18 +838,21 @@ var album = Vue.component('album', {
 
 var photography = new Vue({
 	el: '#photography',
-	template: '<div id="photography">\n\t\t\t<selection v-if="!albumData" v-bind:albumList="albumList"></selection>\n\t\t\t<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex"></album>\n\t\t</div>',
+	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<selection v-if="!albumData" v-bind:albumList="albumList"></selection>\n\t\t\t<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex"></album>\n\t\t</div>',
 	data: {
+		isLoading: true,
 		albumList: null,
 		albumData: null,
 		selectedAlbum: null,
-		photoIndex: null
+		photoIndex: null,
+		selectedIndex: null
 	},
 	methods: {
 		getAlbumList: function getAlbumList() {
 
 			axios.get('/api/album').then(function (response) {
 				photography.albumList = response.data; // Store album list data
+				photography.isLoading = false; // Hide loading
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -853,7 +862,8 @@ var photography = new Vue({
 			axios.get('/api/album/' + album).then(function (response) {
 				photography.albumData = response.data; // Store album photo data
 				photography.selectedAlbum = album; // Set the album key for the drop-down selected option
-				photography.photoIndex = 0; // Reset photo index to the first photo (0)
+				photography.photoIndex = photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
+				photography.changePhoto(photography.selectedIndex); // Load the first photo via the pre-loading method
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -863,26 +873,51 @@ var photography = new Vue({
 			this.getAlbumData(key);
 		},
 		changePhoto: function changePhoto(index) {
-			// Set new photo index that will be passed down to components
-			this.photoIndex = index;
+
+			// Show loading
+			this.isLoading = true;
+
+			// Change the selected photo index even if it's loading
+			photography.selectedIndex = index;
+
+			// Create a new image object for pre-loading
+			var image = new Image();
+
+			image.onload = function () {
+				// Once the image has loaded, update the photo index and remove the loading
+				photography.photoIndex = index;
+				photography.isLoading = false;
+			};
+
+			// Set the image src attribute to the image url to start pre-loading
+			var targetUrl = this.albumData[index].image_url;
+			image.src = 'img/albums/' + targetUrl;
 		},
 		prevPhoto: function prevPhoto() {
 
+			var index;
+
 			// Check if index is at the minimum, reset to maximum
-			if (this.photoIndex <= 0) {
-				this.photoIndex = this.albumLength;
+			if (this.selectedIndex <= 0) {
+				index = this.albumLength;
 			} else {
-				this.photoIndex--;
+				index = this.selectedIndex - 1;
 			}
+
+			this.changePhoto(index);
 		},
 		nextPhoto: function nextPhoto() {
 
+			var index;
+
 			// Check if index is at the maximum, reset to zero
-			if (this.photoIndex >= this.albumLength) {
-				this.photoIndex = 0;
+			if (this.selectedIndex >= this.albumLength) {
+				index = 0;
 			} else {
-				this.photoIndex++;
+				index = this.selectedIndex + 1;
 			}
+
+			this.changePhoto(index);
 		},
 		closeAlbum: function closeAlbum() {
 			// Clear albumData data
@@ -895,9 +930,27 @@ var photography = new Vue({
 		}
 	},
 	mounted: function mounted() {
+
 		this.getAlbumList();
 
-		this.getAlbumData('yunnan');
+		// Attach key commands to previous and next methods
+		document.addEventListener('keydown', function (event) {
+			if (photography.albumData !== null) {
+				switch (event.keyCode) {
+					case 37:
+					case 38:
+					case 80:
+					case 65:
+						photography.prevPhoto();
+						break;
+					case 39:
+					case 40:
+					case 78:
+					case 68:
+						photography.nextPhoto();
+				}
+			}
+		}, false);
 	}
 });
 

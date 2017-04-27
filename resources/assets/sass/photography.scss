@@ -23,6 +23,11 @@ $scaleAmount: 0.25;
 	height: 100%;
 }
 
+#photography > #selection,
+#photography > #album {
+	background: #000000;
+}
+
 /* SELECTION */
 
 #photography > #selection {
@@ -85,10 +90,10 @@ $scaleAmount: 0.25;
 $viewerPadding: 40px;
 $navigatorHeight: 80px;
 $sidebarWidth: 160px;
+$loadingSize: 60px;
 
 #photography > #album {
 	z-index: 0;
-	opacity: 1;
 	will-change: transform;
 	@include transform (scale(1) translateZ(0));
 	@include transition (all 0.5s $easeStandard);
@@ -96,13 +101,12 @@ $sidebarWidth: 160px;
 
 #photography > #album.v-enter,
 #photography > #album.v-leave-to {
-	opacity: 0;
 	@include transform (scale(1 - $scaleAmount));
 }
 
 /* VIEWER */
 
-$viewerPadding: 20px;
+$viewerPadding: 40px;
 
 #photography > #album > .viewer {
 	position: absolute;
@@ -116,8 +120,12 @@ $viewerPadding: 20px;
 	z-index: 10;
 	position: absolute;
 	top: 0;
-	width: 50%;
+	width: 20%;
 	height: 100%;
+}
+
+#photography > #album > .viewer > .arrow:hover {
+	cursor: pointer;
 }
 
 #photography > #album > .viewer > .arrow.prev {
@@ -128,28 +136,107 @@ $viewerPadding: 20px;
 	right: 0;
 }
 
+#photography > #album > .viewer > .arrow:before {
+	content: "";
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	margin-top: -(30px / 2);
+	width: 30px;
+	height: 50px;
+	background: url("public/img/photography/viewer-arrow.svg") center center no-repeat transparent;
+	@include transition (all 0.2s $easeStandard);
+}
+
+#photography > #album > .viewer > .arrow:hover:before {
+	opacity: 0.5;
+}
+
+#photography > #album > .viewer > .arrow.prev:before {
+	left: $viewerPadding + 40px;
+	@include transform (translateX(0px));
+}
+
+#photography > #album > .viewer > .arrow.prev:hover:before {
+	@include transform (translateX(-20px));
+}
+
+#photography > #album > .viewer > .arrow.next:before {
+	right: $viewerPadding + (40px / 2);
+	@include transform (translateX(0px) rotate(180deg));
+}
+
+#photography > #album > .viewer > .arrow.next:hover:before {
+	@include transform (translateX(20px) rotate(180deg));
+}
+
 #photography > #album > .viewer > .viewer-photo {
 	z-index: 0;
 	position: absolute;
 	left: $viewerPadding;
 	top: $viewerPadding;
 	@include calc (width, "100% - #{$viewerPadding + ($viewerPadding / 2)}"); // Half of the viewer padding as the padding of the sidebar is equal to half
-	@include calc (height, "100% - #{$viewerPadding * 2}");
+	@include calc (height, "100% - #{$viewerPadding + ($viewerPadding / 2)}");
 	background: center center no-repeat transparent;
 	background-size: contain;
+	@include transition (opacity 0.2s $easeAcceleration);
 }
+
+#photography.loading > #album > .viewer > .viewer-photo {
+	opacity: 0.5;
+	@include transition (opacity 0.2s $easeDeceleration);
+}
+
+#photography.loading > #album > .viewer > .viewer-photo:before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -($loadingSize / 2);
+	margin-top: -($loadingSize / 2);
+	width: $loadingSize;
+	height: $loadingSize;
+	border-radius: 50%;
+	border: ($loadingSize / 10) solid #FFFFFF;
+	@include animation (loading 1s infinite $easeDeceleration);
+}
+
+@-webkit-keyframes loading {
+	0% { -webkit-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -webkit-transform: scale(1); opacity: 0; } }
+
+@-moz-keyframes loading {
+	0% { -moz-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -moz-transform: scale(1); opacity: 0; } }
+
+@-ms-keyframes loading {
+	0% { -ms-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -ms-transform: scale(1); opacity: 0; } }
+
+@-o-keyframes loading {
+	0% { -o-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -o-transform: scale(1); opacity: 0; } }
+
+@keyframes loading {
+	0% { transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { transform: scale(1); opacity: 0; } }
 
 /* NAVIGATOR */
 
 $navigatorPadding: 20px;
-$selectorWidth: 250px;
+$selectorWidth: 300px;
 $closeSize: 16px;
 
 #photography > #album > .navigator {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	@include calc (width, "100% - #{$sidebarWidth}");
+	width: 100%;
 	height: $navigatorHeight;
 }
 
@@ -176,7 +263,7 @@ $closeSize: 16px;
 #photography > #album > .navigator > .close {
 	opacity: 0.5;
 	position: absolute;
-	right: $selectorWidth + ($navigatorPadding / 2) + $navigatorPadding;
+	right: $selectorWidth + ($navigatorPadding * 2);
 	top: 50%;
 	width: $closeSize;
 	height: $closeSize;
@@ -190,7 +277,7 @@ $closeSize: 16px;
 
 #photography > #album > .navigator > .selector {
 	position: absolute;
-	right: $navigatorPadding / 2;
+	right: $navigatorPadding;
 	top: 50%;
 	padding: 0 15px 0 15px;
 	width: $selectorWidth;
@@ -218,26 +305,30 @@ $closeSize: 16px;
 	top: 0;
 	padding: 20px 0 20px 0;
 	width: $sidebarWidth;
-	height: 100%;
+	@include calc (height, "100% - #{$navigatorHeight}");
 	overflow: hidden;
 	overflow-y: scroll;
 }
 
 #photography > #album > .sidebar > .sidebar-thumb {
-	opacity: 0.5;
+	opacity: 0.25;
 	display: block;
 	margin: 0 auto 20px auto;
 	width: 120px;
 	height: 80px;
 	background: center center no-repeat transparent;
 	background-size: cover;
+	@include transition (opacity 0.2s $easeStandard);
 }
 
 #photography > #album > .sidebar > .sidebar-thumb:last-child {
 	margin-bottom: 0;
 }
 
-#photography > #album > .sidebar > .sidebar-thumb.current,
 #photography > #album > .sidebar > .sidebar-thumb:hover {
+	opacity: 0.5;
+}
+
+#photography > #album > .sidebar > .sidebar-thumb.current {
 	opacity: 1;
 }
