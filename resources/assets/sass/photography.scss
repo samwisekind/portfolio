@@ -2,7 +2,7 @@
 @import "partial/colours";
 @import "partial/mixins";
 
-/* RESETS */
+/* OVERRIDES */
 
 body {
 	color: #FFFFFF;
@@ -13,17 +13,23 @@ body {
 
 $scaleAmount: 0.25;
 
+#photography,
+#photography > #selection,
+#photography > #album {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
 /* SELECTION */
 
 #photography > #selection {
 	z-index: 10;
 	opacity: 1;
-	position: absolute;
-	left: 0;
 	margin: 0 auto 0 auto;
 	padding: 100px 30px 100px 30px;
-	width: 100%;
-	height: 100%;
 	will-change: transform;
 	@include transform (scale(1) translateZ(0));
 	@include transition (all 0.5s $easeStandard);
@@ -83,11 +89,6 @@ $sidebarWidth: 160px;
 #photography > #album {
 	z-index: 0;
 	opacity: 1;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
 	will-change: transform;
 	@include transform (scale(1) translateZ(0));
 	@include transition (all 0.5s $easeStandard);
@@ -99,14 +100,50 @@ $sidebarWidth: 160px;
 	@include transform (scale(1 - $scaleAmount));
 }
 
+/* VIEWER */
+
+$viewerPadding: 20px;
+
 #photography > #album > .viewer {
 	position: absolute;
 	left: 0;
 	top: 0;
 	@include calc (width, "100% - #{$sidebarWidth}");
 	@include calc (height, "100% - #{$navigatorHeight}");
-	background: red;
 }
+
+#photography > #album > .viewer > .arrow {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	height: 100%;
+}
+
+#photography > #album > .viewer > .arrow.prev {
+	left: 0;
+}
+
+#photography > #album > .viewer > .arrow.next {
+	right: 0;
+}
+
+#photography > #album > .viewer > .viewer-photo {
+	z-index: 0;
+	position: absolute;
+	left: $viewerPadding;
+	top: $viewerPadding;
+	@include calc (width, "100% - #{$viewerPadding + ($viewerPadding / 2)}"); // Half of the viewer padding as the padding of the sidebar is equal to half
+	@include calc (height, "100% - #{$viewerPadding * 2}");
+	background: center center no-repeat transparent;
+	background-size: contain;
+}
+
+/* NAVIGATOR */
+
+$navigatorPadding: 20px;
+$selectorWidth: 250px;
+$closeSize: 16px;
 
 #photography > #album > .navigator {
 	position: absolute;
@@ -115,6 +152,65 @@ $sidebarWidth: 160px;
 	@include calc (width, "100% - #{$sidebarWidth}");
 	height: $navigatorHeight;
 }
+
+#photography > #album > .navigator > .details {
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	list-style: none;
+	@include transform(translateY(-50%));
+}
+
+#photography > #album > .navigator > .details > .title {
+	margin-bottom: 5px;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+#photography > #album > .navigator > .details > .index {
+	font-size: 12px;
+	line-height: 12px;
+	color: #8C8C8C;
+}
+
+#photography > #album > .navigator > .close {
+	opacity: 0.5;
+	position: absolute;
+	right: $selectorWidth + ($navigatorPadding / 2) + $navigatorPadding;
+	top: 50%;
+	width: $closeSize;
+	height: $closeSize;
+	background: url("public/img/photography/close-button.svg") center center no-repeat transparent;
+	@include transform (translateY(-50%));
+}
+
+#photography > #album > .navigator > .close:hover {
+	opacity: 1;
+}
+
+#photography > #album > .navigator > .selector {
+	position: absolute;
+	right: $navigatorPadding / 2;
+	top: 50%;
+	padding: 0 15px 0 15px;
+	width: $selectorWidth;
+	height: 40px;
+	font-size: 14px;
+	color: #BABABA;
+	border-radius: 3px;
+	border: none;
+	background: url("public/img/photography/select-arrow.svg") no-repeat #181818;
+	@include calcBackgroundHorizontal("100% - 15px");
+	@include removeStyling;
+	@include transform (translateY(-50%));
+}
+
+#photography > #album > .navigator > .selector:hover {
+	cursor: pointer;
+	background-color: lighten(#181818, 5%);
+}
+
+/* SIDEBAR */
 
 #photography > #album > .sidebar {
 	position: absolute;
@@ -129,6 +225,7 @@ $sidebarWidth: 160px;
 
 #photography > #album > .sidebar > .sidebar-thumb {
 	opacity: 0.5;
+	display: block;
 	margin: 0 auto 20px auto;
 	width: 120px;
 	height: 80px;
@@ -140,6 +237,7 @@ $sidebarWidth: 160px;
 	margin-bottom: 0;
 }
 
-#photography > #album > .sidebar > .sidebar-thumb.current {
+#photography > #album > .sidebar > .sidebar-thumb.current,
+#photography > #album > .sidebar > .sidebar-thumb:hover {
 	opacity: 1;
 }

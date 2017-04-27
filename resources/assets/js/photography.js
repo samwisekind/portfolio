@@ -25,9 +25,9 @@ var selection = Vue.component('selection', {
 var viewer = Vue.component('viewer', {
 	props: ['photo'],
 	template: `<div class="viewer">
-			<p v-on:click="prevPhoto">Back</p>
+			<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
+			<div href="#" class="arrow next" v-on:click="nextPhoto"></div>
 			<div class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>
-			<p v-on:click="nextPhoto">Next</p>
 		</div>`,
 	methods: {
 		prevPhoto: function() {

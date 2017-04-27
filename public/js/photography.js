@@ -757,7 +757,7 @@ var selection = Vue.component('selection', {
 
 var viewer = Vue.component('viewer', {
 	props: ['photo'],
-	template: '<div class="viewer">\n\t\t\t<p v-on:click="prevPhoto">Back</p>\n\t\t\t<div class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>\n\t\t\t<p v-on:click="nextPhoto">Next</p>\n\t\t</div>',
+	template: '<div class="viewer">\n\t\t\t<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>\n\t\t\t<div href="#" class="arrow next" v-on:click="nextPhoto"></div>\n\t\t\t<div class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>\n\t\t</div>',
 	methods: {
 		prevPhoto: function prevPhoto() {
 			// Call parent method to show the previous photo

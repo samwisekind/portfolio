@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -741,7 +741,7 @@ module.exports = function bind(fn, thisArg) {
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.Vue = __webpack_require__(30);
+window.Vue = __webpack_require__(29);
 window.axios = __webpack_require__(10);
 
 var selection = Vue.component('selection', {
@@ -1909,8 +1909,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 29 */,
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11235,10 +11234,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11265,7 +11264,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(7);

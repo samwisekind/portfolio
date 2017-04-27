@@ -43,3 +43,17 @@
 	-o-transition: -o-transform $transition;
 	transition: transform $transition;
 }
+
+@mixin removeStyling {
+    -webkit-appearance: none;
+    apperance: none;
+    outline: none;
+}
+
+@mixin calcBackgroundHorizontal ($expression) {
+	background-position: -webkit-calc(#{$expression}) center;
+	background-position: -moz-calc(#{$expression}) center;
+	background-position: -ms-calc(#{$expression}) center;
+	background-position: -o-calc(#{$expression}) center;
+	background-position: calc(#{$expression}) center;
+}
