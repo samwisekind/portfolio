@@ -22,6 +22,14 @@ var selection = Vue.component('selection', {
 	}
 });
 
+var globe = Vue.component('globe', {
+	template: `<transition>
+			<div class="globe">
+				<div id="map-canvas" style="width: 100%; height: 100%;"></div>
+			</div>
+		</transition>`
+});
+
 var viewer = Vue.component('viewer', {
 	props: ['photo'],
 	template: `<div class="viewer">
@@ -48,13 +56,17 @@ var viewer = Vue.component('viewer', {
 });
 
 var navigator = Vue.component('navigator', {
-	props: ['albumList', 'albumData', 'selectedAlbum', 'photoIndex', 'selectedIndex'],
+	props: ['albumList', 'albumData', 'selectedAlbum', 'photoIndex', 'selectedIndex', 'globeOpen'],
 	template: `<div class="navigator">
 			<ul class="details" v-if="showDetails">
 				<li class="title">{{ photoTitle }}</li>
 				<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>
 			</ul>
-			<a v-on:click="closeAlbum" href="#" class="close"></a>
+			<div class="buttons">
+				<a v-if="!globeOpen" v-on:click="openMap" href="#" class="button map">Map</a>
+				<a v-if="globeOpen" v-on:click="closeMap" href="#" class="button close">Close</a>
+				<a v-on:click="closeAlbum" href="#" class="button menu">Menu</a>
+			</div>
 			<select v-if="albumList" v-model="currentAlbum" v-on:change="changeAlbum" class="selector">
 				<optgroup label="Albums">
 					<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>
@@ -71,6 +83,12 @@ var navigator = Vue.component('navigator', {
 		changeAlbum: function() {
 			// Pass in data-prop album key to parent method
 			photography.changeAlbum(this.currentAlbum);
+		},
+		openMap: function() {
+			photography.mapOpen();
+		},
+		closeMap: function() {
+			photography.mapClose();
 		},
 		closeAlbum: function() {
 			// Call parent method to close album view
@@ -111,11 +129,12 @@ var sidebar = Vue.component('sidebar', {
 });
 
 var album = Vue.component('album', {
-	props: ['albumList', 'albumData', 'album', 'photoIndex', 'selectedIndex'],
+	props: ['albumList', 'albumData', 'globeOpen', 'album', 'photoIndex', 'selectedIndex'],
 	template: `<transition>
 			<div id="album">
+				<globe v-show="globeOpen"></globe>
 				<viewer v-bind:photo="photoData"></viewer>
-				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex"></navigator>
+				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:globeOpen="globeOpen"></navigator>
 				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>
 			</div>
 		</transition>`,
@@ -130,7 +149,7 @@ var photography = new Vue({
 	el: '#photography',
 	template: `<div id="photography" v-bind:class="{ loading: isLoading }">
 			<selection v-if="!albumData" v-bind:albumList="albumList"></selection>
-			<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex"></album>
+			<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:globeOpen="globeOpen"></album>
 		</div>`,
 	data: {
 		isLoading: true,
@@ -138,7 +157,9 @@ var photography = new Vue({
 		albumData: null,
 		selectedAlbum: null,
 		photoIndex: null,
-		selectedIndex: null
+		selectedIndex: null,
+		mapLoaded: false,
+		globeOpen: false
 	},
 	methods: {
 		getAlbumList: function() {
@@ -223,6 +244,51 @@ var photography = new Vue({
 			this.changePhoto(index);
 
 		},
+		mapLoad: function() {
+
+			var location = new google.maps.LatLng(20, 0);
+			var mapOptions = {
+				center: location,
+				zoom: 2,
+				scrollwheel: false
+			};
+
+			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+			for (var i = 0; i < this.albumList.length; i++) {
+
+				var data = this.albumList[i];
+
+				if (data.map_latitude === 0 || data.map_longitude === 0) {
+					continue;
+				}
+
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(data.map_latitude, data.map_longitude),
+					map: map,
+					title: data.title,
+					key: data.key
+				});
+
+				google.maps.event.addListener(marker, 'click', function() {
+					photography.getAlbumData(this.key);
+					photography.mapClose();
+				});
+
+			}
+
+			this.mapLoaded = true;
+
+		},
+		mapOpen: function() {
+			if (this.mapLoaded === false) {
+				this.mapLoad();
+			}
+			this.globeOpen = true;
+		},
+		mapClose: function() {
+			this.globeOpen = false;
+		},
 		closeAlbum: function() {
 			// Clear albumData data
 			this.albumData = null;
@@ -236,6 +302,10 @@ var photography = new Vue({
 	mounted: function() {
 
 		this.getAlbumList();
+
+		this.getAlbumData('portfolio');
+
+		// this.mapOpen();
 
 		// Attach key commands to previous and next methods
 		document.addEventListener('keydown', function(event) {

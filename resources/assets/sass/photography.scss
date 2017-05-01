@@ -95,6 +95,7 @@ $loadingSize: 60px;
 #photography > #album {
 	z-index: 0;
 	will-change: transform;
+	overflow: hidden;
 	@include transform (scale(1) translateZ(0));
 	@include transition (all 0.5s $easeStandard);
 }
@@ -109,6 +110,7 @@ $loadingSize: 60px;
 $viewerPadding: 40px;
 
 #photography > #album > .viewer {
+	z-index: 0;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -176,7 +178,7 @@ $viewerPadding: 40px;
 	left: $viewerPadding;
 	top: $viewerPadding;
 	@include calc (width, "100% - #{$viewerPadding + ($viewerPadding / 2)}"); // Half of the viewer padding as the padding of the sidebar is equal to half
-	@include calc (height, "100% - #{$viewerPadding + ($viewerPadding / 2)}");
+	@include calc (height, "100% - #{$viewerPadding + ($viewerPadding / 2)}"); // Half of the viewer padding as the padding of the navigator is equal to half
 	background: center center no-repeat transparent;
 	background-size: contain;
 	@include transition (opacity 0.2s $easeAcceleration);
@@ -226,18 +228,40 @@ $viewerPadding: 40px;
 	50% { opacity: 1; }
 	100% { transform: scale(1); opacity: 0; } }
 
+/* GLOBE */
+
+#photography > #album > .globe {
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	@include calc (height, "100% - #{$navigatorHeight}");
+	background: #000000;
+	@include transform (translateY(0));
+	@include transition (all 0.5s $easeStandard);
+}
+
+#photography > #album > .globe.v-enter,
+#photography > #album > .globe.v-leave-to {
+	opacity: 0;
+	@include transform (translateY(100%));
+}
+
 /* NAVIGATOR */
 
 $navigatorPadding: 20px;
 $selectorWidth: 300px;
-$closeSize: 16px;
+$buttonSize: 16px;
 
 #photography > #album > .navigator {
+	z-index: 20;
 	position: absolute;
 	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: $navigatorHeight;
+	background: #000000;
 }
 
 #photography > #album > .navigator > .details {
@@ -260,18 +284,55 @@ $closeSize: 16px;
 	color: #8C8C8C;
 }
 
-#photography > #album > .navigator > .close {
-	opacity: 0.5;
+#photography > #album > .navigator > .buttons {
 	position: absolute;
 	right: $selectorWidth + ($navigatorPadding * 2);
 	top: 50%;
-	width: $closeSize;
-	height: $closeSize;
-	background: url("public/img/photography/close-button.svg") center center no-repeat transparent;
 	@include transform (translateY(-50%));
 }
 
-#photography > #album > .navigator > .close:hover {
+#photography > #album > .navigator > .buttons:after {
+	@include clearFix;
+}
+
+#photography > #album > .navigator > .buttons > .button {
+	opacity: 0.5;
+	float: left;
+	display: block;
+	margin-right: $navigatorPadding;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#photography > #album > .navigator > .buttons > .button:last-child {
+	margin-right: 0;
+}
+
+#photography > #album > .navigator > .buttons > .button:before {
+	content: "";
+	display: block;
+	margin: 0 auto 5px auto;
+	width: $buttonSize;
+	height: $buttonSize;
+	background: center center no-repeat transparent;
+}
+
+#photography > #album > .navigator > .buttons > .button.map:before {
+	background-image: url("public/img/photography/map-button.svg");
+}
+
+#photography > #album > .navigator > .buttons > .button.close:before {
+	background-image: url("public/img/photography/close-button.svg");
+}
+
+#photography > #album > .navigator > .buttons > .button.menu:before {
+	background-image: url("public/img/photography/menu-button.svg");
+}
+
+#photography > #album > .navigator > .buttons > .button:hover {
 	opacity: 1;
 }
 
@@ -300,6 +361,7 @@ $closeSize: 16px;
 /* SIDEBAR */
 
 #photography > #album > .sidebar {
+	z-index: 0;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -308,6 +370,7 @@ $closeSize: 16px;
 	@include calc (height, "100% - #{$navigatorHeight}");
 	overflow: hidden;
 	overflow-y: scroll;
+	background: #000000;
 }
 
 #photography > #album > .sidebar > .sidebar-thumb {
