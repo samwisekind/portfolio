@@ -1,3 +1,69 @@
 @import "partial/constants";
 @import "partial/colours";
 @import "partial/mixins";
+
+.project-header {
+	padding: 60px 40px 40px 40px;
+}
+
+.project-header.joyce {
+	color: #FFFFFF;
+	background: #000000;
+}
+
+.project-header > .container {
+	margin: 0 auto 0 auto;
+	max-width: 800px;
+}
+
+.project-header h1 {
+	margin-bottom: 20px;
+	font-size: 48px;
+	line-height: 48px;
+	font-weight: 300;
+}
+
+.project-header h2 {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 300;
+}
+
+.project-header .details {
+	margin-top: 40px;
+	list-style: none;
+}
+
+.project-header .details li {
+	margin-bottom: 20px;
+}
+
+.project-header .details li .title {
+	display: block;
+	font-weight: 500;
+}
+
+.project-content {
+	margin: 0 auto 0 auto;
+	padding: 0 40px 0 40px;
+	max-width: 800px;
+}
+
+.project-content > h3,
+.project-content > p {
+	display: block;
+	margin: 20px auto 20px auto;
+}
+
+.project-content > p + h3 {
+	margin-top: 60px;
+}
+
+.project-content > h4 {
+	margin-top: 40px;
+}
+
+.project-content > p code {
+	padding: 0 5px 0 5px;
+	background: #EEEEEE;
+}
