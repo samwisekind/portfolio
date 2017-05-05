@@ -3,9 +3,9 @@
 <html>
 
 	<head>
-		<title>Flamov</title>
+		<title>Flamov – @yield('title')</title>
 		<link href="/css/global.css" rel="stylesheet">
-		<link href="/css/photography.css" rel="stylesheet">
+		@yield ('css')
 	</head>
 
 	<body>

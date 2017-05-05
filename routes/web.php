@@ -15,9 +15,22 @@ $app->get('/', function () use ($app) {
     return view('master');
 });
 
+$app->get('/projects/{project}', function ($project) {
+
+	$result = app('db')->table('projects')
+		->where('key', $project)
+		->first();
+
+	return view('layout.projects.' . $project, [
+		'project' => $result
+	]);
+
+});
+
 $app->get('/api/album', function ($album = 'portfolio') {
 
-	$result = app('db')->table('albums')->get();
+	$result = app('db')->table('albums')
+		->get();
 
 	return $result;
 
