@@ -168,7 +168,7 @@ $headerLinkIconSize: 24px;
 	$gradientFrom: #3F4257;
 	$gradientTo: #727998;
 
-	body > .outer-wrapper {
+	.outer-wrapper {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -211,14 +211,49 @@ $headerLinkIconSize: 24px;
 	.outer-menu > ul > li > a {
 		padding: 20px 10% 20px 0;
 		display: block;
+		font-size: 16px;
+		line-height: 16px;
 		font-weight: 400;
 		text-align: right;
 		text-decoration: none;
 		color: #FFFFFF;
 	}
 
+	.outer-menu > ul > li > a {
+		opacity: 0;
+		@include transition(opacity 0.25s $easeStandard);
+	}
+
+	body.menu .outer-menu > ul > li > a {
+		opacity: 1;
+	}
+
+	.outer-menu .nav > li:nth-child(1) > a {
+		@include transitionDelay (0.1s);
+	}
+
+	.outer-menu .nav > li:nth-child(2) > a {
+		@include transitionDelay (0.15s);
+	}
+
+	.outer-menu .nav > li:nth-child(3) > a {
+		@include transitionDelay (0.2s);
+	}
+
+	.outer-menu .links > li:nth-child(1) > a {
+		@include transitionDelay (0.25s);
+	}
+
+	.outer-menu .links > li:nth-child(2) > a {
+		@include transitionDelay (0.3s);
+	}
+
 	.outer-menu > ul > li.current > a {
 		font-weight: 700;
+	}
+
+	.outer-menu > ul > li.current > a,
+	.outer-menu > ul > li > a:hover {
 		background: rgba(255, 255, 255, 0.2);
 	}
 
@@ -231,11 +266,11 @@ $headerLinkIconSize: 24px;
 		left: 0;
 	}
 
-	.outer-menu .links .github a span:before {
+	.outer-menu > .links .github a span:before {
 		background-image: url("../img/global/global-link-github-light.svg");
 	}
 
-	.outer-menu .links .codepen a span:before {
+	.outer-menu > .links .codepen a span:before {
 		background-image: url("../img/global/global-link-codepen-light.svg");
 	}
 
