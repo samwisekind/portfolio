@@ -19,7 +19,7 @@
 			<ul class="details">
 				<li><span class="title">Responsibilities:</span> {{ $project->responsibilities }}</li>
 				<li><span class="title">Technologies:</span> {{ $project->technologies }}</li>
-				<li><span class="title">Timeframe:</span> {{ date('d/m/Y', strtotime($project->started)) }} – {{date('d/m/Y', strtotime($project->ended)) }}</li>
+				<li><span class="title">Timeframe:</span> {{ date('m F Y', strtotime($project->started)) }} – {{date('m F Y', strtotime($project->ended)) }}</li>
 			</ul>
 
 		</div>

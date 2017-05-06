@@ -31,6 +31,8 @@
 					<li class="codepen"><a href="https://www.codepen.io/Flamov" target="_blank" rel="noopener noreferrer"><span>Codepen</span></a></li>
 				</ul>
 
+				<a href="#" class="header-hamburger"></a>
+
 			</div>
 
 		</header>

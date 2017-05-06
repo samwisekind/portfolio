@@ -11,7 +11,7 @@ $headerLinkPadding: 10px;
 	z-index: 100;
 	position: relative;
 	padding: 0 $widthPadding 0 $widthPadding;
-	height: $headerHeight;
+	height: $headerHeight ;
 }
 
 .global-header > .container {
@@ -25,17 +25,27 @@ $headerLinkPadding: 10px;
 	@include clearFix;
 }
 
-.global-header a {
-	display: block;
-	color: inherit;
-	font-family: "Lato", Helvetica, Verdana, sans-serif;
-	text-decoration: none;
+.global-header .header-title,
+.global-header .header-nav li,
+.global-header .header-links li {
+	display: table;
+	height: $headerHeight;
 }
 
-.global-header .header-nav a,
-.global-header .header-links a {
-	padding: 0 $headerLinkPadding 0 $headerLinkPadding;
-	height: $headerHeight;
+.global-header ul {
+	list-style: none;
+}
+
+.global-header ul > li {
+	float: left;
+}
+
+.global-header a {
+	display: table-cell;
+	vertical-align: middle;
+	font-family: "Lato", Helvetica, Verdana, sans-serif;
+	text-decoration: none;
+	color: inherit;
 }
 
 .global-header a span {
@@ -51,15 +61,6 @@ $headerLinkPadding: 10px;
 }
 
 .global-header .header-title,
-.global-header .header-nav span,
-.global-header .header-links span {
-	position: relative;
-	top: 50%;
-	display: block;
-	@include transform (translateY(-50%));
-}
-
-.global-header .header-title,
 .global-header .header-nav {
 	float: left;
 }
@@ -68,22 +69,19 @@ $headerLinkPadding: 10px;
 	margin-right: 20px;
 }
 
-.global-header .header-nav .current > a {
-	font-weight: 700;
-}
-
 .global-header .header-title > a {
 	font-weight: 700;
 	font-size: 26px;
 	line-height: 26px;
 }
 
-.global-header ul {
-	list-style: none;
+.global-header .header-nav a,
+.global-header .header-links a {
+	padding: 0 $headerLinkPadding 0 $headerLinkPadding;
 }
 
-.global-header ul > li {
-	float: left;
+.global-header .header-nav .current > a {
+	font-weight: 700;
 }
 
 $headerLinkIconSize: 24px;
@@ -135,4 +133,67 @@ $headerLinkIconSize: 24px;
 
 .global-footer p:last-child {
 	margin-bottom: 0;
+}
+
+.global-header > .header-hamburger {
+	display: none;
+}
+
+@media (max-width: 900px) {
+
+	.global-header .header-links a {
+		padding: 0 10px 0 10px;
+	}
+
+	.global-header .header-links a:before {
+		position: static;
+		margin: 0 auto 5px auto;
+		display: block;
+	}
+
+}
+
+@media (max-width: 800px) {
+
+	$headerHeight: 50px;
+
+	.global-header {
+		padding: 0 0 0 20px;
+	}
+
+	.global-header,
+	.global-header .header-title {
+		height: $headerHeight;
+	}
+
+	.global-header .header-title > a {
+		font-size: 20px;
+		line-height: 20px;
+	}
+
+	.global-header .header-nav,
+	.global-header .header-links {
+		display: none;
+	}
+
+	.global-header .header-hamburger {
+		float: right;
+		position: relative;
+		display: block;
+		width: $headerHeight + 20px;
+		height: $headerHeight;
+	}
+
+	.global-header .header-hamburger:before {
+		content: "";
+		position: absolute;
+		left: 10px;
+		top: 50%;
+		margin-top: -(30px / 2);
+		display: block;
+		width: 40px;
+		height: 30px;
+		background: url("/img/global/global-header-hamburger.svg") 0 center no-repeat transparent;
+	}
+
 }
