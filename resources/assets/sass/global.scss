@@ -160,6 +160,11 @@ $headerLinkIconSize: 24px;
 
 @media (max-width: 800px) {
 
+	body {
+		font-size: 14px;
+		@include lineHeight (14px);
+	}
+
 	$gradientFrom: #3F4257;
 	$gradientTo: #727998;
 
