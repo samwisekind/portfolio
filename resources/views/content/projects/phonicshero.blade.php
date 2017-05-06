@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/phonicshero/phonicshero-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>Phonics Hero is an iPad app that contains games that help with synthetic phonics.</p>

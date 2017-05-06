@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/enicar/enicar-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>For over 100 years, Enicar has been at the forefront of timepiece design in Asia. In that time, with the birth and growth of the internet, the online presence of companies has become incredibly important. And with the move away from Flash-based websites to more native HTML APIs and responsive designs, it was time to overhaul Enicar's online presence and bring it into the modern age just in time for its 100th anniversary.</p>

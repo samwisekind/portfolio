@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/k11/k11-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>To celebrate the launch of the Iron Panda art display at K11 art mall in Hong Kong, an interactive photo booth was commissioned that would let visitors take photos using a 360 panoramic camera and instantly share it to social media, as well as display photos on several TV displays around the mall on-demand.</p>

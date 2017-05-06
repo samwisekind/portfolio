@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/joyce/joyce-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>Joyce is one of Hong Kong's most famous and respected luxury retailers, and they needed a new online identity. The task was to redesign their website from the ground-up for the modern internet, using a unique responsive design and extensive cross-browser compatibility, all driven by a powerful backend.</p>

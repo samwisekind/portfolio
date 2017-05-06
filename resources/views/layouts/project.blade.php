@@ -13,6 +13,7 @@
 		<div class="container">
 
 			<h2>{{ $project->title }}</h2>
+			@if ($project->url) <a href="{{ $project->url }}" class="view" target="_blank" rel="noopener noreferrer">View site</a> @endif
 			<h3>{{ $project->description }}</h3>
 
 			<ul class="details">
@@ -26,6 +27,8 @@
 	</div>
 
 	<div class="project-content">
+
+		<img src="{{ $project->cover }}" alt="" class="project-cover" />
 
 		@yield ('project-content')
 

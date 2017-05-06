@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/stevemadden/stevemadden-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>We were commissioned to develop a Facebook Page app where users could upload their photos, edit and decorate them, and then submit them to a galley, for both desktop and mobile devices.</p>

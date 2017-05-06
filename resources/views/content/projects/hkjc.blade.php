@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/hkjc/hkjc-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>We got commissioned to make a photo printing booth that would use iPad apps to print photos from social media in real-time. Users would be able to use the iPads to search for and select photos they had posted on Instagram, Facebook, and Twitter, and then send it wirelessly to a printer nearby where it would be printed instantaneously.</p>

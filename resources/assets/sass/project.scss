@@ -8,29 +8,33 @@
 
 .project-header.joyce {
 	color: #FFFFFF;
+	border-color: #FFFFFF;
 	background: #000000;
 }
 
 .project-header.enicar {
 	color: #FFFFFF;
+	border-color: #FFFFFF;
 	background: #E44436;
 }
 
 .project-header.steamchat {
 	color: #FFFFFF;
+	border-color: #FFFFFF;
 	background: #0064BF;
 }
 
 .project-header.k11 {
 	color: #FFFFFF;
+	border-color: #FFFFFF;
 	background: #A7834A;
 }
 
 .project-header.hkjc {
 	color: #FAD40E;
+	border-color: #FFFFFF;
 	background: #002E65;
 }
-
 
 .project-header > .container {
 	margin: 0 auto 0 auto;
@@ -38,13 +42,36 @@
 }
 
 .project-header h2 {
+	float: left;
+	display: inline-block;
 	margin-bottom: 20px;
 	font-size: 72px;
 	line-height: 72px;
 	font-weight: 300;
 }
 
+.project-header .view {
+	opacity: 0.5;
+	float: left;
+	margin-top: 32px;
+	margin-left: 32px;
+	padding: 5px 10px 5px 10px;
+	font-size: 16px;
+	line-height: 16px;
+	color: inherit;
+	border: 1px solid;
+	border-color: inherit;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.project-header .view:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+
 .project-header h3 {
+	clear: both;
 	font-size: 26px;
 	line-height: 34px;
 	font-weight: 300;
@@ -108,11 +135,14 @@
 .project-content > ul {}
 
 .project-content > p code {
-	padding: 0 5px 0 5px;
-	background: #EEEEEE;
+	padding: 1px 5px 1px 5px;
+	color: #0077AA;
+	text-shadow: 0 1px #FFFFFF;
+	border-radius: 2px;
+	background: #F0F2F1;
 }
 
-.project-preview {
+.project-cover {
 	display: block;
 	margin-bottom: 80px;
 	width: 100%;

@@ -26,6 +26,6 @@ class CreateAlbumsMappingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums_mapping');
+        Schema::dropIfExists('mapping');
     }
 }

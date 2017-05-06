@@ -12,7 +12,22 @@
 */
 
 $app->get('/', function () use ($app) {
-    return view('master');
+
+	return null;
+
+});
+
+$app->get('/projects', function () {
+
+	$result = app('db')->table('projects')
+		->get();
+
+	return view('layouts.project-list', [
+		'section' => 'project',
+		'title' => 'Projects',
+		'projects' => $result
+	]);
+
 });
 
 $app->get('/projects/{project}', function ($project) {
@@ -21,7 +36,7 @@ $app->get('/projects/{project}', function ($project) {
 		->where('key', $project)
 		->first();
 
-	return view('pages.projects.' . $project, [
+	return view('content.projects.' . $project, [
 		'section' => 'project',
 		'title' => $result->title . ' Project',
 		'project' => $result

@@ -2,10 +2,6 @@
 
 @section ('project-content')
 
-	@component("components.project-preview")
-		@slot("image", "/img/projects/steamchat/steamchat-preview-1.jpg")
-	@endcomponent
-
 	<h3>The Idea</h3>
 
 	<p>After the controversial announcement of the video game <i>Left 4 Dead 2</i> in early June of 2009, I, along with two of my friends Brad and Saurabh, created the Steamchat podcast (formerly "Steamcast"). The show was born from community voices, and therefore it was created and dedicated to the community, and would focus its product and discussions around them.</p>
