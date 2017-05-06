@@ -988,10 +988,6 @@ var photography = new Vue({
 
 		this.getAlbumList();
 
-		this.getAlbumData('portfolio');
-
-		// this.mapOpen();
-
 		// Attach key commands to previous and next methods
 		document.addEventListener('keydown', function (event) {
 			if (photography.albumData !== null) {

@@ -1,4 +1,4 @@
-@extends ('layout.project')
+@extends ('layouts.project')
 
 @section ('project-content')
 

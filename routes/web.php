@@ -21,7 +21,7 @@ $app->get('/projects/{project}', function ($project) {
 		->where('key', $project)
 		->first();
 
-	return view('layout.projects.' . $project, [
+	return view('pages.projects.' . $project, [
 		'section' => 'project',
 		'title' => $result->title . ' Project',
 		'project' => $result
@@ -69,7 +69,7 @@ $app->get('/api/album/{album}', function ($album) {
 
 $app->get('/photography', function () {
 
-	return view('layout.photography', [
+	return view('layouts.photography', [
 		'section' => 'photography',
 		'title' => 'Photography'
 	]);

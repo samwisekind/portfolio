@@ -8,6 +8,8 @@ $headerHeight: 100px;
 $headerLinkPadding: 10px;
 
 .global-header {
+	z-index: 100;
+	position: relative;
 	padding: 0 $widthPadding 0 $widthPadding;
 	height: $headerHeight;
 }
