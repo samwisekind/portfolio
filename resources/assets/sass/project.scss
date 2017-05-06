@@ -27,6 +27,7 @@
 	font-size: 26px;
 	line-height: 34px;
 	font-weight: 300;
+	max-width: 650px;
 }
 
 .project-header .details {
@@ -66,6 +67,10 @@
 	max-width: 800px;
 }
 
+.project-content > p {
+	text-align: justify;
+}
+
 .project-content > p + h3 {
 	margin-top: 60px;
 }
@@ -79,9 +84,30 @@
 	background: #EEEEEE;
 }
 
-.project-image {
+.project-preview {
 	display: block;
 	margin-bottom: 60px;
 	width: 100%;
 	height: auto;
+}
+
+.project-image {
+	margin: 40px auto 40px auto;
+	padding: 0 40px 0 40px;
+	max-width: 600px;
+}
+
+.project-image > .image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.project-image > .caption {
+	margin-top: 10px;
+	padding: 0 20px 0 20px;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: center;
+	color: #9E9E9E;
 }

@@ -2,7 +2,9 @@
 
 @section ('project-content')
 
-	<img src="/img/projects/joyce/joyce-image-1.jpg" alt="" class="project-image" />
+	@component("components.project-preview")
+		@slot("image", "/img/projects/joyce/joyce-preview-1.jpg")
+	@endcomponent
 
 	<h3>The Idea</h3>
 
@@ -26,17 +28,47 @@
 
 	<p>The use of a grid-based layout allows the home page to highlight a variety of different content without creating a chaotic and confusing visual hierarchy. Furthermore, being able to contain a number of different images and videos in one single structure overcomes the problems faced by carousel and full-screen designs.</p>
 
+	@component("components.project-image")
+		@slot("image", "/img/projects/joyce/joyce-image-1.jpg")
+		@slot("caption", "CSS media queries adjust the number of stories displayed on each row depending on the viewport width.")
+	@endcomponent
+
 	<p>The landing pages for the Fashion, Beauty, and Art sections feature their own fully customisable header grids, similar to that on the home page. Each department can contain different types of stories, such as news and guestbooks, features for Fashion and Beauty, and exhibition locations for Art, all of which can be filtered and searched through. "Infinite scrolling" is used to dynamically load in new stories as the user nears the bottom of the page.</p>
 
+	@component("components.project-image")
+		@slot("image", "/img/projects/joyce/joyce-image-2.jpg")
+		@slot("caption", "All videos on the website use native HTML5 video APIs, and automatically fallback to a lightweight Flash-based video player for unsupported formats or older browsers.")
+	@endcomponent
+
 	<p>Each different type of story uses a unique design depending on the department that it originates from. This is done in order to emphasise particular content that is important to each department, while staying within the design language of the website. For instance, Fashion stories use full-width images, videos, and wide paragraphs to present content in an editorial fashion. Beauty stories use large carousels to highlight multiple beauty products. Art stories feature interactive image galleries to preview exhibitions.</p>
+
+	@component("components.project-image")
+		@slot("image", "/img/projects/joyce/joyce-image-3.jpg")
+		@slot("caption", "Stores and brands are inter-connected throughout the website. The directory page features live-searching where results on the right fade out as the user types. The grid of letters on the left also fades out in real-time corresponding to filtered results.")
+	@endcomponent
 
 	<p>To tackle the stores and brands part of the website, we developed a WordPress plugin that creates global relationships between defined stores and brands. Users can click on a brand to reveal which stores it is currently stocked in, and clicking on a store will take the user to the store’s individual page. Alternatively, users can also browse stores by their locations and type.</p>
 
 	<p>The directory page also includes live searching by using some simple client-side <code>regex</code> testing. As the user types, results from the list become hidden in real-time, and when a letter's row has no results to show, the row hides automatically. At the same time, letters in the the letter grid on the sidebar (which when clicked scroll the user to the letter's respective row) fade out, showing the user which rows are currently being hidden. We found this incredibly useful in improving the user experience, showing users which rows were still visible beyond the view of the current viewport.</p>
 
+	@component("components.project-image")
+		@slot("image", "/img/projects/joyce/joyce-image-4.jpg")
+		@slot("caption", "Small details, such as how switching between a sun or moon icon depending on the time of day, add personality to the website without intruding on the user experience.")
+	@endcomponent
+
 	<p>Individual store pages contain important information such as telephone numbers, addresses, opening/closing times, and coordinates for the Google Maps API-powered map. Brands that have been defined in the CMS can be linked with any of the created stores, and these links will persist throughout the entire website and are automatically managed across the different website languages.</p>
 
 	<p>The Joyce Card, Joyce Gift Card, Joyce eShop, and Joyce Careers sections also received a design overhaul. Due to time constraints we were unable to modify the Magento installation directly, and as such we were limited to only being able to attach customised stylesheets. This was quite a challenging task, due to having to support cross-browser compatibility without being able to change the HTML or include JavaScript files, but in the end it was very rewarding having achieved this under such challenging constraints. Furthermore, I also worked on some preliminary Joyce eShop mockups.</p>
+
+	@component("components.project-image")
+		@slot("image", "/img/projects/joyce/joyce-image-5.jpg")
+		@slot("caption", "Joyce eShop Mockup.")
+	@endcomponent
+
+	@component("components.project-image")
+		@slot("image", "/img/projects/joyce/joyce-image-6.jpg")
+		@slot("caption", "A global cart was designed to be integrated globally across all pages on the site.")
+	@endcomponent
 
 	<h4>Cross-Browser Compatibility</h4>
 

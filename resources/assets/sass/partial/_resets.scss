@@ -8,8 +8,8 @@ body {
 	font-weight: 400;
 	font-size: 18px;
 	@include lineHeight (18px);
-	text-align: justify;
-	color: #222222;
+	text-align: left;
+	color: #212121;
 	background: #FFFFFF;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
