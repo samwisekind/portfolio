@@ -35,15 +35,15 @@ var viewer = Vue.component('viewer', {
 });
 
 var navigator = Vue.component('navigator', {
-	props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex', 'mapOpen'],
+	props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex', 'mapOpened'],
 	template: `<div class="navigator">
 			<ul class="details" v-if="showDetails">
 				<li class="title">{{ photoTitle }}</li>
 				<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>
 			</ul>
 			<div class="buttons">
-				<a v-if="!mapOpen" v-on:click="openMap" href="#" class="button map">Map</a>
-				<a v-if="mapOpen" v-on:click="closeMap" href="#" class="button close">Close</a>
+				<a v-if="!mapOpened" v-on:click="openMap" href="#" class="button map">Map</a>
+				<a v-if="mapOpened" v-on:click="closeMap" href="#" class="button close">Close</a>
 			</div>
 			<select v-if="albumList" v-bind:value="selectedValue" v-on:change="changeAlbum" class="selector" ref="selector">
 				<optgroup label="Albums">
@@ -105,9 +105,9 @@ var sidebar = Vue.component('sidebar', {
 var photography = new Vue({
 	el: '#photography',
 	template: `<div id="photography" v-bind:class="{ loading: isLoading }">
-			<mapView v-show="mapOpen"></mapView>
+			<mapView v-show="mapOpened"></mapView>
 			<viewer v-bind:photoData="photoData"></viewer>
-			<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpen="mapOpen"></navigator>
+			<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
 			<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>
 		</div>`,
 	data: {
@@ -119,7 +119,7 @@ var photography = new Vue({
 		photoIndex: null,
 		selectedIndex: null,
 		mapLoaded: false,
-		mapOpen: false
+		mapOpened: false
 	},
 	methods: {
 		getAlbumList: function() {
@@ -254,10 +254,10 @@ var photography = new Vue({
 			if (this.mapLoaded === false) {
 				this.mapLoad();
 			}
-			this.mapOpen = true;
+			this.mapOpened = true;
 		},
 		mapClose: function() {
-			this.mapOpen = false;
+			this.mapOpened = false;
 		},
 		closeAlbum: function() {
 			// Clear albumData data

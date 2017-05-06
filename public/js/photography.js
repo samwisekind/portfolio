@@ -770,8 +770,8 @@ var viewer = Vue.component('viewer', {
 });
 
 var navigator = Vue.component('navigator', {
-	props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex', 'mapOpen'],
-	template: '<div class="navigator">\n\t\t\t<ul class="details" v-if="showDetails">\n\t\t\t\t<li class="title">{{ photoTitle }}</li>\n\t\t\t\t<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>\n\t\t\t</ul>\n\t\t\t<div class="buttons">\n\t\t\t\t<a v-if="!mapOpen" v-on:click="openMap" href="#" class="button map">Map</a>\n\t\t\t\t<a v-if="mapOpen" v-on:click="closeMap" href="#" class="button close">Close</a>\n\t\t\t</div>\n\t\t\t<select v-if="albumList" v-bind:value="selectedValue" v-on:change="changeAlbum" class="selector" ref="selector">\n\t\t\t\t<optgroup label="Albums">\n\t\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t\t</optgroup>\n\t\t\t</select>\n\t\t</div>',
+	props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex', 'mapOpened'],
+	template: '<div class="navigator">\n\t\t\t<ul class="details" v-if="showDetails">\n\t\t\t\t<li class="title">{{ photoTitle }}</li>\n\t\t\t\t<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>\n\t\t\t</ul>\n\t\t\t<div class="buttons">\n\t\t\t\t<a v-if="!mapOpened" v-on:click="openMap" href="#" class="button map">Map</a>\n\t\t\t\t<a v-if="mapOpened" v-on:click="closeMap" href="#" class="button close">Close</a>\n\t\t\t</div>\n\t\t\t<select v-if="albumList" v-bind:value="selectedValue" v-on:change="changeAlbum" class="selector" ref="selector">\n\t\t\t\t<optgroup label="Albums">\n\t\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t\t</optgroup>\n\t\t\t</select>\n\t\t</div>',
 	methods: {
 		changeAlbum: function changeAlbum() {
 			photography.changeAlbum(this.$refs.selector.value);
@@ -823,7 +823,7 @@ var sidebar = Vue.component('sidebar', {
 
 var photography = new Vue({
 	el: '#photography',
-	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<mapView v-show="mapOpen"></mapView>\n\t\t\t<viewer v-bind:photoData="photoData"></viewer>\n\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpen="mapOpen"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>\n\t\t</div>',
+	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<mapView v-show="mapOpened"></mapView>\n\t\t\t<viewer v-bind:photoData="photoData"></viewer>\n\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>\n\t\t</div>',
 	data: {
 		isLoading: true,
 		albumList: null,
@@ -833,7 +833,7 @@ var photography = new Vue({
 		photoIndex: null,
 		selectedIndex: null,
 		mapLoaded: false,
-		mapOpen: false
+		mapOpened: false
 	},
 	methods: {
 		getAlbumList: function getAlbumList() {
@@ -954,10 +954,10 @@ var photography = new Vue({
 			if (this.mapLoaded === false) {
 				this.mapLoad();
 			}
-			this.mapOpen = true;
+			this.mapOpened = true;
 		},
 		mapClose: function mapClose() {
-			this.mapOpen = false;
+			this.mapOpened = false;
 		},
 		closeAlbum: function closeAlbum() {
 			// Clear albumData data
