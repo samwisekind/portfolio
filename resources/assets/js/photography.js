@@ -1,41 +1,20 @@
 window.Vue = require('vue');
 window.axios = require('axios');
 
-var selection = Vue.component('selection', {
-	props: ['albumList'],
+var mapView = Vue.component('mapView', {
 	template: `<transition>
-			<div id="selection">
-				<div v-for="album in albumList" class="album">
-					<a href="#" class="preview" v-on:click="openAlbum(album.key)">
-						<img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="" />
-					</a>
-					<h2><a href="#" v-on:click="openAlbum(album.key)">{{ album.title }}</a></h2>
-					<p v-if="album.location">{{ album.location }}</p>
-				</div>
-			</div>
-		</transition>`,
-	methods: {
-		openAlbum: function(key) {
-			// Call parent method to get album data from album key
-			photography.getAlbumData(key);
-		}
-	}
-});
-
-var globe = Vue.component('globe', {
-	template: `<transition>
-			<div class="globe">
+			<div class="map">
 				<div id="map-canvas" style="width: 100%; height: 100%;"></div>
 			</div>
 		</transition>`
 });
 
 var viewer = Vue.component('viewer', {
-	props: ['photo'],
+	props: ['photoData'],
 	template: `<div class="viewer">
 			<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
 			<div href="#" class="arrow next" v-on:click="nextPhoto"></div>
-			<div v-if="photo" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>
+			<div v-if="photoData" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>
 		</div>`,
 	methods: {
 		prevPhoto: function() {
@@ -50,39 +29,31 @@ var viewer = Vue.component('viewer', {
 	computed: {
 		backgroundURL: function() {
 			// Return background image string
-			return 'url("img/albums/' + this.photo.image_url + '")';
+			return 'url("img/albums/' + this.photoData.image_url + '")';
 		}
 	}
 });
 
 var navigator = Vue.component('navigator', {
-	props: ['albumList', 'albumData', 'selectedAlbum', 'photoIndex', 'selectedIndex', 'globeOpen'],
+	props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex', 'mapOpen'],
 	template: `<div class="navigator">
 			<ul class="details" v-if="showDetails">
 				<li class="title">{{ photoTitle }}</li>
 				<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>
 			</ul>
 			<div class="buttons">
-				<a v-if="!globeOpen" v-on:click="openMap" href="#" class="button map">Map</a>
-				<a v-if="globeOpen" v-on:click="closeMap" href="#" class="button close">Close</a>
-				<a v-on:click="closeAlbum" href="#" class="button menu">Menu</a>
+				<a v-if="!mapOpen" v-on:click="openMap" href="#" class="button map">Map</a>
+				<a v-if="mapOpen" v-on:click="closeMap" href="#" class="button close">Close</a>
 			</div>
-			<select v-if="albumList" v-model="currentAlbum" v-on:change="changeAlbum" class="selector">
+			<select v-if="albumList" v-bind:value="selectedValue" v-on:change="changeAlbum" class="selector" ref="selector">
 				<optgroup label="Albums">
 					<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>
 				</optgroup>
 			</select>
 		</div>`,
-	data: function() {
-		return {
-			// Save prop as data
-			currentAlbum: this.selectedAlbum
-		};
-	},
 	methods: {
 		changeAlbum: function() {
-			// Pass in data-prop album key to parent method
-			photography.changeAlbum(this.currentAlbum);
+			photography.changeAlbum(this.$refs.selector.value)
 		},
 		openMap: function() {
 			photography.mapOpen();
@@ -96,6 +67,9 @@ var navigator = Vue.component('navigator', {
 		}
 	},
 	computed: {
+		selectedValue: function() {
+			return photography.selectedAlbum;
+		},
 		showDetails: function() {
 			// Need to compute the v-if bind as a photo index of 0 behaves the same as false
 			return this.selectedIndex !== null;
@@ -128,38 +102,24 @@ var sidebar = Vue.component('sidebar', {
 	}
 });
 
-var album = Vue.component('album', {
-	props: ['albumList', 'albumData', 'globeOpen', 'album', 'photoIndex', 'selectedIndex'],
-	template: `<transition>
-			<div id="album">
-				<globe v-show="globeOpen"></globe>
-				<viewer v-bind:photo="photoData"></viewer>
-				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:globeOpen="globeOpen"></navigator>
-				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>
-			</div>
-		</transition>`,
-	computed: {
-		photoData: function() {
-			return this.albumData[this.photoIndex];
-		}
-	}
-});
-
 var photography = new Vue({
 	el: '#photography',
 	template: `<div id="photography" v-bind:class="{ loading: isLoading }">
-			<selection v-if="!albumData" v-bind:albumList="albumList"></selection>
-			<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:globeOpen="globeOpen"></album>
+			<mapView v-show="mapOpen"></mapView>
+			<viewer v-bind:photoData="photoData"></viewer>
+			<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpen="mapOpen"></navigator>
+			<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>
 		</div>`,
 	data: {
 		isLoading: true,
 		albumList: null,
 		albumData: null,
 		selectedAlbum: null,
+		photoData: null,
 		photoIndex: null,
 		selectedIndex: null,
 		mapLoaded: false,
-		globeOpen: false
+		mapOpen: false
 	},
 	methods: {
 		getAlbumList: function() {
@@ -168,6 +128,9 @@ var photography = new Vue({
 				.then(function(response) {
 					photography.albumList = response.data; // Store album list data
 					photography.isLoading = false; // Hide loading
+					if (photography.albumData === null) {
+						photography.getAlbumData('portfolio');
+					}
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -182,6 +145,12 @@ var photography = new Vue({
 					photography.selectedAlbum = album; // Set the album key for the drop-down selected option
 					photography.photoIndex = photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
 					photography.changePhoto(photography.selectedIndex); // Load the first photo via the pre-loading method
+					if (photography.selectedAlbum === null) {
+						photography.selectedAlbum = 'portfolio';
+					}
+					else {
+						photography.selectedAlbum = album;
+					}
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -206,6 +175,7 @@ var photography = new Vue({
 			image.onload = function() {
 				// Once the image has loaded, update the photo index and remove the loading
 				photography.photoIndex = index;
+				photography.photoData = photography.albumData[photography.photoIndex];
 				photography.isLoading = false;
 			};
 
@@ -284,10 +254,10 @@ var photography = new Vue({
 			if (this.mapLoaded === false) {
 				this.mapLoad();
 			}
-			this.globeOpen = true;
+			this.mapOpen = true;
 		},
 		mapClose: function() {
-			this.globeOpen = false;
+			this.mapOpen = false;
 		},
 		closeAlbum: function() {
 			// Clear albumData data

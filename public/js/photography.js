@@ -744,24 +744,13 @@ module.exports = function bind(fn, thisArg) {
 window.Vue = __webpack_require__(30);
 window.axios = __webpack_require__(11);
 
-var selection = Vue.component('selection', {
-	props: ['albumList'],
-	template: '<transition>\n\t\t\t<div id="selection">\n\t\t\t\t<div v-for="album in albumList" class="album">\n\t\t\t\t\t<a href="#" class="preview" v-on:click="openAlbum(album.key)">\n\t\t\t\t\t\t<img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="" />\n\t\t\t\t\t</a>\n\t\t\t\t\t<h2><a href="#" v-on:click="openAlbum(album.key)">{{ album.title }}</a></h2>\n\t\t\t\t\t<p v-if="album.location">{{ album.location }}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</transition>',
-	methods: {
-		openAlbum: function openAlbum(key) {
-			// Call parent method to get album data from album key
-			photography.getAlbumData(key);
-		}
-	}
-});
-
-var globe = Vue.component('globe', {
-	template: '<transition>\n\t\t\t<div class="globe">\n\t\t\t\t<div id="map-canvas" style="width: 100%; height: 100%;"></div>\n\t\t\t</div>\n\t\t</transition>'
+var mapView = Vue.component('mapView', {
+	template: '<transition>\n\t\t\t<div class="map">\n\t\t\t\t<div id="map-canvas" style="width: 100%; height: 100%;"></div>\n\t\t\t</div>\n\t\t</transition>'
 });
 
 var viewer = Vue.component('viewer', {
-	props: ['photo'],
-	template: '<div class="viewer">\n\t\t\t<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>\n\t\t\t<div href="#" class="arrow next" v-on:click="nextPhoto"></div>\n\t\t\t<div v-if="photo" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>\n\t\t</div>',
+	props: ['photoData'],
+	template: '<div class="viewer">\n\t\t\t<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>\n\t\t\t<div href="#" class="arrow next" v-on:click="nextPhoto"></div>\n\t\t\t<div v-if="photoData" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>\n\t\t</div>',
 	methods: {
 		prevPhoto: function prevPhoto() {
 			// Call parent method to show the previous photo
@@ -775,24 +764,17 @@ var viewer = Vue.component('viewer', {
 	computed: {
 		backgroundURL: function backgroundURL() {
 			// Return background image string
-			return 'url("img/albums/' + this.photo.image_url + '")';
+			return 'url("img/albums/' + this.photoData.image_url + '")';
 		}
 	}
 });
 
 var navigator = Vue.component('navigator', {
-	props: ['albumList', 'albumData', 'selectedAlbum', 'photoIndex', 'selectedIndex', 'globeOpen'],
-	template: '<div class="navigator">\n\t\t\t<ul class="details" v-if="showDetails">\n\t\t\t\t<li class="title">{{ photoTitle }}</li>\n\t\t\t\t<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>\n\t\t\t</ul>\n\t\t\t<div class="buttons">\n\t\t\t\t<a v-if="!globeOpen" v-on:click="openMap" href="#" class="button map">Map</a>\n\t\t\t\t<a v-if="globeOpen" v-on:click="closeMap" href="#" class="button close">Close</a>\n\t\t\t\t<a v-on:click="closeAlbum" href="#" class="button menu">Menu</a>\n\t\t\t</div>\n\t\t\t<select v-if="albumList" v-model="currentAlbum" v-on:change="changeAlbum" class="selector">\n\t\t\t\t<optgroup label="Albums">\n\t\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t\t</optgroup>\n\t\t\t</select>\n\t\t</div>',
-	data: function data() {
-		return {
-			// Save prop as data
-			currentAlbum: this.selectedAlbum
-		};
-	},
+	props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex', 'mapOpen'],
+	template: '<div class="navigator">\n\t\t\t<ul class="details" v-if="showDetails">\n\t\t\t\t<li class="title">{{ photoTitle }}</li>\n\t\t\t\t<li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>\n\t\t\t</ul>\n\t\t\t<div class="buttons">\n\t\t\t\t<a v-if="!mapOpen" v-on:click="openMap" href="#" class="button map">Map</a>\n\t\t\t\t<a v-if="mapOpen" v-on:click="closeMap" href="#" class="button close">Close</a>\n\t\t\t</div>\n\t\t\t<select v-if="albumList" v-bind:value="selectedValue" v-on:change="changeAlbum" class="selector" ref="selector">\n\t\t\t\t<optgroup label="Albums">\n\t\t\t\t\t<option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>\n\t\t\t\t</optgroup>\n\t\t\t</select>\n\t\t</div>',
 	methods: {
 		changeAlbum: function changeAlbum() {
-			// Pass in data-prop album key to parent method
-			photography.changeAlbum(this.currentAlbum);
+			photography.changeAlbum(this.$refs.selector.value);
 		},
 		openMap: function openMap() {
 			photography.mapOpen();
@@ -806,6 +788,9 @@ var navigator = Vue.component('navigator', {
 		}
 	},
 	computed: {
+		selectedValue: function selectedValue() {
+			return photography.selectedAlbum;
+		},
 		showDetails: function showDetails() {
 			// Need to compute the v-if bind as a photo index of 0 behaves the same as false
 			return this.selectedIndex !== null;
@@ -836,28 +821,19 @@ var sidebar = Vue.component('sidebar', {
 	}
 });
 
-var album = Vue.component('album', {
-	props: ['albumList', 'albumData', 'globeOpen', 'album', 'photoIndex', 'selectedIndex'],
-	template: '<transition>\n\t\t\t<div id="album">\n\t\t\t\t<globe v-show="globeOpen"></globe>\n\t\t\t\t<viewer v-bind:photo="photoData"></viewer>\n\t\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="album" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:globeOpen="globeOpen"></navigator>\n\t\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>\n\t\t\t</div>\n\t\t</transition>',
-	computed: {
-		photoData: function photoData() {
-			return this.albumData[this.photoIndex];
-		}
-	}
-});
-
 var photography = new Vue({
 	el: '#photography',
-	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<selection v-if="!albumData" v-bind:albumList="albumList"></selection>\n\t\t\t<album v-if="albumData" v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:album="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:globeOpen="globeOpen"></album>\n\t\t</div>',
+	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<mapView v-show="mapOpen"></mapView>\n\t\t\t<viewer v-bind:photoData="photoData"></viewer>\n\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpen="mapOpen"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>\n\t\t</div>',
 	data: {
 		isLoading: true,
 		albumList: null,
 		albumData: null,
 		selectedAlbum: null,
+		photoData: null,
 		photoIndex: null,
 		selectedIndex: null,
 		mapLoaded: false,
-		globeOpen: false
+		mapOpen: false
 	},
 	methods: {
 		getAlbumList: function getAlbumList() {
@@ -865,6 +841,9 @@ var photography = new Vue({
 			axios.get('/api/album').then(function (response) {
 				photography.albumList = response.data; // Store album list data
 				photography.isLoading = false; // Hide loading
+				if (photography.albumData === null) {
+					photography.getAlbumData('portfolio');
+				}
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -876,6 +855,11 @@ var photography = new Vue({
 				photography.selectedAlbum = album; // Set the album key for the drop-down selected option
 				photography.photoIndex = photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
 				photography.changePhoto(photography.selectedIndex); // Load the first photo via the pre-loading method
+				if (photography.selectedAlbum === null) {
+					photography.selectedAlbum = 'portfolio';
+				} else {
+					photography.selectedAlbum = album;
+				}
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -898,6 +882,7 @@ var photography = new Vue({
 			image.onload = function () {
 				// Once the image has loaded, update the photo index and remove the loading
 				photography.photoIndex = index;
+				photography.photoData = photography.albumData[photography.photoIndex];
 				photography.isLoading = false;
 			};
 
@@ -969,10 +954,10 @@ var photography = new Vue({
 			if (this.mapLoaded === false) {
 				this.mapLoad();
 			}
-			this.globeOpen = true;
+			this.mapOpen = true;
 		},
 		mapClose: function mapClose() {
-			this.globeOpen = false;
+			this.mapOpen = false;
 		},
 		closeAlbum: function closeAlbum() {
 			// Clear albumData data
