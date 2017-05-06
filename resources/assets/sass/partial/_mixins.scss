@@ -65,3 +65,7 @@
 	background-position: -o-calc(#{$expression}) center;
 	background-position: calc(#{$expression}) center;
 }
+
+@mixin lineHeight ($fontSize) {
+	line-height: $fontSize * 1.618;
+}

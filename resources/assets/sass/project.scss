@@ -3,7 +3,7 @@
 @import "partial/mixins";
 
 .project-header {
-	padding: 60px 40px 40px 40px;
+	padding: 140px $widthPadding 40px $widthPadding;
 }
 
 .project-header.joyce {
@@ -13,46 +13,57 @@
 
 .project-header > .container {
 	margin: 0 auto 0 auto;
-	max-width: 800px;
-}
-
-.project-header h1 {
-	margin-bottom: 20px;
-	font-size: 48px;
-	line-height: 48px;
-	font-weight: 300;
+	max-width: $maxWidth;
 }
 
 .project-header h2 {
-	font-size: 20px;
-	line-height: 30px;
+	margin-bottom: 20px;
+	font-size: 72px;
+	line-height: 72px;
+	font-weight: 300;
+}
+
+.project-header h3 {
+	font-size: 26px;
+	line-height: 34px;
 	font-weight: 300;
 }
 
 .project-header .details {
-	margin-top: 40px;
+	margin-top: 60px;
 	list-style: none;
 }
 
-.project-header .details li {
+.project-header .details:after {
+	@include clearFix;
+}
+
+.project-header .details > li {
+	float: left;
+	margin-right: 40px;
 	margin-bottom: 20px;
+	max-width: 300px;
+	font-size: 14px;
+	line-height: 14px;
 }
 
-.project-header .details li .title {
+.project-header .details > li:last-child {
+	margin-right: 0;
+}
+
+.project-header .details > li .title {
 	display: block;
-	font-weight: 500;
-}
-
-.project-content {
-	margin: 0 auto 0 auto;
-	padding: 0 40px 0 40px;
-	max-width: 800px;
+	margin-bottom: 5px;
+	font-weight: 700;
 }
 
 .project-content > h3,
+.project-content > h4,
 .project-content > p {
 	display: block;
 	margin: 20px auto 20px auto;
+	padding: 0 $widthPadding 0 $widthPadding;
+	max-width: 800px;
 }
 
 .project-content > p + h3 {
@@ -66,4 +77,11 @@
 .project-content > p code {
 	padding: 0 5px 0 5px;
 	background: #EEEEEE;
+}
+
+.project-image {
+	display: block;
+	margin-bottom: 60px;
+	width: 100%;
+	height: auto;
 }

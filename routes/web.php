@@ -22,6 +22,8 @@ $app->get('/projects/{project}', function ($project) {
 		->first();
 
 	return view('layout.projects.' . $project, [
+		'section' => 'project',
+		'title' => $result->title,
 		'project' => $result
 	]);
 
@@ -67,6 +69,9 @@ $app->get('/api/album/{album}', function ($album) {
 
 $app->get('/photography', function () {
 
-	return view('layout.photography');
+	return view('layout.photography', [
+		'section' => 'photography',
+		'title' => 'Photography'
+	]);
 
 });

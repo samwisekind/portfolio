@@ -3,3 +3,107 @@
 @import "partial/mixins";
 @import "partial/resets";
 @import "partial/fonts";
+
+.global-header {
+	padding: 0 $widthPadding 0 $widthPadding;
+	height: 100px;
+}
+
+.global-header > .container {
+	margin: 0 auto 0 auto;
+	height: 100%;
+	max-width: $maxWidth;
+}
+
+.global-header > .container:after,
+.global-header ul:after {
+	@include clearFix;
+}
+
+.global-header a {
+	display: block;
+	color: inherit;
+	font-family: "Lato", Helvetica, Verdana, sans-serif;
+	text-decoration: none;
+}
+
+.global-header a span {
+	padding: 4px;
+	border-bottom: 1px solid transparent;
+}
+
+.global-header a:hover span {
+	border-color: #CCCCCC;
+}
+
+.global-header .header-title,
+.global-header .header-nav,
+.global-header .header-links {
+	position: relative;
+	top: 50%;
+	@include transform (translateY(-50%));
+}
+
+.global-header .header-title,
+.global-header .header-nav {
+	float: left;
+}
+
+.global-header .header-title {
+	margin-right: 40px;
+}
+
+.global-header .header-title > a {
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 26px;
+}
+
+.global-header ul {
+	list-style: none;
+}
+
+.global-header ul > li {
+	float: left;
+	margin-right: 20px;
+}
+
+.global-header ul > li:last-child {
+	margin-right: 0;
+}
+
+$headerLinkIcon: 24px;
+
+.global-header .header-links {
+	float: right;
+}
+
+.global-header .header-links a {
+	position: relative;
+	padding-left: $headerLinkIcon + 5px;
+}
+
+.global-header .header-links .current > a {
+	font-weight: 700;
+}
+
+.global-header .header-links a:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -($headerLinkIcon / 2);
+	display: inline-block;
+	width: $headerLinkIcon;
+	height: $headerLinkIcon;
+	background: center center no-repeat transparent;
+	background-size: contain;
+}
+
+.global-header .header-links .github a:before {
+	background-image: url("../img/global/global-link-github.svg");
+}
+
+.global-header .header-links .codepen a:before {
+	background-image: url("../img/global/global-link-codepen.svg");
+}

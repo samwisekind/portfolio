@@ -1,7 +1,5 @@
 @extends ('master')
 
-@section ('title', $project->title)
-
 @section ('css')
 
 	<link href="/css/project.css" rel="stylesheet">
@@ -14,13 +12,13 @@
 
 		<div class="container">
 
-			<h1>{{ $project->title }}</h1>
-			<h2>{{ $project->description }}</h2>
+			<h2>{{ $project->title }}</h2>
+			<h3>{{ $project->description }}</h3>
 
 			<ul class="details">
 				<li><span class="title">Responsibilities:</span> {{ $project->responsibilities }}</li>
 				<li><span class="title">Technologies:</span> {{ $project->technologies }}</li>
-				<li><span class="title">Timeframe:</span> {{ date('d-m-Y', strtotime($project->started)) }} – {{date('d-m-Y', strtotime($project->ended)) }}</li>
+				<li><span class="title">Timeframe:</span> {{ date('d/m/Y', strtotime($project->started)) }} – {{date('d/m/Y', strtotime($project->ended)) }}</li>
 			</ul>
 
 		</div>

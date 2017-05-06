@@ -1,5 +1,3 @@
-@section('title', 'Photography')
-
 @extends ('master')
 
 @section ('css')
