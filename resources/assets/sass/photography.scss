@@ -29,11 +29,11 @@ $newGlobalHeaderHeight: 70px;
 }
 
 .global-header .links .github a:before {
-	background-image: url("../img/global/global-link-github-light.svg");
+	background-image: url("../images/global/global-link-github-light.svg");
 }
 
 .global-header .links .codepen a:before {
-	background-image: url("../img/global/global-link-codepen-light.svg");
+	background-image: url("../images/global/global-link-codepen-light.svg");
 }
 
 /* ALBUM */
@@ -96,7 +96,7 @@ $viewerPadding: 20px;
 	margin-top: -(30px / 2);
 	width: 30px;
 	height: 50px;
-	background: url("public/img/photography/viewer-arrow.svg") center center no-repeat transparent;
+	background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
 	@include transition (all 0.2s $easeStandard);
 }
 
@@ -271,11 +271,11 @@ $buttonSize: 16px;
 }
 
 #photography > .navigator > .buttons > .button.map:before {
-	background-image: url("public/img/photography/map-button.svg");
+	background-image: url("../images/photography/map-button.svg");
 }
 
 #photography > .navigator > .buttons > .button.close:before {
-	background-image: url("public/img/photography/close-button.svg");
+	background-image: url("../images/photography/close-button.svg");
 }
 
 #photography > .navigator > .buttons > .button:hover {
@@ -293,7 +293,7 @@ $buttonSize: 16px;
 	color: #BABABA;
 	border-radius: 3px;
 	border: none;
-	background: url("public/img/photography/select-arrow.svg") no-repeat #181818;
+	background: url("../images/photography/select-arrow.svg") no-repeat #181818;
 	@include calcBackgroundHorizontal("100% - 15px");
 	@include removeStyling;
 	@include transform (translateY(-50%));

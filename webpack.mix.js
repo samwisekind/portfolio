@@ -16,4 +16,5 @@ mix.js('resources/assets/js/global.js', 'public/js')
    .sass('resources/assets/sass/global.scss', 'public/css')
    .sass('resources/assets/sass/project-list.scss', 'public/css')
    .sass('resources/assets/sass/project.scss', 'public/css')
-   .sass('resources/assets/sass/photography.scss', 'public/css');
+   .sass('resources/assets/sass/photography.scss', 'public/css')
+   .copy('resources/img/**/*', 'public/img');

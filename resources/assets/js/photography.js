@@ -29,7 +29,7 @@ var viewer = Vue.component('viewer', {
 	computed: {
 		backgroundURL: function() {
 			// Return background image string
-			return 'url("img/albums/' + this.photoData.image_url + '")';
+			return 'url("' + this.photoData.image_url + '")';
 		}
 	}
 });

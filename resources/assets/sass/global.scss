@@ -117,11 +117,11 @@ $headerLinkIconSize: 24px;
 }
 
 .global-header .links .github a:before {
-	background-image: url("../img/global/global-link-github.svg");
+	background-image: url("../images/global/global-link-github.svg");
 }
 
 .global-header .links .codepen a:before {
-	background-image: url("../img/global/global-link-codepen.svg");
+	background-image: url("../images/global/global-link-codepen.svg");
 }
 
 .global-footer {
@@ -267,11 +267,11 @@ $headerLinkIconSize: 24px;
 	}
 
 	.outer-menu > .links .github a span:before {
-		background-image: url("../img/global/global-link-github-light.svg");
+		background-image: url("../images/global/global-link-github-light.svg");
 	}
 
 	.outer-menu > .links .codepen a span:before {
-		background-image: url("../img/global/global-link-codepen-light.svg");
+		background-image: url("../images/global/global-link-codepen-light.svg");
 	}
 
 	.outer-content,
@@ -359,7 +359,7 @@ $headerLinkIconSize: 24px;
 		display: block;
 		width: 40px;
 		height: 30px;
-		background: url("/img/global/global-header-hamburger.svg") 0 center no-repeat transparent;
+		background: url("/images/global/global-header-hamburger.svg") 0 center no-repeat transparent;
 	}
 
 	body.menu .global-header .hamburger:before {
