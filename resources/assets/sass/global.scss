@@ -4,6 +4,12 @@
 @import "partial/resets";
 @import "partial/fonts";
 
+.outer-overlay,
+.outer-menu,
+.global-header > .hamburger {
+	display: none;
+}
+
 $headerHeight: 100px;
 $headerLinkPadding: 10px;
 
@@ -20,14 +26,15 @@ $headerLinkPadding: 10px;
 	max-width: $maxWidth;
 }
 
+.global-header nav:after,
 .global-header > .container:after,
 .global-header ul:after {
 	@include clearFix;
 }
 
-.global-header .header-title,
-.global-header .header-nav li,
-.global-header .header-links li {
+.global-header .title,
+.global-header .nav li,
+.global-header .links li {
 	display: table;
 	height: $headerHeight;
 }
@@ -56,46 +63,47 @@ $headerLinkPadding: 10px;
 }
 
 .global-header a:hover span,
-.global-header .header-nav .current > a span {
+.global-header .nav .current > a span {
 	border-bottom-color: #CCCCCC;
 }
 
-.global-header .header-title,
-.global-header .header-nav {
+.global-header .title,
+.global-header .nav {
 	float: left;
 }
 
-.global-header .header-title {
+.global-header .title {
 	margin-right: 20px;
 }
 
-.global-header .header-title > a {
+.global-header .title > a {
 	font-weight: 700;
 	font-size: 26px;
 	line-height: 26px;
 }
 
-.global-header .header-nav a,
-.global-header .header-links a {
+.global-header .nav a,
+.global-header .links a {
 	padding: 0 $headerLinkPadding 0 $headerLinkPadding;
 }
 
-.global-header .header-nav .current > a {
+.global-header .nav .current > a {
 	font-weight: 700;
 }
 
 $headerLinkIconSize: 24px;
 
-.global-header .header-links {
+.global-header .links {
 	float: right;
 }
 
-.global-header .header-links a {
+.global-header .links a {
 	position: relative;
 	padding-left: $headerLinkIconSize + $headerLinkPadding + ($headerLinkPadding / 2);
 }
 
-.global-header .header-links a:before {
+.global-header .links a:before,
+.outer-menu .links a span:before {
 	content: "";
 	position: absolute;
 	left: $headerLinkPadding;
@@ -108,11 +116,11 @@ $headerLinkIconSize: 24px;
 	background-size: contain;
 }
 
-.global-header .header-links .github a:before {
+.global-header .links .github a:before {
 	background-image: url("../img/global/global-link-github.svg");
 }
 
-.global-header .header-links .codepen a:before {
+.global-header .links .codepen a:before {
 	background-image: url("../img/global/global-link-codepen.svg");
 }
 
@@ -120,7 +128,8 @@ $headerLinkIconSize: 24px;
 	margin-top: 160px;
 	padding: 0 $widthPadding 60px $widthPadding;
 	text-align: center;
-	font-size: 12px; }
+	font-size: 12px;
+}
 
 .global-footer p {
 	font-size: 14px;
@@ -135,17 +144,13 @@ $headerLinkIconSize: 24px;
 	margin-bottom: 0;
 }
 
-.global-header > .header-hamburger {
-	display: none;
-}
-
 @media (max-width: 900px) {
 
-	.global-header .header-links a {
+	.global-header .links a {
 		padding: 0 10px 0 10px;
 	}
 
-	.global-header .header-links a:before {
+	.global-header .links a:before {
 		position: static;
 		margin: 0 auto 5px auto;
 		display: block;
@@ -155,6 +160,128 @@ $headerLinkIconSize: 24px;
 
 @media (max-width: 800px) {
 
+	$gradientFrom: #3F4257;
+	$gradientTo: #727998;
+
+	body > .outer-wrapper {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: auto;
+		height: auto;
+		perspective: 2000px;
+		-webkit-perspective: 2000px;
+		min-width: 320px;
+		overflow: hidden;
+		background: $gradientFrom;
+		background: -moz-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $gradientFrom), color-stop(100%, $gradientTo));
+		background: -webkit-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: -o-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: -ms-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: linear-gradient(135deg, $gradientFrom 0%, $gradientTo 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$gradientFrom}", endColorstr="#{$gradientTo}", GradientType=1);
+	}
+
+	.outer-menu {
+		z-index: 0;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		display: block;
+		width: 100%;
+		@include transform (translateY(-50%));
+	}
+
+	.outer-menu > ul {
+		list-style: none;
+	}
+
+	.outer-menu > .nav {
+		margin-bottom: 40px;
+	}
+
+	.outer-menu > ul > li > a {
+		padding: 20px 10% 20px 0;
+		display: block;
+		font-weight: 400;
+		text-align: right;
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+
+	.outer-menu > ul > li.current > a {
+		font-weight: 700;
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.outer-menu > .links > li > a > span {
+		position: relative;
+		padding-left: $headerLinkIconSize + $headerLinkPadding;
+	}
+
+	.outer-menu > .links > li > a > span:before {
+		left: 0;
+	}
+
+	.outer-menu .links .github a span:before {
+		background-image: url("../img/global/global-link-github-light.svg");
+	}
+
+	.outer-menu .links .codepen a span:before {
+		background-image: url("../img/global/global-link-codepen-light.svg");
+	}
+
+	.outer-content,
+	.outer-overlay {
+		left: 0;
+		top: 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+	}
+
+	.outer-content {
+		z-index: 10;
+		background: #FFFFFF;
+		will-change: transform;
+		@include transitionTransform (0.2s $easeAcceleration);
+	}
+
+	body.menu .outer-content {
+		@include transitionTimingFunction ($easeDeceleration);
+	}
+
+	body.menu .outer-wrapper,
+	body.menu .outer-content {
+		position: absolute;
+	}
+
+	body .outer-overlay {
+		z-index: 20;
+	}
+
+	body.menu .outer-overlay {
+		display: block;
+	}
+
+	body.menu .outer-overlay:hover {
+		cursor: pointer;
+	}
+
+	body.menu .outer-content {
+		overflow: hidden;
+		@include boxShadow (rgba(0, 0, 0, 0.3) 0 0 10px 3px);
+	}
+
+	body.menu .outer-content,
+	body .outer-overlay {
+		@include transform (translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg) translateZ(0));
+	}
+
 	$headerHeight: 50px;
 
 	.global-header {
@@ -162,21 +289,20 @@ $headerLinkIconSize: 24px;
 	}
 
 	.global-header,
-	.global-header .header-title {
+	.global-header .title {
 		height: $headerHeight;
 	}
 
-	.global-header .header-title > a {
+	.global-header .title > a {
 		font-size: 20px;
 		line-height: 20px;
 	}
 
-	.global-header .header-nav,
-	.global-header .header-links {
+	.global-header nav {
 		display: none;
 	}
 
-	.global-header .header-hamburger {
+	.global-header .hamburger {
 		float: right;
 		position: relative;
 		display: block;
@@ -184,7 +310,7 @@ $headerLinkIconSize: 24px;
 		height: $headerHeight;
 	}
 
-	.global-header .header-hamburger:before {
+	.global-header .hamburger:before {
 		content: "";
 		position: absolute;
 		left: 10px;
@@ -194,6 +320,10 @@ $headerLinkIconSize: 24px;
 		width: 40px;
 		height: 30px;
 		background: url("/img/global/global-header-hamburger.svg") 0 center no-repeat transparent;
+	}
+
+	body.menu .global-header .hamburger:before {
+		background-position: -40px center;
 	}
 
 }

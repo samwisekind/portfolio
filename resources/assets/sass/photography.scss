@@ -12,6 +12,7 @@ body {
 $newGlobalHeaderHeight: 70px;
 
 .global-header {
+	opacity: 0.5;
 	padding-left: 20px;
 	padding-right: 10px;
 }
@@ -21,22 +22,17 @@ $newGlobalHeaderHeight: 70px;
 }
 
 .global-header,
-.global-header .header-nav a,
-.global-header .header-links a {
+.global-header .title,
+.global-header .nav li,
+.global-header .links li {
 	height: $newGlobalHeaderHeight;
-	color: #616161;
 }
 
-.global-header a:hover span,
-.global-header .header-nav .current > a span {
-	border-bottom-color: #616161;
-}
-
-.global-header .header-links .github a:before {
+.global-header .links .github a:before {
 	background-image: url("../img/global/global-link-github-light.svg");
 }
 
-.global-header .header-links .codepen a:before {
+.global-header .links .codepen a:before {
 	background-image: url("../img/global/global-link-codepen-light.svg");
 }
 

@@ -52,6 +52,14 @@
 	transition: transform $transition;
 }
 
+@mixin transitionTimingFunction ($function) {
+	-webkit-transition-timing-function: $function;
+	-moz-transition-timing-function: $function;
+	-ms-transition-timing-function: $function;
+	-o-transition-timing-function: $function;
+	transition-timing-function: $function;
+}
+
 @mixin removeStyling {
     -webkit-appearance: none;
     apperance: none;
@@ -68,4 +76,10 @@
 
 @mixin lineHeight ($fontSize) {
 	line-height: $fontSize * 1.618;
+}
+
+@mixin boxShadow ($shadow) {
+	-webkit-box-shadow: #{$shadow};
+	-moz-box-shadow: #{$shadow};
+	box-shadow: #{$shadow};
 }
