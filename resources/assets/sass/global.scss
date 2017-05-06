@@ -38,6 +38,8 @@ $headerLinkPadding: 10px;
 
 .global-header a span {
 	padding: 4px;
+	font-size: 18px;
+	line-height: 18px;
 	border-bottom: 1px solid transparent;
 }
 
@@ -112,4 +114,23 @@ $headerLinkIconSize: 24px;
 
 .global-header .header-links .codepen a:before {
 	background-image: url("../img/global/global-link-codepen.svg");
+}
+
+.global-footer {
+	margin-top: 160px;
+	padding: 0 $widthPadding 60px $widthPadding;
+	text-align: center;
+	font-size: 12px; }
+
+.global-footer p {
+	font-size: 14px;
+}
+
+.global-footer p.small {
+	font-size: 12px;
+	color: #AAAAAA;
+}
+
+.global-footer p:last-child {
+	margin-bottom: 0;
 }

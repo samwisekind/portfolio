@@ -18,7 +18,7 @@
 
 	<p>Another challenge was the approach to creating an easy-to-use system for searching through the many stores and brands that Joyce manages. For users, the system had to be intuitive and fast, making it easy to search and filter through a long list of stores and brands without much effort. For the CMS, managing the stores and brands, as well as their connections, had to be simple and easy to manage.</p>
 
-	<p>Lastly but equally as important, support for cross-browser compatibility was vital to the project. Although Joyce's influence spans the world, its roots come from Hong Kong. At the time of development, <a href="https://tongji.baidu.com/data/browser">up to 30% of users in China still used Internet Explorer 8</a>, therefore solid cross-browser support was a fundamental goal of the project.</p>
+	<p>Lastly but equally as important, support for cross-browser compatibility was vital to the project. Although Joyce's influence spans the world, its roots come from Hong Kong. At the time of development, <a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer">up to 30% of users in China still used Internet Explorer 8</a>, therefore solid cross-browser support was a fundamental goal of the project.</p>
 
 	<h3>Result</h3>
 
@@ -72,7 +72,7 @@
 
 	<h4>Cross-Browser Compatibility</h4>
 
-	<p>Cross-browser compatibility was handled in two ways. First was handling the responsiveness of the website; most users who use older browsers, such as Internet Explorer 8, also tend to use smaller display resolutions, meaning that the responsive design of the website would not function correctly as older browsers do not support CSS media queries or <code>calc</code> sizes. To overcome this, two fantastic JavaScript plugins, <a href="https://www.github.com/scottjehl/Respond">Respond</a> and <a href="https://www.github.com/keithclark/selectivizr">Selectivizr</a>, were used to tackle CSS media queries and integer/operator-based <code>nth-child</code> selectors. Second was making sure older browsers had graceful fallbacks, such as making sure SVGs were replaced with other image formats, and that <code>calc</code> sizes were replaced with either fixed or fluid-width sizes.</p>
+	<p>Cross-browser compatibility was handled in two ways. First was handling the responsiveness of the website; most users who use older browsers, such as Internet Explorer 8, also tend to use smaller display resolutions, meaning that the responsive design of the website would not function correctly as older browsers do not support CSS media queries or <code>calc</code> sizes. To overcome this, two fantastic JavaScript plugins, <a href="https://www.github.com/scottjehl/Respond" target="_blank" rel="noopener noreferrer">Respond</a> and <a href="https://www.github.com/keithclark/selectivizr" target="_blank" rel="noopener noreferrer">Selectivizr</a>, were used to tackle CSS media queries and integer/operator-based <code>nth-child</code> selectors. Second was making sure older browsers had graceful fallbacks, such as making sure SVGs were replaced with other image formats, and that <code>calc</code> sizes were replaced with either fixed or fluid-width sizes.</p>
 
 	<h3>Conclusion</h3>
 

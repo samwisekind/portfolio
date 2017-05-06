@@ -20,7 +20,6 @@
 
 				<nav class="header-nav">
 					<ul>
-						<li class="<?php if ($section === 'home') { echo 'current'; } ?>"><a href="{{ $app->make('url')->to('/') }}"><span>Home</span></a></li>
 						<li class="<?php if ($section === 'project') { echo 'current'; } ?>"><a href="{{ $app->make('url')->to('/projects') }}"><span>Projects</span></a></li>
 						<li class="<?php if ($section === 'photography') { echo 'current'; } ?>"><a href="{{ $app->make('url')->to('/photography') }}"><span>Photography</span></a></li>
 						<li class="<?php if ($section === 'contact') { echo 'current'; } ?>"><a href="{{ $app->make('url')->to('/contact') }}"><span>Contact</span></a></li>

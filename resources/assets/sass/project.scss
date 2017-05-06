@@ -11,6 +11,27 @@
 	background: #000000;
 }
 
+.project-header.enicar {
+	color: #FFFFFF;
+	background: #E44436;
+}
+
+.project-header.steamchat {
+	color: #FFFFFF;
+	background: #0064BF;
+}
+
+.project-header.k11 {
+	color: #FFFFFF;
+	background: #A7834A;
+}
+
+.project-header.hkjc {
+	color: #FAD40E;
+	background: #002E65;
+}
+
+
 .project-header > .container {
 	margin: 0 auto 0 auto;
 	max-width: $maxWidth;
@@ -60,24 +81,31 @@
 
 .project-content > h3,
 .project-content > h4,
-.project-content > p {
+.project-content > p,
+.project-content > ol,
+.project-content > ul {
 	display: block;
 	margin: 20px auto 20px auto;
 	padding: 0 $widthPadding 0 $widthPadding;
 	max-width: 800px;
 }
 
+.project-content > h4 {
+	margin-top: 40px;
+}
+
+.project-content > p + h3,
+.project-content > ol + h3,
+.project-content > ul + h3 {
+	margin-top: 60px;
+}
+
 .project-content > p {
 	text-align: justify;
 }
 
-.project-content > p + h3 {
-	margin-top: 60px;
-}
-
-.project-content > h4 {
-	margin-top: 40px;
-}
+.project-content > ol,
+.project-content > ul {}
 
 .project-content > p code {
 	padding: 0 5px 0 5px;
@@ -86,7 +114,7 @@
 
 .project-preview {
 	display: block;
-	margin-bottom: 60px;
+	margin-bottom: 80px;
 	width: 100%;
 	height: auto;
 }

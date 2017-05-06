@@ -23,7 +23,7 @@ $app->get('/projects/{project}', function ($project) {
 
 	return view('layout.projects.' . $project, [
 		'section' => 'project',
-		'title' => $result->title,
+		'title' => $result->title . ' Project',
 		'project' => $result
 	]);
 
