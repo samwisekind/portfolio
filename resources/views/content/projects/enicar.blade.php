@@ -21,28 +21,28 @@
 	<p>The first task was to create a system in order to manage each collection, their watches, and string mapping for all six languages. A simple yet powerful custom PHP backend was developed in order to make managing such a complex site easy, where the client could easily change certain aspects of the site such as language strings or watch images without worrying about breaking the website. This also made it much easier to make sure each page kept its design and underlying code (e.g. SEO) consistent across all the different pages, devices, and languages.</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/enicar/enicar-image-1.jpg")
+		@slot("image", "/images/projects/enicar/enicar-image-1.jpg")
 		@slot("caption", "Each watch page features a full-screen background video, compressed and encoded for the desktop and mobile web.")
 	@endcomponent
 
 	<p>The watch pages are made up of different sections, which can be easily customised and changed in the backend. The first section introduces the watch, and features a full-screen video that automatically plays as the page loads. The introduction videos are encoded into a number of different formats in order to support cross-browser compatibility, and are compressed for fast loading on mobile devices and networks. The videos are automatically hidden depending on what device the site is being viewed on, user/browser preferences (such as mobile devices wanting to save bandwidth), or agent strings.</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/enicar/enicar-image-2.jpg")
+		@slot("image", "/images/projects/enicar/enicar-image-2.jpg")
 		@slot("caption", "Watch pages feature animated images and text that change depending on the user's scrolling position in order to create dynamic and eye-catching pages.")
 	@endcomponent
 
 	<p>Each watch page can be customised with a variety of different sections. Each section features a different design that changes how the images and text are displayed and how the animations (using the <a href="https://www.github.com/Prinzhorn/skrollr" target="_blank" rel="noopener noreferrer">Skrollr</a> library) and positions of each of the section elements work. In the backend, each section is mapped to a multidimensional array in the language mapping system, so changing different aspects of the section or changing the language mapping strings keeps the section working as intended. This makes sure that the front-end is always consistent and working, making sure the underlying code for each section is consistent.</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/enicar/enicar-image-3.jpg")
+		@slot("image", "/images/projects/enicar/enicar-image-3.jpg")
 		@slot("caption", "Many navigational features on the site change depending on what kind of device it is being viewed on. On the left, the watch page section navigation on desktop and tablet browsers. On the right, the navigation changes to be easier to use and view on smaller screens and mobile devices.")
 	@endcomponent
 
 	<p>The watch pages feature a fixed-position section navigation at the bottom of the page. Each thumbnail changes depending on which section the user is currently viewing, determined by their scroll position. This navigation, and all other aspects of the site, change depending on what kind of device the user is viewing the site on. Features such as section navigation change on mobile devices to be easier to view on smaller screens, as well as easier to use (e.g. with a thumb instead of a mouse and keyboard).</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/enicar/enicar-image-4.jpg")
+		@slot("image", "/images/projects/enicar/enicar-image-4.jpg")
 		@slot("caption", "An interactive global header makes it easy for users to browse each collection and navigate to the collection's watches anywhere on the site. Each collection also features its own index page.")
 	@endcomponent
 

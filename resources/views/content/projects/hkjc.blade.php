@@ -15,7 +15,7 @@
 	<h4>iPad App</h4>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/hkjc/hkjc-image-1.jpg")
+		@slot("image", "/images/projects/hkjc/hkjc-image-1.jpg")
 		@slot("caption", "The photo printing booth iPad app. Users can browse through the list of images, search for their username, select the printer under an options menu, and refresh the image list.")
 	@endcomponent
 
@@ -24,7 +24,7 @@
 	<p>Users could also search through the images in real-time using simple client-side <code>regex</code> testing to find their image via their username.</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/hkjc/hkjc-image-2.jpg")
+		@slot("image", "/images/projects/hkjc/hkjc-image-2.jpg")
 		@slot("caption", "Tapping a photo will open the printing screen. Tapping the 'Print' button will send the image to the printer.")
 	@endcomponent
 

@@ -9,19 +9,19 @@
 	<h3>Result</h3>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/stevemadden/stevemadden-image-1.jpg")
+		@slot("image", "/images/projects/stevemadden/stevemadden-image-1.jpg")
 		@slot("caption", "The home page of the Steve Madden Facebook app.")
 	@endcomponent
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/stevemadden/stevemadden-image-2.jpg")
+		@slot("image", "/images/projects/stevemadden/stevemadden-image-2.jpg")
 		@slot("caption", "Users could upload an image and provide contact details.")
 	@endcomponent
 
 	<p>We used a number of client-side JavaScript and server-side PHP checks for field data and image requirements. We previewed the selected image in browsers by using a combination of the <code>new FileReader()</code> function and <code>FileReader.readAsDataURL</code> method.</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/stevemadden/stevemadden-image-3.jpg")
+		@slot("image", "/images/projects/stevemadden/stevemadden-image-3.jpg")
 		@slot("caption", "Uploaded photos could be edited and decorated before submission.")
 	@endcomponent
 
@@ -30,7 +30,7 @@
 	<p>On mobile devices, the cropping interface would be difficult to use as the dragging method would not work as on some devices the page would scroll (Facebook Page apps are sized to 810px by 810px on desktop, however don't have a fixed height on mobile devices). Therefore, a set of four arrows would be used to adjust the image instead of dragging it.</p>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/stevemadden/stevemadden-image-4.jpg")
+		@slot("image", "/images/projects/stevemadden/stevemadden-image-4.jpg")
 		@slot("caption", "The gallery shows all of the uploaded and edited images. Users could 'Like' and share the images using the Facebook Graph API.")
 	@endcomponent
 

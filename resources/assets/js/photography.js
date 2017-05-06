@@ -53,7 +53,7 @@ var navigator = Vue.component('navigator', {
 		</div>`,
 	methods: {
 		changeAlbum: function() {
-			photography.changeAlbum(this.$refs.selector.value)
+			photography.changeAlbum(this.$refs.selector.value);
 		},
 		openMap: function() {
 			photography.mapOpen();
@@ -97,7 +97,7 @@ var sidebar = Vue.component('sidebar', {
 		},
 		returnBackgroundURL: function(url) {
 			// Return background image string
-			return 'url("img/albums/' + url + '")';
+			return 'url("' + url + '")';
 		}
 	}
 });
@@ -181,7 +181,7 @@ var photography = new Vue({
 
 			// Set the image src attribute to the image url to start pre-loading
 			var targetUrl = this.albumData[index].image_url;
-			image.src = 'img/albums/' + targetUrl;
+			image.src = targetUrl;
 
 		},
 		prevPhoto: function() {

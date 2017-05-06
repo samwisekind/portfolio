@@ -15,7 +15,7 @@
 	<h3>Result</h3>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/k11/k11-image-1.jpg")
+		@slot("image", "/images/projects/k11/k11-image-1.jpg")
 		@slot("caption", "The photo booth website.")
 	@endcomponent
 
@@ -38,7 +38,7 @@
 	<h4>iPad App</h4>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/k11/k11-image-2.jpg")
+		@slot("image", "/images/projects/k11/k11-image-2.jpg")
 		@slot("caption", "The photo booth iPad app interface.")
 	@endcomponent
 
@@ -59,7 +59,7 @@
 	<h4>TV Displays</h4>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/k11/k11-image-3.jpg")
+		@slot("image", "/images/projects/k11/k11-image-3.jpg")
 		@slot("caption", "The interface used on an 80-inch TV display.")
 	@endcomponent
 

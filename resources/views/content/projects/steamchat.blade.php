@@ -30,7 +30,7 @@
 	</ul>
 
 	@component("components.project-image")
-		@slot("image", "/img/projects/steamchat/steamchat-image-1.jpg")
+		@slot("image", "/images/projects/steamchat/steamchat-image-1.jpg")
 		@slot("caption", "The homepage featured a dramatic header image that also served as an interactive audio player for the latest episode. The header images were edited to overlay the navigation for dramatic eff")
 	@endcomponent
 
