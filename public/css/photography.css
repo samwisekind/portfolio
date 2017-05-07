@@ -4,6 +4,10 @@ body {
   background: #000000;
 }
 
+.global-footer {
+  display: none;
+}
+
 .global-header {
   opacity: 0.5;
   padding-left: 20px;
@@ -16,22 +20,16 @@ body {
 
 .global-header,
 .global-header .title,
-.global-header .nav li,
-.global-header .links li {
+.global-header .nav li {
   height: 70px;
 }
 
-.global-header .links .github a:before {
-  background-image: url("../images/global/global-link-github-light.svg");
+.global-header .links {
+  display: none;
 }
 
-.global-header .links .codepen a:before {
-  background-image: url("../images/global/global-link-codepen-light.svg");
-}
-
-/* ALBUM */
+/* MAIN */
 #photography {
-  opacity: 1;
   position: absolute;
   left: 0;
   top: 70px;
@@ -292,7 +290,7 @@ body {
   position: absolute;
   right: 20px;
   top: 50%;
-  padding: 0 15px 0 15px;
+  padding: 0 38px 0 15px;
   width: 300px;
   height: 40px;
   font-size: 14px;
@@ -331,7 +329,7 @@ body {
   background: #000000;
 }
 
-#photography > .sidebar > .sidebar-thumb {
+#photography > .sidebar .sidebar-thumb {
   opacity: 0.25;
   display: block;
   margin: 0 auto 20px auto;
@@ -342,14 +340,140 @@ body {
   transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#photography > .sidebar > .sidebar-thumb:last-child {
+#photography > .sidebar .sidebar-thumb:last-child {
   margin-bottom: 0;
 }
 
-#photography > .sidebar > .sidebar-thumb:hover {
+#photography > .sidebar .sidebar-thumb:hover {
   opacity: 0.5;
 }
 
-#photography > .sidebar > .sidebar-thumb.current {
+#photography > .sidebar .sidebar-thumb.current {
   opacity: 1;
+}
+
+@media (min-width: 801px) {
+  #photography > .sidebar > .sidebar-wrapper {
+    width: auto !important;
+  }
+}
+
+@media (max-width: 800px) {
+  /* OVERRIDES */
+  .outer-content {
+    background: #000000;
+  }
+  .global-header {
+    opacity: 0.3;
+    padding-left: 10px;
+    padding-right: 0;
+  }
+  .global-header,
+  .global-header .title,
+  .global-header .hamburger {
+    height: 50px;
+  }
+  .global-header .hamburger {
+    width: 60px;
+  }
+  .global-header .hamburger:before {
+    background-image: url("/images/global/global-header-hamburger-light.svg");
+  }
+  /* MAIN */
+  #photography {
+    top: 50px;
+    height: -ms-calc(100% - 50px);
+    height: -o-calc(100% - 50px);
+    height: calc(100% - 50px);
+  }
+  /* VIEWER */
+  #photography > .viewer {
+    width: 100%;
+    height: -ms-calc(100% - 100px);
+    height: -o-calc(100% - 100px);
+    height: calc(100% - 100px);
+  }
+  #photography > .viewer > .viewer-photo {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #photography > .viewer > .arrow {
+    width: 40%;
+  }
+  #photography > .viewer > .arrow:before {
+    display: none;
+  }
+  /* MAP */
+  #photography > .map {
+    display: none;
+  }
+  /* NAVIGATOR */
+  #photography > .navigator {
+    padding: 10px;
+    height: 50px;
+  }
+  #photography > .navigator > .details {
+    left: 10px;
+    padding-right: 10px;
+    width: -ms-calc(45% - 10px);
+    width: -o-calc(45% - 10px);
+    width: calc(45% - 10px);
+  }
+  #photography > .navigator > .details > .title,
+  #photography > .navigator > .details > .index {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #photography > .navigator > .details > .title {
+    margin-bottom: 2px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  #photography > .navigator > .details > .index {
+    font-size: 10px;
+    line-height: 10px;
+  }
+  #photography > .navigator > .buttons {
+    display: none;
+  }
+  #photography > .navigator > .selector {
+    right: 10px;
+    padding: 0 28px 0 10px;
+    width: -ms-calc(55% - 10px);
+    width: -o-calc(55% - 10px);
+    width: calc(55% - 10px);
+    height: 30px;
+    font-size: 12px;
+    background-position: -ms-calc(100% - 10px) center;
+    background-position: -o-calc(100% - 10px) center;
+    background-position: calc(100% - 10px) center;
+  }
+  /* SIDEBAR */
+  #photography > .sidebar {
+    top: auto;
+    bottom: 50px;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  #photography > .sidebar > .sidebar-wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  #photography > .sidebar .sidebar-thumb {
+    float: left;
+    margin-bottom: 0;
+    margin-right: 10px;
+    width: 50px;
+    height: 30px;
+  }
+  #photography > .sidebar .sidebar-thumb:last-child {
+    margin-right: 0;
+  }
 }

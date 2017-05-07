@@ -808,8 +808,8 @@ var navigator = Vue.component('navigator', {
 });
 
 var sidebar = Vue.component('sidebar', {
-	props: ['albumData', 'selectedIndex'],
-	template: '<div class="sidebar">\n\t\t\t<a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === selectedIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>\n\t\t</div>',
+	props: ['albumData', 'selectedIndex', 'width'],
+	template: '<div class="sidebar">\n\t\t\t<div class="sidebar-wrapper" v-bind:style="{ width: sidebarWidth }">\n\t\t\t\t<a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === selectedIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>\n\t\t\t</div>\n\t\t</div>',
 	methods: {
 		changePhoto: function changePhoto(index) {
 			// Call parent method to change photo index
@@ -819,12 +819,21 @@ var sidebar = Vue.component('sidebar', {
 			// Return background image string
 			return 'url("' + url + '")';
 		}
+	},
+	computed: {
+		sidebarWidth: function sidebarWidth() {
+			if (this.width === null) {
+				return null;
+			} else {
+				return this.width + 'px';
+			}
+		}
 	}
 });
 
 var photography = new Vue({
 	el: '#photography',
-	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<mapView v-show="mapOpened"></mapView>\n\t\t\t<viewer v-bind:photoData="photoData"></viewer>\n\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex"></sidebar>\n\t\t</div>',
+	template: '<div id="photography" v-bind:class="{ loading: isLoading }">\n\t\t\t<mapView v-show="mapOpened"></mapView>\n\t\t\t<viewer v-bind:photoData="photoData"></viewer>\n\t\t\t<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>\n\t\t\t<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth"></sidebar>\n\t\t</div>',
 	data: {
 		isLoading: true,
 		albumList: null,
@@ -834,7 +843,8 @@ var photography = new Vue({
 		photoIndex: null,
 		selectedIndex: null,
 		mapLoaded: false,
-		mapOpened: false
+		mapOpened: false,
+		sidebarWidth: null
 	},
 	methods: {
 		getAlbumList: function getAlbumList() {
@@ -856,6 +866,7 @@ var photography = new Vue({
 				photography.selectedAlbum = album; // Set the album key for the drop-down selected option
 				photography.photoIndex = photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
 				photography.changePhoto(photography.selectedIndex); // Load the first photo via the pre-loading method
+				photography.resizeSidebar();
 				if (photography.selectedAlbum === null) {
 					photography.selectedAlbum = 'portfolio';
 				} else {
@@ -963,6 +974,11 @@ var photography = new Vue({
 		closeAlbum: function closeAlbum() {
 			// Clear albumData data
 			this.albumData = null;
+		},
+		resizeSidebar: function resizeSidebar() {
+			var total = this.albumData.length;
+			var width = 50 * total + 10 * total;
+			this.sidebarWidth = width;
 		}
 	},
 	computed: {

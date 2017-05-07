@@ -9,6 +9,10 @@ body {
 	background: #000000;
 }
 
+.global-footer {
+	display: none;
+}
+
 $newGlobalHeaderHeight: 70px;
 
 .global-header {
@@ -23,20 +27,15 @@ $newGlobalHeaderHeight: 70px;
 
 .global-header,
 .global-header .title,
-.global-header .nav li,
-.global-header .links li {
+.global-header .nav li {
 	height: $newGlobalHeaderHeight;
 }
 
-.global-header .links .github a:before {
-	background-image: url("../images/global/global-link-github-light.svg");
+.global-header .links {
+	display: none;
 }
 
-.global-header .links .codepen a:before {
-	background-image: url("../images/global/global-link-codepen-light.svg");
-}
-
-/* ALBUM */
+/* MAIN */
 
 $navigatorHeight: 80px;
 $sidebarWidth: 160px;
@@ -44,7 +43,6 @@ $loadingSize: 60px;
 $scaleAmount: 0.25;
 
 #photography {
-	opacity: 1;
 	position: absolute;
 	left: 0;
 	top: $newGlobalHeaderHeight;
@@ -286,7 +284,7 @@ $buttonSize: 16px;
 	position: absolute;
 	right: $navigatorPadding;
 	top: 50%;
-	padding: 0 15px 0 15px;
+	padding: 0 ((15px * 2) + 8px) 0 15px;
 	width: $selectorWidth;
 	height: 40px;
 	font-size: 14px;
@@ -319,7 +317,7 @@ $buttonSize: 16px;
 	background: #000000;
 }
 
-#photography > .sidebar > .sidebar-thumb {
+#photography > .sidebar .sidebar-thumb {
 	opacity: 0.25;
 	display: block;
 	margin: 0 auto 20px auto;
@@ -330,14 +328,175 @@ $buttonSize: 16px;
 	@include transition (opacity 0.2s $easeStandard);
 }
 
-#photography > .sidebar > .sidebar-thumb:last-child {
+#photography > .sidebar .sidebar-thumb:last-child {
 	margin-bottom: 0;
 }
 
-#photography > .sidebar > .sidebar-thumb:hover {
+#photography > .sidebar .sidebar-thumb:hover {
 	opacity: 0.5;
 }
 
-#photography > .sidebar > .sidebar-thumb.current {
+#photography > .sidebar .sidebar-thumb.current {
 	opacity: 1;
 }
+
+@media (min-width: 801px) {
+
+	#photography > .sidebar > .sidebar-wrapper {
+		width: auto !important;
+	}
+
+}
+
+@media (max-width: 800px) {
+
+	/* OVERRIDES */
+
+	$newGlobalHeaderHeight: 50px;
+
+	.outer-content {
+		background: #000000;
+	}
+
+	.global-header {
+		opacity: 0.3;
+		padding-left: 10px;
+		padding-right: 0;
+	}
+
+	.global-header,
+	.global-header .title,
+	.global-header .hamburger {
+		height: $newGlobalHeaderHeight;
+	}
+
+	.global-header .hamburger {
+		width: 60px;
+	}
+
+	.global-header .hamburger:before {
+		background-image: url("/images/global/global-header-hamburger-light.svg");
+	}
+
+	/* MAIN */
+
+	#photography {
+		top: $newGlobalHeaderHeight;
+		@include calc (height, "100% - #{$newGlobalHeaderHeight}");
+	}
+
+	/* VIEWER */
+
+	#photography > .viewer {
+		width: 100%;
+		@include calc (height, "100% - #{50px * 2}");
+	}
+
+	#photography > .viewer > .viewer-photo {
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	#photography > .viewer > .arrow {
+		width: 40%;
+	}
+
+	#photography > .viewer > .arrow:before {
+		display: none;
+	}
+
+	/* MAP */
+
+	#photography > .map {
+		display: none;
+	}
+
+	/* NAVIGATOR */
+
+	$navigatorPadding: 10px;
+
+	#photography > .navigator {
+		padding: $navigatorPadding;
+		height: 50px;
+	}
+
+	#photography > .navigator > .details {
+		left: $navigatorPadding;
+		padding-right: $navigatorPadding;
+		@include calc (width, "45% - #{$navigatorPadding}");
+	}
+
+	#photography > .navigator > .details > .title,
+	#photography > .navigator > .details > .index {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	#photography > .navigator > .details > .title {
+		margin-bottom: 2px;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	#photography > .navigator > .details > .index {
+		font-size: 10px;
+		line-height: 10px;
+	}
+
+	#photography > .navigator > .buttons {
+		display: none;
+	}
+
+	#photography > .navigator > .selector {
+		right: $navigatorPadding;
+		padding: 0 (($navigatorPadding * 2) + 8px) 0 $navigatorPadding;
+		@include calc (width, "55% - #{$navigatorPadding}");
+		height: 30px;
+		font-size: 12px;
+		@include calcBackgroundHorizontal("100% - #{$navigatorPadding}");
+	}
+
+	/* SIDEBAR */
+
+	#photography > .sidebar {
+		top: auto;
+		bottom: 50px;
+		padding: 10px;
+		width: 100%;
+		height: 50px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
+	#photography > .sidebar > .sidebar-wrapper:after {
+		@include clearFix;
+	}
+
+	#photography > .sidebar .sidebar-thumb {
+		float: left;
+		margin-bottom: 0;
+		margin-right: 10px;
+		width: 50px;
+		height: 30px;
+	}
+
+	#photography > .sidebar .sidebar-thumb:last-child {
+		margin-right: 0;
+	}
+
+
+
+
+
+
+
+
+
+
+}
+
+
+

@@ -333,6 +333,10 @@ $headerLinkIconSize: 24px;
 		height: $headerHeight;
 	}
 
+	.global-header .title {
+		margin-right: 0;
+	}
+
 	.global-header .title > a {
 		font-size: 20px;
 		line-height: 20px;
