@@ -366,4 +366,19 @@ $headerLinkIconSize: 24px;
 		background-position: -40px center;
 	}
 
+	.global-footer {
+		margin-top: 60px;
+		padding: 0 20px 20px 20px;
+	}
+
+	.global-footer p,
+	.global-footer p.small {
+		font-size: 10px;
+		line-height: 12px;
+	}
+
+	.global-footer p.small {
+		margin-top: 5px;
+	}
+
 }
