@@ -84,3 +84,51 @@
 .project-list > .list-item > .details > li:last-child {
 	margin-bottom: 0;
 }
+
+@media (max-width: 800px) {
+
+	.project-list {
+		padding-top: 40px;
+		padding-bottom: 20px;
+	}
+
+	.project-list > .list-item {
+		float: none;
+		margin: 0 auto 40px auto;
+		padding: 0;
+		width: 100%;
+		max-width: 500px;
+	}
+
+	.project-list > .list-item > h2 {
+		font-size: 16px;
+		line-height: 16px;
+	}
+
+	.project-list > .list-item > .view {
+		padding: 5px 5px 5px 5px;
+		font-size: 14px;
+		line-height: 14px;
+		@include transform (translateY(-5px));
+	}
+
+	.project-list > .list-item > .details {
+		margin-top: 5px;
+	}
+
+	.project-list > .list-item > .details > li {
+		margin-bottom: 0;
+		font-size: 12px;
+		line-height: 16px;
+	}
+
+
+
+
+
+
+
+
+
+
+}
