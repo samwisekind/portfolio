@@ -13,7 +13,7 @@
 
 $app->get('/', function () use ($app) {
 
-	return null;
+	return redirect('/projects');
 
 });
 
