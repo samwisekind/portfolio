@@ -36,11 +36,16 @@ $app->get('/projects/{project}', function ($project) {
 		->where('key', $project)
 		->first();
 
-	return view('content.projects.' . $project, [
-		'section' => 'project',
-		'title' => $result->title . ' Project',
-		'project' => $result
-	]);
+	if ($result !== null) {
+		return view('content.projects.' . $project, [
+			'section' => 'project',
+			'title' => $result->title . ' Project',
+			'project' => $result
+		]);
+	}
+	else {
+		return redirect('/projects');
+	}
 
 });
 
@@ -69,7 +74,7 @@ $app->get('/api/album/{album}', function ($album) {
 			->get();
 
 		if (count($result) === 0) {
-			return 'No photos found';
+			abort(404);
 		}
 		else {
 			return $result;
@@ -77,7 +82,7 @@ $app->get('/api/album/{album}', function ($album) {
 
 	}
 	else {
-		return 'No album found';
+		abort(404);
 	}
 
 });
