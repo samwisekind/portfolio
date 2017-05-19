@@ -343,6 +343,10 @@ $headerLinkIconSize: 24px;
 		@include boxShadow(rgba(0, 0, 0, 0.5) 0 0 $boxShadowBlur ($boxShadowBlur / 2));
 	}
 
+	body.nocanvas.menu .outer-content {
+		@include boxShadow (rgba(0, 0, 0, 0.3) 0 0 10px 3px);
+	}
+
 	body.menu .outer-content,
 	body .outer-overlay {
 		@include transform(translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg) translateZ(0));
