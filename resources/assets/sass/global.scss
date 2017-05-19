@@ -180,6 +180,20 @@ $headerLinkIconSize: 24px;
 		min-width: 320px;
 	}
 
+	$gradientFrom: #3F4257;
+	$gradientTo: #727998;
+
+	body.nocanvas .outer-wrapper {
+		background: $gradientFrom;
+		background: -moz-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $gradientFrom), color-stop(100%, $gradientTo));
+		background: -webkit-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: -o-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: -ms-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
+		background: linear-gradient(135deg, $gradientFrom 0%, $gradientTo 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$gradientFrom}", endColorstr="#{$gradientTo}", GradientType=1);
+	}
+
 	.outer-menu {
 		z-index: 0;
 		position: absolute;
@@ -288,6 +302,10 @@ $headerLinkIconSize: 24px;
 		transform-style: preserve-3d;
 		-webkit-transform-style: preserve-3d;
 		-webkit-backface-visibility: hidden;
+	}
+
+	body.nocanvas .outer-background {
+		display: none;
 	}
 
 	/* MENU */

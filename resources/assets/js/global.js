@@ -8,6 +8,11 @@
 	var bigBang = false; // Initialisation boolean if the canvas has been populated and rendered
 	var listenerAttached = false; // Boolean to attach/detach the 'deviceorientation' event listener
 	var starsArray; // Array for the stars
+	var canvasSupported = window.HTMLCanvasElement !== undefined; // Check if canvas is supported
+
+	if (canvasSupported === false) {
+		body.classList.add('nocanvas');
+	}
 
 	menu.addEventListener('click', function(event) {
 
@@ -15,16 +20,20 @@
 
 		clearTimeout(timeout);
 
-		// Generate the stars if they have not been born yet
-		if (bigBang === false) {
-			bigBang = true;
-			generateStars();
-		}
+		if (canvasSupported === true) {
 
-		// If the 'deviceorientation' event listener has not been attached yet, attach it
-		if (listenerAttached === false) {
-			window.addEventListener('deviceorientation', moveStars);
-			listenerAttached = true;
+			// Generate the stars if they have not been born yet
+			if (bigBang === false) {
+				bigBang = true;
+				generateStars();
+			}
+
+			// If the 'deviceorientation' event listener has not been attached yet, attach it
+			if (listenerAttached === false) {
+				window.addEventListener('deviceorientation', moveStars);
+				listenerAttached = true;
+			}
+
 		}
 
 		body.classList.add('menu');
@@ -42,9 +51,12 @@
 
 			menuOpen = false;
 
-			// Remove the 'deviceorientation' event listener after the menu transition has finished
-			window.removeEventListener('deviceorientation', moveStars);
-			listenerAttached = false;
+			if (canvasSupported === true) {
+
+				// Remove the 'deviceorientation' event listener after the menu transition has finished
+				window.removeEventListener('deviceorientation', moveStars);
+				listenerAttached = false;
+			}
 
 			body.classList.remove('position');
 
@@ -56,20 +68,24 @@
 
 	window.addEventListener('resize', function(event) {
 
-		if (window.innerWidth <= 800 && menuOpen === true) {
+		if (canvasSupported === true) {
 
-			generateStars();
+			if (window.innerWidth <= 800 && menuOpen === true) {
 
-			if (listenerAttached === false) {
-				window.addEventListener('deviceorientation', moveStars);
-				listenerAttached = true;
+				generateStars();
+
+				if (listenerAttached === false) {
+					window.addEventListener('deviceorientation', motionHandler);
+					listenerAttached = true;
+				}
+
 			}
+			else if (window.innerWidth > 800 && listenerAttached === true) {
 
-		}
-		else if (window.innerWidth > 800 && listenerAttached === true) {
+				window.removeEventListener('deviceorientation', motionHandler);
+				listenerAttached = false;
 
-			window.removeEventListener('deviceorientation', moveStars);
-			listenerAttached = false;
+			}
 
 		}
 
@@ -122,6 +138,23 @@
 			canvasContext.arc(target.x, target.y, target.radius, 0, 360);
 			canvasContext.fillStyle = 'hsl(' + target.hue + ', ' + target.sat + '%, 88%)';
 			canvasContext.fill();
+
+		}
+
+	}
+
+	function motionHandler(event) {
+
+		if (window.requestAnimationFrame !== undefined) {
+
+			window.requestAnimationFrame(function() {
+				moveStars(event);
+			});
+
+		}
+		else {
+
+			moveStars(event);
 
 		}
 
