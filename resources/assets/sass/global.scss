@@ -17,17 +17,17 @@ $headerLinkPadding: 10px;
 	z-index: 100;
 	position: relative;
 	padding: 0 $widthPadding 0 $widthPadding;
-	height: $headerHeight ;
+	height: $headerHeight;
 }
 
-.global-header > .container {
+.global-header > .content {
 	margin: 0 auto 0 auto;
 	height: 100%;
 	max-width: $maxWidth;
 }
 
 .global-header nav:after,
-.global-header > .container:after,
+.global-header > .content:after,
 .global-header ul:after {
 	@include clearFix;
 }
@@ -162,32 +162,22 @@ $headerLinkIconSize: 24px;
 
 	body {
 		font-size: 14px;
-		@include lineHeight (14px);
+		@include lineHeight(14px);
 	}
 
 	$gradientFrom: #3F4257;
 	$gradientTo: #727998;
 
-	.outer-wrapper {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: auto;
-		height: auto;
-		perspective: 2000px;
+	.outer-wrapper,
+	.outer-content {
 		-webkit-perspective: 2000px;
+		perspective: 2000px;
+	}
+
+	.outer-wrapper {
+		z-index: 10;
+		position: relative;
 		min-width: 320px;
-		overflow: hidden;
-		background: $gradientFrom;
-		background: -moz-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $gradientFrom), color-stop(100%, $gradientTo));
-		background: -webkit-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-		background: -o-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-		background: -ms-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-		background: linear-gradient(135deg, $gradientFrom 0%, $gradientTo 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$gradientFrom}", endColorstr="#{$gradientTo}", GradientType=1);
 	}
 
 	.outer-menu {
@@ -195,9 +185,8 @@ $headerLinkIconSize: 24px;
 		position: absolute;
 		top: 50%;
 		right: 0;
-		display: block;
 		width: 100%;
-		@include transform (translateY(-50%));
+		@include transform(translateY(-50%));
 	}
 
 	.outer-menu > ul {
@@ -224,28 +213,24 @@ $headerLinkIconSize: 24px;
 		@include transition(opacity 0.25s $easeStandard);
 	}
 
-	body.menu .outer-menu > ul > li > a {
-		opacity: 1;
-	}
-
 	.outer-menu .nav > li:nth-child(1) > a {
-		@include transitionDelay (0.1s);
+		@include transitionDelay(0.1s);
 	}
 
 	.outer-menu .nav > li:nth-child(2) > a {
-		@include transitionDelay (0.15s);
+		@include transitionDelay(0.15s);
 	}
 
 	.outer-menu .nav > li:nth-child(3) > a {
-		@include transitionDelay (0.2s);
+		@include transitionDelay(0.2s);
 	}
 
 	.outer-menu .links > li:nth-child(1) > a {
-		@include transitionDelay (0.25s);
+		@include transitionDelay(0.25s);
 	}
 
 	.outer-menu .links > li:nth-child(2) > a {
-		@include transitionDelay (0.3s);
+		@include transitionDelay(0.3s);
 	}
 
 	.outer-menu > ul > li.current > a {
@@ -276,35 +261,56 @@ $headerLinkIconSize: 24px;
 
 	.outer-content,
 	.outer-overlay {
-		left: 0;
-		top: 0;
-		position: absolute;
+		position: relative;
 		width: 100%;
 		height: 100%;
 		overflow-x: hidden;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 	}
 
 	.outer-content {
 		z-index: 10;
 		background: #FFFFFF;
 		will-change: transform;
-		@include transitionTransform (0.2s $easeAcceleration);
+		@include transitionTransform(0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 	}
 
-	body.menu .outer-content {
-		@include transitionTimingFunction ($easeDeceleration);
-	}
-
-	body.menu .outer-wrapper,
-	body.menu .outer-content {
+	.outer-background {
+		z-index: 0;
 		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: #000000;
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		-webkit-backface-visibility: hidden;
 	}
 
-	body .outer-overlay {
-		z-index: 20;
+	/* MENU */
+
+	body.position .outer-wrapper,
+	body.position .outer-content {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	body.menu .outer-content {
+		pointer-events: none;
+	}
+
+	body.menu .outer-content {
+		@include transitionTimingFunction(cubic-bezier(0.175, 0.885, 0.335, 1.05));
 	}
 
 	body.menu .outer-overlay {
+		z-index: 20;
 		display: block;
 	}
 
@@ -312,14 +318,24 @@ $headerLinkIconSize: 24px;
 		cursor: pointer;
 	}
 
+	$boxShadowBlur: 20px;
+
 	body.menu .outer-content {
 		overflow: hidden;
-		@include boxShadow (rgba(0, 0, 0, 0.3) 0 0 10px 3px);
+		@include boxShadow(rgba(0, 0, 0, 0.5) 0 0 $boxShadowBlur ($boxShadowBlur / 2));
 	}
 
 	body.menu .outer-content,
 	body .outer-overlay {
-		@include transform (translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg) translateZ(0));
+		@include transform(translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg) translateZ(0));
+	}
+
+	body.position .outer-menu {
+		display: block;
+	}
+
+	body.position .outer-menu > ul > li > a {
+		opacity: 1;
 	}
 
 	$headerHeight: 50px;

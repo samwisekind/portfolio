@@ -7,6 +7,8 @@
 
 		</div>
 
+		<canvas class="outer-background js-stars" width="100%" height="100%"></canvas>
+
 		<script src="/js/global.js" type="text/javascript"></script>
 		@yield ('javascript')
 

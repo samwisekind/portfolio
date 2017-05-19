@@ -9,6 +9,14 @@ body {
 	background: #000000;
 }
 
+.outer-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
 .global-footer {
 	display: none;
 }
