@@ -5,10 +5,14 @@
 	var overlay = body.getElementsByClassName('js-overlay')[0];
 	var timeout; // Timeout for menu transition
 	var menuOpen = false; // Boolean for when the menu is open/closed
+
+	var canvas = document.getElementsByClassName('js-stars')[0]; // Get the canvas
+	var canvasContext = canvas.getContext('2d'); // Get the canvas 2D context for drawing
 	var bigBang = false; // Initialisation boolean if the canvas has been populated and rendered
+	var canvasSupported = window.HTMLCanvasElement !== undefined; // Check if canvas is supported
 	var listenerAttached = false; // Boolean to attach/detach the 'deviceorientation' event listener
 	var starsArray; // Array for the stars
-	var canvasSupported = window.HTMLCanvasElement !== undefined; // Check if canvas is supported
+	var colours = [0, 60, 240]; // Colour range of stars
 
 	if (canvasSupported === false) {
 		body.classList.add('nocanvas');
@@ -91,33 +95,39 @@
 
 	});
 
+	// Wrapper for min/max random integer
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	// Wrapper for min/max random float
+	function getRandomFloat(min, max) {
+		return Math.random() * (max - min) + min;
+	}
+
+	// Twinkle twinkle little star...
 	function generateStars() {
 
-		// Wrapper for min/max random
-		function getRandom(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-		// Get the canvas, resize it to the window width and height, and get and 2D context for drawing
-		window.canvas = document.getElementsByClassName('js-stars')[0];
-		canvas.width  = window.innerWidth;
+		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
-		window.canvasContext = canvas.getContext('2d');
 
 		var stars = Math.floor((window.innerWidth + window.innerHeight) / 1.8); // Number of stars to generate in proportion to the window size
-		var colours = [0, 60, 240]; // Colour range of stars
 
 		// Empty the array
 		starsArray = [];
 
-		// Generate an array of star objects
-		for (var i = stars; i--;) {
+		var i;
 
-			var x = Math.random() * window.innerWidth; // x-coordinates within the canvas size
-			var y = Math.random() * window.innerHeight; // y-coordinates within the canvas size
+		// Generate an array of star objects
+		for (i = stars; i--;) {
+
+			// Undershoot and overshoot the canvas slightly to not show apparent edges when rotating the device
+			var x = getRandomFloat(-0.1, 1.1) * window.innerWidth; // x-coordinates within the canvas size
+			var y = getRandomFloat(-0.1, 1.1) * window.innerHeight; // y-coordinates within the canvas size
+
 			var radius = Math.random() * 1.2; // Random radius size
-			var hue = colours[getRandom(0, colours.length - 1)]; // Random hue
-			var sat = getRandom(50, 100); // Random saturation
+			var hue = colours[getRandomInt(0, colours.length - 1)]; // Random hue
+			var sat = getRandomInt(50, 100); // Random saturation
 
 			starsArray[i] = {
 				x: x,
@@ -130,7 +140,7 @@
 		}
 
 		// Loop through the star array and draw them as arcs on the canvas
-		for (i = 0; i < starsArray.length; i++) {
+		for (i = starsArray.length; i--;) {
 
 			var target = starsArray[i];
 
