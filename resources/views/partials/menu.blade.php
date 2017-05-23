@@ -1,5 +1,5 @@
 <ul class="nav">
-	<li class="@if ($section === 'project') current @endif"><a href="{{ $app->make('url')->to('/projects') }}"><span>Projects</span></a></li>
+	<li class="@if ($section === 'home' || $section === 'project') current @endif"><a href="{{ $app->make('url')->to('/') }}"><span>Projects</span></a></li>
 	<li class="@if ($section === 'photography') current @endif"><a href="{{ $app->make('url')->to('/photography') }}"><span>Photography</span></a></li>
 </ul>
 

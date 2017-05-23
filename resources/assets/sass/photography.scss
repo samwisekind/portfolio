@@ -2,11 +2,15 @@
 @import "partial/colours";
 @import "partial/mixins";
 
+/* COMMON */
+
+$sidebarWidth: 160px;
+
 /* OVERRIDES */
 
 body {
-	color: #FFFFFF;
-	background: #000000;
+	color: $colour-white;
+	background: $colour-black;
 }
 
 .outer-wrapper {
@@ -17,26 +21,47 @@ body {
 	height: 100%;
 }
 
+.outer-wrapper > .outer-content {
+	background: $colour-black;
+}
+
 .global-footer {
 	display: none;
 }
 
-$newGlobalHeaderHeight: 70px;
+$newGlobalHeaderHeight: 50px;
 
 .global-header {
-	opacity: 0.5;
 	padding-left: 20px;
-	padding-right: 10px;
+	padding-right: 20px;
+	@include calc (width, "100% - #{$sidebarWidth}");
 }
 
 .global-header > .container {
 	max-width: none;
 }
 
+.global-header a span {
+	padding: 2px;
+	border-bottom-color: transparent;
+}
+
+.global-header a:hover span,
+.global-header .nav .current > a span {
+	border-bottom-color: darken($colour-greyDark, 25%);
+}
+
 .global-header,
 .global-header .title,
 .global-header .nav li {
 	height: $newGlobalHeaderHeight;
+}
+
+.global-header .title > a,
+.global-header .nav a {
+	font-size: 16px;
+	line-height: 16px;
+	color: $colour-greyDark;
 }
 
 .global-header .links {
@@ -46,19 +71,19 @@ $newGlobalHeaderHeight: 70px;
 /* MAIN */
 
 $navigatorHeight: 80px;
-$sidebarWidth: 160px;
 $loadingSize: 60px;
 $scaleAmount: 0.25;
 
 #photography {
+	z-index: 0;
 	position: absolute;
 	left: 0;
-	top: $newGlobalHeaderHeight;
+	top: 0;
 	width: 100%;
-	@include calc (height, "100% - #{$newGlobalHeaderHeight}");
+	height: 100%;
 	will-change: transform;
 	overflow: hidden;
-	background: #000000;
+	background: $colour-black;
 }
 
 /* VIEWER */
@@ -69,9 +94,9 @@ $viewerPadding: 20px;
 	z-index: 0;
 	position: absolute;
 	left: 0;
-	top: 0;
+	bottom: $navigatorHeight;
 	@include calc (width, "100% - #{$sidebarWidth}");
-	@include calc (height, "100% - #{$navigatorHeight}");
+	@include calc (height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
 }
 
 #photography > .viewer > .arrow {
@@ -193,7 +218,7 @@ $viewerPadding: 20px;
 	top: 0;
 	width: 100%;
 	@include calc (height, "100% - #{$navigatorHeight}");
-	background: #000000;
+	background: $colour-black;
 	@include transform (translateY(0));
 	@include transition (all 0.5s $easeStandard);
 }
@@ -217,7 +242,7 @@ $buttonSize: 16px;
 	bottom: 0;
 	width: 100%;
 	height: $navigatorHeight;
-	background: #000000;
+	background: $colour-black;
 }
 
 #photography > .navigator > .details {
@@ -237,7 +262,7 @@ $buttonSize: 16px;
 #photography > .navigator > .details > .index {
 	font-size: 12px;
 	line-height: 12px;
-	color: #8C8C8C;
+	color: $colour-greyDark;
 }
 
 #photography > .navigator > .buttons {
@@ -252,14 +277,13 @@ $buttonSize: 16px;
 }
 
 #photography > .navigator > .buttons > .button {
-	opacity: 0.5;
 	float: left;
 	display: block;
 	margin-right: $navigatorPadding;
 	font-size: 12px;
 	line-height: 12px;
 	text-align: center;
-	color: #FFFFFF;
+	color: $colour-greyDark;
 	text-decoration: none;
 }
 
@@ -284,10 +308,6 @@ $buttonSize: 16px;
 	background-image: url("../images/photography/close-button.svg");
 }
 
-#photography > .navigator > .buttons > .button:hover {
-	opacity: 1;
-}
-
 #photography > .navigator > .selector {
 	position: absolute;
 	right: $navigatorPadding;
@@ -296,7 +316,7 @@ $buttonSize: 16px;
 	width: $selectorWidth;
 	height: 40px;
 	font-size: 14px;
-	color: #BABABA;
+	color: $colour-greyDark;
 	border-radius: 3px;
 	border: none;
 	background: url("../images/photography/select-arrow.svg") no-repeat #181818;
@@ -307,7 +327,6 @@ $buttonSize: 16px;
 
 #photography > .navigator > .selector:hover {
 	cursor: pointer;
-	background-color: lighten(#181818, 5%);
 }
 
 /* SIDEBAR */
@@ -322,7 +341,7 @@ $buttonSize: 16px;
 	@include calc (height, "100% - #{$navigatorHeight}");
 	overflow: hidden;
 	overflow-y: scroll;
-	background: #000000;
+	background: $colour-black;
 }
 
 #photography > .sidebar .sidebar-thumb {
@@ -363,13 +382,13 @@ $buttonSize: 16px;
 	$newGlobalHeaderHeight: 50px;
 
 	.outer-content {
-		background: #000000;
+		background: $colour-black;
 	}
 
 	.global-header {
-		opacity: 0.3;
 		padding-left: 10px;
 		padding-right: 0;
+		width: 100%;
 	}
 
 	.global-header,
