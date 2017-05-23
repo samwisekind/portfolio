@@ -3,5 +3,10 @@ $easeDeceleration: cubic-bezier(0.0, 0.0, 0.2, 1);
 $easeAcceleration: cubic-bezier(0.4, 0.0, 1, 1);
 $easeSharp: cubic-bezier(0.4, 0.0, 0.6, 1);
 
-$maxWidth: 1000px;
+$easeQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+$maxWidth: 1200px;
 $widthPadding: 40px;
+
+$mobileBreakpointLarge: 780px;
+$mobileBreakpointSmall: 600px;

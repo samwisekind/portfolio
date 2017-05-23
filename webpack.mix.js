@@ -16,7 +16,7 @@ mix.js('resources/assets/js/global.js', 'public/js')
    .sass('resources/assets/sass/global.scss', 'public/css').options({
       processCssUrls: false
    })
-   .sass('resources/assets/sass/project-list.scss', 'public/css').options({
+   .sass('resources/assets/sass/home.scss', 'public/css').options({
       processCssUrls: false
    })
    .sass('resources/assets/sass/project.scss', 'public/css').options({

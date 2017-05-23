@@ -11,20 +11,15 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-
-	return redirect('/projects');
-
-});
-
-$app->get('/projects', function () {
+$app->get('/', function () {
 
 	$result = app('db')->table('projects')
 		->get();
 
-	return view('layouts.project-list', [
-		'section' => 'project',
-		'title' => 'Projects',
+	return view('layouts.home', [
+		'section' => 'home',
+		'title' => false,
+		'featured' => 'joyce',
 		'projects' => $result
 	]);
 
