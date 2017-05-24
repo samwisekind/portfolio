@@ -21,7 +21,7 @@ class CreateProjectsTable extends Migration
             $table->string('technologies');
             $table->string('responsibilities');
             $table->string('url');
-            $table->string('preview');
+            $table->string('thumbnail');
             $table->string('cover');
             $table->date('started');
             $table->date('ended');

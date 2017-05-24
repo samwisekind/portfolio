@@ -31,7 +31,7 @@
 					<div class="project">
 
 						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="image">
-							<img src="{{ $project->preview }}" alt="" />
+							<img src="{{ $project->thumbnail }}" alt="" />
 						</a>
 
 						<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>

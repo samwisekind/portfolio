@@ -9,7 +9,7 @@
 				<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
 
 				<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="image">
-					<img src="/images/projects/joyce/joyce-featured.png" alt="" />
+					<img src="{{ $project->cover }}" alt="" />
 				</a>
 
 			</div>
