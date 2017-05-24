@@ -2,84 +2,67 @@
 @import "partial/colours";
 @import "partial/mixins";
 
+/* PROJECT COVER */
+
+.project-cover {
+	z-index: 0;
+	position: relative;
+	display: block;
+	margin: 0 auto 0 auto;
+	width: 100%;
+	max-width: 1800px;
+	height: auto;
+}
+
+/* PROJECT HEADER */
+
 .project-header {
-	padding: 140px $widthPadding 40px $widthPadding;
-}
-
-.project-header.joyce {
-	color: #FFFFFF;
-	border-color: #FFFFFF;
-	background: #000000;
-}
-
-.project-header.enicar {
-	color: #FFFFFF;
-	border-color: #FFFFFF;
-	background: #E44436;
-}
-
-.project-header.steamchat {
-	color: #FFFFFF;
-	border-color: #FFFFFF;
-	background: #0064BF;
-}
-
-.project-header.k11 {
-	color: #FFFFFF;
-	border-color: #FFFFFF;
-	background: #A7834A;
-}
-
-.project-header.hkjc {
-	color: #FAD40E;
-	border-color: #FFFFFF;
-	background: #002E65;
+	z-index: 10;
+	position: relative;
+	margin: 0 auto -60px auto;
+	padding: 0 40px 0 40px;
+	@include transform(translateY(-60px));
 }
 
 .project-header > .container {
 	margin: 0 auto 0 auto;
-	max-width: $maxWidth;
+	padding: 40px;
+	max-width: 900px;
+}
+
+$projectList: (
+	("joyce", #FFFFFF, #FFFFFF, #000000),
+	("enicar", #FFFFFF, #FFFFFF, #E44436),
+	("steamchast", #FFFFFF, #FFFFFF, #0064BF),
+	("k11", #FFFFFF, #FFFFFF, #A7834A),
+	("hkjc", #FAD40E, #FFFFFF, #002E65)
+);
+
+@each $project, $color, $border-color, $background in $projectList {
+
+	.project-header.#{$project} > .container {
+		color: $color;
+		border-color: $border-color;
+		background: $background;
+	}
+
 }
 
 .project-header h2 {
-	float: left;
-	display: inline-block;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	font-size: 72px;
 	line-height: 72px;
 	font-weight: 300;
 }
 
-.project-header .view {
-	opacity: 0.5;
-	float: left;
-	margin-top: 32px;
-	margin-left: 32px;
-	padding: 5px 10px 5px 10px;
-	font-size: 16px;
-	line-height: 16px;
-	color: inherit;
-	border: 1px solid;
-	border-color: inherit;
-	border-radius: 5px;
-	text-decoration: none;
-}
-
-.project-header .view:hover {
-	opacity: 1;
-	text-decoration: underline;
-}
-
 .project-header h3 {
-	clear: both;
 	font-size: 26px;
-	line-height: 34px;
+	@include lineHeight(26px);
 	font-weight: 300;
-	max-width: 650px;
 }
 
 .project-header .details {
-	margin-top: 60px;
+	margin-top: 40px;
 	list-style: none;
 }
 
@@ -88,31 +71,22 @@
 }
 
 .project-header .details > li {
-	float: left;
-	margin-right: 40px;
 	margin-bottom: 20px;
-	max-width: 320px;
 	font-size: 14px;
-	line-height: 14px;
+	@include lineHeight(14px);
 }
 
 .project-header .details > li:last-child {
-	margin-right: 0;
+	margin-bottom: 0;
 }
 
 .project-header .details > li .title {
 	display: block;
-	margin-bottom: 5px;
+	font-family: 'Montserrat', Helvetica, Verdana, sans-serif;
 	font-weight: 700;
 }
 
-.project-cover {
-	display: block;
-	margin: 0 auto 80px auto;
-	width: 100%;
-	max-width: 1800px;
-	height: auto;
-}
+/* PROJECT CONTENT */
 
 .project-content > h3,
 .project-content > h4,
@@ -120,34 +94,51 @@
 .project-content > ol,
 .project-content > ul {
 	display: block;
-	margin: 20px auto 20px auto;
+	margin: 20px auto 0 auto;
 	padding: 0 $widthPadding 0 $widthPadding;
 	max-width: 800px;
 }
 
-.project-content > h4 {
-	margin-top: 40px;
+.project-content > h3 {
+	margin-top: 60px;
+	font-size: 26px;
+	@include lineHeight(26px);
 }
 
-.project-content > p + h3,
-.project-content > ol + h3,
-.project-content > ul + h3 {
-	margin-top: 60px;
+.project-content > h4 {
+	margin-top: 40px;
+	font-size: 20px;
+	@include lineHeight(20px);
 }
 
 .project-content > p {
 	text-align: justify;
 }
 
-.project-content > ol,
-.project-content > ul {}
-
 .project-content > p code {
 	padding: 1px 5px 1px 5px;
 	color: #0077AA;
 	text-shadow: 0 1px #FFFFFF;
 	border-radius: 2px;
-	background: #F0F2F1;
+	background: $colour-greyLight;
+}
+
+.project-content > ol,
+.project-content > ul {
+	padding-left: $widthPadding + 20px;
+	list-style-position: outside;
+}
+
+.project-content > ol > li,
+.project-content > ul > li {
+	margin-left: 1em;
+	margin-bottom: 5px;
+	text-align: justify;
+}
+
+.project-content > ol > li:last-child,
+.project-content > ul > li:last-child {
+	margin-bottom: 0;
 }
 
 .project-image {
@@ -171,36 +162,31 @@
 	color: #9E9E9E;
 }
 
-@media (max-width: 800px) {
+@media (max-width: $mobileBreakpointSmall) {
 
 	$widthPadding: 20px;
 
+	/* PROJECT HEADER */
+
 	.project-header {
-		padding: 60px $widthPadding 20px $widthPadding;
+		margin: 0 auto 0 auto;
+		padding: 0;
+		@include transform(none);
+	}
+
+	.project-header > .container {
+		padding: $widthPadding;
 	}
 
 	.project-header h2 {
-		float: none;
-		display: block;
-		margin-bottom: 10px;
-		font-size: 48px;
-		line-height: 48px;
-	}
-
-	.project-header .view {
-		opacity: 1;
-		float: none;
-		display: inline-block;
-		margin: 10px 0 10px 0;
-		padding: 5px 10px 5px 10px;
-		font-size: 14px;
-		line-height: 14px;
+		margin-bottom: 5px;
+		font-size: 32px;
+		line-height: 32px;
 	}
 
 	.project-header h3 {
 		font-size: 18px;
-		line-height: 24px;
-		max-width: 320px;
+		@include lineHeight(18px);
 	}
 
 	.project-header .details {
@@ -208,42 +194,41 @@
 	}
 
 	.project-header .details > li {
-		float: none;
-		margin-right: 0;
-		margin-bottom: 20px;
-		font-size: 12px;
-		line-height: 12px;
+		margin-bottom: 10px;
+		font-size: 10px;
+		@include lineHeight(10px);
 	}
 
-	.project-header .details > li .title {
-		margin-bottom: 2px;
-	}
-
-	.project-cover {
-		margin-bottom: 40px;
-	}
+	/* PROJECT CONTENT */
 
 	.project-content > h3,
 	.project-content > h4,
 	.project-content > p,
 	.project-content > ol,
 	.project-content > ul {
-		margin: 10px auto 10px auto;
+		margin: 10px auto 0 auto;
 		padding: 0 $widthPadding 0 $widthPadding;
+	}
+
+	.project-content > h3 {
+		margin-top: 40px;
+		font-size: 20px;
+		@include lineHeight(20px);
 	}
 
 	.project-content > h4 {
 		margin-top: 20px;
-	}
-
-	.project-content > p + h3,
-	.project-content > ol + h3,
-	.project-content > ul + h3 {
-		margin-top: 30px;
+		font-size: 16px;
+		@include lineHeight(16px);
 	}
 
 	.project-content > p code {
 		padding: 1px 2px 1px 2px;
+	}
+
+	.project-content > ol,
+	.project-content > ul {
+		padding-left: $widthPadding + 10px;
 	}
 
 	.project-image {
@@ -253,9 +238,9 @@
 
 	.project-image > .caption {
 		margin-top: 10px;
-		padding: 0 20px 0 20px;
+		padding: 0 $widthPadding 0 $widthPadding;
 		font-size: 12px;
-		line-height: 16px;
+		@include lineHeight(16px);
 	}
 
 }

@@ -148,7 +148,7 @@ $headerLinkIconSize: 24px;
 
 .global-footer p.small {
 	font-size: 12px;
-	color: $colour-greyLight;
+	color: $colour-grey;
 }
 
 .global-footer p:last-child {
@@ -176,8 +176,8 @@ $headerLinkIconSize: 24px;
 @media (max-width: $mobileBreakpointLarge) {
 
 	body {
-		font-size: 14px;
-		@include lineHeight(14px);
+		font-size: 16px;
+		@include lineHeight(16px);
 	}
 
 	.outer-wrapper,

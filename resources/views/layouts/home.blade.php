@@ -10,30 +10,38 @@
 
 	<div class="home">
 
-		@include ('components.project-featured')
+		@isset($featured)
+
+			@include ('components.project-featured')
+
+		@endisset
 
 		<div class="list">
 
-			@foreach ($projects as $project)
+			@isset($featured)
 
-				@if ($project->key === $featured)
+				@foreach ($projects as $project)
 
-					@continue
+					@if ($project->key === $featured)
 
-				@endif
+						@continue
 
-				<div class="project">
+					@endif
 
-					<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="image">
-						<img src="{{ $project->preview }}" alt="" />
-					</a>
+					<div class="project">
 
-					<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
-					<p>{{ $project->description }}</p>
+						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="image">
+							<img src="{{ $project->preview }}" alt="" />
+						</a>
 
-				</div>
+						<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
+						<p>{{ $project->description }}</p>
 
-			@endforeach
+					</div>
+
+				@endforeach
+
+			@endisset
 
 		</div>
 

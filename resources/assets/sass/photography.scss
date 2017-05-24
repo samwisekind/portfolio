@@ -367,7 +367,7 @@ $buttonSize: 16px;
 	opacity: 1;
 }
 
-@media (min-width: 801px) {
+@media (min-width: $mobileBreakpointLarge + 1px) {
 
 	#photography > .sidebar > .sidebar-wrapper {
 		width: auto !important;
@@ -375,7 +375,7 @@ $buttonSize: 16px;
 
 }
 
-@media (max-width: 800px) {
+@media (max-width: $mobileBreakpointLarge) {
 
 	/* OVERRIDES */
 
@@ -415,6 +415,8 @@ $buttonSize: 16px;
 	/* VIEWER */
 
 	#photography > .viewer {
+		top: 0;
+		bottom: auto;
 		width: 100%;
 		@include calc (height, "100% - #{50px * 2}");
 	}
