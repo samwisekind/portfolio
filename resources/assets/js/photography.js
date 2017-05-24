@@ -235,8 +235,7 @@ window.axios = require('axios');
 				var location = new google.maps.LatLng(20, 0);
 				var mapOptions = {
 					center: location,
-					zoom: 2,
-					scrollwheel: false
+					zoom: 2
 				};
 
 				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
