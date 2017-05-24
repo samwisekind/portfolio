@@ -2,6 +2,10 @@
 @import "partial/colours";
 @import "partial/mixins";
 
+/* COMMON */
+
+$contentWidth: 800px;
+
 /* PROJECT COVER */
 
 .project-cover {
@@ -19,15 +23,14 @@
 .project-header {
 	z-index: 10;
 	position: relative;
-	margin: 0 auto -60px auto;
-	padding: 0 40px 0 40px;
-	@include transform(translateY(-60px));
+	margin: 0 auto 0 auto;
+	padding: 40px;
+	max-width: 1800px;
 }
 
 .project-header > .container {
 	margin: 0 auto 0 auto;
-	padding: 40px;
-	max-width: 900px;
+	max-width: $maxWidth;
 }
 
 $projectList: (
@@ -40,7 +43,7 @@ $projectList: (
 
 @each $project, $color, $border-color, $background in $projectList {
 
-	.project-header.#{$project} > .container {
+	.project-header.#{$project} {
 		color: $color;
 		border-color: $border-color;
 		background: $background;
@@ -50,14 +53,14 @@ $projectList: (
 
 .project-header h2 {
 	margin-bottom: 10px;
-	font-size: 72px;
-	line-height: 72px;
+	font-size: 64px;
+	line-height: 64px;
 	font-weight: 300;
 }
 
 .project-header h3 {
-	font-size: 26px;
-	@include lineHeight(26px);
+	font-size: 24px;
+	@include lineHeight(24px);
 	font-weight: 300;
 }
 
@@ -96,7 +99,7 @@ $projectList: (
 	display: block;
 	margin: 20px auto 0 auto;
 	padding: 0 $widthPadding 0 $widthPadding;
-	max-width: 800px;
+	max-width: $contentWidth;
 }
 
 .project-content > h3 {
@@ -169,12 +172,6 @@ $projectList: (
 	/* PROJECT HEADER */
 
 	.project-header {
-		margin: 0 auto 0 auto;
-		padding: 0;
-		@include transform(none);
-	}
-
-	.project-header > .container {
 		padding: $widthPadding;
 	}
 
