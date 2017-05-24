@@ -18,7 +18,6 @@ $app->get('/', function () {
 
 	return view('layouts.home', [
 		'section' => 'home',
-		'title' => false,
 		'featured' => 'joyce',
 		'projects' => $result
 	]);
