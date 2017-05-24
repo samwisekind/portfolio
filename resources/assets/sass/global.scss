@@ -67,6 +67,7 @@ $headerLinkPadding: 10px;
 }
 
 .global-header a span {
+	display: block;
 	padding: 4px;
 	font-size: 14px;
 	line-height: 14px;
@@ -162,13 +163,17 @@ $headerLinkIconSize: 24px;
 @media (max-width: 900px) {
 
 	.global-header .links a {
-		padding: 0 10px 0 10px;
+		padding: 4px 10px 0 10px;
 	}
 
 	.global-header .links a:before {
 		position: static;
 		margin: 0 auto 5px auto;
 		display: block;
+	}
+
+	.global-header .links a span {
+		padding-bottom: 0;
 	}
 
 }
