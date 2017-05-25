@@ -14,6 +14,7 @@ class CreateAlbumsMappingTable extends Migration
     public function up()
     {
         Schema::create('mapping', function (Blueprint $table) {
+            $table->integer('order');
             $table->integer('album_id');
             $table->integer('photo_id');
         });

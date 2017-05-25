@@ -14,6 +14,7 @@
 $app->get('/', function () {
 
 	$result = app('db')->table('projects')
+		->orderBy('order', 'asc')
 		->get();
 
 	return view('layouts.home', [
@@ -46,6 +47,7 @@ $app->get('/projects/{project}', function ($project) {
 $app->get('/api/album', function ($album = 'portfolio') {
 
 	$result = app('db')->table('albums')
+		->orderBy('order', 'asc')
 		->get();
 
 	return $result;
@@ -65,6 +67,7 @@ $app->get('/api/album/{album}', function ($album) {
 			->join('albums', 'mapping.album_id', '=', 'albums.id')
 			->join('photos', 'mapping.photo_id', '=', 'photos.id')
 			->where('mapping.album_id', '=', $target_album)
+			->orderBy('mapping.order', 'asc')
 			->get();
 
 		if (count($result) === 0) {
