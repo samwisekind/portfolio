@@ -18,8 +18,6 @@ class CreateAlbumsTable extends Migration
             $table->integer('order');
             $table->string('key');
             $table->string('title');
-            $table->string('location');
-            $table->string('description');
             $table->float('map_latitude', 10, 7);
             $table->float('map_longitude', 10, 7);
             $table->timestamps();
