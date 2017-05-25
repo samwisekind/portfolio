@@ -39,7 +39,7 @@ $app->get('/projects/{project}', function ($project) {
 		]);
 	}
 	else {
-		return redirect('/projects');
+		return abort(404);
 	}
 
 });
