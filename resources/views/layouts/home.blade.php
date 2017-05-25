@@ -20,9 +20,9 @@
 
 			@isset($featured)
 
-				@foreach ($projects as $project)
+				@foreach ($projects as $item)
 
-					@if ($project->key === $featured)
+					@if ($item->key === $featured)
 
 						@continue
 
@@ -30,12 +30,12 @@
 
 					<div class="project">
 
-						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="image">
-							<img src="{{ $project->thumbnail }}" alt="" />
+						<a href="{{ $app->make('url')->to('/projects/' . $item->key) }}" class="image">
+							<img src="{{ $item->thumbnail }}" alt="" />
 						</a>
 
-						<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
-						<p>{{ $project->description }}</p>
+						<h2><a href="{{ $app->make('url')->to('/projects/' . $item->key) }}">{{ $item->title }}</a></h2>
+						<p>{{ $item->description }}</p>
 
 					</div>
 
