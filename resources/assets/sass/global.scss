@@ -5,6 +5,7 @@
 @import "partial/fonts";
 
 .outer-overlay,
+.outer-menu,
 .global-header > .hamburger {
 	display: none;
 }
@@ -215,6 +216,7 @@ $headerLinkIconSize: 24px;
 		position: absolute;
 		top: 50%;
 		right: 0;
+		display: block;
 		width: 100%;
 		@include transform(translateY(-50%));
 	}
