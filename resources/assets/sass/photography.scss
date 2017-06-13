@@ -95,6 +95,7 @@ $viewerPadding: 20px;
 	position: absolute;
 	left: 0;
 	bottom: $navigatorHeight;
+	padding: $viewerPadding 0 $viewerPadding $viewerPadding;
 	@include calc (width, "100% - #{$sidebarWidth}");
 	@include calc (height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
 }
@@ -153,15 +154,20 @@ $viewerPadding: 20px;
 	@include transform (translateX(20px) rotate(180deg));
 }
 
+$photoMaxSize: 1024px;
+
 #photography > .viewer > .viewer-photo {
 	z-index: 0;
-	position: absolute;
-	left: $viewerPadding;
-	top: $viewerPadding;
-	@include calc (width, "100% - #{$viewerPadding + ($viewerPadding / 2)}"); // Half of the viewer padding as the padding of the sidebar is equal to half
-	@include calc (height, "100% - #{$viewerPadding + ($viewerPadding / 2)}"); // Half of the viewer padding as the padding of the navigator is equal to half
+	position: relative;
+	top: 50%;
+	margin: 0 auto 0 auto;
+	width: 100%;
+	height: 100%;
+	max-width: $photoMaxSize;
+	max-height: $photoMaxSize;
 	background: center center no-repeat transparent;
 	background-size: contain;
+	@include transform (translateY(-50%));
 	@include transition (opacity 0.2s $easeAcceleration);
 }
 
@@ -417,15 +423,14 @@ $buttonSize: 16px;
 	#photography > .viewer {
 		top: 0;
 		bottom: auto;
+		padding: 0;
 		width: 100%;
 		@include calc (height, "100% - #{50px * 2}");
 	}
 
 	#photography > .viewer > .viewer-photo {
-		left: 0;
-		top: 0;
 		width: 100%;
-		@include calc (height, "100% - 10px");
+		height: 100%;
 	}
 
 	#photography > .viewer > .arrow {
