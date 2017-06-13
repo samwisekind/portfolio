@@ -221,9 +221,10 @@ $photoMaxSize: 1024px;
 	z-index: 10;
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: $newGlobalHeaderHeight;
 	width: 100%;
-	@include calc (height, "100% - #{$navigatorHeight}");
+	@include calc (width, "100% - #{$sidebarWidth}");
+	@include calc (height, "100% - #{$newGlobalHeaderHeight + $navigatorHeight}");
 	background: $colour-black;
 	@include transform (translateY(0));
 	@include transition (all 0.5s $easeStandard);
@@ -374,6 +375,19 @@ $buttonSize: 16px;
 }
 
 @media (min-width: $mobileBreakpointLarge + 1px) {
+
+	#photography > .navigator > .details,
+	#photography > .sidebar {
+		@include transition (opacity 0.2s $easeStandard);
+	}
+
+	#photography.mapOpen > .navigator > .details,
+	#photography.mapOpen > .sidebar {
+		opacity: 0.25;
+		pointer-events: none;
+	}
+
+	/* SIDEBAR */
 
 	#photography > .sidebar > .sidebar-wrapper {
 		width: auto !important;

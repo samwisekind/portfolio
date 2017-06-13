@@ -118,7 +118,7 @@ window.axios = require('axios');
 
 	var photography = new Vue({
 		el: '#photography',
-		template: `<div id="photography" v-bind:class="{ loading: isLoading }">
+		template: `<div id="photography" v-bind:class="{ loading: isLoading, mapOpen: mapOpened }">
 				<mapView v-show="mapOpened"></mapView>
 				<viewer v-bind:photoData="photoData"></viewer>
 				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
