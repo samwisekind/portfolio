@@ -178,12 +178,12 @@ $photoMaxSize: 1024px;
 	@include transition (opacity 0.2s $easeAcceleration);
 }
 
-#photography.loading > .viewer > .viewer-photo {
+#photography > .viewer.loading > .viewer-photo {
 	opacity: 0.5;
 	@include transition (opacity 0.2s $easeDeceleration);
 }
 
-#photography.loading > .viewer:before {
+#photography > .viewer.loading:before {
 	content: "";
 	position: absolute;
 	left: 50%;
@@ -356,6 +356,11 @@ $buttonSize: 16px;
 	overflow: hidden;
 	overflow-y: scroll;
 	background: $colour-black;
+}
+
+#photography > .sidebar.loading {
+	opacity: 0.5;
+	@include transition (opacity 0.2s $easeDeceleration);
 }
 
 #photography > .sidebar .sidebar-thumb {

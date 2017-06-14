@@ -183,15 +183,16 @@ var hammer = require('hammerjs');
 
 	var photography = new Vue({
 		el: '#photography',
-		template: `<div id="photography" v-bind:class="{ loading: isLoading, mapOpen: mapOpened }">
+		template: `<div id="photography" v-bind:class="{ mapOpen: mapOpened }">
 				<mapView v-show="mapOpened"></mapView>
 				<div v-show="showingNotice" class="notice">Swipe left or right above, or scroll the thumbnails below</div>
-				<viewer v-bind:photoData="photoData"></viewer>
+				<viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto }"></viewer>
 				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
-				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth"></sidebar>
+				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth" v-bind:class="{ loading: loadingAlbum }"></sidebar>
 			</div>`,
 		data: {
-			isLoading: true,
+			loadingAlbum: false,
+			loadingPhoto: true,
 			albumList: null,
 			albumData: null,
 			selectedAlbum: null,
@@ -209,7 +210,7 @@ var hammer = require('hammerjs');
 				axios.get('/api/album')
 					.then(function(response) {
 						photography.albumList = response.data; // Store album list data
-						photography.isLoading = false; // Hide loading
+						photography.loadingPhoto = false; // Hide loading
 						if (photography.albumData === null) {
 							photography.getAlbumData('portfolio');
 						}
@@ -220,6 +221,8 @@ var hammer = require('hammerjs');
 
 			},
 			getAlbumData: function(album) {
+
+				this.loadingAlbum = true;
 
 				axios.get('/api/album/' + album)
 					.then(function(response) {
@@ -247,7 +250,7 @@ var hammer = require('hammerjs');
 			changePhoto: function(index) {
 
 				// Show loading
-				this.isLoading = true;
+				this.loadingPhoto = true;
 
 				// Change the selected photo index even if it's loading
 				photography.selectedIndex = index;
@@ -259,7 +262,8 @@ var hammer = require('hammerjs');
 					// Once the image has loaded, update the photo index and remove the loading
 					photography.photoIndex = index;
 					photography.photoData = photography.albumData[photography.photoIndex];
-					photography.isLoading = false;
+					photography.loadingAlbum = false;
+					photography.loadingPhoto = false;
 				};
 
 				// Set the image src attribute to the image url to start pre-loading
