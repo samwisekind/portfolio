@@ -461,11 +461,6 @@ $buttonSize: 16px;
 		@include transition (height 0.2s $easeStandard);
 	}
 
-	#photography.notice > .viewer {
-		padding-bottom: $noticeHeight;
-		@include transition (padding-bottom 0.2s $easeStandard);
-	}
-
 	#photography > .viewer.full {
 		height: 100%;
 	}
