@@ -97,11 +97,12 @@ $scaleAmount: 0.25;
 $viewerPadding: 20px;
 
 #photography > .viewer {
-	z-index: 0;
+	z-index: 20;
 	position: absolute;
 	left: 0;
 	bottom: $navigatorHeight;
 	padding: $viewerPadding 0 $viewerPadding $viewerPadding;
+	background: $colour-black;
 	@include calc (width, "100% - #{$sidebarWidth}");
 	@include calc (height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
 }
@@ -249,7 +250,7 @@ $selectorWidth: 300px;
 $buttonSize: 16px;
 
 #photography > .navigator {
-	z-index: 20;
+	z-index: 0;
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -345,7 +346,7 @@ $buttonSize: 16px;
 /* SIDEBAR */
 
 #photography > .sidebar {
-	z-index: 0;
+	z-index: 10;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -447,10 +448,11 @@ $buttonSize: 16px;
 
 	#photography > .notice {
 		pointer-events: none;
-		z-index: 10;
+		z-index: 30;
 		position: absolute;
 		left: 0;
 		bottom: $sidebarHeight + $navigatorHeight;
+		display: block;
 		padding: 5px;
 		width: 100%;
 		font-size: 10px;
@@ -468,11 +470,26 @@ $buttonSize: 16px;
 		padding: 0;
 		width: 100%;
 		@include calc (height, "100% - #{$sidebarHeight + $navigatorHeight}");
+		@include transition (height 0.2s $easeStandard);
 	}
 
-	#photography > .viewer > .viewer-photo {
-		width: 100%;
+	#photography > .viewer.full {
 		height: 100%;
+	}
+
+	#photography > .viewer > .fullscreen {
+		opacity: 0.25;
+		z-index: 20;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 24px + (10px * 2);
+		height: 24px + (10px * 2);
+		background: url("../images/photography/viewer-full.svg") center center no-repeat transparent;
+	}
+
+	#photography > .viewer.full > .fullscreen {
+		background-image: url("../images/photography/viewer-full-close.svg");
 	}
 
 	#photography > .viewer > .arrow {
@@ -481,6 +498,11 @@ $buttonSize: 16px;
 
 	#photography > .viewer > .arrow:before {
 		display: none;
+	}
+
+	#photography > .viewer > .viewer-photo {
+		width: 100%;
+		height: 100%;
 	}
 
 	/* MAP */

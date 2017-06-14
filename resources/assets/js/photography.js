@@ -14,12 +14,22 @@ var hammer = require('hammerjs');
 
 	var viewer = Vue.component('viewer', {
 		props: ['photoData'],
-		template: `<div class="viewer">
+		template: `<div class="viewer" v-bind:class="{ full: fullscreen }">
+				<div href="#" class="fullscreen" v-on:click="toggleFullscreen"></div>
 				<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
 				<div href="#" class="arrow next" v-on:click="nextPhoto"></div>
 				<div v-if="photoData" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>
 			</div>`,
+		data: function() {
+			return {
+				fullscreen: false
+			};
+		},
 		methods: {
+			toggleFullscreen: function() {
+				// Toggle fullscreen boolean
+				this.fullscreen = !this.fullscreen;
+			},
 			prevPhoto: function() {
 				// Call parent method to show the previous photo
 				photography.prevPhoto();
@@ -38,7 +48,18 @@ var hammer = require('hammerjs');
 		mounted: function() {
 			Hammer(this.$el)
 				.on('swipeleft', this.prevPhoto)
-				.on('swiperight', this.nextPhoto);
+				.on('swiperight', this.nextPhoto)
+				.on('pinchin', function() {
+					this.fullscreen = true;
+				})
+				.on('pichout', function() {
+					this.fullscreen = false;
+				}).get('pinch').set({ enable: true });
+		},
+		watch: {
+			fullscreen: function() {
+				photography.showingNotice = false;
+			}
 		}
 	});
 
