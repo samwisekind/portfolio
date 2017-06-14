@@ -95,20 +95,40 @@ var hammer = require('hammerjs');
 
 	var sidebar = Vue.component('sidebar', {
 		props: ['albumData', 'selectedIndex', 'width'],
-		template: `<div class="sidebar">
+		template: `<div class="sidebar" ref="scroll">
 				<div class="sidebar-wrapper" v-bind:style="{ width: sidebarWidth }">
 					<a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === selectedIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>
 				</div>
 			</div>`,
 		methods: {
-			changePhoto: function(index) {
+			scrollPhotos: function() {
 
+				var thumbnailSizeLarge = 80;
+				var thumbnailMarginLarge = 20;
+				var thumbnailPaddingLarge = 20;
+
+				var largeSize = thumbnailSizeLarge + thumbnailMarginLarge;
+				var scrollLarge = largeSize * this.selectedIndex;
+				scrollLarge = scrollLarge - ((this.$refs.scroll.offsetHeight / 2) - (largeSize / 2) - (thumbnailPaddingLarge / 2));
+
+				this.$refs.scroll.scrollTop = scrollLarge;
+
+				var thumbnailSizeSmall = 50;
+				var thumbnailMarginSmall = 10;
+				var thumbnailPaddingSmall = 10;
+
+				var smallSize = thumbnailSizeSmall + thumbnailMarginSmall;
+				var scrollSmall = smallSize * this.selectedIndex;
+				scrollSmall = scrollSmall - ((window.innerWidth / 2) - (smallSize / 2) - (thumbnailPaddingSmall / 2));
+
+				this.$refs.scroll.scrollLeft = scrollSmall;
+
+			},
+			changePhoto: function(index) {
 				// Hide notice
 				photography.showingNotice = false;
-
 				// Call parent method to change photo index
 				photography.changePhoto(index);
-
 			},
 			returnBackgroundURL: function(url) {
 				// Return background image string
@@ -124,6 +144,19 @@ var hammer = require('hammerjs');
 					return this.width + 'px';
 				}
 			}
+		},
+		watch: {
+			selectedIndex: function() {
+				this.scrollPhotos();
+			}
+		},
+		mounted: function() {
+			var self = this;
+			window.onresize = function() {
+				setTimeout(function() {
+					self.scrollPhotos();
+				}, 0);
+			};
 		}
 	});
 
