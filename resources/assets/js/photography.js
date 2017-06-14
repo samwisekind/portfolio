@@ -47,8 +47,8 @@ var hammer = require('hammerjs');
 		},
 		mounted: function() {
 			Hammer(this.$el)
-				.on('swipeleft', this.prevPhoto)
-				.on('swiperight', this.nextPhoto)
+				.on('swipeleft', this.nextPhoto)
+				.on('swiperight', this.prevPhoto)
 				.on('pinchin', function() {
 					this.fullscreen = true;
 				})
