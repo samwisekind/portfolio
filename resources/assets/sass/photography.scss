@@ -86,6 +86,12 @@ $scaleAmount: 0.25;
 	background: $colour-black;
 }
 
+/* NOTICE */
+
+#photography > .notice {
+	display: none;
+}
+
 /* VIEWER */
 
 $viewerPadding: 20px;
