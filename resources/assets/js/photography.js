@@ -1,5 +1,6 @@
-window.Vue = require('vue');
-window.axios = require('axios');
+var Vue = require('vue');
+var axios = require('axios');
+var hammer = require('hammerjs');
 
 (function(){
 
@@ -33,6 +34,11 @@ window.axios = require('axios');
 				// Return background image string
 				return 'url("' + this.photoData.image_url + '")';
 			}
+		},
+		mounted: function() {
+			Hammer(this.$el)
+				.on('swipeleft', this.prevPhoto)
+				.on('swiperight', this.nextPhoto);
 		}
 	});
 
@@ -96,8 +102,13 @@ window.axios = require('axios');
 			</div>`,
 		methods: {
 			changePhoto: function(index) {
+
+				// Hide notice
+				photography.showingNotice = false;
+
 				// Call parent method to change photo index
 				photography.changePhoto(index);
+
 			},
 			returnBackgroundURL: function(url) {
 				// Return background image string
@@ -120,6 +131,7 @@ window.axios = require('axios');
 		el: '#photography',
 		template: `<div id="photography" v-bind:class="{ loading: isLoading, mapOpen: mapOpened }">
 				<mapView v-show="mapOpened"></mapView>
+				<div v-show="showingNotice" class="notice">Swipe left or right above, or scroll the thumbnails below</div>
 				<viewer v-bind:photoData="photoData"></viewer>
 				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
 				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth"></sidebar>
@@ -134,7 +146,8 @@ window.axios = require('axios');
 			selectedIndex: null,
 			mapLoaded: false,
 			mapOpened: false,
-			sidebarWidth: null
+			sidebarWidth: null,
+			showingNotice: true
 		},
 		methods: {
 			getAlbumList: function() {
@@ -202,6 +215,9 @@ window.axios = require('axios');
 			},
 			prevPhoto: function() {
 
+				// Hide notice
+				this.showingNotice = false;
+
 				var index;
 
 				// Check if index is at the minimum, reset to maximum
@@ -216,6 +232,9 @@ window.axios = require('axios');
 
 			},
 			nextPhoto: function() {
+
+				// Hide notice
+				this.showingNotice = false;
 
 				var index;
 
