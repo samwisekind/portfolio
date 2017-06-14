@@ -86,12 +86,6 @@ $scaleAmount: 0.25;
 	background: $colour-black;
 }
 
-/* NOTICE */
-
-#photography > .notice {
-	display: none;
-}
-
 /* VIEWER */
 
 $viewerPadding: 20px;
@@ -105,6 +99,11 @@ $viewerPadding: 20px;
 	background: $colour-black;
 	@include calc (width, "100% - #{$sidebarWidth}");
 	@include calc (height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
+}
+
+#photography > .viewer > .notice,
+#photography > .viewer > .fullscreen {
+	display: none;
 }
 
 #photography > .viewer > .arrow {
@@ -449,25 +448,9 @@ $buttonSize: 16px;
 		@include calc (height, "100% - #{$newGlobalHeaderHeight}");
 	}
 
-	/* NOTICE */
-
-	#photography > .notice {
-		pointer-events: none;
-		z-index: 30;
-		position: absolute;
-		left: 0;
-		bottom: $sidebarHeight + $navigatorHeight;
-		display: block;
-		padding: 5px;
-		width: 100%;
-		font-size: 10px;
-		line-height: 10px;
-		text-align: center;
-		color: $colour-grey;
-		background: rgba(0, 0, 0, 0.5);
-	}
-
 	/* VIEWER */
+
+	$noticeHeight: 20px;
 
 	#photography > .viewer {
 		top: 0;
@@ -478,8 +461,30 @@ $buttonSize: 16px;
 		@include transition (height 0.2s $easeStandard);
 	}
 
+	#photography.notice > .viewer {
+		padding-bottom: $noticeHeight;
+		@include transition (padding-bottom 0.2s $easeStandard);
+	}
+
 	#photography > .viewer.full {
 		height: 100%;
+	}
+
+	#photography.notice > .viewer > .notice {
+		pointer-events: none;
+		z-index: 30;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		display: block;
+		padding-top: $noticeHeight / 2;
+		width: 100%;
+		height: $noticeHeight;
+		font-size: 10px;
+		line-height: 10px;
+		text-align: center;
+		color: $colour-grey;
+		background: rgba(0, 0, 0, 0.5);
 	}
 
 	#photography > .viewer > .fullscreen {
@@ -488,9 +493,15 @@ $buttonSize: 16px;
 		position: absolute;
 		right: 0;
 		bottom: 0;
+		display: block;
 		width: 24px + (10px * 2);
 		height: 24px + (10px * 2);
 		background: url("../images/photography/viewer-full.svg") center center no-repeat transparent;
+		@include transition (bottom 0.2s $easeStandard);
+	}
+
+	#photography.notice > .viewer > .fullscreen {
+		bottom: $noticeHeight;
 	}
 
 	#photography > .viewer.full > .fullscreen {
