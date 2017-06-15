@@ -34,7 +34,7 @@ $newGlobalHeaderHeight: 50px;
 .global-header {
 	padding-left: 20px;
 	padding-right: 20px;
-	@include calc (width, "100% - #{$sidebarWidth}");
+	@include calc(width, "100% - #{$sidebarWidth}");
 }
 
 .global-header > .container {
@@ -97,8 +97,8 @@ $viewerPadding: 20px;
 	bottom: $navigatorHeight;
 	padding: $viewerPadding 0 $viewerPadding $viewerPadding;
 	background: $colour-black;
-	@include calc (width, "100% - #{$sidebarWidth}");
-	@include calc (height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
+	@include calc(width, "100% - #{$sidebarWidth}");
+	@include calc(height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
 }
 
 #photography > .viewer > .notice,
@@ -135,7 +135,7 @@ $viewerPadding: 20px;
 	width: 30px;
 	height: 50px;
 	background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
-	@include transition (all 0.2s $easeStandard);
+	@include transition(all 0.2s $easeStandard);
 }
 
 #photography > .viewer > .arrow:hover:before {
@@ -144,20 +144,20 @@ $viewerPadding: 20px;
 
 #photography > .viewer > .arrow.prev:before {
 	left: $viewerPadding + 40px;
-	@include transform (translateX(0px));
+	@include transform(translateX(0px));
 }
 
 #photography > .viewer > .arrow.prev:hover:before {
-	@include transform (translateX(-20px));
+	@include transform(translateX(-20px));
 }
 
 #photography > .viewer > .arrow.next:before {
-	right: $viewerPadding + (40px - ($viewerPadding / 2));
-	@include transform (translateX(0px) rotate(180deg));
+	right: $viewerPadding +(40px -($viewerPadding / 2));
+	@include transform(translateX(0px) rotate(180deg));
 }
 
 #photography > .viewer > .arrow.next:hover:before {
-	@include transform (translateX(20px) rotate(180deg));
+	@include transform(translateX(20px) rotate(180deg));
 }
 
 $photoMaxSize: 1024px;
@@ -173,13 +173,13 @@ $photoMaxSize: 1024px;
 	max-height: $photoMaxSize;
 	background: center center no-repeat transparent;
 	background-size: contain;
-	@include transform (translateY(-50%));
-	@include transition (opacity 0.2s $easeAcceleration);
+	@include transform(translateY(-50%));
+	@include transition(opacity 0.2s $easeAcceleration);
 }
 
 #photography > .viewer.loading > .viewer-photo {
 	opacity: 0.5;
-	@include transition (opacity 0.2s $easeDeceleration);
+	@include transition(opacity 0.2s $easeDeceleration);
 }
 
 #photography > .viewer.loading:before {
@@ -192,8 +192,8 @@ $photoMaxSize: 1024px;
 	width: $loadingSize;
 	height: $loadingSize;
 	border-radius: 50%;
-	border: ($loadingSize / 10) solid #FFFFFF;
-	@include animation (loading 1s infinite $easeDeceleration);
+	border:($loadingSize / 10) solid #FFFFFF;
+	@include animation(loading 1s infinite $easeDeceleration);
 }
 
 @-webkit-keyframes loading {
@@ -229,17 +229,17 @@ $photoMaxSize: 1024px;
 	left: 0;
 	top: $newGlobalHeaderHeight;
 	width: 100%;
-	@include calc (width, "100% - #{$sidebarWidth}");
-	@include calc (height, "100% - #{$newGlobalHeaderHeight + $navigatorHeight}");
+	@include calc(width, "100% - #{$sidebarWidth}");
+	@include calc(height, "100% - #{$newGlobalHeaderHeight + $navigatorHeight}");
 	background: $colour-black;
-	@include transform (translateY(0));
-	@include transition (all 0.5s $easeStandard);
+	@include transform(translateY(0));
+	@include transition(all 0.5s $easeStandard);
 }
 
 #photography > .map.v-enter,
 #photography > .map.v-leave-to {
 	opacity: 0;
-	@include transform (translateY(100%));
+	@include transform(translateY(100%));
 }
 
 /* NAVIGATOR */
@@ -280,9 +280,9 @@ $buttonSize: 16px;
 
 #photography > .navigator > .buttons {
 	position: absolute;
-	right: $selectorWidth + ($navigatorPadding * 2);
+	right: $selectorWidth +($navigatorPadding * 2);
 	top: 50%;
-	@include transform (translateY(-50%));
+	@include transform(translateY(-50%));
 }
 
 #photography > .navigator > .buttons:after {
@@ -325,7 +325,7 @@ $buttonSize: 16px;
 	position: absolute;
 	right: $navigatorPadding;
 	top: 50%;
-	padding: 0 ((15px * 2) + 8px) 0 15px;
+	padding: 0((15px * 2) + 8px) 0 15px;
 	width: $selectorWidth;
 	height: 40px;
 	font-size: 14px;
@@ -335,7 +335,7 @@ $buttonSize: 16px;
 	background: url("../images/photography/select-arrow.svg") no-repeat #181818;
 	@include calcBackgroundHorizontal("100% - 15px");
 	@include removeStyling;
-	@include transform (translateY(-50%));
+	@include transform(translateY(-50%));
 }
 
 #photography > .navigator > .selector:hover {
@@ -351,7 +351,7 @@ $buttonSize: 16px;
 	top: 0;
 	padding: 20px 0 20px 0;
 	width: $sidebarWidth;
-	@include calc (height, "100% - #{$navigatorHeight}");
+	@include calc(height, "100% - #{$navigatorHeight}");
 	overflow: hidden;
 	overflow-y: scroll;
 	background: $colour-black;
@@ -359,7 +359,7 @@ $buttonSize: 16px;
 
 #photography > .sidebar.loading {
 	opacity: 0.5;
-	@include transition (opacity 0.2s $easeDeceleration);
+	@include transition(opacity 0.2s $easeDeceleration);
 }
 
 #photography > .sidebar .sidebar-thumb {
@@ -370,7 +370,7 @@ $buttonSize: 16px;
 	height: 80px;
 	background: center center no-repeat transparent;
 	background-size: cover;
-	@include transition (opacity 0.2s $easeStandard);
+	@include transition(opacity 0.2s $easeStandard);
 }
 
 #photography > .sidebar .sidebar-thumb:last-child {
@@ -385,11 +385,11 @@ $buttonSize: 16px;
 	opacity: 1;
 }
 
-@media (min-width: $mobileBreakpointLarge + 1px) {
+@media(min-width: $mobileBreakpointLarge + 1px) {
 
 	#photography > .navigator > .details,
 	#photography > .sidebar {
-		@include transition (opacity 0.2s $easeStandard);
+		@include transition(opacity 0.2s $easeStandard);
 	}
 
 	#photography.mapOpen > .navigator > .details,
@@ -406,7 +406,7 @@ $buttonSize: 16px;
 
 }
 
-@media (max-width: $mobileBreakpointLarge) {
+@media(max-width: $mobileBreakpointLarge) {
 
 	/* VARIABLES */
 
@@ -445,7 +445,7 @@ $buttonSize: 16px;
 
 	#photography {
 		top: $newGlobalHeaderHeight;
-		@include calc (height, "100% - #{$newGlobalHeaderHeight}");
+		@include calc(height, "100% - #{$newGlobalHeaderHeight}");
 	}
 
 	/* VIEWER */
@@ -457,8 +457,8 @@ $buttonSize: 16px;
 		bottom: auto;
 		padding: 0;
 		width: 100%;
-		@include calc (height, "100% - #{$sidebarHeight + $navigatorHeight}");
-		@include transition (height 0.2s $easeStandard);
+		@include calc(height, "100% - #{$sidebarHeight + $navigatorHeight}");
+		@include transition(height 0.2s $easeStandard);
 	}
 
 	#photography > .viewer.full {
@@ -485,7 +485,7 @@ $buttonSize: 16px;
 		position: relative;
 		top: 50%;
 		display: block;
-		@include transform (translateY(-50%));
+		@include transform(translateY(-50%));
 	}
 
 	#photography > .viewer > .fullscreen {
@@ -495,10 +495,10 @@ $buttonSize: 16px;
 		right: 0;
 		bottom: 0;
 		display: block;
-		width: 24px + (10px * 2);
-		height: 24px + (10px * 2);
+		width: 24px +(10px * 2);
+		height: 24px +(10px * 2);
 		background: url("../images/photography/viewer-full.svg") center center no-repeat transparent;
-		@include transition (bottom 0.2s $easeStandard);
+		@include transition(bottom 0.2s $easeStandard);
 	}
 
 	#photography > .viewer.notice > .fullscreen {
@@ -540,7 +540,7 @@ $buttonSize: 16px;
 	#photography > .navigator > .details {
 		left: $navigatorPadding;
 		padding-right: $navigatorPadding;
-		@include calc (width, "45% - #{$navigatorPadding}");
+		@include calc(width, "45% - #{$navigatorPadding}");
 	}
 
 	#photography > .navigator > .details > .title,
@@ -567,8 +567,8 @@ $buttonSize: 16px;
 
 	#photography > .navigator > .selector {
 		right: $navigatorPadding;
-		padding: 0 (($navigatorPadding * 2) + 8px) 0 $navigatorPadding;
-		@include calc (width, "55% - #{$navigatorPadding}");
+		padding: 0(($navigatorPadding * 2) + 8px) 0 $navigatorPadding;
+		@include calc(width, "55% - #{$navigatorPadding}");
 		height: 30px;
 		font-size: 12px;
 		@include calcBackgroundHorizontal("100% - #{$navigatorPadding}");

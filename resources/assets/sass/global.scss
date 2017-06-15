@@ -366,7 +366,7 @@ $headerLinkIconSize: 24px;
 	}
 
 	body.nocanvas.menu .outer-content {
-		@include boxShadow (rgba(0, 0, 0, 0.3) 0 0 10px 3px);
+		@include boxShadow(rgba(0, 0, 0, 0.3) 0 0 10px 3px);
 	}
 
 	body.menu .outer-content,
