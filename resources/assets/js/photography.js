@@ -184,9 +184,9 @@ var hammer = require('hammerjs');
 
 	var photography = new Vue({
 		el: '#photography',
-		template: `<div id="photography" v-bind:class="{ notice: showingNotice, mapOpen: mapOpened }">
+		template: `<div id="photography" v-bind:class="{ mapOpen: mapOpened }">
 				<mapView v-show="mapOpened"></mapView>
-				<viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto }"></viewer>
+				<viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto, notice: showingNotice }"></viewer>
 				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
 				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth" v-bind:class="{ loading: loadingAlbum }"></sidebar>
 			</div>`,

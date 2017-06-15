@@ -465,7 +465,7 @@ $buttonSize: 16px;
 		height: 100%;
 	}
 
-	#photography.notice > .viewer > .notice {
+	#photography > .viewer.notice > .notice {
 		pointer-events: none;
 		z-index: 30;
 		position: absolute;
@@ -495,7 +495,7 @@ $buttonSize: 16px;
 		@include transition (bottom 0.2s $easeStandard);
 	}
 
-	#photography.notice > .viewer > .fullscreen {
+	#photography > .viewer.notice > .fullscreen {
 		bottom: $noticeHeight;
 	}
 
