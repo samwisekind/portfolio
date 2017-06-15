@@ -16,7 +16,7 @@ var hammer = require('hammerjs');
 		props: ['photoData'],
 		template: `<div class="viewer" v-bind:class="{ full: fullscreen }">
 				<div class="notice">
-					<span class="wrapper">Swipe left or right above, or scroll the thumbnails below</span>
+					<span class="wrapper">{{ noticeText }}</span>
 				</div>
 				<div href="#" class="fullscreen" v-on:click="toggleFullscreen"></div>
 				<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
@@ -43,6 +43,13 @@ var hammer = require('hammerjs');
 			}
 		},
 		computed: {
+			noticeText: function() {
+				var text = 'Swipe left or right above';
+				if (this.fullscreen === false) {
+					text += ', or scroll the thumbnails below';
+				}
+				return text;
+			},
 			backgroundURL: function() {
 				// Return background image string
 				return 'url("' + this.photoData.image_url + '")';
