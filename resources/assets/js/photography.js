@@ -1,5 +1,6 @@
-window.Vue = require('vue');
-window.axios = require('axios');
+var Vue = require('vue');
+var axios = require('axios');
+var hammer = require('hammerjs');
 
 (function(){
 
@@ -13,12 +14,25 @@ window.axios = require('axios');
 
 	var viewer = Vue.component('viewer', {
 		props: ['photoData'],
-		template: `<div class="viewer">
+		template: `<div class="viewer" v-bind:class="{ full: fullscreen }">
+				<div class="notice">
+					<span class="wrapper">{{ noticeText }}</span>
+				</div>
+				<div href="#" class="fullscreen" v-on:click="toggleFullscreen"></div>
 				<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
 				<div href="#" class="arrow next" v-on:click="nextPhoto"></div>
 				<div v-if="photoData" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>
 			</div>`,
+		data: function() {
+			return {
+				fullscreen: false
+			};
+		},
 		methods: {
+			toggleFullscreen: function() {
+				// Toggle fullscreen boolean
+				this.fullscreen = !this.fullscreen;
+			},
 			prevPhoto: function() {
 				// Call parent method to show the previous photo
 				photography.prevPhoto();
@@ -29,10 +43,28 @@ window.axios = require('axios');
 			}
 		},
 		computed: {
+			noticeText: function() {
+				var text = 'Swipe left or right above';
+				if (this.fullscreen === false) {
+					text += ', or scroll the thumbnails below';
+				}
+				return text;
+			},
 			backgroundURL: function() {
 				// Return background image string
 				return 'url("' + this.photoData.image_url + '")';
 			}
+		},
+		mounted: function() {
+			Hammer(this.$el)
+				.on('swipeleft', this.nextPhoto)
+				.on('swiperight', this.prevPhoto)
+				.on('pinchin', function() {
+					this.fullscreen = false;
+				})
+				.on('pinchout', function() {
+					this.fullscreen = true;
+				}).get('pinch').set({ enable: true });
 		}
 	});
 
@@ -89,13 +121,38 @@ window.axios = require('axios');
 
 	var sidebar = Vue.component('sidebar', {
 		props: ['albumData', 'selectedIndex', 'width'],
-		template: `<div class="sidebar">
+		template: `<div class="sidebar" ref="scroll">
 				<div class="sidebar-wrapper" v-bind:style="{ width: sidebarWidth }">
 					<a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === selectedIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>
 				</div>
 			</div>`,
 		methods: {
+			scrollPhotos: function() {
+
+				var thumbnailSizeLarge = 80;
+				var thumbnailMarginLarge = 20;
+				var thumbnailPaddingLarge = 20;
+
+				var largeSize = thumbnailSizeLarge + thumbnailMarginLarge;
+				var scrollLarge = largeSize * this.selectedIndex;
+				scrollLarge = scrollLarge - ((this.$refs.scroll.offsetHeight / 2) - (largeSize / 2) - (thumbnailPaddingLarge / 2));
+
+				this.$refs.scroll.scrollTop = scrollLarge;
+
+				var thumbnailSizeSmall = 50;
+				var thumbnailMarginSmall = 10;
+				var thumbnailPaddingSmall = 10;
+
+				var smallSize = thumbnailSizeSmall + thumbnailMarginSmall;
+				var scrollSmall = smallSize * this.selectedIndex;
+				scrollSmall = scrollSmall - ((window.innerWidth / 2) - (smallSize / 2) - (thumbnailPaddingSmall / 2));
+
+				this.$refs.scroll.scrollLeft = scrollSmall;
+
+			},
 			changePhoto: function(index) {
+				// Hide notice
+				photography.showingNotice = false;
 				// Call parent method to change photo index
 				photography.changePhoto(index);
 			},
@@ -113,19 +170,33 @@ window.axios = require('axios');
 					return this.width + 'px';
 				}
 			}
+		},
+		watch: {
+			selectedIndex: function() {
+				this.scrollPhotos();
+			}
+		},
+		mounted: function() {
+			var self = this;
+			window.onresize = function() {
+				setTimeout(function() {
+					self.scrollPhotos();
+				}, 0);
+			};
 		}
 	});
 
 	var photography = new Vue({
 		el: '#photography',
-		template: `<div id="photography" v-bind:class="{ loading: isLoading }">
+		template: `<div id="photography" v-bind:class="{ mapOpen: mapOpened }">
 				<mapView v-show="mapOpened"></mapView>
-				<viewer v-bind:photoData="photoData"></viewer>
+				<viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto, notice: showingNotice }"></viewer>
 				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
-				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth"></sidebar>
+				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth" v-bind:class="{ loading: loadingAlbum }"></sidebar>
 			</div>`,
 		data: {
-			isLoading: true,
+			loadingAlbum: false,
+			loadingPhoto: true,
 			albumList: null,
 			albumData: null,
 			selectedAlbum: null,
@@ -134,7 +205,8 @@ window.axios = require('axios');
 			selectedIndex: null,
 			mapLoaded: false,
 			mapOpened: false,
-			sidebarWidth: null
+			sidebarWidth: null,
+			showingNotice: true
 		},
 		methods: {
 			getAlbumList: function() {
@@ -142,7 +214,7 @@ window.axios = require('axios');
 				axios.get('/api/album')
 					.then(function(response) {
 						photography.albumList = response.data; // Store album list data
-						photography.isLoading = false; // Hide loading
+						photography.loadingPhoto = false; // Hide loading
 						if (photography.albumData === null) {
 							photography.getAlbumData('portfolio');
 						}
@@ -153,6 +225,8 @@ window.axios = require('axios');
 
 			},
 			getAlbumData: function(album) {
+
+				this.loadingAlbum = true;
 
 				axios.get('/api/album/' + album)
 					.then(function(response) {
@@ -180,7 +254,7 @@ window.axios = require('axios');
 			changePhoto: function(index) {
 
 				// Show loading
-				this.isLoading = true;
+				this.loadingPhoto = true;
 
 				// Change the selected photo index even if it's loading
 				photography.selectedIndex = index;
@@ -192,7 +266,8 @@ window.axios = require('axios');
 					// Once the image has loaded, update the photo index and remove the loading
 					photography.photoIndex = index;
 					photography.photoData = photography.albumData[photography.photoIndex];
-					photography.isLoading = false;
+					photography.loadingAlbum = false;
+					photography.loadingPhoto = false;
 				};
 
 				// Set the image src attribute to the image url to start pre-loading
@@ -201,6 +276,9 @@ window.axios = require('axios');
 
 			},
 			prevPhoto: function() {
+
+				// Hide notice
+				this.showingNotice = false;
 
 				var index;
 
@@ -216,6 +294,9 @@ window.axios = require('axios');
 
 			},
 			nextPhoto: function() {
+
+				// Hide notice
+				this.showingNotice = false;
 
 				var index;
 
