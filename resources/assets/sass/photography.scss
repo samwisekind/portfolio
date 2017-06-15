@@ -472,7 +472,6 @@ $buttonSize: 16px;
 		left: 0;
 		bottom: 0;
 		display: block;
-		padding-top: $noticeHeight / 2;
 		width: 100%;
 		height: $noticeHeight;
 		font-size: 10px;
@@ -480,6 +479,13 @@ $buttonSize: 16px;
 		text-align: center;
 		color: $colour-grey;
 		background: rgba(0, 0, 0, 0.5);
+	}
+
+	#photography > .viewer.notice > .notice > .wrapper {
+		position: relative;
+		top: 50%;
+		display: block;
+		@include transform (translateY(-50%));
 	}
 
 	#photography > .viewer > .fullscreen {

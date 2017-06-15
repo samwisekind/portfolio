@@ -15,7 +15,9 @@ var hammer = require('hammerjs');
 	var viewer = Vue.component('viewer', {
 		props: ['photoData'],
 		template: `<div class="viewer" v-bind:class="{ full: fullscreen }">
-				<div class="notice">Swipe left or right above, or scroll the thumbnails below</div>
+				<div class="notice">
+					<span class="wrapper">Swipe left or right above, or scroll the thumbnails below</span>
+				</div>
 				<div href="#" class="fullscreen" v-on:click="toggleFullscreen"></div>
 				<div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
 				<div href="#" class="arrow next" v-on:click="nextPhoto"></div>
@@ -56,11 +58,6 @@ var hammer = require('hammerjs');
 				.on('pichout', function() {
 					this.fullscreen = false;
 				}).get('pinch').set({ enable: true });
-		},
-		watch: {
-			fullscreen: function() {
-				photography.showingNotice = false;
-			}
 		}
 	});
 
