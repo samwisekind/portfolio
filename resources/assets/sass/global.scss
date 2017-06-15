@@ -189,6 +189,10 @@ $headerLinkIconSize: 24px;
 	.outer-content {
 		-webkit-perspective: 2000px;
 		perspective: 2000px;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-font-smoothing: subpixel-antialiased;
+		font-smoothing: subpixel-antialiased;
 	}
 
 	.outer-wrapper {
@@ -297,6 +301,7 @@ $headerLinkIconSize: 24px;
 		height: 100%;
 		overflow-x: hidden;
 		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
 		-webkit-transform-style: preserve-3d;
 		transform-style: preserve-3d;
 	}
@@ -304,7 +309,6 @@ $headerLinkIconSize: 24px;
 	.outer-content {
 		z-index: 10;
 		background: $colour-white;
-		will-change: transform;
 		@include transitionTransform(0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 	}
 
