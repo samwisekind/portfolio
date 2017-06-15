@@ -60,10 +60,10 @@ var hammer = require('hammerjs');
 				.on('swipeleft', this.nextPhoto)
 				.on('swiperight', this.prevPhoto)
 				.on('pinchin', function() {
-					this.fullscreen = true;
-				})
-				.on('pichout', function() {
 					this.fullscreen = false;
+				})
+				.on('pinchout', function() {
+					this.fullscreen = true;
 				}).get('pinch').set({ enable: true });
 		}
 	});
