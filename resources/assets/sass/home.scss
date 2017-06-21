@@ -6,11 +6,12 @@
 
 .home {
 	margin: 0 auto 0 auto;
-	padding: 60px 40px 0 40px;
-	max-width: $maxWidth;
 }
 
 /* FEATURED */
+
+$previewWidth: 520px;
+$previewHeight: 325px;
 
 .home > .featured,
 .home > .featured > .container {
@@ -18,70 +19,102 @@
 }
 
 .home > .featured {
-	margin-bottom: 40px;
+	margin: 40px 0 40px 0;
+	padding: 60px 0 60px 0;
+	height: auto;
 }
 
-.home > .featured h2 {
-	z-index: 10;
-	position: absolute;
-	left: 20px;
-	bottom: 0;
-	display: inline-block;
-	font-size: 52px;
-	line-height: 52px;
-	font-weight: 400;
-	@include calc(max-width, "100% - #{20px * 2}");
-	color: $colour-white;
-	background: $colour-black;
-	@include transform(translateY(50%));
-}
-
-.home > .featured h2 > a {
-	display: block;
-	padding: 15px;
-	color: inherit;
-	text-decoration: none;
-}
-
-.home > .featured .image,
-.home > .featured .image > img {
-	display: block;
-}
-
-.home > .featured .image {
-	z-index: 0;
-	position: relative;
-	margin-bottom: 60px;
-	overflow: hidden;
-}
-
-.home > .featured .image:before {
+.home > .featured:before {
 	content: "";
-	z-index: 10;
+	z-index: 0;
 	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100%;
-	border: 0px solid rgba($colour-black, 0.25);
-	@include transition(border-width 1s $easeDeceleration);
+	background: $colour-purple;
+	@include transform(skewY(2deg));
 }
 
-.home > .featured .container:hover .image:before {
-	border-width: 20px;
-}
-
-.home > .featured .image > img {
-	z-index: 0;
+.home > .featured > .container {
+	z-index: 10;
 	position: relative;
+	display: table;
+	margin: 0 auto 0 auto;
+	padding: 0 40px 0 40px;
 	width: 100%;
-	height: auto;
+	max-width: 1000px;
+}
+
+.home > .featured > .container > .text,
+.home > .featured > .container > .preview {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.home > .featured > .container > .text {
+	padding-right: 40px;
+}
+
+.home > .featured a,
+.home > .featured p {
+	color: #F3E5F5;
+}
+
+.home > .featured h2 {
+	margin-bottom: 20px;
+	font-size: 46px;
+	line-height: 46px;
+}
+
+.home > .featured h2 a {
+	text-decoration: none;
 }
 
 .home > .featured p {
-	padding: 0 20px 0 20px;
-	font-size: 18px;
-	@include lineHeight(18px);
+	margin-bottom: 40px;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.home > .featured .link:before {
+	background-color: rgba(#F3E5F5, 0.2);
+}
+
+.home > .featured .link:after {
+	background-color: #F3E5F5;
+}
+
+$arrowWidth: 24px;
+$arrowHeight: 24px;
+
+.home > .featured .link > .link-text:after {
+	content: "";
+	position: absolute;
+	right: -($arrowHeight + 5px);
+	top: 50%;
+	margin-top: -($arrowHeight / 2);
+	width: $arrowWidth;
+	height: $arrowHeight;
+	background: url("../images/home/link-arrow.svg") center center no-repeat transparent;
+	@include transitionTransform(0.2s $easeStandard);
+}
+
+.home > .featured .link:hover > .link-text:after {
+	@include transform(translateX(5px));
+}
+
+.home > .featured .preview {
+	width: $previewWidth;
+	height: $previewHeight;
+}
+
+.home > .featured .preview > .preview-video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	@include boxShadow(0 0 15px 8px rgba(0, 0, 0, 0.1));
 }
 
 /* LIST */

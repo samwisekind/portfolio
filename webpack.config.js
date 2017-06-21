@@ -203,6 +203,25 @@ let rules = [
     },
 
     {
+        test: /\.(mp4|web|ogv)$/,
+        loader: 'file-loader',
+        options: {
+            name: path => {
+                if (! /node_modules|bower_components/.test(path)) {
+                    return 'videos/[name].[ext]?[hash]';
+                }
+
+                return 'videos/vendor/' + path
+                    .replace(/\\/g, '/')
+                    .replace(
+                        /((.*(node_modules|bower_components))|videos|video|vid|vids|assets)\//g, ''
+                    ) + '?[hash]';
+            },
+            publicPath: Mix.options.resourceRoot
+        }
+    },
+
+    {
         test: /\.(cur|ani)$/,
         loader: 'file-loader',
         options: {
