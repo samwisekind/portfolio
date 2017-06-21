@@ -11,31 +11,51 @@
 	<div class="home">
 
 		@isset($featured)
-
-			@include ('components.project-featured')
-
+			@include('components.project-featured')
 		@endisset
 
 		<div class="list">
 
 			@isset($featured)
 
-				@foreach ($projects as $item)
+				@foreach($projects as $project)
 
-					@if ($item->key === $featured)
-
+					@if($project->key === $featured)
 						@continue
-
 					@endif
 
 					<div class="project">
 
-						<a href="{{ $app->make('url')->to('/projects/' . $item->key) }}" class="image">
-							<img src="{{ $item->thumbnail }}" alt="" />
-						</a>
+						@if($project->preview_image !== '')
+							<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
+								<img src="{{ $project->preview_image }}" alt="" class="preview-image" />
+							</a>
+						@endisset
 
-						<h2><a href="{{ $app->make('url')->to('/projects/' . $item->key) }}">{{ $item->title }}</a></h2>
-						<p>{{ $item->description }}</p>
+						<div class="text">
+
+							<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
+
+							<p>{{ $project->description }}</p>
+
+							@if($project->technologies !== '')
+								<ul class="technologies">
+									@php
+										$technologiesArray = explode(', ', $project->technologies);
+									@endphp
+									@foreach($technologiesArray as $technology)
+										<li>{{ $technology }}</li>
+									@endforeach
+								</ul>
+							@endif
+
+							@include('components.link', [
+								'url' => $app->make('url')->to('/projects/' . $project->key),
+								'icon' => 'arrow',
+								'text' => 'View project'
+							])
+
+						</div>
 
 					</div>
 

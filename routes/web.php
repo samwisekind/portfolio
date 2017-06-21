@@ -19,7 +19,7 @@ $app->get('/', function () {
 
 	return view('layouts.home', [
 		'section' => 'home',
-		'featured' => 'joyce',
+		'featured' => 'tng-website',
 		'projects' => $result
 	]);
 

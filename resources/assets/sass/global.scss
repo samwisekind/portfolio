@@ -12,7 +12,6 @@
 
 .outer-content {
 	margin: 0 auto 0 auto;
-	background: $colour-white;
 }
 
 .global-header h1,
@@ -28,14 +27,14 @@ $headerLinkPadding: 10px;
 .global-header {
 	z-index: 100;
 	position: relative;
-	padding: 0 $widthPadding 0 $widthPadding;
 	height: $headerHeight;
 }
 
 .global-header > .container {
 	margin: 0 auto 0 auto;
+	padding: 0 $widthPadding 0 $widthPadding;
 	height: 100%;
-	max-width: $maxWidth;
+	max-width: $maxWidth + ($widthPadding * 2);
 }
 
 .global-header nav:after,
@@ -69,8 +68,6 @@ $headerLinkPadding: 10px;
 .global-header a span {
 	display: block;
 	padding: 4px;
-	font-size: 14px;
-	line-height: 14px;
 	border-bottom: 2px solid transparent;
 }
 
