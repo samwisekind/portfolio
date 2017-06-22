@@ -4,6 +4,95 @@
 @import "partial/resets";
 @import "partial/fonts";
 
+/* LINK */
+
+$transitionDuration: 0.3s;
+
+a.link {
+	position: relative;
+	display: inline-block;
+	color: #00C853;
+	text-decoration: none;
+}
+
+a.link:before,
+a.link:after {
+	content: "";
+	z-index: 0;
+	position: absolute;
+	@include transition(width $transitionDuration $easeStandard);
+}
+
+a.link:before,
+a.link:hover:after {
+	@include calc(width, "100% + 6px");
+}
+
+a.link:hover:before,
+a.link:after {
+	width: 0px;
+}
+
+a.link:before {
+	bottom: 5%;
+	height: 30%;
+	right: -(6px / 2);
+	background: rgba(#00C853, 0.2);
+}
+
+a.link:after {
+	left: -(6px / 2);
+	bottom: 0;
+	height: 2px;
+	background: #00C853;
+	@include transitionDelay(0.1s);
+}
+
+a.link > .link-text {
+	z-index: 10;
+	position: relative;
+}
+
+$iconWidth: 24px;
+$iconHeight: 24px;
+$iconOffset: 5px;
+
+a.link.arrow .link-text {
+	padding-right: $iconWidth + ($iconOffset * 2);
+}
+
+a.link.external .link-text {
+	padding-right: $iconWidth + $iconOffset;
+}
+
+a.link.arrow .link-text:after,
+a.link.external .link-text:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	margin-top: -($iconHeight / 2);
+	width: $iconWidth;
+	height: $iconHeight;
+	background: center center no-repeat transparent;
+}
+
+a.link.arrow .link-text:after {
+	right: $iconOffset;
+	background-image: url("../images/global/link-arrow.svg");
+	@include transitionTransform(0.2s $easeStandard);
+}
+
+a.link.external .link-text:after {
+	right: 0;
+	background-image: url("../images/global/link-external.svg");
+}
+
+a.link.arrow:hover .link-text:after {
+	@include transform(translateX($iconOffset));
+}
+
+/* CONTNET */
+
 .outer-overlay,
 .outer-menu,
 .global-header > .hamburger {

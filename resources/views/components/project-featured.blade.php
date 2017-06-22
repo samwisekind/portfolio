@@ -12,7 +12,7 @@
 
 					<p>{{ $project->description }}</p>
 
-					@include ('components.link', [
+					@include('components.link', [
 						'url' => $app->make('url')->to('/projects/' . $project->key),
 						'icon' => 'arrow',
 						'text' => 'View project'
@@ -32,11 +32,12 @@
 				</div>
 
 				<div class="preview">
-					<video autoplay loop muted class="preview-video">
+					<video autoplay loop muted @isset($project->preview_image) poster="{{ $project->preview_image }}" @endisset class="preview-video">
 						<source src="{{ $app->make('url')->to('/videos/projects/tng-website/tng-website-preview.mp4') }}" type="video/mp4">
 						<source src="{{ $app->make('url')->to('/videos/projects/tng-website/tng-website-preview.webm') }}" type="video/webm">
 						<source src="{{ $app->make('url')->to('/videos/projects/tng-website/tng-website-preview.ogv') }}" type="video/ogg">
 					</video>
+					<div class="preview-image" @isset($project->preview_image) style="background-image: url('{{ $project->preview_image }}')" @endisset></div>
 				</div>
 
 			</div>
