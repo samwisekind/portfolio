@@ -38,6 +38,7 @@ $newGlobalHeaderHeight: 50px;
 }
 
 .global-header > .container {
+	padding: 0;
 	max-width: none;
 }
 
@@ -90,7 +91,7 @@ $scaleAmount: 0.25;
 $viewerPadding: 20px;
 
 #photography > .viewer {
-	z-index: 20;
+	z-index: 0;
 	position: absolute;
 	left: 0;
 	bottom: $navigatorHeight;
@@ -143,21 +144,21 @@ $viewerPadding: 20px;
 }
 
 #photography > .viewer > .arrow.prev:before {
-	left: $viewerPadding + 40px;
-	@include transform(translateX(0px));
+	left: $viewerPadding + ($viewerPadding * 2);
+	@include transform(translateX(0px) rotate(90deg));
 }
 
 #photography > .viewer > .arrow.prev:hover:before {
-	@include transform(translateX(-20px));
+	@include transform(translateX(-20px) rotate(90deg));
 }
 
 #photography > .viewer > .arrow.next:before {
-	right: $viewerPadding +(40px -($viewerPadding / 2));
-	@include transform(translateX(0px) rotate(180deg));
+	right: $viewerPadding + $viewerPadding;
+	@include transform(translateX(0px) rotate(-90deg));
 }
 
 #photography > .viewer > .arrow.next:hover:before {
-	@include transform(translateX(20px) rotate(180deg));
+	@include transform(translateX(20px) rotate(-90deg));
 }
 
 $photoMaxSize: 1024px;
@@ -249,7 +250,7 @@ $selectorWidth: 300px;
 $buttonSize: 15px;
 
 #photography > .navigator {
-	z-index: 0;
+	z-index: 20;
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -345,7 +346,7 @@ $buttonSize: 15px;
 /* SIDEBAR */
 
 #photography > .sidebar {
-	z-index: 10;
+	z-index: 30;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -453,7 +454,7 @@ $buttonSize: 15px;
 	$noticeHeight: 20px;
 
 	#photography > .viewer {
-		top: 0;
+		z-index: 20;
 		bottom: auto;
 		padding: 0;
 		width: 100%;
@@ -545,6 +546,7 @@ $buttonSize: 15px;
 	$navigatorPadding: 10px;
 
 	#photography > .navigator {
+		z-index: 10;
 		padding: $navigatorPadding;
 		height: $navigatorHeight;
 	}
@@ -589,6 +591,7 @@ $buttonSize: 15px;
 	/* SIDEBAR */
 
 	#photography > .sidebar {
+		z-index: 0;
 		top: auto;
 		bottom: $navigatorHeight;
 		padding: 10px;

@@ -4,14 +4,6 @@ var hammer = require('hammerjs');
 
 (function(){
 
-	var mapView = Vue.component('mapView', {
-		template: `<transition>
-				<div class="map">
-					<div id="map-canvas" style="width: 100%; height: 100%;"></div>
-				</div>
-			</transition>`
-	});
-
 	var viewer = Vue.component('viewer', {
 		props: ['photoData'],
 		template: `<div class="viewer" v-bind:class="{ full: fullscreen }">
@@ -66,6 +58,14 @@ var hammer = require('hammerjs');
 					this.fullscreen = true;
 				}).get('pinch').set({ enable: true });
 		}
+	});
+
+	var mapView = Vue.component('mapView', {
+		template: `<transition>
+				<div class="map">
+					<div id="map-canvas" style="width: 100%; height: 100%;"></div>
+				</div>
+			</transition>`
 	});
 
 	var navigator = Vue.component('navigator', {
@@ -189,8 +189,8 @@ var hammer = require('hammerjs');
 	var photography = new Vue({
 		el: '#photography',
 		template: `<div id="photography" v-bind:class="{ mapOpen: mapOpened }">
-				<mapView v-show="mapOpened"></mapView>
 				<viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto, notice: showingNotice }"></viewer>
+				<mapView v-show="mapOpened"></mapView>
 				<navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex" v-bind:mapOpened="mapOpened"></navigator>
 				<sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth" v-bind:class="{ loading: loadingAlbum }"></sidebar>
 			</div>`,
