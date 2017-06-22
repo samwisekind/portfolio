@@ -305,7 +305,7 @@ $headerLinkIconSize: 24px;
 
 	.outer-content {
 		z-index: 10;
-		background: $colour-white;
+		background: $colour-background;
 		@include transitionTransform(0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 	}
 
@@ -380,6 +380,10 @@ $headerLinkIconSize: 24px;
 
 	.global-header {
 		padding: 0 0 0 20px;
+	}
+
+	.global-header > .container {
+		padding: 0;
 	}
 
 	.global-header,

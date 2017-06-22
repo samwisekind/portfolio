@@ -15,18 +15,20 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order');
-            $table->string('key');
-            $table->string('title');
-            $table->string('description');
-            $table->string('technologies');
-            $table->string('responsibilities');
-            $table->string('url_website');
-            $table->string('preview_video');
-            $table->string('preview_image');
-            $table->string('cover');
-            $table->date('started');
-            $table->date('ended');
+            $table->boolean('enabled')->default(false)->comment('Shows/hides the project from the site');
+            $table->integer('order')->comment('Order in which to display the projects in the projects list');
+            $table->string('key')->comment('Project key for URL and route mapping');
+            $table->string('title')->comment('Project title');
+            $table->string('description')->comment('Project description');
+            $table->string('technologies')->comment('Project technologies, delimitied by a semicolon and a space ("; ")');
+            $table->string('responsibilities')->comment('Project responsibilities');
+            $table->string('url_website')->nullable()->comment('Project website URL')->default(null);
+            $table->string('url_source')->nullable()->comment('Project source code/repository URL')->default(null);
+            $table->string('preview_video')->nullable()->comment('Proejct preview video (for featured projects)')->default(null);
+            $table->string('preview_image')->nullable()->comment('Project preview image for project list and meta tags')->default(null);
+            $table->string('cover')->comment('my comment');
+            $table->date('started')->comment('my comment');
+            $table->date('ended')->comment('my comment');
             $table->timestamps();
         });
     }

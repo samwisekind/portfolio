@@ -1,12 +1,12 @@
-@extends ('master')
+@extends('master')
 
-@section ('css')
+@section('css')
 
 	<link href="/css/home.css" rel="stylesheet">
 
 @endsection
 
-@section ('content')
+@section('content')
 
 	<div class="home">
 
@@ -20,13 +20,13 @@
 
 				@foreach($projects as $project)
 
-					@if($project->key === $featured)
+					@if($project->key === $featured || !$project->enabled)
 						@continue
 					@endif
 
 					<div class="project">
 
-						@if($project->preview_image !== '')
+						@isset($project->preview_image)
 							<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
 								<img src="{{ $project->preview_image }}" alt="" class="preview-image" />
 							</a>
@@ -38,22 +38,22 @@
 
 							<p>{{ $project->description }}</p>
 
-							@if($project->technologies !== '')
-								<ul class="technologies">
-									@php
-										$technologiesArray = explode(', ', $project->technologies);
-									@endphp
-									@foreach($technologiesArray as $technology)
-										<li>{{ $technology }}</li>
-									@endforeach
-								</ul>
-							@endif
-
 							@include('components.link', [
 								'url' => $app->make('url')->to('/projects/' . $project->key),
 								'icon' => 'arrow',
 								'text' => 'View project'
 							])
+
+							@isset($project->technologies)
+								<ul class="technologies">
+									@php
+										$technologiesArray = explode('; ', $project->technologies);
+									@endphp
+									@foreach($technologiesArray as $technology)
+										<li>{{ $technology }}</li>
+									@endforeach
+								</ul>
+							@endisset
 
 						</div>
 

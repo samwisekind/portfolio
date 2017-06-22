@@ -1,6 +1,6 @@
-@foreach ($projects as $project)
+@foreach($projects as $project)
 
-	@if ($project->key === $featured)
+	@if($project->key === $featured)
 
 		<div class="featured">
 
@@ -12,22 +12,22 @@
 
 					<p>{{ $project->description }}</p>
 
-					@if($project->technologies !== '')
-						<ul class="technologies">
-							@php
-								$technologiesArray = explode(', ', $project->technologies);
-							@endphp
-							@foreach($technologiesArray as $technology)
-								<li>{{ $technology }}</li>
-							@endforeach
-						</ul>
-					@endif
-
 					@include ('components.link', [
 						'url' => $app->make('url')->to('/projects/' . $project->key),
 						'icon' => 'arrow',
 						'text' => 'View project'
 					])
+
+					@isset($project->technologies)
+						<ul class="technologies">
+							@php
+								$technologiesArray = explode('; ', $project->technologies);
+							@endphp
+							@foreach($technologiesArray as $technology)
+								<li>{{ $technology }}</li>
+							@endforeach
+						</ul>
+					@endisset
 
 				</div>
 
