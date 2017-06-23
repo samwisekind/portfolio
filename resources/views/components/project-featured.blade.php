@@ -37,7 +37,9 @@
 						<source src="{{ $featured->preview_video }}.ogv" type="video/ogg">
 					</video>
 				@endisset
-				<div class="preview-image" @isset($featured->preview_image) style="background-image: url('{{ $featured->preview_image }}')" @endisset></div>
+				@isset($featured->preview_image)
+					<div class="preview-image" style="background-image: url('{{ $featured->preview_image }}')"></div>
+				@endisset
 			</div>
 
 		</div>

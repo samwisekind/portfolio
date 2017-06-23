@@ -83,6 +83,7 @@ $scaleAmount: 0.25;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	font-family: "Raleway", Helvetica, Verdana, sans-serif;
 	background: $colour-black;
 }
 
@@ -581,7 +582,7 @@ $buttonSize: 15px;
 
 	#photography > .navigator > .selector {
 		right: $navigatorPadding;
-		padding: 0(($navigatorPadding * 2) + 8px) 0 $navigatorPadding;
+		padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
 		@include calc(width, "55% - #{$navigatorPadding}");
 		height: 30px;
 		font-size: 12px;
