@@ -15,11 +15,11 @@
 		}
 
 		if ($section === 'home') {
-			foreach ($projects as $project) {
-				if ($project->key === 'joyce') {
-					$pageImage = $app->make('url')->to($project->cover);
-					break;
-				}
+			if (isset($featured)) {
+				$pageImage = $featured->preview_image;
+			}
+			else {
+				$pageImage = null;
 			}
 		}
 		else if ($section === 'project') {

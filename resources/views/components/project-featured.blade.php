@@ -1,51 +1,47 @@
-@foreach($projects as $project)
+@isset($featured)
 
-	@if($project->key === $featured)
+	<div class="featured">
 
-		<div class="featured">
+		<div class="container">
 
-			<div class="container">
+			<div class="text">
 
-				<div class="text">
+				<h2><a href="{{ $app->make('url')->to('/projects/' . $featured->key) }}">{{ $featured->title }}</a></h2>
 
-					<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
+				<p>{{ $featured->description }}</p>
 
-					<p>{{ $project->description }}</p>
+				@include('components.link', [
+					'url' => $app->make('url')->to('/projects/' . $featured->key),
+					'icon' => 'arrow',
+					'text' => 'Learn more'
+				])
 
-					@include('components.link', [
-						'url' => $app->make('url')->to('/projects/' . $project->key),
-						'icon' => 'arrow',
-						'text' => 'View project'
-					])
+				@isset($featured->technologies)
+					<ul class="technologies">
+						@php
+							$technologiesArray = explode('; ', $featured->technologies);
+						@endphp
+						@foreach($technologiesArray as $technology)
+							<li>{{ $technology }}</li>
+						@endforeach
+					</ul>
+				@endisset
 
-					@isset($project->technologies)
-						<ul class="technologies">
-							@php
-								$technologiesArray = explode('; ', $project->technologies);
-							@endphp
-							@foreach($technologiesArray as $technology)
-								<li>{{ $technology }}</li>
-							@endforeach
-						</ul>
-					@endisset
+			</div>
 
-				</div>
-
-				<div class="preview">
-					<video autoplay loop muted @isset($project->preview_image) poster="{{ $project->preview_image }}" @endisset class="preview-video">
-						<source src="{{ $app->make('url')->to('/videos/projects/tng-website/tng-website-preview.mp4') }}" type="video/mp4">
-						<source src="{{ $app->make('url')->to('/videos/projects/tng-website/tng-website-preview.webm') }}" type="video/webm">
-						<source src="{{ $app->make('url')->to('/videos/projects/tng-website/tng-website-preview.ogv') }}" type="video/ogg">
+			<div class="preview">
+				@isset($featured->preview_video)
+					<video autoplay loop muted @isset($featured->preview_image) poster="{{ $featured->preview_image }}" @endisset class="preview-video">
+						<source src="{{ $featured->preview_video }}.mp4" type="video/mp4">
+						<source src="{{ $featured->preview_video }}.webm" type="video/webm">
+						<source src="{{ $featured->preview_video }}.ogv" type="video/ogg">
 					</video>
-					<div class="preview-image" @isset($project->preview_image) style="background-image: url('{{ $project->preview_image }}')" @endisset></div>
-				</div>
-
+				@endisset
+				<div class="preview-image" @isset($featured->preview_image) style="background-image: url('{{ $featured->preview_image }}')" @endisset></div>
 			</div>
 
 		</div>
 
-		@break
+	</div>
 
-	@endif
-
-@endforeach
+@endisset

@@ -24,7 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string('responsibilities')->comment('Project responsibilities');
             $table->string('url_website')->nullable()->comment('Project website URL')->default(null);
             $table->string('url_source')->nullable()->comment('Project source code/repository URL')->default(null);
-            $table->string('preview_video')->nullable()->comment('Proejct preview video (for featured projects)')->default(null);
+            $table->string('preview_video')->nullable()->comment('Proejct preview video (for featured projects) without file extension')->default(null);
             $table->string('preview_image')->nullable()->comment('Project preview image for project list and meta tags')->default(null);
             $table->string('cover')->comment('my comment');
             $table->date('started')->comment('my comment');

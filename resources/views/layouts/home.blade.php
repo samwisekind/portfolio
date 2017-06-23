@@ -10,58 +10,48 @@
 
 	<div class="home">
 
-		@isset($featured)
-			@include('components.project-featured')
-		@endisset
+		@include('components.project-featured')
 
 		<div class="list">
 
-			@isset($featured)
+			@foreach($projects as $project)
 
-				@foreach($projects as $project)
+				<div class="project">
 
-					@if($project->key === $featured || !$project->enabled)
-						@continue
-					@endif
+					@isset($project->preview_image)
+						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
+							<img src="{{ $project->preview_image }}" alt="" class="preview-image" />
+						</a>
+					@endisset
 
-					<div class="project">
+					<div class="text">
 
-						@isset($project->preview_image)
-							<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
-								<img src="{{ $project->preview_image }}" alt="" class="preview-image" />
-							</a>
+						<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
+
+						<p>{{ $project->description }}</p>
+
+						@include('components.link', [
+							'url' => $app->make('url')->to('/projects/' . $project->key),
+							'icon' => 'arrow',
+							'text' => 'Learn more'
+						])
+
+						@isset($project->technologies)
+							<ul class="technologies">
+								@php
+									$technologiesArray = explode('; ', $project->technologies);
+								@endphp
+								@foreach($technologiesArray as $technology)
+									<li>{{ $technology }}</li>
+								@endforeach
+							</ul>
 						@endisset
-
-						<div class="text">
-
-							<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
-
-							<p>{{ $project->description }}</p>
-
-							@include('components.link', [
-								'url' => $app->make('url')->to('/projects/' . $project->key),
-								'icon' => 'arrow',
-								'text' => 'View project'
-							])
-
-							@isset($project->technologies)
-								<ul class="technologies">
-									@php
-										$technologiesArray = explode('; ', $project->technologies);
-									@endphp
-									@foreach($technologiesArray as $technology)
-										<li>{{ $technology }}</li>
-									@endforeach
-								</ul>
-							@endisset
-
-						</div>
 
 					</div>
 
-				@endforeach
+				</div>
 
-			@endisset
+			@endforeach
 
 		</div>
 

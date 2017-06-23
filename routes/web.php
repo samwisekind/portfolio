@@ -13,14 +13,33 @@
 
 $app->get('/', function () {
 
-	$result = app('db')->table('projects')
+	// Get the featured project ID from the config table
+	$featured = app('db')->table('config')
+		->value('featured_project');
+
+	// Get the projects from the projects table
+	$projects = app('db')->table('projects')
 		->orderBy('order', 'asc')
 		->get();
 
+	// Check if a featured project ID has been set (is not null)
+	if (isset($featured) === true) {
+
+		// Find the featured project by its ID
+		$featured = $projects->where('id', $featured)
+			->first();
+
+		// If the project has been found by its ID, remove it from the projects list
+		if (isset($featured) === true) {
+			$projects = $projects->where('id', '>', $featured->id);
+		}
+
+	}
+
 	return view('layouts.home', [
 		'section' => 'home',
-		'featured' => 'tng-website',
-		'projects' => $result
+		'featured' => $featured,
+		'projects' => $projects
 	]);
 
 });
