@@ -96,6 +96,7 @@ $previewWidth: 520px;
 }
 
 .home > .featured h2 a {
+	display: block;
 	text-decoration: none;
 }
 
@@ -127,16 +128,16 @@ $previewWidth: 520px;
 	margin-right: 0;
 }
 
-.home > .featured .link:before {
+.home > .featured a.link:before {
 	background-color: rgba(#F3E5F5, 0.2);
 }
 
-.home > .featured .link:after {
+.home > .featured a.link:after {
 	background-color: #F3E5F5;
 }
 
-.home > .featured .link > .link-text:after {
-	background-image: url("../images/home/featured-link-arrow.svg")
+.home > .featured a.link > .icon > .icon-layer {
+	fill: #FFFFFF;
 }
 
 .home > .featured .preview {
@@ -190,10 +191,6 @@ $previewWidth: 520px;
 	max-width: ($maxWidth - 120px) + ($widthPadding * 2);
 }
 
-.home > .list:after {
-	@include clearFix;
-}
-
 .home > .list > .project {
 	z-index: 10;
 	position: relative;
@@ -201,7 +198,7 @@ $previewWidth: 520px;
 	width: 100%;
 	margin-bottom: $widthPadding;
 	background: $colour-white;
-	box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);
+	@include boxShadow(2px 8px 20px 0 rgba(31, 32, 68, 0.25));
 }
 
 .home > .list > .project .image {
@@ -266,13 +263,20 @@ $technologiesItemMargin: 10px;
 
 	/* LIST */
 
-	.home > .list {
-		@include browserPrefix("column-count", 2);
-		@include browserPrefix("column-gap", $widthPadding);
+	.home > .list:after {
+		@include clearFix;
 	}
 
 	.home > .list > .project {
-		@include browserPrefix("break-inside", avoid);
+		@include calc(width, "50% - 20px");
+	}
+
+	.home > .list > .project:nth-child(odd) {
+		float: left;
+	}
+
+	.home > .list > .project:nth-child(even) {
+		float: right;
 	}
 
 }

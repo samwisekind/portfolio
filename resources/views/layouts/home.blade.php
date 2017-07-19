@@ -10,7 +10,7 @@
 
 	<div class="home">
 
-		@include('components.project-featured')
+		@include('components.home.project-featured')
 
 		<div class="list">
 
