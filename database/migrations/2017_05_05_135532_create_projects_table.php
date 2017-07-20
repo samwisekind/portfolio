@@ -14,22 +14,59 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
+
             $table->increments('id');
-            $table->boolean('enabled')->default(false)->comment('Shows/hides the project from the site');
-            $table->integer('order')->comment('Order in which to display the projects in the projects list');
-            $table->string('key')->comment('Project key for URL and route mapping');
-            $table->string('title')->comment('Project title');
-            $table->string('description')->comment('Project description');
-            $table->string('technologies')->comment('Project technologies, delimitied by a semicolon and a space ("; ")');
-            $table->string('responsibilities')->comment('Project responsibilities');
-            $table->string('url_website')->nullable()->comment('Project website URL')->default(null);
-            $table->string('url_source')->nullable()->comment('Project source code/repository URL')->default(null);
-            $table->string('preview_video')->nullable()->comment('Proejct preview video (for featured projects) without file extension')->default(null);
-            $table->string('preview_image')->nullable()->comment('Project preview image for project list and meta tags')->default(null);
-            $table->string('cover')->comment('my comment');
-            $table->date('started')->comment('my comment');
-            $table->date('ended')->comment('my comment');
+
+            $table->boolean('enabled')
+                ->default(false)
+                ->comment('Shows/hides the project from the site');
+
+            $table->integer('order')
+                ->comment('Order in which to display the projects in the projects list');
+
+            $table->string('key')
+                ->comment('Project key for URL and route mapping');
+
+            $table->string('title')
+                ->comment('Project title');
+
+            $table->string('description')
+                ->comment('Project description');
+
+            $table->string('technologies')
+                ->comment('Project technologies, delimitied by a semicolon and a space ("; ")');
+
+            $table->string('responsibilities')
+                ->comment('Project responsibilities');
+
+            $table->string('url_website')
+                ->nullable()
+                ->default(null)
+                ->comment('Project website URL');
+
+            $table->string('url_source')
+                ->nullable()
+                ->default(null)
+                ->comment('Project source code/repository URL');
+
+            $table->string('preview_video')
+                ->nullable()
+                ->default(null)
+                ->comment('Proejct preview video (for featured projects) without file extension');
+
+            $table->string('preview_image')
+                ->nullable()
+                ->default(null)
+                ->comment('Project preview image for project list and meta tags');
+
+            $table->date('started')
+                ->comment('Start date of the project');
+
+            $table->date('ended')
+                ->comment('End date of the project');
+
             $table->timestamps();
+
         });
     }
 

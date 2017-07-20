@@ -23,7 +23,7 @@
 			}
 		}
 		else if ($section === 'project') {
-			$pageImage = $app->make('url')->to($project->cover);
+			$pageImage = $app->make('url')->to($project->preview_image);
 		}
 		else {
 			$pageImage = $app->make('url')->to('/images/albums/kenya/kenya_1_full.jpg');
