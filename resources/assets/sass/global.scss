@@ -126,9 +126,9 @@ $headerLinkPadding: 10px;
 
 .global-header > .container {
 	margin: 0 auto 0 auto;
-	padding: 0 $widthPadding 0 $widthPadding;
+	padding: 0 $paddingLarge 0 $paddingLarge;
 	height: 100%;
-	max-width: $maxWidth + ($widthPadding * 2);
+	max-width: $maxWidth + ($paddingLarge * 2);
 }
 
 .global-header nav:after,
@@ -229,7 +229,7 @@ $headerLinkIconSize: 24px;
 
 .global-footer {
 	margin-top: 160px;
-	padding: 0 $widthPadding 60px $widthPadding;
+	padding: 0 $paddingLarge $paddingLarge $paddingLarge;
 	text-align: center;
 	font-size: 12px;
 }
@@ -523,8 +523,8 @@ $headerLinkIconSize: 24px;
 	}
 
 	.global-footer {
-		margin-top: 60px;
-		padding: 0 20px 20px 20px;
+		margin-top: $spacingLarge;
+		padding: 0 $paddingSmall $paddingSmall $paddingSmall;
 	}
 
 	.global-footer p,

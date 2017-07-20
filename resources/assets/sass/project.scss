@@ -13,7 +13,7 @@ $contentWidth: 700px;
 .project-header {
 	z-index: 10;
 	position: relative;
-	margin: 0 auto 0 auto;
+	margin: 0 auto $spacingLarge auto;
 	width: 100%;
 }
 
@@ -53,8 +53,8 @@ $projectList: (
 
 .project-header > .wrapper {
 	margin: 0 auto 0 auto;
-	padding: 80px $widthPadding 80px $widthPadding;
-	max-width: $maxWidth + ($widthPadding * 2);
+	padding: $paddingLarge;
+	max-width: $maxWidth + ($paddingLarge * 2);
 }
 
 .project-header h2 {
@@ -102,14 +102,52 @@ $projectList: (
 	margin-top: 20px;
 }
 
+@media (max-width: $mobileBreakpointLarge) {
+
+	.project-header h2 {
+		font-size: 26px;
+		line-height: 26px;
+	}
+
+	.project-header p {
+		margin-bottom: 20px;
+		font-size: 16px;
+		@include lineHeight(16px);
+	}
+
+	.project-header ul > li {
+		float: none;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	.project-header ul > li.title {
+		margin-right: 0;
+		margin-bottom: 5px;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-header {
+		margin-bottom: $spacingSmall;
+	}
+
+	.project-header > .wrapper {
+		padding: $spacingSmall;
+	}
+
+}
+
 
 
 /* PROJECT CONTENT */
 
 .project-content {
-	margin: 0 auto 0 auto;
-	padding: 60px $widthPadding 60px $widthPadding;
-	max-width: $maxWidth + ($widthPadding * 2);
+	margin: $spacingLarge auto $spacingLarge auto;
+	padding: 0 $paddingLarge 0 $paddingLarge;
+	max-width: $maxWidth + ($paddingLarge * 2);
 }
 
 .project-content h3,
@@ -139,15 +177,16 @@ $projectList: (
 }
 
 .project-content p code {
-	padding: 1px 5px 1px 5px;
+	padding: 2px 4px 2px 4px;
 	color: $colour-greyLight;
 	border-radius: 2px;
-	background: #0077AA;
+	text-shadow: 0 1px 1px $colour-greyDark;
+	background: $colour-grey;
 }
 
 .project-content ol,
 .project-content ul {
-	padding-left: $widthPadding + 20px;
+	padding-left: $paddingLarge;
 	list-style-position: outside;
 }
 
@@ -163,48 +202,116 @@ $projectList: (
 	margin-bottom: 0;
 }
 
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-content {
+		margin: 0 auto 0 auto;
+		padding: 0 $paddingSmall 0 $paddingSmall;
+	}
+
+	.project-content h3,
+	.project-content h4,
+	.project-content p,
+	.project-content ol,
+	.project-content ul {
+		display: block;
+		margin-top: 10px;
+	}
+
+	.project-content h3 {
+		margin-top: $spacingSmall;
+		font-size: 18px;
+		@include lineHeight(18px);
+	}
+
+	.project-content h4 {
+		margin-top: $spacingSmall / 2;
+		font-size: 16px;
+		@include lineHeight(16px);
+	}
+
+}
 
 
-/* PROJECT IMAGE */
+
+/* PROJECT CAPTION */
 
 .project-caption {
 	position: relative;
 	display: table;
-	margin: 60px auto 60px 0;
+	margin: $spacingLarge auto $spacingLarge 0;
 	max-width: $maxWidth;
+	background: $colour-white;
 }
 
 .project-caption:after {
 	@include clearFix;
 }
 
-.project-caption > .image,
+.project-caption > .media,
 .project-caption > .text {
 	display: table-cell;
 	vertical-align: middle;
 }
 
-.project-caption > .image {
+.project-caption > .media {
 	width: 60%;
 }
 
-.project-caption > .image > .image-element {
+.project-caption > .media > .video-element,
+.project-caption > .media > .image-element {
 	display: block;
 	width: 100%;
 	height: auto;
 }
 
+.project-caption > .media > .video-element + .image-element {
+	display: none;
+}
+
 .project-caption > .text {
-	padding-right: 40px;
-	font-size: 22px;
-	@include lineHeight(22px);
+	padding: $paddingLarge;
+	font-size: 20px;
+	@include lineHeight(20px);
 	text-align: left;
 	font-style: italic;
 }
 
-.project-caption > .image + .text {
-	padding-left: 40px;
-	padding-right: 0;
+@media (max-width: $mobileBreakpointLarge) {
+
+	.project-caption > .media,
+	.project-caption > .text {
+		display: block;
+		width: 100%;
+	}
+
+	.project-caption > .text {
+		padding: $paddingSmall;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-caption {
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
+	}
+
+	.project-caption > .text {
+		padding: $paddingSmall;
+		font-size: 14px;
+		@include lineHeight(14px);
+	}
+
+	.project-caption > .media > .video-element {
+		display: none;
+	}
+
+	.project-caption > .media > .image-element {
+		display: block !important;
+	}
+
 }
 
 
@@ -213,10 +320,9 @@ $projectList: (
 
 .project-image {
 	display: block;
-	margin: 60px auto 60px 0;
+	margin: $spacingLarge auto $spacingLarge 0;
 	width: 100%;
 	height: auto;
-	background: $colour-white;
 }
 
 .project-image.large {
@@ -227,102 +333,11 @@ $projectList: (
 	max-width: $contentWidth;
 }
 
-
-
-
-
-
-
-
-@media (max-width: $mobileBreakpointLarge) {
-
-	/* PROJECT HEADER */
-
-	.project-header > .main,
-	.project-header > .lists {
-		float: none;
-		width: auto;
-	}
-
-	.project-header > .main {
-		margin-bottom: $widthPadding;
-	}
-
-}
-
 @media (max-width: $mobileBreakpointSmall) {
 
-	$widthPadding: 20px;
-
-	/* PROJECT HEADER */
-
-	.project-header {
-		padding: $widthPadding;
-	}
-
-	.project-header h2 {
-		margin-bottom: 5px;
-		font-size: 32px;
-		line-height: 32px;
-	}
-
-	.project-header h3 {
-		font-size: 18px;
-		@include lineHeight(18px);
-	}
-
-	.project-header > .details {
-		margin-top: 20px;
-	}
-
-	.project-header > .details > li {
-		margin-bottom: 10px;
-		font-size: 10px;
-		@include lineHeight(10px);
-	}
-
-	/* PROJECT CONTENT */
-
-	.project-content h3,
-	.project-content h4,
-	.project-content p,
-	.project-content ol,
-	.project-content ul {
-		margin: 10px auto 0 auto;
-		padding: 0 $widthPadding 0 $widthPadding;
-	}
-
-	.project-content h3 {
-		margin-top: 40px;
-		font-size: 20px;
-		@include lineHeight(20px);
-	}
-
-	.project-content h4 {
-		margin-top: 20px;
-		font-size: 16px;
-		@include lineHeight(16px);
-	}
-
-	.project-content p code {
-		padding: 1px 2px 1px 2px;
-	}
-
-	.project-content ol,
-	.project-content ul {
-		padding-left: $widthPadding + 10px;
-	}
-
 	.project-image {
-		margin: 20px auto 20px auto;
-		padding: 0;
-	}
-
-	.project-image > .caption {
-		margin-top: 10px;
-		padding: 0 $widthPadding 0 $widthPadding;
-		font-size: 12px;
-		@include lineHeight(16px);
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
 	}
 
 }

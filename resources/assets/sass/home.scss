@@ -69,9 +69,9 @@ $previewWidth: 520px;
 	display: table;
 	table-layout: fixed;
 	margin: 0 auto 0 auto;
-	padding: 0 $widthPadding 0 $widthPadding;
+	padding: 0 $paddingLarge 0 $paddingLarge;
 	width: 100%;
-	max-width: $maxWidth + ($widthPadding * 2);
+	max-width: $maxWidth + ($paddingLarge * 2);
 }
 
 .home > .featured > .container > .text,
@@ -187,8 +187,8 @@ $previewWidth: 520px;
 	z-index: 10;
 	position: relative;
 	margin: 0 auto 0 auto;
-	padding: 0 $widthPadding 0 $widthPadding;
-	max-width: ($maxWidth - 120px) + ($widthPadding * 2);
+	padding: 0 $paddingLarge 0 $paddingLarge;
+	max-width: ($maxWidth - 120px) + ($paddingLarge * 2);
 }
 
 .home > .list > .project {
@@ -196,7 +196,7 @@ $previewWidth: 520px;
 	position: relative;
 	display: block;
 	width: 100%;
-	margin-bottom: $widthPadding;
+	margin-bottom: $paddingLarge;
 	background: $colour-white;
 	@include boxShadow(2px 8px 20px 0 rgba(31, 32, 68, 0.25));
 }
@@ -304,7 +304,7 @@ $technologiesItemMargin: 10px;
 
 	.home > .featured .preview {
 		position: absolute;
-		left: $widthPadding;
+		left: $paddingLarge;
 		top: 0;
 		width: $previewWidthSmall;
 		height: $previewHeightSmall;
@@ -340,7 +340,7 @@ $technologiesItemMargin: 10px;
 	$previewHeightSmall: 180px;
 
 	.home > .featured {
-		margin-top: $widthPaddingSmall;
+		margin-top: $paddingSmall;
 		margin-bottom: 40px;
 		padding: 10% 0 10% 0;
 	}
@@ -356,8 +356,8 @@ $technologiesItemMargin: 10px;
 	}
 
 	.home > .featured > .container {
-		padding: 0 $widthPaddingSmall 0 $widthPaddingSmall;
-		max-width: 460px + ($widthPaddingSmall * 2);
+		padding: 0 $paddingSmall 0 $paddingSmall;
+		max-width: 460px + ($paddingSmall * 2);
 	}
 
 	.home > .featured > .container > .text {
@@ -387,7 +387,7 @@ $technologiesItemMargin: 10px;
 	}
 
 	.home > .featured .preview {
-		left: $widthPaddingSmall;
+		left: $paddingSmall;
 		width: $previewWidthSmall;
 		height: $previewHeightSmall;
 	}
