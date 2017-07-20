@@ -271,11 +271,6 @@ $headerLinkIconSize: 24px;
 
 @media (max-width: $mobileBreakpointLarge) {
 
-	body {
-		font-size: 16px;
-		@include lineHeight(16px);
-	}
-
 	.outer-wrapper,
 	.outer-content {
 		-webkit-perspective: 2000px;
@@ -327,8 +322,6 @@ $headerLinkIconSize: 24px;
 	.outer-menu > ul > li > a {
 		padding: 20px 10% 20px 0;
 		display: block;
-		font-size: 16px;
-		line-height: 16px;
 		font-weight: 400;
 		text-align: right;
 		text-decoration: none;
@@ -470,10 +463,10 @@ $headerLinkIconSize: 24px;
 		@include transition(opacity 0.25s $easeStandard);
 	}
 
-	$headerHeight: 50px;
+	$headerHeight: 80px;
 
 	.global-header {
-		padding: 0 0 0 20px;
+		padding-left: $paddingLarge;
 	}
 
 	.global-header > .container {
@@ -489,11 +482,6 @@ $headerLinkIconSize: 24px;
 		margin-right: 0;
 	}
 
-	.global-header .title > a {
-		font-size: 16px;
-		line-height: 16px;
-	}
-
 	.global-header nav {
 		display: none;
 	}
@@ -502,7 +490,7 @@ $headerLinkIconSize: 24px;
 		float: right;
 		position: relative;
 		display: block;
-		width: $headerHeight + 20px;
+		width: $headerHeight + $paddingLarge;
 		height: $headerHeight;
 	}
 
@@ -527,14 +515,49 @@ $headerLinkIconSize: 24px;
 		padding: 0 $paddingSmall $paddingSmall $paddingSmall;
 	}
 
+	.global-footer p.small {
+		margin-top: 5px;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	body {
+		font-size: 16px;
+		@include lineHeight(16px);
+	}
+
+	$headerHeight: 50px;
+
+	.global-header {
+		padding-left: $paddingSmall;
+	}
+
+	.global-header,
+	.global-header .title {
+		height: $headerHeight;
+	}
+
+	.global-header .hamburger {
+		width: $headerHeight + $paddingSmall;
+		height: $headerHeight;
+	}
+
+	.outer-menu > ul > li > a {
+		font-size: 16px;
+		line-height: 16px;
+	}
+
+	.global-header .title > a {
+		font-size: 16px;
+		line-height: 16px;
+	}
+
 	.global-footer p,
 	.global-footer p.small {
 		font-size: 10px;
 		line-height: 12px;
-	}
-
-	.global-footer p.small {
-		margin-top: 5px;
 	}
 
 }

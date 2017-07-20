@@ -53,7 +53,7 @@ $projectList: (
 
 .project-header > .wrapper {
 	margin: 0 auto 0 auto;
-	padding: $paddingLarge;
+	padding: $spacingLarge $paddingLarge $spacingLarge $paddingLarge;
 	max-width: $maxWidth + ($paddingLarge * 2);
 }
 
@@ -102,7 +102,15 @@ $projectList: (
 	margin-top: 20px;
 }
 
-@media (max-width: $mobileBreakpointLarge) {
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-header {
+		margin-bottom: $spacingSmall;
+	}
+
+	.project-header > .wrapper {
+		padding: $spacingSmall $paddingSmall $spacingSmall $paddingSmall;
+	}
 
 	.project-header h2 {
 		font-size: 26px;
@@ -124,18 +132,6 @@ $projectList: (
 	.project-header ul > li.title {
 		margin-right: 0;
 		margin-bottom: 5px;
-	}
-
-}
-
-@media (max-width: $mobileBreakpointSmall) {
-
-	.project-header {
-		margin-bottom: $spacingSmall;
-	}
-
-	.project-header > .wrapper {
-		padding: $spacingSmall;
 	}
 
 }

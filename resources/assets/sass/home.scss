@@ -183,20 +183,22 @@ $previewWidth: 520px;
 
 /* LIST */
 
+$projectMaxWidth: 470px;
+
 .home > .list {
 	z-index: 10;
 	position: relative;
 	margin: 0 auto 0 auto;
 	padding: 0 $paddingLarge 0 $paddingLarge;
-	max-width: ($maxWidth - 120px) + ($paddingLarge * 2);
+	max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
 }
 
 .home > .list > .project {
 	z-index: 10;
 	position: relative;
 	display: block;
-	width: 100%;
 	margin-bottom: $paddingLarge;
+	max-width: $projectMaxWidth;
 	background: $colour-white;
 	@include boxShadow(2px 8px 20px 0 rgba(31, 32, 68, 0.25));
 }
@@ -259,7 +261,7 @@ $technologiesItemMargin: 10px;
 	margin-right: 0;
 }
 
-@media (min-width: $mobileBreakpointLarge) {
+@media (min-width: $mobileBreakpointLarge + 1px) {
 
 	/* LIST */
 
@@ -268,7 +270,7 @@ $technologiesItemMargin: 10px;
 	}
 
 	.home > .list > .project {
-		@include calc(width, "50% - 20px");
+		@include calc(width, "50% - #{$paddingLarge / 2}");
 	}
 
 	.home > .list > .project:nth-child(odd) {
@@ -324,7 +326,6 @@ $technologiesItemMargin: 10px;
 	/* LIST */
 
 	.home > .list > .project {
-		max-width: 460px;
 		margin-left: auto;
 		margin-right: auto;
 	}
