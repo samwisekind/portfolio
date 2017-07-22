@@ -50,12 +50,15 @@
 
 						@isset($project->technologies)
 							<ul class="technologies">
+
 								@php
 									$technologiesArray = explode('; ', $project->technologies);
 								@endphp
+
 								@foreach($technologiesArray as $technology)
 									<li>{{ $technology }}</li>
 								@endforeach
+
 							</ul>
 						@endisset
 

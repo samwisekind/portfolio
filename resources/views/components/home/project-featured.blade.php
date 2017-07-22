@@ -43,6 +43,7 @@
 
 			<div class="preview">
 				<a href="{{ $app->make('url')->to('/projects/' . $featured->key) }}" class="preview-link"></a>
+
 				@isset($featured->preview_video)
 					<video autoplay loop muted @isset($featured->preview_image) poster="{{ $featured->preview_image }}" @endisset class="preview-video">
 						<source src="{{ $featured->preview_video }}.mp4" type="video/mp4">
@@ -50,9 +51,11 @@
 						<source src="{{ $featured->preview_video }}.ogv" type="video/ogg">
 					</video>
 				@endisset
+
 				@isset($featured->preview_image)
 					<div class="preview-image" style="background-image: url('{{ $featured->preview_image }}')"></div>
 				@endisset
+
 			</div>
 
 		</div>

@@ -85,7 +85,7 @@ a.link.external > .icon {
 	overflow: visible
 }
 
-$externalArrowOffset: 2px;
+$externalArrowOffset: 3px;
 
 a.link.external:hover > .icon > .icon-layer.arrow {
 	@include transform(translateX($externalArrowOffset) translateY(-$externalArrowOffset));

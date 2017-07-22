@@ -1,7 +1,7 @@
 <a href="{{ $url }}" class="link {{ $icon }}" @if ($icon === 'external') target="_blank" rel="noopener noreferrer" @endif>
-	<span class="text">
-		{{ $text }}
-	</span>
+
+	<span class="text">{{ $text }}</span>
+
 	@if ($icon === 'arrow')
 		<svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" class="icon">
 			<path d="M17.92,7.38a1,1,0,0,0-.22-1.09l-6-6a1,1,0,0,0-1.41,1.41L14.59,6H1A1,1,0,0,0,1,8H14.59l-4.29,4.29a1,1,0,1,0,1.41,1.41l6-6A1,1,0,0,0,17.92,7.38Z" class="icon-layer" />
@@ -12,4 +12,5 @@
 			<path d="M19.92.62A1,1,0,0,0,19,0H13a1,1,0,0,0,0,2h3.59L7.29,11.29a1,1,0,1,0,1.41,1.41L18,3.41V7a1,1,0,0,0,2,0V1A1,1,0,0,0,19.92.62Z" class="icon-layer arrow" />
 		</svg>
 	@endif
+
 </a>
