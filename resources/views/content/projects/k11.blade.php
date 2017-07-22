@@ -2,7 +2,7 @@
 
 @section ('project-content')
 
-	@include('components.projects.project-features', ['items' => [
+	@include('components.projects.project-highlights', ['items' => [
 		'Inter-connected photo booth solution with iPad app, TV displays, and website',
 		'System designed to overcome camera limitations and WiFi connectivity'
 	]])

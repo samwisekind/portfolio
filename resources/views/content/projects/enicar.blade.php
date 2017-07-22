@@ -2,7 +2,7 @@
 
 @section ('project-content')
 
-	@include('components.projects.project-features', ['items' => [
+	@include('components.projects.project-highlights', ['items' => [
 		'Six-language responsive website',
 		'Cross-compatible with IE6 and above',
 		'Full-screen video, key-frame, and parallax design features',

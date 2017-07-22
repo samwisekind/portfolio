@@ -1,6 +1,6 @@
 <div class="project-highlights">
 
-	<h3>Project Highlights</h3>
+	<h3>Highlights</h3>
 
 	<ul>
 		@foreach($items as $item)
