@@ -31,7 +31,7 @@ $app->get('/', function () {
 
 		// If the project has been found by its ID, remove it from the projects list
 		if (isset($featured) === true) {
-			$projects = $projects->where('id', '>', $featured->id);
+			$projects = $projects->where('id', '!=', $featured->id);
 		}
 
 	}

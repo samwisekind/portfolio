@@ -19,9 +19,11 @@
 				<div class="project">
 
 					@isset($project->preview_image)
+
 						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
 							<img src="{{ $project->preview_image }}" alt="" class="preview-image" />
 						</a>
+
 					@endisset
 
 					<div class="text">
@@ -49,6 +51,7 @@
 						</div>
 
 						@isset($project->technologies)
+
 							<ul class="technologies">
 
 								@php
@@ -60,6 +63,7 @@
 								@endforeach
 
 							</ul>
+
 						@endisset
 
 					</div>
