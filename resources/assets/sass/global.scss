@@ -41,6 +41,7 @@
 
 	.outer-wrapper,
 	.outer-content {
+		min-height: 100vh;
 		-webkit-perspective: 2000px;
 		perspective: 2000px;
 		-webkit-backface-visibility: hidden;
