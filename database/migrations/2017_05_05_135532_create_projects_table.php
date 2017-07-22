@@ -34,7 +34,7 @@ class CreateProjectsTable extends Migration
                 ->comment('Project description');
 
             $table->string('technologies')
-                ->comment('Project technologies, delimitied by a semicolon and a space ("; ")');
+                ->comment('Project technologies, delimitied by a semicolon followed by a space ("; ")');
 
             $table->string('responsibilities')
                 ->comment('Project responsibilities');
