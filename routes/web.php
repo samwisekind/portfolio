@@ -19,6 +19,7 @@ $app->get('/', function () {
 
 	// Get the projects from the projects table
 	$projects = app('db')->table('projects')
+		->where('enabled', true)
 		->orderBy('order', 'asc')
 		->get();
 
@@ -26,12 +27,14 @@ $app->get('/', function () {
 	if (isset($featured) === true) {
 
 		// Find the featured project by its ID
-		$featured = $projects->where('id', $featured)
+		$featured = $projects->where('key', $featured)
+			->where('enabled', true)
 			->first();
 
 		// If the project has been found by its ID, remove it from the projects list
 		if (isset($featured) === true) {
-			$projects = $projects->where('id', '!=', $featured->id);
+			$projects = $projects->where('key', '!==', $featured->key)
+				->where('enabled', true);
 		}
 
 	}

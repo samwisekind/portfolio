@@ -14,7 +14,11 @@ class CreateConfigTable extends Migration
     public function up()
     {
         Schema::create('config', function (Blueprint $table) {
-            $table->integer('featured_project')->nullable()->comment('ID for which project to display in featured section');
+
+            $table->string('featured_project')
+                ->nullable()
+                ->comment('Key for which project to display in featured section');
+
         });
     }
 

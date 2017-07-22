@@ -17,23 +17,23 @@
 		@slot('image', '/images/projects/joyce/joyce-image-1.jpg')
 	@endcomponent
 
-	@component('components.projects.project-caption', ['alignment' => 'right'])
+	@component('components.projects.project-caption')
 		@slot('image', '/images/projects/joyce/joyce-image-1.jpg')
 		@slot('caption', 'A custom WordPress plugin was developed which allowed for images to be uploaded and placed in a single grid cell or across multiple cells. Hyperlinks could also be defined per-cell or across several at once.')
 	@endcomponent
 
-	@component('components.projects.project-caption', ['alignment' => 'left'])
+	@component('components.projects.project-caption')
 		@slot('image', '/images/projects/joyce/joyce-image-2.jpg')
 		@slot('caption', 'Videos on the website use the HTML5 video API, with a lightweight Flash video player fallback.')
 	@endcomponent
 
-	@component('components.projects.project-caption', ['alignment' => 'right'])
+	@component('components.projects.project-caption')
 		@slot('video', '/videos/projects/joyce/joyce-video-1')
 		@slot('image', '/images/projects/joyce/joyce-image-3.jpg')
 		@slot('caption', 'Stores and brands are relationally-connected and featured throughout the website, listing what brands are stocked in which stores.')
 	@endcomponent
 
-	@component('components.projects.project-caption', ['alignment' => 'left'])
+	@component('components.projects.project-caption')
 		@slot('image', '/images/projects/joyce/joyce-image-4.jpg')
 		@slot('caption', 'The stores directory contains information such as opening times, contact numbers, and store address.')
 	@endcomponent
