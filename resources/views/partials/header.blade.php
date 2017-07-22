@@ -4,12 +4,12 @@
 
 	@php
 
-		$pageTitle = "Flamov";
+		$pageTitle = 'Sam\'s Portfolio';
 		if (isset($title) === true) {
-			$pageTitle = $pageTitle . ' – ' . $title;
+			$pageTitle = $title . ' — ' . $pageTitle;
 		}
 
-		$pageDescription = "Sam's Portfolio";
+		$pageDescription = 'Sam\'s Portfolio';
 		if (isset($project) === true) {
 			$pageDescription = $project->description;
 		}
