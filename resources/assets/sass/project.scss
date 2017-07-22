@@ -105,8 +105,16 @@ $projectList: (
 	font-style: normal;
 }
 
-.project-header a.link {
-	margin-top: 20px;
+.project-header .links {
+	margin-top: $paddingLarge;
+}
+
+.project-header .links > a.link {
+	margin-right: 20px;
+}
+
+.project-header .links > a.link:last-child {
+	margin-right: 0;
 }
 
 @media (max-width: $mobileBreakpointSmall) {
@@ -139,6 +147,14 @@ $projectList: (
 	.project-header ul > li.title {
 		margin-right: 0;
 		margin-bottom: 5px;
+	}
+
+	.project-header .links {
+		margin-top: $paddingSmall;
+	}
+
+	.project-header .links > a.link {
+		margin-right: 10px;
 	}
 
 }

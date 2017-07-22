@@ -34,7 +34,7 @@ $previewWidth: 520px;
 	z-index: 0;
 	position: relative;
 	margin: 40px 0 80px 0;
-	padding: 60px 0 60px 0;
+	padding: $paddingLarge 0 $paddingLarge 0;
 	height: auto;
 }
 
@@ -81,7 +81,7 @@ $previewWidth: 520px;
 }
 
 .home > .featured > .container > .text {
-	padding-right: 40px;
+	padding-right: $paddingLarge;
 }
 
 .home > .featured a,
@@ -106,6 +106,26 @@ $previewWidth: 520px;
 	line-height: 36px;
 }
 
+.home > .featured .links > a.link {
+	margin-right: 20px;
+}
+
+.home > .featured .links > a.link:last-child {
+	margin-right: 0;
+}
+
+.home > .featured a.link:before {
+	background-color: rgba(#F3E5F5, 0.2);
+}
+
+.home > .featured a.link:after {
+	background-color: #F3E5F5;
+}
+
+.home > .featured a.link > .icon > .icon-layer {
+	fill: #FFFFFF;
+}
+
 .home > .featured .technologies {
 	margin-top: 60px;
 	list-style: none;
@@ -126,18 +146,6 @@ $previewWidth: 520px;
 
 .home > .featured .technologies > li:last-child {
 	margin-right: 0;
-}
-
-.home > .featured a.link:before {
-	background-color: rgba(#F3E5F5, 0.2);
-}
-
-.home > .featured a.link:after {
-	background-color: #F3E5F5;
-}
-
-.home > .featured a.link > .icon > .icon-layer {
-	fill: #FFFFFF;
 }
 
 .home > .featured .preview {
@@ -218,7 +226,7 @@ $projectMaxWidth: 470px;
 }
 
 .home > .list > .project > .text {
-	padding: 40px;
+	padding: $paddingLarge;
 }
 
 .home > .list > .project h2 {
@@ -235,6 +243,14 @@ $projectMaxWidth: 470px;
 
 .home > .list > .project p {
 	margin-bottom: 20px;
+}
+
+.home > .list > .project .links > a.link {
+	margin-right: 20px;
+}
+
+.home > .list > .project .links > a.link:last-child {
+	margin-right: 0;
 }
 
 $technologiesItemMargin: 10px;
@@ -341,8 +357,8 @@ $technologiesItemMargin: 10px;
 	$previewHeightSmall: 180px;
 
 	.home > .featured {
-		margin-top: $paddingSmall;
-		margin-bottom: 40px;
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
 		padding: 10% 0 10% 0;
 	}
 
@@ -372,13 +388,13 @@ $technologiesItemMargin: 10px;
 	}
 
 	.home > .featured p {
-		margin-bottom: 20px;
+		margin-bottom: $paddingSmall;
 		font-size: inherit;
 		line-height: inherit;
 	}
 
 	.home > .featured .technologies {
-		margin-top: 40px;
+		margin-top: $spacingSmall;
 	}
 
 	.home > .featured .technologies > li {
@@ -396,15 +412,15 @@ $technologiesItemMargin: 10px;
 	/* LIST */
 
 	.home > .list {
-		padding: 0 20px 0 20px;
+		padding: 0 $paddingSmall 0 $paddingSmall;
 	}
 
 	.home > .list > .project {
-		margin-bottom: 20px;
+		margin-bottom: $spacingSmall;
 	}
 
 	.home > .list > .project > .text {
-		padding: 20px;
+		padding: $paddingSmall;
 	}
 
 	.home > .list > .project h2 {
@@ -416,7 +432,7 @@ $technologiesItemMargin: 10px;
 	$technologiesItemMargin: 5px;
 
 	.home > .list > .project .technologies {
-		margin-top: 40px - ($technologiesItemMargin * 2);
+		margin-top: $spacingSmall;
 	}
 
 	.home > .list > .project .technologies > li {

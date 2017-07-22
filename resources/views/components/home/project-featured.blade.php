@@ -10,11 +10,23 @@
 
 				<p>{{ $featured->description }}</p>
 
-				@include('components.link', [
-					'url' => $app->make('url')->to('/projects/' . $featured->key),
-					'icon' => 'arrow',
-					'text' => 'Learn more'
-				])
+				<div class="links">
+
+					@include('components.link', [
+						'url' => $app->make('url')->to('/projects/' . $featured->key),
+						'icon' => 'arrow',
+						'text' => 'Learn more'
+					])
+
+					@isset($featured->url_article)
+						@include('components.link', [
+							'url' => $featured->url_article,
+							'icon' => 'external',
+							'text' => 'Read article'
+						])
+					@endisset
+
+				</div>
 
 				@isset($featured->technologies)
 					<ul class="technologies">

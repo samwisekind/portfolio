@@ -30,11 +30,23 @@
 
 						<p>{{ $project->description }}</p>
 
-						@include('components.link', [
-							'url' => $app->make('url')->to('/projects/' . $project->key),
-							'icon' => 'arrow',
-							'text' => 'Learn more'
-						])
+						<div class="links">
+
+							@include('components.link', [
+								'url' => $app->make('url')->to('/projects/' . $project->key),
+								'icon' => 'arrow',
+								'text' => 'Learn more'
+							])
+
+							@isset($project->url_article)
+								@include('components.link', [
+									'url' => $project->url_article,
+									'icon' => 'external',
+									'text' => 'Read article'
+								])
+							@endisset
+
+						</div>
 
 						@isset($project->technologies)
 							<ul class="technologies">

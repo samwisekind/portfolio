@@ -44,10 +44,10 @@ class CreateProjectsTable extends Migration
                 ->default(null)
                 ->comment('Project website URL');
 
-            $table->string('url_source')
+            $table->string('url_article')
                 ->nullable()
                 ->default(null)
-                ->comment('Project source code/repository URL');
+                ->comment('Project article URL');
 
             $table->string('preview_video')
                 ->nullable()
