@@ -14,12 +14,14 @@
 	z-index: 0;
 	position: absolute;
 	left: 0;
-	bottom: 20%;
+	bottom: 18%;
 	width: 100%;
 	height: 400px;
 	background: $colour-green;
 	@include transform(skewY(15deg));
 }
+
+
 
 /* FEATURED */
 
@@ -189,6 +191,108 @@ $previewWidth: 520px;
 	display: none;
 }
 
+@media (max-width: $mobileBreakpointLarge) {
+
+	$previewWidthSmall: 360px;
+	$previewHeightSmall: 230px;
+
+	.home > .featured > .container {
+		display: block;
+	}
+
+	.home > .featured > .container > .text,
+	.home > .featured > .container > .preview {
+		display: block;
+	}
+
+	.home > .featured > .container > .text {
+		padding-right: 0;
+		padding-top: $previewHeightSmall + 40px;
+	}
+
+	.home > .featured .preview {
+		position: absolute;
+		left: $paddingLarge;
+		top: 0;
+		width: $previewWidthSmall;
+		height: $previewHeightSmall;
+		overflow: hidden;
+		border-radius: 6px;
+		@include boxShadow(0 0 15px 8px rgba(0, 0, 0, 0.1));
+	}
+
+	.home > .featured .preview > .preview-video + .preview-image {
+		display: block;
+	}
+
+	.home > .featured .preview > .preview-video {
+		display: none;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	$previewWidthSmall: 280px;
+	$previewHeightSmall: 180px;
+
+	.home > .featured {
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
+		padding: 10% 0 10% 0;
+	}
+
+	.home > .featured:before {
+		@include transform(skewY(4deg));
+	}
+
+	.home > .featured:after {
+		z-index: 0;
+		bottom: -8%;
+		@include transform(skewY(-20deg));
+	}
+
+	.home > .featured > .container {
+		padding: 0 $paddingSmall 0 $paddingSmall;
+		max-width: 460px + ($paddingSmall * 2);
+	}
+
+	.home > .featured > .container > .text {
+		padding-top: $previewHeightSmall + 20px;
+	}
+
+	.home > .featured h2 {
+		margin-bottom: 10px;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.home > .featured p {
+		margin-bottom: $paddingSmall;
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	.home > .featured .technologies {
+		margin-top: $spacingSmall;
+	}
+
+	.home > .featured .technologies > li {
+		margin-right: 5px;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	.home > .featured .preview {
+		left: $paddingSmall;
+		width: $previewWidthSmall;
+		height: $previewHeightSmall;
+	}
+
+}
+
+
+
 /* LIST */
 
 $projectMaxWidth: 470px;
@@ -279,8 +383,6 @@ $technologiesItemMargin: 10px;
 
 @media (min-width: $mobileBreakpointLarge + 1px) {
 
-	/* LIST */
-
 	.home > .list:after {
 		@include clearFix;
 	}
@@ -301,115 +403,14 @@ $technologiesItemMargin: 10px;
 
 @media (max-width: $mobileBreakpointLarge) {
 
-	/* FEATURED */
-
-	$previewWidthSmall: 360px;
-	$previewHeightSmall: 230px;
-
-	.home > .featured > .container {
-		display: block;
-	}
-
-	.home > .featured > .container > .text,
-	.home > .featured > .container > .preview {
-		display: block;
-	}
-
-	.home > .featured > .container > .text {
-		padding-right: 0;
-		padding-top: $previewHeightSmall + 40px;
-	}
-
-	.home > .featured .preview {
-		position: absolute;
-		left: $paddingLarge;
-		top: 0;
-		width: $previewWidthSmall;
-		height: $previewHeightSmall;
-		overflow: hidden;
-		border-radius: 6px;
-		@include boxShadow(0 0 15px 8px rgba(0, 0, 0, 0.1));
-	}
-
-	.home > .featured .preview > .preview-video + .preview-image {
-		display: block;
-	}
-
-	.home > .featured .preview > .preview-video {
-		display: none;
-	}
-
-	/* LIST */
-
 	.home > .list > .project {
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-
 }
 
 @media (max-width: $mobileBreakpointSmall) {
-
-	/* FEATURED */
-
-	$previewWidthSmall: 280px;
-	$previewHeightSmall: 180px;
-
-	.home > .featured {
-		margin-top: $spacingSmall;
-		margin-bottom: $spacingSmall;
-		padding: 10% 0 10% 0;
-	}
-
-	.home > .featured:before {
-		@include transform(skewY(4deg));
-	}
-
-	.home > .featured:after {
-		z-index: 0;
-		bottom: -8%;
-		@include transform(skewY(-20deg));
-	}
-
-	.home > .featured > .container {
-		padding: 0 $paddingSmall 0 $paddingSmall;
-		max-width: 460px + ($paddingSmall * 2);
-	}
-
-	.home > .featured > .container > .text {
-		padding-top: $previewHeightSmall + 20px;
-	}
-
-	.home > .featured h2 {
-		margin-bottom: 10px;
-		font-size: 24px;
-		line-height: 24px;
-	}
-
-	.home > .featured p {
-		margin-bottom: $paddingSmall;
-		font-size: inherit;
-		line-height: inherit;
-	}
-
-	.home > .featured .technologies {
-		margin-top: $spacingSmall;
-	}
-
-	.home > .featured .technologies > li {
-		margin-right: 5px;
-		font-size: 12px;
-		line-height: 12px;
-	}
-
-	.home > .featured .preview {
-		left: $paddingSmall;
-		width: $previewWidthSmall;
-		height: $previewHeightSmall;
-	}
-
-	/* LIST */
 
 	.home > .list {
 		padding: 0 $paddingSmall 0 $paddingSmall;

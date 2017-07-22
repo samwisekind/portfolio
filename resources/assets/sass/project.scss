@@ -22,10 +22,19 @@ $projectList: (
 		color: $colour;
 	}
 
+	.project-content.#{$project} h3,
+	.project-content.#{$project} > h4 {
+		color: $background;
+	}
+
 	.project-header.#{$project},
 	.project-header.#{$project} a.link:after,
 	.project-content.#{$project} .project-highlights:after {
 		background: $background;
+	}
+
+	.project-header.#{$project} a.link:after {
+		background: $colour;
 	}
 
 	.project-header.#{$project} a.link:before {

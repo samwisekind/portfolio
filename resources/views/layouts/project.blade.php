@@ -30,25 +30,29 @@
 				<li>{{ date('M Y', strtotime($project->started)) }} – {{ date('M Y', strtotime($project->ended)) }}</li>
 			</ul>
 
-			<div class="links">
+			@if(isset($project->url_website) || isset($project->url_article))
 
-				@isset($project->url_website)
-					@include('components.link', [
-						'url' => $project->url_website,
-						'icon' => 'external',
-						'text' => 'View website'
-					])
-				@endisset
+				<div class="links">
 
-				@isset($project->url_article)
-					@include('components.link', [
-						'url' => $project->url_article,
-						'icon' => 'external',
-						'text' => 'Read article'
-					])
-				@endisset
+					@isset($project->url_website)
+						@include('components.link', [
+							'url' => $project->url_website,
+							'icon' => 'external',
+							'text' => 'View website'
+						])
+					@endisset
 
-			</div>
+					@isset($project->url_article)
+						@include('components.link', [
+							'url' => $project->url_article,
+							'icon' => 'external',
+							'text' => 'Read article'
+						])
+					@endisset
+
+				</div>
+
+			@endif
 
 		</div>
 
