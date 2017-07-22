@@ -4,7 +4,7 @@
 
 /* COMMON */
 
-$contentWidth: 700px;
+$contentWidth: 680px;
 
 $projectList: (
 	("tng-websites", #FFFFFF, #4FC3F7),
@@ -79,8 +79,8 @@ $projectList: (
 
 .project-header p {
 	margin-bottom: 40px;
-	font-size: 22px;
-	@include lineHeight(22px);
+	font-size: 24px;
+	@include lineHeight(24px);
 }
 
 .project-header ul {
