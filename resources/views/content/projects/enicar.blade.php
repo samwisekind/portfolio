@@ -2,6 +2,13 @@
 
 @section ('project-content')
 
+	@include('components.projects.project-features', ['items' => [
+		'Six-language responsive website',
+		'Cross-compatible with IE6 and above',
+		'Full-screen video, key-frame, and parallax design features',
+		'Custom PHP framework built for collection and watch management'
+	]])
+
 	<p>For almost a century Enicar has been at the forefront of timepiece design in Asia. With the move away from Flash-based websites to native and responsive designs, it was time to overhaul Enicar's online presence and bring it into the modern age just in time for its 100th anniversary.</p>
 
 	<p>Originating from Switzerland, Enicar's prominence spans the world. The website had to support up to six languages including English, Cantonese, Mandarin, Japanese, French, and Spanish. This also meant that the website had to support a wide range of browsers, including older browsers such as Internet Explorer 8 which was still prominent with Asian-Pacific audiences (<a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer">with up to 30% of users in China still using Internet Explorer 8</a> at the time of development). Aspects of the design, such as CSS transitions and parallax scrolling, would have to gracefully degrade or revert to fallbacks for incompatible browsers, while maintaining key aspects of the storytelling-driven design.</p>

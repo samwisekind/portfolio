@@ -6,17 +6,6 @@
 
 $contentWidth: 700px;
 
-
-
-/* PROJECT HEADER */
-
-.project-header {
-	z-index: 10;
-	position: relative;
-	margin: 0 auto $spacingLarge auto;
-	width: 100%;
-}
-
 $projectList: (
 	("tng-websites", #FFFFFF, #4FC3F7),
 	("joyce", #FFFFFF, #000000),
@@ -28,7 +17,8 @@ $projectList: (
 
 @each $project, $color, $background in $projectList {
 
-	.project-header.#{$project} {
+	.project-header.#{$project},
+	.project-content.#{$project} .project-highlights {
 		color: $color;
 		background: $background;
 	}
@@ -51,10 +41,27 @@ $projectList: (
 
 }
 
+
+
+/* PROJECT HEADER */
+
+.project-header {
+	z-index: 10;
+	position: relative;
+	margin: 0 auto $spacingLarge auto;
+	width: 100%;
+}
+
 .project-header > .wrapper {
 	margin: 0 auto 0 auto;
 	padding: $spacingLarge $paddingLarge $spacingLarge $paddingLarge;
 	max-width: $maxWidth + ($paddingLarge * 2);
+}
+
+.project-header h2,
+.project-header p,
+.project-header ul {
+	max-width: $contentWidth;
 }
 
 .project-header h2 {
@@ -147,10 +154,10 @@ $projectList: (
 }
 
 .project-content h3,
-.project-content h4,
-.project-content p,
-.project-content ol,
-.project-content ul {
+.project-content > h4,
+.project-content > p,
+.project-content > ol,
+.project-content > ul {
 	display: block;
 	margin: 20px auto 0 0;
 	max-width: $contentWidth;
@@ -162,17 +169,17 @@ $projectList: (
 	@include lineHeight(26px);
 }
 
-.project-content h4 {
+.project-content > h4 {
 	margin-top: 40px;
 	font-size: 20px;
 	@include lineHeight(20px);
 }
 
-.project-content p {
+.project-content > p {
 	text-align: justify;
 }
 
-.project-content p code {
+.project-content > p code {
 	padding: 2px 4px 2px 4px;
 	color: $colour-greyLight;
 	border-radius: 2px;
@@ -180,21 +187,21 @@ $projectList: (
 	background: $colour-grey;
 }
 
-.project-content ol,
-.project-content ul {
+.project-content > ol,
+.project-content > ul {
 	padding-left: $paddingLarge;
 	list-style-position: outside;
 }
 
-.project-content ol > li,
-.project-content ul > li {
+.project-content > ol > li,
+.project-content > ul > li {
 	margin-left: 1em;
 	margin-bottom: 5px;
 	text-align: justify;
 }
 
-.project-content ol > li:last-child,
-.project-content ul > li:last-child {
+.project-content > ol > li:last-child,
+.project-content > ul > li:last-child {
 	margin-bottom: 0;
 }
 
@@ -206,10 +213,10 @@ $projectList: (
 	}
 
 	.project-content h3,
-	.project-content h4,
-	.project-content p,
-	.project-content ol,
-	.project-content ul {
+	.project-content > h4,
+	.project-content > p,
+	.project-content > ol,
+	.project-content > ul {
 		display: block;
 		margin-top: 10px;
 	}
@@ -220,10 +227,77 @@ $projectList: (
 		@include lineHeight(18px);
 	}
 
-	.project-content h4 {
+	.project-content > h4 {
 		margin-top: $spacingSmall / 2;
 		font-size: 16px;
 		@include lineHeight(16px);
+	}
+
+}
+
+
+
+/* PROJECT HIGHLIGHTS */
+
+.project-highlights {
+	margin-left: -$paddingLarge;
+	margin-top: -$spacingLarge;
+	margin-bottom: $spacingLarge;
+	padding: 0 $paddingLarge $paddingLarge $paddingLarge;
+	@include calc(width, "100% + #{$paddingLarge * 2}");
+	max-width: $contentWidth + ($paddingLarge * 2);
+}
+
+.project-highlights > h3 {
+	margin-top: 0;
+	margin-bottom: 5px;
+	font-size: 18px;
+	@include lineHeight(18px);
+}
+
+.project-highlights > ul {
+	list-style-position: outside;
+}
+
+.project-highlights > ul > li {
+	margin-left: 1em;
+	margin-bottom: 5px;
+	font-size: 16px;
+	@include lineHeight(16px);
+}
+
+.project-highlights > ul > li:last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: #{$contentWidth + ($paddingLarge * 3)}) {
+
+	.project-highlights {
+		margin-left: 0;
+		margin-top: 0;
+		padding: $paddingLarge;
+		width: 100%;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-highlights {
+		margin-bottom: $spacingSmall;
+		padding: $paddingSmall;
+	}
+
+	.project-highlights > h3 {
+		margin-bottom: 5px;
+		font-size: 16px;
+		@include lineHeight(16px);
+	}
+
+	.project-highlights > ul > li {
+		margin-bottom: 2px;
+		font-size: 14px;
+		@include lineHeight(14px);
 	}
 
 }
@@ -279,10 +353,6 @@ $projectList: (
 	.project-caption > .text {
 		display: block;
 		width: 100%;
-	}
-
-	.project-caption > .text {
-		padding: $paddingSmall;
 	}
 
 }

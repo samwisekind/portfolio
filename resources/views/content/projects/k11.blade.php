@@ -2,6 +2,11 @@
 
 @section ('project-content')
 
+	@include('components.projects.project-features', ['items' => [
+		'Inter-connected photo booth solution with iPad app, TV displays, and website',
+		'System designed to overcome camera limitations and WiFi connectivity'
+	]])
+
 	<p>To celebrate the launch of the Iron Panda art display at the K11 art mall in Hong Kong, an interactive photo booth was commissioned that would let visitors take photos of themselves near an art installation using a 360 panoramic camera. Visitors would then be able to view the photos on a website and use an iPad-kiosk to share the photo to social media or display it on a number of TVs inside the mall.</p>
 
 	<p>Due to the short time limit of the project (roughly two weeks), the camera vendor was unable to provide APIs to retrieve photos from the camera. The only method of retrieving the photos was to post to them social media. Coupled with unstable WiFi connectivity inside the mall, we had to develop a creative solution to overcome these limitations while providing a pleasant and seamless experience to visitors.</p>

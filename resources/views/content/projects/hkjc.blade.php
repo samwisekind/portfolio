@@ -2,7 +2,7 @@
 
 @section ('project-content')
 
-	<p>We were commissioned to develop a photo printing booth that would use iPads to print photos in real-time. Users would be able to use the iPads to search for and select photos they had posted on Instagram, Facebook, or Twitter. The photo would be sent wirelessly to a printer nearby where it would be printed instantaneously.</p>
+	<p>We were commissioned by the Hong Kong Jockey Club to develop a photo printing booth that would use iPads to print photos in real-time. Users would be able to use the iPads to search for and select photos they had posted on social media. The photo would be sent wirelessly to a printer nearby where it would be printed instantaneously.</p>
 
 	<h3>iPad App</h3>
 
