@@ -334,6 +334,7 @@ $projectList: (
 .project-caption {
 	position: relative;
 	display: table;
+	table-layout: fixed;
 	margin: $spacingLarge auto $spacingLarge 0;
 	max-width: $maxWidth;
 	background: $colour-white;
@@ -355,9 +356,11 @@ $projectList: (
 
 .project-caption > .media > .video-element,
 .project-caption > .media > .image-element {
+	margin: 0 auto 0 auto;
 	display: block;
 	width: 100%;
 	height: auto;
+	max-width: $contentWidth;
 }
 
 .project-caption > .media > .video-element + .image-element {
@@ -373,6 +376,11 @@ $projectList: (
 }
 
 @media (max-width: $mobileBreakpointLarge) {
+
+	.project-caption {
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 	.project-caption > .media,
 	.project-caption > .text {
