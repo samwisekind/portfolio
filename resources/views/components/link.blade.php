@@ -1,4 +1,4 @@
-<a href="{{ $url }}" class="link {{ $icon }}" @if ($icon === 'external') target="_blank" rel="noopener noreferrer" @endif>
+<a href="{{ $url }}" class="link {{ $icon }} @if($icon === 'play') js-play @endif" @if ($icon === 'external') target="_blank" rel="noopener noreferrer" @endif>
 
 	<span class="text">{{ $text }}</span>
 
@@ -10,6 +10,10 @@
 		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="icon">
 			<path d="M16,10a1,1,0,0,0-1,1v6a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5H9A1,1,0,0,0,9,3H3A3,3,0,0,0,0,6V17a3,3,0,0,0,3,3H14a3,3,0,0,0,3-3V11A1,1,0,0,0,16,10Z" class="icon-layer" />
 			<path d="M19.92.62A1,1,0,0,0,19,0H13a1,1,0,0,0,0,2h3.59L7.29,11.29a1,1,0,1,0,1.41,1.41L18,3.41V7a1,1,0,0,0,2,0V1A1,1,0,0,0,19.92.62Z" class="icon-layer arrow" />
+		</svg>
+	@elseif ($icon === 'play')
+		<svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" class="icon">
+			<path d="M10,8.6l-7.62,5c-1.32.87-2.4.28-2.4-1.3V1.7C0,.12,1.08-.47,2.39.4l7.62,5A1.75,1.75,0,0,1,10,8.6Z" class="icon-layer" />
 		</svg>
 	@endif
 

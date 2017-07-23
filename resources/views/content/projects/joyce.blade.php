@@ -27,7 +27,7 @@
 		@slot('caption', 'Videos on the website use the HTML5 video API, with a lightweight Flash video player fallback.')
 	@endcomponent
 
-	@component('components.projects.project-caption')
+	@component('components.projects.project-caption', ['autoplay' => true])
 		@slot('video', '/videos/projects/joyce/joyce-video-1')
 		@slot('image', '/images/projects/joyce/joyce-image-3.jpg')
 		@slot('caption', 'Stores and brands are relationally-connected and featured throughout the website, listing what brands are stocked in which stores.')

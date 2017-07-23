@@ -47,6 +47,7 @@ a.link > .text {
 
 $iconArrowSize: 18px;
 $iconExternalSize: 16px;
+$iconPlaySize: 11px;
 $iconOffset: 8px;
 
 a.link.arrow > .text {
@@ -57,8 +58,13 @@ a.link.external > .text {
 	padding-right: $iconExternalSize + $iconOffset;
 }
 
+a.link.play > .text {
+	padding-right: $iconPlaySize + ($iconOffset * 2);
+}
+
 a.link.arrow > .icon,
-a.link.external > .icon > .icon-layer.arrow {
+a.link.external > .icon > .icon-layer.arrow,
+a.link.play > .icon {
 	@include transitionTransform(0.2s $easeStandard);
 }
 
@@ -85,14 +91,22 @@ a.link.external > .icon {
 	overflow: visible
 }
 
+a.link.play > .icon {
+	right: $iconOffset;
+	margin-top: -($iconPlaySize / 2);
+	width: $iconPlaySize;
+	height: $iconPlaySize;
+}
+
 $externalArrowOffset: 3px;
+
+a.link.arrow:hover > .icon,
+a.link.play:hover > .icon {
+	@include transform(translateX($iconOffset));
+}
 
 a.link.external:hover > .icon > .icon-layer.arrow {
 	@include transform(translateX($externalArrowOffset) translateY(-$externalArrowOffset));
-}
-
-a.link.arrow:hover > .icon {
-	@include transform(translateX($iconOffset));
 }
 
 a.link > .icon > .icon-layer {

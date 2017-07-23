@@ -5,7 +5,7 @@
 	@include('components.projects.project-highlights', ['items' => [
 		'Multi-language, responsive, IE7-compatible websites',
 		'Interactive 3D globe using WebGL, SVG, and HTML5 canvas',
-		'Interactive 2D map using SVG and CSS3',
+		'Interactive 2D map using SVG and CSS3, with 180 KB total page size',
 		'Support knowledge base with Apache Solr/Lucene and JIRA integration'
 	]])
 
@@ -19,7 +19,7 @@
 
 	<p>The centrepiece of the website was the 'Global Transfer' page, an interactive map displaying the countries where the app was supported. Arguably the most complicated part of the website, <span class="highlight">the total page size is only 180 KB</span>. This was achieved by compiling JavaScript using the <a href="https://github.com/google/closure-compiler" target="_blank" rel="noopener noreferrer">Google Closure Compiler</a>, utilizing gzip compression, compressing SVG path instruction data and writing it directly to the page to reduce the number of HTTP requests.</p></p>
 
-	@component('components.projects.project-caption')
+	@component('components.projects.project-caption', ['autoplay' => true])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-map')
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-map.png')
 		@slot('caption', 'An interactive map was built using a multi-layered SVG, JavaScript, and CSS3 transitions &amp; transformations.')
@@ -38,7 +38,7 @@
 
 	<p>The front-page featured a hero section that was reguarly updated for major events or press releases. We mainly used SVGs and CSS3 transitions to create eye-catching and light-weight designs.</p>
 
-	@component('components.projects.project-caption')
+	@component('components.projects.project-caption', ['autoplay' => false])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-hero')
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-hero.png')
 		@slot('caption')
@@ -48,7 +48,7 @@
 
 	<p>A custom customer support knowledge base was built using Zend, MySQL, and Apache Solr and Lucene. Customers could search for support articles in all languages supported on the website, view related articles and article categories, and submit support tickets.</p>
 
-	@component('components.projects.project-caption')
+	@component('components.projects.project-caption', ['autoplay' => false])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-search')
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-search.png')
 		@slot('caption', 'Using Apache Solr and utilizing Apache Lucene\'s resulted in intelligent keyword and phrase-matching, providing accurate and reliable search results for all three languages used on the website.')

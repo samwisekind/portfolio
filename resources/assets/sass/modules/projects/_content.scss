@@ -1,0 +1,98 @@
+.project-content {
+	margin: $spacingLarge auto $spacingLarge auto;
+	padding: 0 $paddingLarge 0 $paddingLarge;
+	max-width: $maxWidth + ($paddingLarge * 2);
+}
+
+.project-content h3,
+.project-content > h4,
+.project-content > p,
+.project-content > ol,
+.project-content > ul {
+	display: block;
+	margin: 20px auto 0 0;
+	max-width: $contentWidth;
+}
+
+.project-content h3 {
+	margin-top: 60px;
+	font-size: 26px;
+	@include lineHeight(26px);
+}
+
+.project-content > h4 {
+	margin-top: 40px;
+	font-size: 20px;
+	@include lineHeight(20px);
+}
+
+.project-content > p {
+	text-align: justify;
+}
+
+.project-content > ol,
+.project-content > ul {
+	padding-left: $paddingLarge;
+	list-style-position: outside;
+}
+
+.project-content > ol > li,
+.project-content > ul > li {
+	margin-left: 1em;
+	margin-bottom: 5px;
+	text-align: justify;
+}
+
+.project-content > ol > li:last-child,
+.project-content > ul > li:last-child {
+	margin-bottom: 0;
+}
+
+.project-content code,
+.project-content .highlight {
+	padding: 2px 4px 2px 4px;
+	border-radius: 2px;
+}
+
+.project-content code {
+	color: $colour-greyLight;
+	text-shadow: 0 1px 1px $colour-greyDark;
+	background: $colour-grey;
+}
+
+.project-content .highlight {
+	font-weight: 700;
+	white-space: nowrap;
+	color: $colour-white;
+	background: $colour-black;
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-content {
+		margin: 0 auto 0 auto;
+		padding: 0 $paddingSmall 0 $paddingSmall;
+	}
+
+	.project-content h3,
+	.project-content > h4,
+	.project-content > p,
+	.project-content > ol,
+	.project-content > ul {
+		display: block;
+		margin-top: 10px;
+	}
+
+	.project-content h3 {
+		margin-top: $spacingSmall;
+		font-size: 18px;
+		@include lineHeight(18px);
+	}
+
+	.project-content > h4 {
+		margin-top: $spacingSmall / 2;
+		font-size: 16px;
+		@include lineHeight(16px);
+	}
+
+}
