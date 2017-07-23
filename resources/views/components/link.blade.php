@@ -1,4 +1,4 @@
-<a href="{{ $url }}" class="link {{ $icon }} @if($icon === 'play') js-play @endif" @if ($icon === 'external') target="_blank" rel="noopener noreferrer" @endif>
+<a href="{{ $url }}" class="link icon-{{ $icon }} @if($icon === 'play') js-play @endif" @if ($icon === 'external') target="_blank" rel="noopener noreferrer" @endif>
 
 	<span class="text">{{ $text }}</span>
 

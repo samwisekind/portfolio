@@ -9,15 +9,17 @@
 		'Support knowledge base with Apache Solr/Lucene and JIRA integration'
 	]])
 
-	<h3>TNG Fintech Website</h3>
+	<p>This project covers the <a href="#tng-fintech-website">TNG Fintech Website</a> and <a href="#tng-website">TNG Website</a>, two responsive, multi-language websites incorporating 3D and 2D elements to present information, respectively.</p>
+
+	<h3 id="tng-fintech-website">TNG Fintech Website</h3>
 
 	<p>Lorem ipsum.</p>
 
-	<h3>TNG Website</h3>
+	<h3 id="tng-website">TNG Website</h3>
 
 	<p>The TNG Website was the accompanying website for the mobile app. It contained information such as feature details, news and press releases, and a customer support knowledge base and ticket submission system. The website was fully responsive, supported three languages, SEO-optimised, and was compatible with IE7, Android 4.2, and above.</p>
 
-	<p>The centrepiece of the website was the 'Global Transfer' page, an interactive map displaying the countries where the app was supported. Arguably the most complicated part of the website, <span class="highlight">the total page size is only 180 KB</span>. This was achieved by compiling JavaScript using the <a href="https://github.com/google/closure-compiler" target="_blank" rel="noopener noreferrer">Google Closure Compiler</a>, utilizing gzip compression, compressing SVG path instruction data and writing it directly to the page to reduce the number of HTTP requests.</p></p>
+	<p>The centrepiece of the website was the 'Global Transfer' page, an interactive map displaying the countries where the app was supported. Arguably the most complicated part of the website, <span class="highlight">the total page size was only 180 KB</span>. This was achieved by compiling JavaScript using the <a href="https://github.com/google/closure-compiler" target="_blank" rel="noopener noreferrer">Google Closure Compiler</a>, utilizing gzip compression, compressing SVG path instruction data and writing it directly to the page to reduce the number of HTTP requests.</p></p>
 
 	@component('components.projects.project-caption', ['autoplay' => true])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-map')
@@ -46,7 +48,7 @@
 		@endslot
 	@endcomponent
 
-	<p>A custom customer support knowledge base was built using Zend, MySQL, and Apache Solr and Lucene. Customers could search for support articles in all languages supported on the website, view related articles and article categories, and submit support tickets.</p>
+	<p>A custom-built customer support knowledge base was developed using Zend, MySQL, and Apache Solr and Lucene. Customers could search for support articles in all languages supported on the website, view related articles and article categories, and submit support tickets.</p>
 
 	@component('components.projects.project-caption', ['autoplay' => false])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-search')

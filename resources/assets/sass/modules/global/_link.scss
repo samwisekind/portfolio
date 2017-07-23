@@ -50,21 +50,21 @@ $iconExternalSize: 16px;
 $iconPlaySize: 11px;
 $iconOffset: 8px;
 
-a.link.arrow > .text {
+a.link.icon-arrow > .text {
 	padding-right: $iconArrowSize + ($iconOffset * 2);
 }
 
-a.link.external > .text {
+a.link.icon-external > .text {
 	padding-right: $iconExternalSize + $iconOffset;
 }
 
-a.link.play > .text {
+a.link.icon-play > .text {
 	padding-right: $iconPlaySize + ($iconOffset * 2);
 }
 
-a.link.arrow > .icon,
-a.link.external > .icon > .icon-layer.arrow,
-a.link.play > .icon {
+a.link.icon-arrow > .icon,
+a.link.icon-external > .icon > .icon-layer.arrow,
+a.link.icon-play > .icon {
 	@include transitionTransform(0.2s $easeStandard);
 }
 
@@ -76,14 +76,14 @@ a.link > .icon {
 	background-size: contain;
 }
 
-a.link.arrow > .icon {
+a.link.icon-arrow > .icon {
 	right: $iconOffset;
 	margin-top: -($iconArrowSize / 2);
 	width: $iconArrowSize;
 	height: $iconArrowSize;
 }
 
-a.link.external > .icon {
+a.link.icon-external > .icon {
 	right: 0;
 	margin-top: -($iconExternalSize / 2);
 	width: $iconExternalSize;
@@ -91,7 +91,7 @@ a.link.external > .icon {
 	overflow: visible
 }
 
-a.link.play > .icon {
+a.link.icon-play > .icon {
 	right: $iconOffset;
 	margin-top: -($iconPlaySize / 2);
 	width: $iconPlaySize;
@@ -100,12 +100,12 @@ a.link.play > .icon {
 
 $externalArrowOffset: 3px;
 
-a.link.arrow:hover > .icon,
-a.link.play:hover > .icon {
+a.link.icon-arrow:hover > .icon,
+a.link.icon-play:hover > .icon {
 	@include transform(translateX($iconOffset));
 }
 
-a.link.external:hover > .icon > .icon-layer.arrow {
+a.link.icon-external:hover > .icon > .icon-layer.arrow {
 	@include transform(translateX($externalArrowOffset) translateY(-$externalArrowOffset));
 }
 

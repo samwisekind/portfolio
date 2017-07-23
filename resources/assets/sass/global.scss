@@ -24,6 +24,31 @@
 
 
 
+/* COMMON */
+
+$iconSize: 12px;
+$iconSpacing: 4px;
+
+a.external {
+	position: relative;
+	padding-right: $iconSize + ($iconSpacing * 2);
+}
+
+a.external:after {
+	content: "";
+	position: absolute;
+	right: $iconSpacing;
+	top: 50%;
+	display: block;
+	margin-top: -($iconSize / 2);
+	width: $iconSize;
+	height: $iconSize;
+	background: url("../../images/global/global-external.svg") center center no-repeat transparent;
+	background-size: contain;
+}
+
+
+
 /* CONTENT */
 
 .outer-overlay,
