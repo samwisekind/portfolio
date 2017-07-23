@@ -18,7 +18,8 @@ $projectList: (
 @each $project, $colour, $background in $projectList {
 
 	.project-header.#{$project},
-	.project-header.#{$project} a.link {
+	.project-header.#{$project} a.link,
+	.project-content.#{$project} .highlight {
 		color: $colour;
 	}
 
@@ -29,7 +30,8 @@ $projectList: (
 
 	.project-header.#{$project},
 	.project-header.#{$project} a.link:after,
-	.project-content.#{$project} .project-highlights:after {
+	.project-content.#{$project} .project-highlights:after,
+	.project-content.#{$project} .highlight {
 		background: $background;
 	}
 
@@ -201,10 +203,14 @@ $projectList: (
 	text-align: justify;
 }
 
-.project-content > p code {
+.project-content > p code,
+.project-content .highlight {
 	padding: 2px 4px 2px 4px;
-	color: $colour-greyLight;
 	border-radius: 2px;
+}
+
+.project-content > p code {
+	color: $colour-greyLight;
 	text-shadow: 0 1px 1px $colour-greyDark;
 	background: $colour-grey;
 }
@@ -225,6 +231,11 @@ $projectList: (
 .project-content > ol > li:last-child,
 .project-content > ul > li:last-child {
 	margin-bottom: 0;
+}
+
+.project-content .highlight {
+	font-weight: 700;
+	white-space: nowrap;
 }
 
 @media (max-width: $mobileBreakpointSmall) {
