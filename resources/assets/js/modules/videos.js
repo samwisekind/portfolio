@@ -2,8 +2,6 @@ var captions = document.getElementsByClassName('js-caption');
 
 var bindBehaviours = function(element) {
 
-	console.log(element);
-
 	var play = element.getElementsByClassName('js-play')[0];
 	var video = element.getElementsByClassName('js-video')[0];
 
