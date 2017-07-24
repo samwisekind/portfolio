@@ -21,7 +21,7 @@
 					@isset($project->preview_image)
 
 						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
-							<img src="{{ $project->preview_image }}" alt="" class="preview-image" />
+							<img src="{{ $project->preview_image }}" alt="Preview image for the {{ $project->title }} project." class="preview-image" />
 						</a>
 
 					@endisset

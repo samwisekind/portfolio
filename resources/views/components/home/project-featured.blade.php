@@ -54,7 +54,7 @@
 					@endisset
 
 					@isset($featured->preview_image)
-						<img src="{{ $featured->preview_image }}" class="preview-image" alt="Featured project image." />
+						<img src="{{ $featured->preview_image }}" class="preview-image" alt="Preview image for the {{ $featured->title }} project." />
 					@endisset
 
 				</a>
