@@ -22,7 +22,7 @@
 
 		@endisset
 
-		<img src="{{ $image }}" alt="" class="image-element" @isset($width) style="max-width: {{ $width . 'px' }}" @endisset />
+		<img src="{{ $image }}" alt="{{ $alt }}" class="image-element" @isset($width) style="max-width: {{ $width . 'px' }}" @endisset />
 
 	</div>
 

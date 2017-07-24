@@ -21,7 +21,7 @@
 
 	<p>The centrepiece of the website was the 'Global Transfer' page, an interactive 2D map displaying the countries where the app was supported. Arguably the most complicated part of the website, <span class="highlight">the total page size was only 180 KB</span>. This was achieved by compiling JavaScript using the <a href="https://github.com/google/closure-compiler" target="_blank" rel="noopener noreferrer" class="external">Google Closure Compiler</a>, utilizing gzip compression, compressing SVG path instruction data and writing it directly to the page to reduce the number of HTTP requests.</p>
 
-	@component('components.projects.project-caption', ['autoplay' => true])
+	@component('components.projects.project-caption', ['autoplay' => true, 'alt' => 'Screenshot of the Global Transfer in its default (world view) state.'])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-map')
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-map.png')
 		@slot('caption', 'The interactive map was built using a multi-layered SVG, JavaScript, and CSS3 transitions &amp; transformations.')
@@ -33,14 +33,14 @@
 
 	<p>A more detailed and technical write-up on the development of the page <a href="{{ $project->url_article }}" target="_blank" rel="noopener noreferrer" class="external">can be found here</a>.</p>
 
-	@component('components.projects.project-caption', ['width' => 375])
+	@component('components.projects.project-caption', ['width' => 375, 'alt' => 'Screenshot of the Global Transfer page mobile layout with a country selected.'])
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-mobile.png')
 		@slot('caption', 'The mobile layout for the interactive map supports multi-touch panning and pinching to navigate the map.')
 	@endcomponent
 
 	<p>The front-page featured a hero section that was reguarly updated for major events or press releases. We mainly used SVGs and CSS3 transitions to create eye-catching and light-weight designs.</p>
 
-	@component('components.projects.project-caption', ['autoplay' => false])
+	@component('components.projects.project-caption', ['autoplay' => false, 'alt' => 'Screenshot of the website front-page hero section.'])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-hero')
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-hero.png')
 		@slot('caption')
@@ -50,7 +50,7 @@
 
 	<p>A custom-built customer support knowledge base was developed using Zend, MySQL, and Apache Solr and Lucene. Customers could search for support articles in all languages supported on the website, view related articles and article categories, and submit support tickets.</p>
 
-	@component('components.projects.project-caption', ['autoplay' => false])
+	@component('components.projects.project-caption', ['autoplay' => false, 'alt' => 'Screenshot of the support front-page search being used.'])
 		@slot('video', '/videos/projects/tng-websites/tng-websites-video-search')
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-search.png')
 		@slot('caption', 'Using Apache Solr and utilizing Apache Lucene\'s resulted in intelligent keyword and phrase-matching, providing accurate and reliable search results for all three languages used on the website.')
@@ -58,7 +58,7 @@
 
 	<p>Support ticket submission was integrated with the company's internal JIRA system. Submitting a ticket would automatically create a JIRA ticket with the appropriate details, and provide the customer with an email and in-app notification of their ticket reference number for future follow-up.</p>
 
-	@component('components.projects.project-caption', ['width' => 375])
+	@component('components.projects.project-caption', ['width' => 375, 'alt' => 'Screenshot of the support ticket submission mobile layout suggesting potentially helpful articles.'])
 		@slot('image', '/images/projects/tng-websites/tng-websites-image-ticket.png')
 		@slot('caption', 'To reduce ticket submission and increase self-help rates, potentially helpful articles are suggested during support ticket creation both on the website and in the app.')
 	@endcomponent

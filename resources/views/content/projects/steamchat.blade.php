@@ -6,8 +6,8 @@
 
 	<p>The website was built with Laravel which provided convenient model, controller, and routing methods, useful for episode navigation and categorization. The front-page episode player was built with Vue, Axios, and the HTM5 audio API. Audio progress was represented by a full-width overlay spanning the header image, where visitors could click anywhere horizontally to seek the audio.</p>
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/steamchat/steamchat-image-1.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of the front page and the episode player.'])
+		@slot('image', '/images/projects/steamchat/steamchat-image-player.jpg')
 		@slot('caption', 'The front-page episode player features a dramatic overlapping image. Clicking the play button on an episode would dynamically change the player audio and image.')
 	@endcomponent
 

@@ -14,7 +14,7 @@
 	<p>Below is a diagram illustrating the final system structure of the K11 project:</p>
 
 	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'Diagram of the system structure.'])
-		@slot('image', '/images/projects/k11/k11-image-1.png')
+		@slot('image', '/images/projects/k11/k11-image-diagram.png')
 	@endcomponent
 
 	<h3>Off-site server</h3>
@@ -31,8 +31,8 @@
 
 	<h3>iPad App</h3>
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/k11/k11-image-2.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of the iPad app with a photo selected.'])
+		@slot('image', '/images/projects/k11/k11-image-ipad.jpg')
 		@slot('caption', 'Tapping \'Display on TV\' would send the URL of the currently selected photo to the on-site server via a HTTP POST request, which would update the on-site JSON file and \'bounce\' the request to the TVs.')
 	@endcomponent
 
@@ -48,8 +48,8 @@
 
 	<p>The TVs were connected to Mac Mini's, which were running Chrome in kiosk mode displaying a locally-hosted webpage that used a Flash-based application to show the photos. The application was copied from the vendor's website, however initially it would not run as it would throw cross-domain security policy errors when loading the photos from the local network. We overcame this by running the webpage through a local proxy that would fake the local hostname as being that of the vendor's website. Additionally, modifying parts of the application's ActionScript layer allowed the sphere to automatically rotate.</p>
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/k11/k11-image-3.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of the TV display.'])
+		@slot('image', '/images/projects/k11/k11-image-tv.jpg')
 		@slot('caption', 'The interface used for the displays, showing the panoramas in a rotating equirectangular sphere.')
 	@endcomponent
 
@@ -57,8 +57,8 @@
 
 	<p>A website was also developed, which allowed users to view photos and share them to Facebook or Weibo.</p>
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/k11/k11-image-4.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of the website.'])
+		@slot('image', '/images/projects/k11/k11-image-website.jpg')
 		@slot('caption', 'The photo booth website, with support for IE6 and above.')
 	@endcomponent
 

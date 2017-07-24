@@ -8,12 +8,12 @@
 
 	<p>We developed the iPad app using <a href="https://cordova.apache.org/" target="_blank" rel="noopener noreferrer" class="external">Cordova</a>. The app would send a HTTP <code>GET</code> request to the <a href="http://www.wayin.com" target="_blank" rel="noopener noreferrer" class="external">Wayin</a> API service which would return a list of all the social media images of the event posted under a set of hashtags related to the event.</p>
 
-	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'Screenshot of the HKJC app.'])
-		@slot('image', '/images/projects/hkjc/hkjc-image-1.jpg')
+	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'Screenshot of the iPad app\'s image selection page.'])
+		@slot('image', '/images/projects/hkjc/hkjc-image-selection.jpg')
 	@endcomponent
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/hkjc/hkjc-image-2.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of the iPad app with an image open.'])
+		@slot('image', '/images/projects/hkjc/hkjc-image-photo.jpg')
 		@slot('caption')
 			Tapping the 'print' button would send a HTTP <code>POST</code> request to the printing server with the image URL and a random printer ID.
 		@endslot

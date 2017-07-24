@@ -13,28 +13,28 @@
 
 	<p>Although Joyce's influence spans the world, its roots come from Hong Kong. At the time of development, <a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer" class="external">up to 30%</a> of users in China still used Internet Explorer 8. Ensuring solid cross-browser support while maintaining a pixel-perfect design appropriate for such a prestigious brand was a fundamental and challenging goal of the project.</p>
 
-	@component('components.projects.project-image', ['size' => 'large', 'alt' => 'TBA'])
-		@slot('image', '/images/projects/joyce/joyce-image-1.jpg')
+	@component('components.projects.project-image', ['size' => 'large', 'alt' => 'Screenshot of the front-page of the website.'])
+		@slot('image', '/images/projects/joyce/joyce-image-grid.jpg')
 	@endcomponent
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/joyce/joyce-image-1.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of a section landing page, showing the header grid.'])
+		@slot('image', '/images/projects/joyce/joyce-image-grid.jpg')
 		@slot('caption', 'A custom WordPress plugin was developed which allowed for images to be uploaded and placed in a single grid cell or across multiple cells. Hyperlinks could also be defined per-cell or across several at once.')
 	@endcomponent
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/joyce/joyce-image-2.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of a feature article.'])
+		@slot('image', '/images/projects/joyce/joyce-image-feature.jpg')
 		@slot('caption', 'Videos on the website use the HTML5 video API, with a lightweight Flash video player fallback.')
 	@endcomponent
 
-	@component('components.projects.project-caption', ['autoplay' => true])
-		@slot('video', '/videos/projects/joyce/joyce-video-1')
-		@slot('image', '/images/projects/joyce/joyce-image-3.jpg')
+	@component('components.projects.project-caption', ['autoplay' => true, 'alt' => 'Screenshot of brands being filtered in the stores and brands directory page.'])
+		@slot('video', '/videos/projects/joyce/joyce-video-brands')
+		@slot('image', '/images/projects/joyce/joyce-image-brands.jpg')
 		@slot('caption', 'Stores and brands are relationally-connected and featured throughout the website, listing what brands are stocked in which stores.')
 	@endcomponent
 
-	@component('components.projects.project-caption')
-		@slot('image', '/images/projects/joyce/joyce-image-4.jpg')
+	@component('components.projects.project-caption', ['alt' => 'Screenshot of a store page.'])
+		@slot('image', '/images/projects/joyce/joyce-image-store.jpg')
 		@slot('caption', 'The stores directory contains information such as opening times, contact numbers, and store address.')
 	@endcomponent
 
@@ -44,12 +44,12 @@
 
 	<p>Features included a site-wide shopping basket, real-time tracking of online and physical store stock and inventory, membership and loyalty program management, native iOS and Android store-app development, and more.</p>
 
-	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'TBA'])
-		@slot('image', '/images/projects/joyce/joyce-image-5.jpg')
+	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'Image showing the design mock-up for the e-Shop front-page.'])
+		@slot('image', '/images/projects/joyce/joyce-image-eshop-store.jpg')
 	@endcomponent
 
-	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'TBA'])
-		@slot('image', '/images/projects/joyce/joyce-image-6.jpg')
+	@component('components.projects.project-image', ['size' => 'small', 'alt' => 'Image showing the design mock-up for the site-wide e-Shop shopping basket.'])
+		@slot('image', '/images/projects/joyce/joyce-image-eshop-basket.jpg')
 	@endcomponent
 
 	<h3>Careers Site</h3>
