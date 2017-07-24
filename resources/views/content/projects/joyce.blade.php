@@ -11,7 +11,7 @@
 
 	<p>Joyce is one of Hong Kong's most famous and respected luxury retailers, and they needed a new online identity. The task was to redesign their website from the ground-up for the modern internet.</p>
 
-	<p>Although Joyce's influence spans the world, its roots come from Hong Kong. At the time of development, <a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer">up to 30% of users in China still used Internet Explorer 8</a>. Ensuring solid cross-browser support while maintaining a pixel-perfect design appropriate for such a prestigious brand was a fundamental and challenging goal of the project.</p>
+	<p>Although Joyce's influence spans the world, its roots come from Hong Kong. At the time of development, <a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer" class="external">up to 30%</a> of users in China still used Internet Explorer 8. Ensuring solid cross-browser support while maintaining a pixel-perfect design appropriate for such a prestigious brand was a fundamental and challenging goal of the project.</p>
 
 	@component('components.projects.project-image', ['size' => 'large', 'alt' => 'TBA'])
 		@slot('image', '/images/projects/joyce/joyce-image-1.jpg')

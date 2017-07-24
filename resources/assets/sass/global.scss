@@ -31,13 +31,14 @@ $iconSpacing: 4px;
 
 a.external {
 	position: relative;
-	padding-right: $iconSize + ($iconSpacing * 2);
+	padding-right: $iconSize + $iconSpacing;
+	white-space: nowrap;
 }
 
 a.external:after {
 	content: "";
 	position: absolute;
-	right: $iconSpacing;
+	right: 0;
 	top: 50%;
 	display: block;
 	margin-top: -($iconSize / 2);
