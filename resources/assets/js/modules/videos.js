@@ -8,6 +8,7 @@ var bindBehaviours = function(element) {
 	play.addEventListener('click', function(event) {
 		event.preventDefault();
 		video.play();
+		video.setAttribute('controls', true);
 		element.classList.add('playing');
 	});
 

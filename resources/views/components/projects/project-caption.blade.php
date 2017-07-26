@@ -14,7 +14,7 @@
 				</div>
 			@endif
 
-			<video loop muted @if($autoplay === true) autoplay @endif poster="{{ $image }}" class="video-element js-video" @isset($width) style="max-width: {{ $width . 'px' }}" @endisset>
+			<video loop muted @if($autoplay === true) autoplay controls @endif poster="{{ $image }}" class="video-element js-video" @isset($width) style="max-width: {{ $width . 'px' }}" @endisset>
 				<source src="{{ $video }}.mp4" type="video/mp4">
 				<source src="{{ $video }}.webm" type="video/webm">
 				<source src="{{ $video }}.ogv" type="video/ogg">
