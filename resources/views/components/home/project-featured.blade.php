@@ -6,14 +6,14 @@
 
 			<div class="text">
 
-				<h2><a href="{{ $app->make('url')->to('/projects/' . $featured->key) }}">{{ $featured->title }}</a></h2>
+				<h2><a href="{{ route('project', ['project' => $featured->key]) }}">{{ $featured->title }}</a></h2>
 
 				<p>{{ $featured->description }}</p>
 
 				<div class="links">
 
 					@include('components.link', [
-						'url' => $app->make('url')->to('/projects/' . $featured->key),
+						'url' => route('project', ['project' => $featured->key]),
 						'icon' => 'arrow',
 						'text' => 'Learn more'
 					])
@@ -43,7 +43,7 @@
 
 			@if(isset($featured->preview_video) || isset($featured->preview_image))
 
-				<a href="{{ $app->make('url')->to('/projects/' . $featured->key) }}" class="preview">
+				<a href="{{ route('project', ['project' => $featured->key]) }}" class="preview">
 
 					@isset($featured->preview_video)
 						<video autoplay loop muted @isset($featured->preview_image) poster="{{ $featured->preview_image }}" @endisset class="preview-video">

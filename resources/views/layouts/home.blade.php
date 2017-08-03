@@ -20,7 +20,7 @@
 
 					@isset($project->preview_image)
 
-						<a href="{{ $app->make('url')->to('/projects/' . $project->key) }}" class="preview">
+						<a href="{{ route('project', ['project' => $project->key]) }}" class="preview">
 							<img src="{{ $project->preview_image }}" alt="Preview image for the {{ $project->title }} project." class="preview-image" />
 						</a>
 
@@ -28,14 +28,14 @@
 
 					<div class="text">
 
-						<h2><a href="{{ $app->make('url')->to('/projects/' . $project->key) }}">{{ $project->title }}</a></h2>
+						<h2><a href="{{ route('project', ['project' => $project->key]) }}">{{ $project->title }}</a></h2>
 
 						<p>{{ $project->description }}</p>
 
 						<div class="links">
 
 							@include('components.link', [
-								'url' => $app->make('url')->to('/projects/' . $project->key),
+								'url' => route('project', ['project' => $project->key]),
 								'icon' => 'arrow',
 								'text' => 'Learn more'
 							])
