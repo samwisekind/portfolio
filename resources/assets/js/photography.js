@@ -1,5 +1,4 @@
 var Vue = require('vue');
-var axios = require('axios');
 var hammer = require('hammerjs');
 
 (function(){
@@ -211,40 +210,45 @@ var hammer = require('hammerjs');
 		methods: {
 			getAlbumList: function() {
 
-				axios.get('/api/album')
-					.then(function(response) {
-						photography.albumList = response.data; // Store album list data
-						photography.loadingPhoto = false; // Hide loading
-						if (photography.albumData === null) {
-							photography.getAlbumData('portfolio');
-						}
-					})
-					.catch(function(error) {
-						console.log(error);
-					});
+				var request = new XMLHttpRequest();
+				request.open('GET', '/api/album', true);
+
+				request.onload = function() {
+					response = JSON.parse(request.responseText);
+					console.log(response);
+					photography.albumList = response; // Store album list data
+					photography.loadingPhoto = false; // Hide loading
+					if (photography.albumData === null) {
+						photography.getAlbumData('portfolio');
+					}
+				};
+
+				request.send();
 
 			},
 			getAlbumData: function(album) {
 
 				this.loadingAlbum = true;
 
-				axios.get('/api/album/' + album)
-					.then(function(response) {
-						photography.albumData = response.data; // Store album photo data
-						photography.selectedAlbum = album; // Set the album key for the drop-down selected option
-						photography.photoIndex = photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
-						photography.changePhoto(photography.selectedIndex); // Load the first photo via the pre-loading method
-						photography.resizeSidebar();
-						if (photography.selectedAlbum === null) {
-							photography.selectedAlbum = 'portfolio';
-						}
-						else {
-							photography.selectedAlbum = album;
-						}
-					})
-					.catch(function(error) {
-						console.log(error);
-					});
+				var request = new XMLHttpRequest();
+				request.open('GET', '/api/album/' + album, true);
+
+				request.onload = function() {
+					response = JSON.parse(request.responseText);
+					photography.albumData = response; // Store album photo data
+					photography.selectedAlbum = album; // Set the album key for the drop-down selected option
+					photography.photoIndex = photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
+					photography.changePhoto(photography.selectedIndex); // Load the first photo via the pre-loading method
+					photography.resizeSidebar();
+					if (photography.selectedAlbum === null) {
+						photography.selectedAlbum = 'portfolio';
+					}
+					else {
+						photography.selectedAlbum = album;
+					}
+				};
+
+				request.send();
 
 			},
 			changeAlbum: function(key) {
