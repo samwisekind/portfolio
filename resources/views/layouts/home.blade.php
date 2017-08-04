@@ -8,11 +8,11 @@
 
 @section('content')
 
-	<div class="home">
+	<main class="home">
 
 		@include('components.home.project-featured')
 
-		<div class="list">
+		<section class="list">
 
 			@foreach($projects as $project)
 
@@ -72,8 +72,8 @@
 
 			@endforeach
 
-		</div>
+		</section>
 
-	</div>
+	</main>
 
 @endsection

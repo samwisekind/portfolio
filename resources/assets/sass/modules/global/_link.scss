@@ -106,7 +106,7 @@ a.link.icon-play:hover > .icon {
 }
 
 a.link.icon-external:hover > .icon > .icon-layer.arrow {
-	@include transform(translateX($externalArrowOffset) translateY(-$externalArrowOffset));
+	@include transform(translate($externalArrowOffset, -$externalArrowOffset));
 }
 
 a.link > .icon > .icon-layer {

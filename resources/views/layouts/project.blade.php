@@ -8,60 +8,64 @@
 
 @section ('content')
 
-	<div class="project-header {{ $project->key }}">
+	<main>
 
-		<div class="wrapper">
+		<section class="project-header {{ $project->key }}">
 
-			<h2>{{ $project->title }}</h2>
-			<p>{{ $project->description }}</p>
+			<div class="wrapper">
 
-			<ul>
-				<li class="title">Responsibilities:</li>
-				<li>{{ $project->responsibilities }}</li>
-			</ul>
+				<h2>{{ $project->title }}</h2>
+				<p>{{ $project->description }}</p>
 
-			<ul>
-				<li class="title">Technologies:</li>
-				<li>{{ str_replace(';', ',', $project->technologies) }}</li>
-			</ul>
+				<ul>
+					<li class="title">Responsibilities:</li>
+					<li>{{ $project->responsibilities }}</li>
+				</ul>
 
-			<ul>
-				<li class="title">Timeframe:</li>
-				<li>{{ date('M Y', strtotime($project->started)) }} – {{ date('M Y', strtotime($project->ended)) }}</li>
-			</ul>
+				<ul>
+					<li class="title">Technologies:</li>
+					<li>{{ str_replace(';', ',', $project->technologies) }}</li>
+				</ul>
 
-			@if(isset($project->url_article) || isset($project->url_website))
+				<ul>
+					<li class="title">Timeframe:</li>
+					<li>{{ date('M Y', strtotime($project->started)) }} – {{ date('M Y', strtotime($project->ended)) }}</li>
+				</ul>
 
-				<div class="links">
+				@if(isset($project->url_article) || isset($project->url_website))
 
-					@isset($project->url_article)
-						@include('components.link', [
-							'url' => $project->url_article,
-							'icon' => 'external',
-							'text' => 'Read article'
-						])
-					@endisset
+					<div class="links">
 
-					@isset($project->url_website)
-						@include('components.link', [
-							'url' => $project->url_website,
-							'icon' => 'external',
-							'text' => 'View website'
-						])
-					@endisset
+						@isset($project->url_article)
+							@include('components.link', [
+								'url' => $project->url_article,
+								'icon' => 'external',
+								'text' => 'Read article'
+							])
+						@endisset
 
-				</div>
+						@isset($project->url_website)
+							@include('components.link', [
+								'url' => $project->url_website,
+								'icon' => 'external',
+								'text' => 'View website'
+							])
+						@endisset
 
-			@endif
+					</div>
 
-		</div>
+				@endif
 
-	</div>
+			</div>
 
-	<div class="project-content {{ $project->key }}">
+		</section>
 
-		@yield ('project-content')
+		<section class="project-content {{ $project->key }}">
 
-	</div>
+			@yield ('project-content')
+
+		</section>
+
+	</main>
 
 @endsection

@@ -1,6 +1,6 @@
 @isset($featured)
 
-	<div class="featured">
+	<section class="featured">
 
 		<div class="container">
 
@@ -63,6 +63,6 @@
 
 		</div>
 
-	</div>
+	</section>
 
 @endisset

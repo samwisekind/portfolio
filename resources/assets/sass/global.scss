@@ -48,6 +48,13 @@ a.external:after {
 	background-size: contain;
 }
 
+p .highlight,
+li .highlight {
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba($colour-purple, 0.2);
+}
+
 
 
 /* CONTENT */
