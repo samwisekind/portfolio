@@ -142,12 +142,16 @@ a.external:after {
 		@include transitionDelay(0.2s);
 	}
 
-	.outer-menu .links > li:nth-child(1) > a {
+	.outer-menu .nav > li:nth-child(4) > a {
 		@include transitionDelay(0.25s);
 	}
 
-	.outer-menu .links > li:nth-child(2) > a {
+	.outer-menu .links > li:nth-child(1) > a {
 		@include transitionDelay(0.3s);
+	}
+
+	.outer-menu .links > li:nth-child(2) > a {
+		@include transitionDelay(0.45s);
 	}
 
 	.outer-menu > ul > li.current > a {

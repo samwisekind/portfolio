@@ -48,23 +48,12 @@
 	margin-bottom: 0;
 }
 
-.project-content code,
-.project-content .highlight {
-	padding: 2px 4px 2px 4px;
-	border-radius: 2px;
-}
-
 .project-content code {
+	padding: 2px 4px 2px 4px;
 	color: $colour-greyLight;
 	text-shadow: 0 1px 1px $colour-greyDark;
+	border-radius: 2px;
 	background: $colour-grey;
-}
-
-.project-content .highlight {
-	font-weight: 700;
-	white-space: nowrap;
-	color: $colour-white;
-	background: $colour-black;
 }
 
 @media (max-width: $mobileBreakpointSmall) {

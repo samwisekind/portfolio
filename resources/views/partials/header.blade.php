@@ -9,7 +9,10 @@
 		$meta_image = $app->make('url')->to('/images/seo/meta-image-default.png');
 
 		if (isset($page_title)) {
-			$meta_title = $page_title . ' Project — ' . $meta_title;
+			if ($page_section === 'project') {
+				$page_title = $page_title . ' Project';
+			}
+			$meta_title = $page_title . ' — ' . $meta_title;
 		}
 
 		if (isset($page_description)) {

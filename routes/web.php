@@ -118,3 +118,12 @@ $app->get('/photography', ['as' => 'photography', function () {
 	]);
 
 }]);
+
+$app->get('/about', ['as' => 'about', function () {
+
+	return view('layouts.about', [
+		'page_section' => 'about',
+		'page_title' => 'About'
+	]);
+
+}]);

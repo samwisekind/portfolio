@@ -1,6 +1,7 @@
 <ul class="nav">
 	<li class="@if ($page_section === 'home' || $page_section === 'project') current @endif"><a href="{{ route('home') }}"><span>Projects</span></a></li>
 	<li class="@if ($page_section === 'photography') current @endif"><a href="{{ route('photography') }}"><span>Photography</span></a></li>
+	<li class="@if ($page_section === 'about') current @endif"><a href="{{ route('about') }}"><span>About</span></a></li>
 </ul>
 
 <ul class="links">
