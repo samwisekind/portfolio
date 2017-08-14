@@ -127,7 +127,6 @@ li .highlight {
 	.outer-menu > ul > li > a {
 		padding: 20px 10% 20px 0;
 		display: block;
-		font-weight: 400;
 		text-align: right;
 		text-decoration: none;
 		color: $colour-white;
@@ -159,10 +158,6 @@ li .highlight {
 
 	.outer-menu .links > li:nth-child(2) > a {
 		@include transitionDelay(0.45s);
-	}
-
-	.outer-menu > ul > li.current > a {
-		font-weight: 700;
 	}
 
 	.outer-menu > ul > li.current > a,

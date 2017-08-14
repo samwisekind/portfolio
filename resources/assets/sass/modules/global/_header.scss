@@ -75,10 +75,6 @@ $headerLinkLineHeight: 2px;
 	line-height: 20px;
 }
 
-.global-header .nav .current > a {
-	font-weight: 700;
-}
-
 .global-header .links {
 	float: right;
 }
@@ -165,8 +161,8 @@ $headerLinkLineHeight: 2px;
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		margin-left: -(40px / 2);
-		margin-top: -(30px / 2);
+		margin-left: -($hamburgerIconWidth / 2);
+		margin-top: -($hamburgerIconHeight / 2);
 		display: block;
 		width: $hamburgerIconWidth;
 		height: $hamburgerIconHeight;
@@ -174,7 +170,7 @@ $headerLinkLineHeight: 2px;
 	}
 
 	body.menu .global-header .hamburger:before {
-		background-position: -40px center;
+		background-position: -$hamburgerIconWidth center;
 	}
 
 }
