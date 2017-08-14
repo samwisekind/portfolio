@@ -18,18 +18,9 @@
 				<p>{{ $project->description }}</p>
 
 				<ul>
-					<li class="title">Responsibilities:</li>
-					<li>{{ $project->responsibilities }}</li>
-				</ul>
-
-				<ul>
-					<li class="title">Technologies:</li>
-					<li>{{ str_replace(';', ',', $project->technologies) }}</li>
-				</ul>
-
-				<ul>
-					<li class="title">Timeframe:</li>
-					<li>{{ date('M Y', strtotime($project->started)) }} – {{ date('M Y', strtotime($project->ended)) }}</li>
+					<li><span class="title">Responsibilities:</span> {{ $project->responsibilities }}</li>
+					<li><span class="title">Technologies:</span> {{ str_replace(';', ',', $project->technologies) }}</li>
+					<li><span class="title">Timeframe:</span> {{ date('M Y', strtotime($project->started)) }} – {{ date('M Y', strtotime($project->ended)) }}</li>
 				</ul>
 
 				@if(isset($project->url_article) || isset($project->url_website))
