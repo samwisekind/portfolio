@@ -1,6 +1,7 @@
 $headerHeight: 100px;
 $headerLinkPadding: 10px;
 $headerLinkIconSize: 24px;
+$headerLinkLineHeight: 2px;
 
 .global-header {
 	z-index: 100;
@@ -34,6 +35,11 @@ $headerLinkIconSize: 24px;
 
 .global-header ul > li {
 	float: left;
+	margin-right: 20px;
+}
+
+.global-header ul > li:last-child {
+	margin-right: 0;
 }
 
 .global-header a {
@@ -45,8 +51,8 @@ $headerLinkIconSize: 24px;
 
 .global-header a span {
 	display: block;
-	padding: 4px;
-	border-bottom: 2px solid transparent;
+	padding-top: $headerLinkLineHeight;
+	border-bottom: $headerLinkLineHeight solid transparent;
 }
 
 .global-header a:hover span,
@@ -60,18 +66,13 @@ $headerLinkIconSize: 24px;
 }
 
 .global-header .title {
-	margin-right: 20px;
+	margin-right: 40px;
 }
 
 .global-header .title > a {
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 20px;
-}
-
-.global-header .nav a,
-.global-header .links a {
-	padding: 0 $headerLinkPadding 0 $headerLinkPadding;
 }
 
 .global-header .nav .current > a {
@@ -84,14 +85,14 @@ $headerLinkIconSize: 24px;
 
 .global-header .links a {
 	position: relative;
-	padding-left: $headerLinkIconSize + $headerLinkPadding + ($headerLinkPadding / 2);
+	padding-left: $headerLinkIconSize + ($headerLinkPadding / 2);
 }
 
 .global-header .links a:before,
 .outer-menu .links a span:before {
 	content: "";
 	position: absolute;
-	left: $headerLinkPadding;
+	left: 0;
 	top: 50%;
 	margin-top: -($headerLinkIconSize / 2);
 	display: inline-block;
@@ -112,17 +113,13 @@ $headerLinkIconSize: 24px;
 @media (max-width: 900px) {
 
 	.global-header .links a {
-		padding: 4px 10px 0 10px;
+		padding-left: 0;
 	}
 
 	.global-header .links a:before {
 		position: static;
 		margin: 0 auto 5px auto;
 		display: block;
-	}
-
-	.global-header .links a span {
-		padding-bottom: 0;
 	}
 
 }

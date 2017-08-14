@@ -20,5 +20,9 @@
   },
   "dependencies": {
     "npm-check-updates": "^2.12.0"
-  }
+  },
+  "browserslist": [
+    "> 0%",
+    "ie >= 9"
+  ]
 }
