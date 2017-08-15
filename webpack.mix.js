@@ -12,6 +12,7 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/global.js', 'public/js')
+   .js('resources/assets/js/home.js', 'public/js')
    .js('resources/assets/js/photography.js', 'public/js')
    .sass('resources/assets/sass/global.scss', 'public/css').options({
       processCssUrls: false

@@ -43,7 +43,6 @@ $projectMaxWidth: 470px;
 
 .home > .list > .project {
 	z-index: 10;
-	position: relative;
 	display: block;
 	margin-bottom: $paddingLarge;
 	max-width: $projectMaxWidth;
@@ -127,17 +126,30 @@ $technologiesItemMargin: 10px;
 		@include calc(width, "50% - #{$paddingLarge / 2}");
 	}
 
+	.home > .list.columns > .project {
+		position: absolute;
+		margin-bottom: 0;
+		@include calc(width, "50% - #{$paddingLarge + ($paddingLarge / 2)}");
+	}
+
 	.home > .list > .project:nth-child(odd) {
+		clear: both;
 		float: left;
+		left: $paddingLarge;
 	}
 
 	.home > .list > .project:nth-child(even) {
 		float: right;
+		right: $paddingLarge;
 	}
 
 }
 
 @media (max-width: $mobileBreakpointLarge) {
+
+	.home > .list {
+		height: auto !important;
+	}
 
 	.home > .list > .project {
 		margin-left: auto;

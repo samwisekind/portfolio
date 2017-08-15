@@ -12,11 +12,11 @@
 
 		@include('components.home.project-featured')
 
-		<section class="list">
+		<section class="list js-list">
 
 			@foreach($projects as $project)
 
-				<div class="project">
+				<div class="project js-project">
 
 					@isset($project->preview_image)
 
@@ -75,5 +75,11 @@
 		</section>
 
 	</main>
+
+@endsection
+
+@section ('javascript')
+
+	<script src="/js/home.js" type="text/javascript"></script>
 
 @endsection
