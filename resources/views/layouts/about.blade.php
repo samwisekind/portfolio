@@ -20,7 +20,7 @@
 
 			<p>I like to use Vue, Canvas, SVG, SCSS, Node, Gulp, and Laravel, to name a few. Recently I've been working (and having lots of fun!) with <span class="highlight">WebGL</span> and <span class="highlight">three.js</span>.</p>
 
-			<p>If you want to get in touch, feel free to email me at <a href="mailto:sam@flamov.com?subject=Hello!">sam@flamov.com</a>. You can also find me on <a href="https://www.github.com/Flamov" target="_blank" rel="noopener noreferrer" class="external">GitHub</a>, <a href="https://www.codepen.io/Flamov" target="_blank" rel="noopener noreferrer" class="external">Codepen</a>, and probably rambling on <a href="https://www.twitter.com/Flamov" target="_blank" rel="noopener noreferrer" class="external">Twitter</a>.</p>
+			<p>If you want to get in touch, feel free to email me at <a href="mailto:sam@flamov.com?subject=Hello!">sam@flamov.com</a>. You can also find me on <a href="https://github.com/Flamov" target="_blank" rel="noopener noreferrer" class="external">GitHub</a>, <a href="https://codepen.io/Flamov" target="_blank" rel="noopener noreferrer" class="external">Codepen</a>, and probably rambling on <a href="https://twitter.com/Flamov" target="_blank" rel="noopener noreferrer" class="external">Twitter</a>.</p>
 
 			<p>A r&eacute;sum&eacute; is also available upon request.</p>
 
