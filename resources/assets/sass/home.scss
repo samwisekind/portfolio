@@ -41,6 +41,10 @@ $projectMaxWidth: 470px;
 	max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
 }
 
+.home > .featured + .list {
+	margin-top: 0;
+}
+
 .home > .list > .project {
 	z-index: 10;
 	display: block;
@@ -118,6 +122,10 @@ $technologiesItemMargin: 10px;
 
 @media (min-width: $mobileBreakpointLarge + 1px) {
 
+	.home > .list {
+		margin-top: $spacingLarge;
+	}
+
 	.home > .list:after {
 		@include clearFix;
 	}
@@ -148,6 +156,7 @@ $technologiesItemMargin: 10px;
 @media (max-width: $mobileBreakpointLarge) {
 
 	.home > .list {
+		margin-top: $spacingSmall;
 		height: auto !important;
 	}
 
