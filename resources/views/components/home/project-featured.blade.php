@@ -18,13 +18,19 @@
 						'text' => 'Learn more'
 					])
 
-					@isset($featured->url_article)
+					@if(isset($featured->url_article))
 						@include('components.link', [
 							'url' => $featured->url_article,
 							'icon' => 'external',
 							'text' => 'Read article'
 						])
-					@endisset
+					@elseif(isset($featured->url_website))
+						@include('components.link', [
+							'url' => $featured->url_website,
+							'icon' => 'external',
+							'text' => 'View website'
+						])
+					@endif
 
 				</div>
 
