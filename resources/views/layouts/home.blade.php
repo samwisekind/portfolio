@@ -40,13 +40,19 @@
 								'text' => 'Learn more'
 							])
 
-							@isset($project->url_article)
+							@if(isset($project->url_article))
 								@include('components.link', [
 									'url' => $project->url_article,
 									'icon' => 'external',
 									'text' => 'Read article'
 								])
-							@endisset
+							@elseif(isset($project->url_website))
+								@include('components.link', [
+									'url' => $project->url_website,
+									'icon' => 'external',
+									'text' => 'View website'
+								])
+							@endif
 
 						</div>
 
