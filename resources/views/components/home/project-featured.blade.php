@@ -6,7 +6,9 @@
 
 			<div class="text">
 
-				<h2><a href="{{ route('project', ['project' => $featured->key]) }}">{{ $featured->title }}</a></h2>
+				<h2>
+					<a href="{{ route('project', ['project' => $featured->key]) }}">{{ $featured->title }}</a>
+				</h2>
 
 				<p>{{ $featured->description }}</p>
 

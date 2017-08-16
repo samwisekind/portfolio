@@ -28,7 +28,9 @@
 
 					<div class="text">
 
-						<h2><a href="{{ route('project', ['project' => $project->key]) }}">{{ $project->title }}</a></h2>
+						<h2>
+							<a href="{{ route('project', ['project' => $project->key]) }}">{{ $project->title }}</a>
+						</h2>
 
 						<p>{{ $project->description }}</p>
 
