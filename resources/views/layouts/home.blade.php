@@ -21,7 +21,7 @@
 					@isset($project->preview_image)
 
 						<a href="{{ route('project', ['project' => $project->key]) }}" class="preview">
-							<img src="{{ $project->preview_image }}" alt="Preview image for the {{ $project->title }} project." class="preview-image" />
+							<img src="{{ $project->preview_image }}" alt="Preview image for the {{ $project->title }} project." class="preview-image js-image" />
 						</a>
 
 					@endisset

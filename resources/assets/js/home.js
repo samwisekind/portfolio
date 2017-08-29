@@ -14,9 +14,11 @@ var sizes = {
 
 function init() {
 
+	var i;
+
 	$list.classList.add('columns');
 
-	for (var i = 0; i < $projects.length; i++) {
+	for (i = 0; i < $projects.length; i++) {
 
 		/*
 			Loop through the project elements and assign them to either the
@@ -32,14 +34,28 @@ function init() {
 
 	}
 
+	for (i = 0; i < $projects.length; i++) {
+
+		/*
+			Loop through the project elements again once they've been assigned
+			to columns and add event listeners to the image elements as they
+			sometimes take time to load (and affect overall column height)
+		*/
+
+		var image = $projects[i].getElementsByClassName('js-image')[0];
+
+		if (image) {
+			image.onload = resizeBehaviour;
+		}
+
+	}
+
 	/*
 		Bind the resize behaviour to a window resize event, and call the
 		function immediately
 	*/
 
-	window.addEventListener('resize', function() {
-		resizeBehaviour();
-	});
+	window.addEventListener('resize', resizeBehaviour);
 
 	resizeBehaviour();
 
