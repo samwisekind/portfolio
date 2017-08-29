@@ -133,8 +133,4 @@ function resizeContainer() {
 
 }
 
-(function(){
-
-	init();
-
-})();
+(init)();
