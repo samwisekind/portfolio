@@ -11,21 +11,43 @@
 |
 */
 
-$app->get('/', function () {
+$app->get('/', ['as' => 'home', function () {
 
-	$result = app('db')->table('projects')
+	// Get the featured project ID from the config table
+	$featured = app('db')->table('config')
+		->value('featured_project');
+
+	// Get the projects from the projects table
+	$projects = app('db')->table('projects')
+		->where('enabled', true)
 		->orderBy('order', 'asc')
 		->get();
 
+	// Check if a featured project ID has been set (is not null)
+	if (isset($featured) === true) {
+
+		// Find the featured project by its ID
+		$featured = $projects->where('key', $featured)
+			->where('enabled', true)
+			->first();
+
+		// If the project has been found by its ID, remove it from the projects list
+		if (isset($featured) === true) {
+			$projects = $projects->where('key', '!==', $featured->key)
+				->where('enabled', true);
+		}
+
+	}
+
 	return view('layouts.home', [
-		'section' => 'home',
-		'featured' => 'joyce',
-		'projects' => $result
+		'page_section' => 'home',
+		'featured' => $featured,
+		'projects' => $projects
 	]);
 
-});
+}]);
 
-$app->get('/projects/{project}', function ($project) {
+$app->get('/projects/{project}', ['as' => 'project', function ($project) {
 
 	$result = app('db')->table('projects')
 		->where('key', $project)
@@ -33,8 +55,10 @@ $app->get('/projects/{project}', function ($project) {
 
 	if ($result !== null) {
 		return view('content.projects.' . $project, [
-			'section' => 'project',
-			'title' => $result->title . ' Project',
+			'page_section' => 'project',
+			'page_title' => $result->title,
+			'page_description' => $result->description,
+			'page_image' => app()->make('url')->to($result->preview_image),
 			'project' => $result
 		]);
 	}
@@ -42,7 +66,7 @@ $app->get('/projects/{project}', function ($project) {
 		return abort(404);
 	}
 
-});
+}]);
 
 $app->get('/api/album', function ($album = 'portfolio') {
 
@@ -84,11 +108,22 @@ $app->get('/api/album/{album}', function ($album) {
 
 });
 
-$app->get('/photography', function () {
+$app->get('/photography', ['as' => 'photography', function () {
 
 	return view('layouts.photography', [
-		'section' => 'photography',
-		'title' => 'Photography'
+		'page_section' => 'photography',
+		'page_title' => 'Photography',
+		'page_description' => 'Photography description',
+		'page_image' => app()->make('url')->to('/images/albums/kenya/kenya_1_full.jpg')
 	]);
 
-});
+}]);
+
+$app->get('/about', ['as' => 'about', function () {
+
+	return view('layouts.about', [
+		'page_section' => 'about',
+		'page_title' => 'About'
+	]);
+
+}]);

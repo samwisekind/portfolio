@@ -2,242 +2,38 @@
 @import "partial/colours";
 @import "partial/mixins";
 
-/* COMMON */
 
-$contentWidth: 800px;
-
-/* PROJECT COVER */
-
-.project-cover {
-	z-index: 0;
-	position: relative;
-	display: block;
-	margin: 0 auto 0 auto;
-	width: 100%;
-	max-width: 1800px;
-	height: auto;
-}
 
 /* PROJECT HEADER */
 
-.project-header {
-	z-index: 10;
-	position: relative;
-	margin: 0 auto 0 auto;
-	padding: 40px;
-	max-width: 1800px;
-}
+@import "modules/projects/header";
 
-.project-header > .container {
-	margin: 0 auto 0 auto;
-	max-width: 920px;
-}
 
-$projectList: (
-	("joyce", #FFFFFF, #FFFFFF, #000000),
-	("enicar", #FFFFFF, #FFFFFF, #E44436),
-	("steamchat", #FFFFFF, #FFFFFF, #0064BF),
-	("k11", #FFFFFF, #FFFFFF, #A7834A),
-	("hkjc", #FAD40E, #FFFFFF, #002E65)
-);
-
-@each $project, $color, $border-color, $background in $projectList {
-
-	.project-header.#{$project} {
-		color: $color;
-		border-color: $border-color;
-		background: $background;
-	}
-
-}
-
-.project-header h2 {
-	margin-bottom: 10px;
-	font-size: 64px;
-	line-height: 64px;
-	font-weight: 300;
-}
-
-.project-header h3 {
-	font-size: 24px;
-	@include lineHeight(24px);
-	font-weight: 300;
-}
-
-.project-header .details {
-	margin-top: 40px;
-	list-style: none;
-}
-
-.project-header .details:after {
-	@include clearFix;
-}
-
-.project-header .details > li {
-	margin-bottom: 20px;
-	font-size: 14px;
-	@include lineHeight(14px);
-}
-
-.project-header .details > li:last-child {
-	margin-bottom: 0;
-}
-
-.project-header .details > li .title {
-	display: block;
-	font-family: 'Montserrat', Helvetica, Verdana, sans-serif;
-	font-weight: 700;
-}
 
 /* PROJECT CONTENT */
 
-.project-content > h3,
-.project-content > h4,
-.project-content > p,
-.project-content > ol,
-.project-content > ul {
-	display: block;
-	margin: 20px auto 0 auto;
-	padding: 0 $widthPadding 0 $widthPadding;
-	max-width: $contentWidth;
-}
+@import "modules/projects/content";
 
-.project-content > h3 {
-	margin-top: 60px;
-	font-size: 26px;
-	@include lineHeight(26px);
-}
 
-.project-content > h4 {
-	margin-top: 40px;
-	font-size: 20px;
-	@include lineHeight(20px);
-}
 
-.project-content > p {
-	text-align: justify;
-}
+/* PROJECT HIGHLIGHTS */
 
-.project-content > p code {
-	padding: 1px 5px 1px 5px;
-	color: #0077AA;
-	text-shadow: 0 1px #FFFFFF;
-	border-radius: 2px;
-	background: $colour-greyLight;
-}
+@import "modules/projects/highlights";
 
-.project-content > ol,
-.project-content > ul {
-	padding-left: $widthPadding + 20px;
-	list-style-position: outside;
-}
 
-.project-content > ol > li,
-.project-content > ul > li {
-	margin-left: 1em;
-	margin-bottom: 5px;
-	text-align: justify;
-}
 
-.project-content > ol > li:last-child,
-.project-content > ul > li:last-child {
-	margin-bottom: 0;
-}
+/* PROJECT CAPTION */
 
-.project-image {
-	margin: 40px auto 40px auto;
-	padding: 0 40px 0 40px;
-	max-width: 600px;
-}
+@import "modules/projects/caption";
 
-.project-image > .image {
-	display: block;
-	width: 100%;
-	height: auto;
-}
 
-.project-image > .caption {
-	margin-top: 10px;
-	padding: 0 20px 0 20px;
-	font-size: 14px;
-	line-height: 18px;
-	text-align: center;
-	color: #9E9E9E;
-}
 
-@media (max-width: $mobileBreakpointSmall) {
+/* PROJECT IMAGE */
 
-	$widthPadding: 20px;
+@import "modules/projects/image";
 
-	/* PROJECT HEADER */
 
-	.project-header {
-		padding: $widthPadding;
-	}
 
-	.project-header h2 {
-		margin-bottom: 5px;
-		font-size: 32px;
-		line-height: 32px;
-	}
+/* PROJECTS */
 
-	.project-header h3 {
-		font-size: 18px;
-		@include lineHeight(18px);
-	}
-
-	.project-header .details {
-		margin-top: 20px;
-	}
-
-	.project-header .details > li {
-		margin-bottom: 10px;
-		font-size: 10px;
-		@include lineHeight(10px);
-	}
-
-	/* PROJECT CONTENT */
-
-	.project-content > h3,
-	.project-content > h4,
-	.project-content > p,
-	.project-content > ol,
-	.project-content > ul {
-		margin: 10px auto 0 auto;
-		padding: 0 $widthPadding 0 $widthPadding;
-	}
-
-	.project-content > h3 {
-		margin-top: 40px;
-		font-size: 20px;
-		@include lineHeight(20px);
-	}
-
-	.project-content > h4 {
-		margin-top: 20px;
-		font-size: 16px;
-		@include lineHeight(16px);
-	}
-
-	.project-content > p code {
-		padding: 1px 2px 1px 2px;
-	}
-
-	.project-content > ol,
-	.project-content > ul {
-		padding-left: $widthPadding + 10px;
-	}
-
-	.project-image {
-		margin: 20px auto 20px auto;
-		padding: 0;
-	}
-
-	.project-image > .caption {
-		margin-top: 10px;
-		padding: 0 $widthPadding 0 $widthPadding;
-		font-size: 12px;
-		@include lineHeight(16px);
-	}
-
-}
+@import "modules/projects/projects";

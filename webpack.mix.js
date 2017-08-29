@@ -12,6 +12,7 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/global.js', 'public/js')
+   .js('resources/assets/js/home.js', 'public/js')
    .js('resources/assets/js/photography.js', 'public/js')
    .sass('resources/assets/sass/global.scss', 'public/css').options({
       processCssUrls: false
@@ -25,4 +26,8 @@ mix.js('resources/assets/js/global.js', 'public/js')
    .sass('resources/assets/sass/photography.scss', 'public/css').options({
       processCssUrls: false
    })
-   .copyDirectory('resources/assets/images', 'public/images');
+   .sass('resources/assets/sass/about.scss', 'public/css').options({
+      processCssUrls: false
+   })
+   .copyDirectory('resources/assets/images', 'public/images')
+   .copyDirectory('resources/assets/videos', 'public/videos');

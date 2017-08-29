@@ -4,13 +4,8 @@ html {
 
 body {
 	min-width: 320px;
-	font-family: "Roboto", Helvetica, Verdana, sans-serif;
-	font-weight: 400;
-	font-size: 18px;
-	@include lineHeight(18px);
-	text-align: left;
 	color: $colour-text;
-	background: $colour-white;
+	background: $colour-background;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

@@ -1,50 +1,93 @@
-@extends ('master')
+@extends('master')
 
-@section ('css')
+@section('css')
 
 	<link href="/css/home.css" rel="stylesheet">
 
 @endsection
 
-@section ('content')
+@section('content')
 
-	<div class="home">
+	<main class="home">
 
-		@isset($featured)
+		@include('components.home.project-featured')
 
-			@include ('components.project-featured')
+		<section class="list js-list">
 
-		@endisset
+			@foreach($projects as $project)
 
-		<div class="list">
+				<div class="project js-project">
 
-			@isset($featured)
+					@isset($project->preview_image)
 
-				@foreach ($projects as $item)
-
-					@if ($item->key === $featured)
-
-						@continue
-
-					@endif
-
-					<div class="project">
-
-						<a href="{{ $app->make('url')->to('/projects/' . $item->key) }}" class="image">
-							<img src="{{ $item->thumbnail }}" alt="" />
+						<a href="{{ route('project', ['project' => $project->key]) }}" class="preview">
+							<img src="{{ $project->preview_image }}" alt="Preview image for the {{ $project->title }} project." class="preview-image js-image" />
 						</a>
 
-						<h2><a href="{{ $app->make('url')->to('/projects/' . $item->key) }}">{{ $item->title }}</a></h2>
-						<p>{{ $item->description }}</p>
+					@endisset
+
+					<div class="text">
+
+						<h2>
+							<a href="{{ route('project', ['project' => $project->key]) }}">{{ $project->title }}</a>
+						</h2>
+
+						<p>{{ $project->description }}</p>
+
+						<div class="links">
+
+							@include('components.link', [
+								'url' => route('project', ['project' => $project->key]),
+								'icon' => 'arrow',
+								'text' => 'Learn more'
+							])
+
+							@if(isset($project->url_article))
+								@include('components.link', [
+									'url' => $project->url_article,
+									'icon' => 'external',
+									'text' => 'Read article'
+								])
+							@elseif(isset($project->url_website))
+								@include('components.link', [
+									'url' => $project->url_website,
+									'icon' => 'external',
+									'text' => 'View website'
+								])
+							@endif
+
+						</div>
+
+						@isset($project->technologies)
+
+							<ul class="technologies">
+
+								@php
+									$technologiesArray = explode('; ', $project->technologies);
+								@endphp
+
+								@foreach($technologiesArray as $technology)
+									<li>{{ $technology }}</li>
+								@endforeach
+
+							</ul>
+
+						@endisset
 
 					</div>
 
-				@endforeach
+				</div>
 
-			@endisset
+			@endforeach
 
-		</div>
+		</section>
 
-	</div>
+	</main>
+
+@endsection
+
+@section ('javascript')
+
+	<script src="/js/home.js" type="text/javascript"></script>
 
 @endsection

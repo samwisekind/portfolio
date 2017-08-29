@@ -5,6 +5,7 @@
 /public/fonts
 /public/js
 /public/images
+/public/videos
 /storage/*.key
 /vendor
 /.idea
@@ -13,3 +14,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+
+*.sublime-*

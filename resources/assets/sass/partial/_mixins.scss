@@ -28,6 +28,14 @@
 	transform: $transform;
 }
 
+@mixin transformOrigin ($originX, $originY) {
+	-webkit-transform-origin: $originX $originY;
+	-moz-transform-origin: $originX $originY;
+	-ms-transform-origin: $originX $originY;
+	-o-transform-origin: $originX $originY;
+	transform-origin: $originX $originY;
+}
+
 @mixin animation ($animation) {
 	-webkit-animation: $animation;
 	-moz-animation: $animation;

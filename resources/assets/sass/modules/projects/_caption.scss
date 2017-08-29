@@ -1,0 +1,100 @@
+.project-caption {
+	position: relative;
+	display: table;
+	table-layout: fixed;
+	margin: $spacingLarge auto $spacingLarge 0;
+	max-width: $maxWidth;
+	background: $colour-white;
+}
+
+.project-caption:after {
+	@include clearFix;
+}
+
+.project-caption > .media,
+.project-caption > .text {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.project-caption > .media {
+	position: relative;
+	width: 60%;
+}
+
+.project-caption .video-play {
+	z-index: 10;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 10px 15px 10px 15px;
+	color: $colour-white;
+	background: $colour-black;
+}
+
+.project-caption.playing .video-play {
+	display: none;
+}
+
+.project-caption .video-play > a.link {
+	display: block;
+}
+
+.project-caption > .media > .video-element,
+.project-caption > .media > .image-element {
+	z-index: 0;
+	position: relative;
+	margin: 0 auto 0 auto;
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: $contentWidth;
+}
+
+.project-caption > .media > .video-element + .image-element {
+	display: none;
+}
+
+.project-caption > .text {
+	padding: $paddingLarge;
+	font-size: 20px;
+	@include lineHeight(20px);
+	text-align: left;
+	font-style: italic;
+}
+
+@media (max-width: $mobileBreakpointLarge) {
+
+	.project-caption {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.project-caption > .media,
+	.project-caption > .text {
+		display: block;
+		width: 100%;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.project-caption {
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
+	}
+
+	.project-caption > .text {
+		padding: $paddingSmall;
+		font-size: 14px;
+		@include lineHeight(14px);
+	}
+
+	.project-caption .video-play {
+		right: 0;
+		bottom: 0;
+		padding: 5px 10px 5px 10px;
+	}
+
+}

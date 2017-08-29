@@ -4,6 +4,61 @@
 @import "partial/resets";
 @import "partial/fonts";
 
+
+
+/* GLOBAL HEADER */
+
+@import "modules/global/header";
+
+
+
+/* GLOBAL FOOTER */
+
+@import "modules/global/footer";
+
+
+
+/* LINK */
+
+@import "modules/global/link";
+
+
+
+/* COMMON */
+
+$iconSize: 12px;
+$iconSpacing: 4px;
+
+a.external {
+	position: relative;
+	padding-right: $iconSize + $iconSpacing;
+	white-space: nowrap;
+}
+
+a.external:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	display: block;
+	margin-top: -($iconSize / 2);
+	width: $iconSize;
+	height: $iconSize;
+	background: url("../../images/global/global-external.svg") center center no-repeat transparent;
+	background-size: contain;
+}
+
+p .highlight,
+li .highlight {
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba($colour-purple, 0.2);
+}
+
+
+
+/* CONTENT */
+
 .outer-overlay,
 .outer-menu,
 .global-header > .hamburger {
@@ -12,181 +67,17 @@
 
 .outer-content {
 	margin: 0 auto 0 auto;
-	background: $colour-white;
-}
-
-.global-header h1,
-.nav a,
-.links a {
-	font-family: "Montserrat", Helvetica, Verdana, sans-serif;
-	font-weight: 700;
-}
-
-$headerHeight: 100px;
-$headerLinkPadding: 10px;
-
-.global-header {
-	z-index: 100;
-	position: relative;
-	padding: 0 $widthPadding 0 $widthPadding;
-	height: $headerHeight;
-}
-
-.global-header > .container {
-	margin: 0 auto 0 auto;
-	height: 100%;
-	max-width: $maxWidth;
-}
-
-.global-header nav:after,
-.global-header > .content:after,
-.global-header ul:after {
-	@include clearFix;
-}
-
-.global-header .title,
-.global-header .nav li,
-.global-header .links li {
-	display: table;
-	height: $headerHeight;
-}
-
-.global-header ul {
-	list-style: none;
-}
-
-.global-header ul > li {
-	float: left;
-}
-
-.global-header a {
-	display: table-cell;
-	vertical-align: middle;
-	text-decoration: none;
-	color: inherit;
-}
-
-.global-header a span {
-	display: block;
-	padding: 4px;
-	font-size: 14px;
-	line-height: 14px;
-	border-bottom: 2px solid transparent;
-}
-
-.global-header a:hover span,
-.global-header .nav .current > a span {
-	border-bottom-color: $colour-text;
-}
-
-.global-header .title,
-.global-header .nav {
-	float: left;
-}
-
-.global-header .title {
-	margin-right: 20px;
-}
-
-.global-header .title > a {
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 20px;
-}
-
-.global-header .nav a,
-.global-header .links a {
-	padding: 0 $headerLinkPadding 0 $headerLinkPadding;
-}
-
-.global-header .nav .current > a {
-	font-weight: 700;
-}
-
-$headerLinkIconSize: 24px;
-
-.global-header .links {
-	float: right;
-}
-
-.global-header .links a {
-	position: relative;
-	padding-left: $headerLinkIconSize + $headerLinkPadding + ($headerLinkPadding / 2);
-}
-
-.global-header .links a:before,
-.outer-menu .links a span:before {
-	content: "";
-	position: absolute;
-	left: $headerLinkPadding;
-	top: 50%;
-	margin-top: -($headerLinkIconSize / 2);
-	display: inline-block;
-	width: $headerLinkIconSize;
-	height: $headerLinkIconSize;
-	background: center center no-repeat transparent;
-	background-size: contain;
-}
-
-.global-header .links .github a:before {
-	background-image: url("../images/global/global-link-github.svg");
-}
-
-.global-header .links .codepen a:before {
-	background-image: url("../images/global/global-link-codepen.svg");
-}
-
-.global-footer {
-	margin-top: 160px;
-	padding: 0 $widthPadding 60px $widthPadding;
-	text-align: center;
-	font-size: 12px;
-}
-
-.global-footer p {
-	font-size: 14px;
-}
-
-.global-footer p.small {
-	font-size: 12px;
-	color: $colour-grey;
-}
-
-.global-footer p:last-child {
-	margin-bottom: 0;
 }
 
 .outer-background {
 	display: none;
 }
 
-@media (max-width: 900px) {
-
-	.global-header .links a {
-		padding: 4px 10px 0 10px;
-	}
-
-	.global-header .links a:before {
-		position: static;
-		margin: 0 auto 5px auto;
-		display: block;
-	}
-
-	.global-header .links a span {
-		padding-bottom: 0;
-	}
-
-}
-
 @media (max-width: $mobileBreakpointLarge) {
-
-	body {
-		font-size: 16px;
-		@include lineHeight(16px);
-	}
 
 	.outer-wrapper,
 	.outer-content {
+		min-height: 100vh;
 		-webkit-perspective: 2000px;
 		perspective: 2000px;
 		-webkit-backface-visibility: hidden;
@@ -236,9 +127,6 @@ $headerLinkIconSize: 24px;
 	.outer-menu > ul > li > a {
 		padding: 20px 10% 20px 0;
 		display: block;
-		font-size: 16px;
-		line-height: 16px;
-		font-weight: 400;
 		text-align: right;
 		text-decoration: none;
 		color: $colour-white;
@@ -260,16 +148,16 @@ $headerLinkIconSize: 24px;
 		@include transitionDelay(0.2s);
 	}
 
-	.outer-menu .links > li:nth-child(1) > a {
+	.outer-menu .nav > li:nth-child(4) > a {
 		@include transitionDelay(0.25s);
 	}
 
-	.outer-menu .links > li:nth-child(2) > a {
+	.outer-menu .links > li:nth-child(1) > a {
 		@include transitionDelay(0.3s);
 	}
 
-	.outer-menu > ul > li.current > a {
-		font-weight: 700;
+	.outer-menu .links > li:nth-child(2) > a {
+		@include transitionDelay(0.45s);
 	}
 
 	.outer-menu > ul > li.current > a,
@@ -277,9 +165,12 @@ $headerLinkIconSize: 24px;
 		background: rgba(255, 255, 255, 0.2);
 	}
 
+	$linkIconSize: 24px;
+	$linkPadding: 10px;
+
 	.outer-menu > .links > li > a > span {
 		position: relative;
-		padding-left: $headerLinkIconSize + $headerLinkPadding;
+		padding-left: $linkIconSize + $linkPadding;
 	}
 
 	.outer-menu > .links > li > a > span:before {
@@ -308,7 +199,7 @@ $headerLinkIconSize: 24px;
 
 	.outer-content {
 		z-index: 10;
-		background: $colour-white;
+		background: $colour-background;
 		@include transitionTransform(0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 	}
 
@@ -329,8 +220,6 @@ $headerLinkIconSize: 24px;
 	body.nocanvas .outer-background {
 		display: none;
 	}
-
-	/* MENU */
 
 	body.position .outer-wrapper,
 	body.position .outer-content {
@@ -379,67 +268,13 @@ $headerLinkIconSize: 24px;
 		@include transition(opacity 0.25s $easeStandard);
 	}
 
-	$headerHeight: 50px;
+}
 
-	.global-header {
-		padding: 0 0 0 20px;
-	}
+@media (max-width: $mobileBreakpointSmall) {
 
-	.global-header,
-	.global-header .title {
-		height: $headerHeight;
-	}
-
-	.global-header .title {
-		margin-right: 0;
-	}
-
-	.global-header .title > a {
+	.outer-menu > ul > li > a {
 		font-size: 16px;
 		line-height: 16px;
-	}
-
-	.global-header nav {
-		display: none;
-	}
-
-	.global-header .hamburger {
-		float: right;
-		position: relative;
-		display: block;
-		width: $headerHeight + 20px;
-		height: $headerHeight;
-	}
-
-	.global-header .hamburger:before {
-		content: "";
-		position: absolute;
-		left: 10px;
-		top: 50%;
-		margin-top: -(30px / 2);
-		display: block;
-		width: 40px;
-		height: 30px;
-		background: url("/images/global/global-header-hamburger.svg") 0 center no-repeat transparent;
-	}
-
-	body.menu .global-header .hamburger:before {
-		background-position: -40px center;
-	}
-
-	.global-footer {
-		margin-top: 60px;
-		padding: 0 20px 20px 20px;
-	}
-
-	.global-footer p,
-	.global-footer p.small {
-		font-size: 10px;
-		line-height: 12px;
-	}
-
-	.global-footer p.small {
-		margin-top: 5px;
 	}
 
 }

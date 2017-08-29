@@ -8,29 +8,55 @@
 
 @section ('content')
 
-	<div class="project-content">
+	<main>
 
-		<img src="{{ $project->cover }}" alt="" class="project-cover" />
+		<section class="project-header {{ $project->key }}">
 
-		<div class="project-header {{ $project->key }}">
-
-			<div class="container">
+			<div class="wrapper">
 
 				<h2>{{ $project->title }}</h2>
-				<h3>{{ $project->description }}</h3>
+				<p>{{ $project->description }}</p>
 
-				<ul class="details">
+				<ul>
 					<li><span class="title">Responsibilities:</span> {{ $project->responsibilities }}</li>
-					<li><span class="title">Technologies:</span> {{ $project->technologies }}</li>
-					<li><span class="title">Timeframe:</span> {{ date('m F Y', strtotime($project->started)) }} – {{date('m F Y', strtotime($project->ended)) }}</li>
+					<li><span class="title">Technologies:</span> {{ str_replace(';', ',', $project->technologies) }}</li>
+					<li><span class="title">Timeframe:</span> {{ date('F Y', strtotime($project->started)) }} – {{ date('F Y', strtotime($project->ended)) }}</li>
 				</ul>
+
+				@if(isset($project->url_article) || isset($project->url_website))
+
+					<div class="links">
+
+						@isset($project->url_article)
+							@include('components.link', [
+								'url' => $project->url_article,
+								'icon' => 'external',
+								'text' => 'Read article'
+							])
+						@endisset
+
+						@isset($project->url_website)
+							@include('components.link', [
+								'url' => $project->url_website,
+								'icon' => 'external',
+								'text' => 'View website'
+							])
+						@endisset
+
+					</div>
+
+				@endif
 
 			</div>
 
-		</div>
+		</section>
 
-		@yield ('project-content')
+		<section class="project-content {{ $project->key }}">
 
-	</div>
+			@yield ('project-content')
+
+		</section>
+
+	</main>
 
 @endsection
