@@ -1,14 +1,5 @@
 .project-highlights {
-	margin-bottom: $spacingLarge;
 	max-width: $contentWidth;
-}
-
-.project-highlights:after {
-	content: "";
-	display: block;
-	margin: $spacingLarge auto 0 auto;
-	width: 50%;
-	height: 3px
 }
 
 .project-highlights > h3 {
@@ -35,11 +26,6 @@
 
 	.project-highlights {
 		margin-bottom: $spacingSmall;
-	}
-
-	.project-highlights:after {
-		margin-top: $spacingSmall;
-		height: 2px;
 	}
 
 	.project-highlights > h3 {

@@ -56,6 +56,23 @@
 	background: $colour-grey;
 }
 
+.project-content hr {
+	display: block;
+	margin: $spacingLarge auto $spacingLarge 0;
+	max-width: $contentWidth;
+	height: 3px;
+	border: none;
+}
+
+.project-content hr:before {
+	content: "";
+	margin: 0 auto 0 auto;
+	display: block;
+	width: 50%;
+	height: 100%;
+	background: $colour-purple;
+}
+
 @media (max-width: $mobileBreakpointSmall) {
 
 	.project-content {
@@ -82,6 +99,12 @@
 		margin-top: $spacingSmall / 2;
 		font-size: 16px;
 		@include lineHeight(16px);
+	}
+
+	.project-content hr {
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
+		height: 2px;
 	}
 
 }

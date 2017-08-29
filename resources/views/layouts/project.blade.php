@@ -20,7 +20,7 @@
 				<ul>
 					<li><span class="title">Responsibilities:</span> {{ $project->responsibilities }}</li>
 					<li><span class="title">Technologies:</span> {{ str_replace(';', ',', $project->technologies) }}</li>
-					<li><span class="title">Timeframe:</span> {{ date('M Y', strtotime($project->started)) }} – {{ date('M Y', strtotime($project->ended)) }}</li>
+					<li><span class="title">Timeframe:</span> {{ date('F Y', strtotime($project->started)) }} – {{ date('F Y', strtotime($project->ended)) }}</li>
 				</ul>
 
 				@if(isset($project->url_article) || isset($project->url_website))

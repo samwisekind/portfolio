@@ -4,33 +4,47 @@
 
 	@include('components.projects.project-highlights', ['items' => [
 		'Multi-language responsive website',
-		'Cross-compatible with IE6 and above',
-		'Custom WordPress plugin for grid design',
+		'Compatible with IE6 and above',
+		'Custom WordPress plugin for unique grid design',
 		'Relational and inter-connected stores and brands directory'
 	]])
 
-	<p>Joyce is one of Hong Kong's most famous and respected luxury retailers, and they needed a new online identity. The task was to redesign their website from the ground-up for the modern internet.</p>
+	<p>For this project I was responsible for creative direction, all design work, and all frontend development.</p>
 
-	<p>Although Joyce's influence spans the world, its roots come from Hong Kong. At the time of development, <a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer" class="external">up to 30%</a> of users in China still used Internet Explorer 8. Ensuring solid cross-browser support while maintaining a pixel-perfect design appropriate for such a prestigious brand was a fundamental and challenging goal of the project.</p>
+	<hr />
+
+	<p>Joyce is one of Hong Kong's most famous and respected luxury retailers, and they needed a new online identity. The task was to redesign their website from the ground-up for the modern internet. At the time of development <a href="https://tongji.baidu.com/data/browser" target="_blank" rel="noopener noreferrer" class="external">up to 30%</a> of users in China still used Internet Explorer 8; ensuring cross browser compatibility while maintaining a pixel-perfect design appropriate for such a prestigious brand was a fundamental and challenging goal of the project.</p>
+
+	<p>I designed the website with Joyce's brand in mind: simple yet striking. The colour palette consists entirely of blacks and whites, acting simply as the monochrome canvas for the world of colour stemming from the evocative photographs and vibrant illustrations featured prominently throughout each page. Exclusive use of uppercase sans-serif typefaces mixed with simple shapes and hairline borders frame the website with a chic contemporary look.</p>
 
 	@component('components.projects.project-image', ['size' => 'large', 'alt' => 'Screenshot of the front-page of the website.'])
-		@slot('image', '/images/projects/joyce/joyce-image-grid.jpg')
+		@slot('image', '/images/projects/joyce/joyce-home.png')
 	@endcomponent
 
+	<p>The majority of fashion websites developed at the time featured simple front-page designs comprised of a full-screen video with basic text and links to the rest of the site. Joyce wanted theirs to be different and unique, while still being able feature large images or videos.</p>
+
+	<p>I developed a responsive grid design where each cell or a range of cells feature an image or video as well as hyperlinks. A custom WordPress plugin was also developed that allowed for images, videos, and hyperlinks to be uploaded and placed in single grid cells or across multiple cells, allowing the client to easily decorate and manage the grid sections.</p>
+
 	@component('components.projects.project-caption', ['alt' => 'Screenshot of a section landing page, showing the header grid.'])
-		@slot('image', '/images/projects/joyce/joyce-image-grid.jpg')
-		@slot('caption', 'A custom WordPress plugin was developed which allowed for images to be uploaded and placed in a single grid cell or across multiple cells. Hyperlinks could also be defined per-cell or across several at once.')
+		@slot('image', '/images/projects/joyce/joyce-image-grid.png')
+		@slot('caption', 'Each sub-section of the website features its own small grid layout, unique to that section.')
 	@endcomponent
+
+	<p>Sub-sections of the site – fashion, beauty, and art – feature their own unique page designs, focusing on what's important for that section. Fashion pages feature large paragraphs and full-width images, beauty pages feature links to product pages and information, and art pages feature interactive image galleries.</p>
 
 	@component('components.projects.project-caption', ['alt' => 'Screenshot of a feature article.'])
 		@slot('image', '/images/projects/joyce/joyce-image-feature.jpg')
-		@slot('caption', 'Videos on the website use the HTML5 video API, with a lightweight Flash video player fallback.')
+		@slot('caption', 'Videos on the website use the HTML5 video API, with a lightweight Flash video player fall-back.')
 	@endcomponent
+
+	<h3>Stores and Brands</h3>
+
+	<p>The stores and brands page contains a searchable and filterable directory of relationally-connected list of stores and brands, displaying what brands are stocked in which stores and where each store is located in each country.</p>
 
 	@component('components.projects.project-caption', ['autoplay' => true, 'alt' => 'Screenshot of brands being filtered in the stores and brands directory page.'])
 		@slot('video', '/videos/projects/joyce/joyce-video-brands')
 		@slot('image', '/images/projects/joyce/joyce-image-brands.jpg')
-		@slot('caption', 'Stores and brands are relationally-connected and featured throughout the website, listing what brands are stocked in which stores.')
+		@slot('caption', 'A grid of letters fades in and out as brands are filtered in real-time.')
 	@endcomponent
 
 	@component('components.projects.project-caption', ['alt' => 'Screenshot of a store page.'])
@@ -40,7 +54,7 @@
 
 	<h3>e-Shop development</h3>
 
-	<p>Several mockups and proof-of-concepts were designed and developed for a second phase of development. The aim was to implement an e-commmerce platform with Magento and integrate various features across the site.</p>
+	<p>Several mock-ups and proof-of-concepts were designed and developed for a second phase of development. The aim was to implement an e-commerce platform with Magento and integrate various features across the site.</p>
 
 	<p>Features included a site-wide shopping basket, real-time tracking of online and physical store stock and inventory, membership and loyalty program management, native iOS and Android store-app development, and more.</p>
 

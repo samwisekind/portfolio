@@ -120,7 +120,7 @@ $technologiesItemMargin: 10px;
 	margin-right: 0;
 }
 
-@media (min-width: $mobileBreakpointLarge + 1px) {
+@media (min-width: $mobileBreakpointSmall + 1px) {
 
 	.home > .list {
 		margin-top: $spacingLarge;
@@ -153,27 +153,17 @@ $technologiesItemMargin: 10px;
 
 }
 
-@media (max-width: $mobileBreakpointLarge) {
+@media (max-width: $mobileBreakpointSmall) {
 
 	.home > .list {
 		margin-top: $spacingSmall;
-		height: auto !important;
+		padding: 0 $paddingSmall 0 $paddingSmall;
+		width: auto;
 	}
 
 	.home > .list > .project {
 		margin-left: auto;
 		margin-right: auto;
-	}
-
-}
-
-@media (max-width: $mobileBreakpointSmall) {
-
-	.home > .list {
-		padding: 0 $paddingSmall 0 $paddingSmall;
-	}
-
-	.home > .list > .project {
 		margin-bottom: $spacingSmall;
 	}
 
