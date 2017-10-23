@@ -11,6 +11,22 @@
 	margin-bottom: $paddingLarge;
 }
 
+.articles .list li:last-child {
+	margin-bottom: 0;
+}
+
 .articles .list li .date {
 	display: block;
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.articles .list {
+		margin-top: $paddingSmall;
+	}
+
+	.articles .list li {
+		margin-bottom: $paddingSmall;
+	}
+
 }
