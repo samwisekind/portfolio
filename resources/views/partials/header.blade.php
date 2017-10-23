@@ -5,18 +5,21 @@
 	@php
 
 		$meta_title = 'Sam\'s Portfolio';
-		$meta_description = 'Default description';
+		$meta_description = 'Sam\'s web development and design portfolio.';
 		$meta_image = $app->make('url')->to('/images/seo/meta-image-default.png');
+
+		if (isset($page_description)) {
+			$meta_description = $page_description;
+			if ($page_section === 'project') {
+				$meta_description = 'Project page for ' . $page_title . ': ' . $meta_description;
+			}
+		}
 
 		if (isset($page_title)) {
 			if ($page_section === 'project') {
 				$page_title = $page_title . ' Project';
 			}
 			$meta_title = $page_title . ' — ' . $meta_title;
-		}
-
-		if (isset($page_description)) {
-			$meta_description = $page_description;
 		}
 
 		if (isset($page_image)) {
@@ -71,7 +74,9 @@
 		<meta name="twitter:site" content="{{ $app->make('url')->current() }}">
 		<meta name="twitter:description" content="{{ $meta_description }}">
 		<meta name="twitter:image" content="{{ $meta_image }}">
-		<meta itemprop="name" content="Sam's Portfolio">
+
+		<!-- Google Plus -->
+		<meta itemprop="name" content="{{ $meta_title }}">
 		<meta itemprop="description" content="{{ $meta_description }}">
 		<meta itemprop="image" content="{{ $meta_image }}">
 

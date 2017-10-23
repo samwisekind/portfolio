@@ -113,7 +113,7 @@ $router->get('/photography', ['as' => 'photography', function () {
 	return view('layouts.photography', [
 		'page_section' => 'photography',
 		'page_title' => 'Photography',
-		'page_description' => 'Photography description',
+		'page_description' => 'Photography portfolio and albums.',
 		'page_image' => app()->make('url')->to('/images/albums/kenya/kenya_1_full.jpg')
 	]);
 
