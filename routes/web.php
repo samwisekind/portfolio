@@ -11,7 +11,7 @@
 |
 */
 
-$app->get('/', ['as' => 'home', function () {
+$router->get('/', ['as' => 'home', function () {
 
 	// Get the featured project ID from the config table
 	$featured = app('db')->table('config')
@@ -47,7 +47,7 @@ $app->get('/', ['as' => 'home', function () {
 
 }]);
 
-$app->get('/projects/{project}', ['as' => 'project', function ($project) {
+$router->get('/projects/{project}', ['as' => 'project', function ($project) {
 
 	$result = app('db')->table('projects')
 		->where('key', $project)
@@ -68,7 +68,7 @@ $app->get('/projects/{project}', ['as' => 'project', function ($project) {
 
 }]);
 
-$app->get('/api/album', function ($album = 'portfolio') {
+$router->get('/api/album', function ($album = 'portfolio') {
 
 	$result = app('db')->table('albums')
 		->orderBy('order', 'asc')
@@ -78,7 +78,7 @@ $app->get('/api/album', function ($album = 'portfolio') {
 
 });
 
-$app->get('/api/album/{album}', function ($album) {
+$router->get('/api/album/{album}', function ($album) {
 
 	// Key the album ID from the URL query key
 	$target_album = app('db')->table('albums')
@@ -108,7 +108,7 @@ $app->get('/api/album/{album}', function ($album) {
 
 });
 
-$app->get('/photography', ['as' => 'photography', function () {
+$router->get('/photography', ['as' => 'photography', function () {
 
 	return view('layouts.photography', [
 		'page_section' => 'photography',
@@ -119,7 +119,7 @@ $app->get('/photography', ['as' => 'photography', function () {
 
 }]);
 
-$app->get('/about', ['as' => 'about', function () {
+$router->get('/about', ['as' => 'about', function () {
 
 	return view('layouts.about', [
 		'page_section' => 'about',
