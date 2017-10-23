@@ -8,7 +8,7 @@
 
 @section ('content')
 
-	<main class="about">
+	<main class="other about">
 
 		<div class="wrapper">
 

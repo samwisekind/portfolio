@@ -119,6 +119,22 @@ $router->get('/photography', ['as' => 'photography', function () {
 
 }]);
 
+$router->get('/articles', ['as' => 'articles', function () {
+
+	// Get the articles from the articles table
+	$articles = app('db')->table('articles')
+		->where('enabled', true)
+		->orderBy('published', 'desc')
+		->get();
+
+	return view('layouts.articles', [
+		'page_section' => 'articles',
+		'page_title' => 'Articles',
+		'articles' => $articles
+	]);
+
+}]);
+
 $router->get('/about', ['as' => 'about', function () {
 
 	return view('layouts.about', [

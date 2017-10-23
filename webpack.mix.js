@@ -26,6 +26,9 @@ mix.js('resources/assets/js/global.js', 'public/js')
    .sass('resources/assets/sass/photography.scss', 'public/css').options({
       processCssUrls: false
    })
+   .sass('resources/assets/sass/articles.scss', 'public/css').options({
+      processCssUrls: false
+   })
    .sass('resources/assets/sass/about.scss', 'public/css').options({
       processCssUrls: false
    })
