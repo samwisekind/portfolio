@@ -8,7 +8,12 @@
 		'Custom CMS for effective SEO in all languages'
 	]])
 
-	<p>For this project I was responsible for project management, creative direction, backend development, and all frontend development.</p>
+	<p>For this project I was responsible for project management, creative direction, backend development, and all frontend development. The website was awarded the following:</p>
+
+	<ul>
+		<li><a href="https://www.awwwards.com/sites/tng-fintech-group" target="_blank" rel="noopener noreferrer" class="external">Awwwards</a> – User Approved award (05<sup>th</sup> September 2017)</li>
+		<li><a href="https://www.cssdesignawards.com/sites/tng-fintech-group/31268/" target="_blank" rel="noopener noreferrer" class="external">CSS Design Awards</a> – Special Kudos award (05<sup>th</sup> September 2017)</li>
+	</ul>
 
 	<hr />
 
