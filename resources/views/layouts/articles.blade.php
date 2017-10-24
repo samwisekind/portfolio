@@ -20,7 +20,7 @@
 						<h3>{{ $article->title }}</h3>
 						<span class="date">Published {{ date('jS F Y', strtotime($article->published)) }}</span>
 						@include('components.link', [
-							'url' => $article->published,
+							'url' => $article->url,
 							'icon' => 'external',
 							'text' => 'Read article'
 						])
