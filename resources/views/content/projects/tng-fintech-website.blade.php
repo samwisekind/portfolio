@@ -31,7 +31,7 @@
 		@slot('video', '/videos/projects/tng-fintech-website/tng-fintech-website-video-hero')
 		@slot('image', '/images/projects/tng-fintech-website/tng-fintech-website-image-hero.png')
 		@slot('caption')
-			A technical article describing the production process of the 3D globe <a href="#" target="_blank" rel="noopener noreferrer" class="external">can be read here</a>.
+			A technical article describing the production process of the 3D globe <a href="{{ $project->url_article }}" target="_blank" rel="noopener noreferrer" class="external">can be read here</a>.
 		@endslot
 	@endcomponent
 
