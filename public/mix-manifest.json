@@ -1,11 +1,11 @@
 {
-  "/js/photography.js": "/js/photography.js",
-  "/js/global.js": "/js/global.js",
-  "/css/global.css": "/css/global.css",
-  "/css/home.css": "/css/home.css",
-  "/css/project.css": "/css/project.css",
-  "/css/photography.css": "/css/photography.css",
-  "/css/about.css": "/css/about.css",
-  "/js/index.js": "/js/index.js",
-  "/js/home.js": "/js/home.js"
+    "/js/global.js": "/js/global.js",
+    "/css/global.css": "/css/global.css",
+    "/css/home.css": "/css/home.css",
+    "/css/project.css": "/css/project.css",
+    "/css/photography.css": "/css/photography.css",
+    "/css/articles.css": "/css/articles.css",
+    "/css/about.css": "/css/about.css",
+    "/js/photography.js": "/js/photography.js",
+    "/js/home.js": "/js/home.js"
 }

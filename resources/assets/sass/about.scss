@@ -4,21 +4,6 @@
 
 
 
-.about {
-	margin: $spacingLarge auto 0 auto;
-	padding: 0 $paddingLarge 0 $paddingLarge;
-	max-width: $maxWidth + ($paddingLarge * 2);
-}
-
-.about > .wrapper {
-	max-width: $contentWidth + ($paddingLarge * 2);
-}
-
-.about h2,
-.about h3 {
-	color: $colour-purple;
-}
-
 .about h2 {
 	position: relative;
 	display: inline-block;
@@ -89,12 +74,6 @@
 
 @media (max-width: $mobileBreakpointSmall) {
 
-	.about {
-		margin-top: $spacingSmall;
-		padding-left: $paddingSmall;
-		padding-right: $paddingSmall;
-	}
-
 	.about h2 {
 		position: relative;
 		font-size: 52px;
@@ -103,10 +82,6 @@
 
 	.about h3 {
 		margin-top: 20px;
-	}
-
-	.about p {
-
 	}
 
 	.about p.large {

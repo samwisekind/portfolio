@@ -278,3 +278,42 @@ li .highlight {
 	}
 
 }
+
+
+
+/* OTHER */
+
+.other {
+	margin: $spacingLarge auto 0 auto;
+	padding: 0 $paddingLarge 0 $paddingLarge;
+	max-width: $maxWidth + ($paddingLarge * 2);
+}
+
+.other > .wrapper {
+	max-width: $contentWidth + ($paddingLarge * 2);
+}
+
+.other h2,
+.other h3 {
+	color: $colour-purple;
+}
+
+.other h2 {
+	font-size: 32px;
+	line-height: 32px;
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	.other {
+		margin-top: $spacingSmall;
+		padding-left: $paddingSmall;
+		padding-right: $paddingSmall;
+	}
+
+	.other h2 {
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+}

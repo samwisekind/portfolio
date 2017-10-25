@@ -4,6 +4,11 @@
 			<span>Projects</span>
 		</a>
 	</li>
+	<li class="@if ($page_section === 'articles') current @endif">
+		<a href="{{ route('articles') }}">
+			<span>Articles</span>
+		</a>
+	</li>
 	<li class="@if ($page_section === 'photography') current @endif">
 		<a href="{{ route('photography') }}">
 			<span>Photography</span>
