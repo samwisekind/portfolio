@@ -1,20 +1,18 @@
-<div class="project-caption @if(isset($video) && $autoplay === false) js-caption @endif">
+<div class="project-caption js-caption">
 
 	<div class="media">
 
 		@isset($video)
 
-			@if($autoplay === false)
-				<div class="video-play">
-					@include('components.link', [
-						'url' => '#',
-						'icon' => 'play',
-						'text' => 'Play video'
-					])
-				</div>
-			@endif
+			<div class="video-play">
+				@include('components.link', [
+					'url' => '#',
+					'icon' => 'play',
+					'text' => 'Play video'
+				])
+			</div>
 
-			<video loop muted @if($autoplay === true) autoplay controls @endif poster="{{ $image }}" class="video-element js-video" @isset($width) style="max-width: {{ $width . 'px' }}" @endisset>
+			<video loop muted poster="{{ $image }}" class="video-element js-video" @isset($width) style="max-width: {{ $width . 'px' }}" @endisset>
 				<source src="{{ $video }}.mp4" type="video/mp4">
 				<source src="{{ $video }}.webm" type="video/webm">
 				<source src="{{ $video }}.ogv" type="video/ogg">

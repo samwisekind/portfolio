@@ -131,7 +131,6 @@ $previewWidth: 520px;
 	max-width: $previewWidth;
 }
 
-.home > .featured .preview > .preview-video,
 .home > .featured .preview > .preview-image {
 	display: block;
 	width: 100%;
@@ -139,14 +138,6 @@ $previewWidth: 520px;
 	border-radius: 6px;
 	overflow: hidden;
 	@include boxShadow(0 0 15px 8px rgba(0, 0, 0, 0.1));
-}
-
-.home > .featured .preview > .preview-video {
-	background-size: cover;
-}
-
-.home > .featured .preview > .preview-video + .preview-image {
-	display: none;
 }
 
 @media (max-width: $mobileBreakpointLarge) {
@@ -179,14 +170,6 @@ $previewWidth: 520px;
 		display: block;
 		width: $previewWidth;
 		height: $previewHeight;
-	}
-
-	.home > .featured .preview > .preview-video + .preview-image {
-		display: block;
-	}
-
-	.home > .featured .preview > .preview-video {
-		display: none;
 	}
 
 }

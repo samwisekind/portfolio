@@ -53,14 +53,6 @@
 
 				<a href="{{ route('project', ['project' => $featured->key]) }}" class="preview">
 
-					@isset($featured->preview_video)
-						<video autoplay loop muted @isset($featured->preview_image) poster="{{ $featured->preview_image }}" @endisset class="preview-video">
-							<source src="{{ $featured->preview_video }}.mp4" type="video/mp4">
-							<source src="{{ $featured->preview_video }}.webm" type="video/webm">
-							<source src="{{ $featured->preview_video }}.ogv" type="video/ogg">
-						</video>
-					@endisset
-
 					@isset($featured->preview_image)
 						<img src="{{ $featured->preview_image }}" class="preview-image" alt="Preview image for the {{ $featured->title }} project." />
 					@endisset
