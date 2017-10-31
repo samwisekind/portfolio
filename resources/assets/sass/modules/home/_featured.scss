@@ -6,7 +6,7 @@
 .home > .featured {
 	z-index: 0;
 	position: relative;
-	margin: 40px 0 80px 0;
+	margin: $paddingSmall 0 $spacingLarge 0;
 	padding: $paddingLarge 0 $paddingLarge 0;
 	height: auto;
 }
@@ -29,11 +29,11 @@
 
 .home > .featured:after {
 	z-index: 0;
-	bottom: -12%;
+	bottom: -10%;
 	width: 100%;
 	height: 100%;
 	background: $colour-green;
-	@include transform(skewY(-12deg));
+	@include transform(skewY(-8deg));
 }
 
 .home > .featured > .container {
@@ -154,6 +154,10 @@ $previewWidth: 520px;
 	$previewWidth: 360px;
 	$previewHeight: 225px;
 
+	.home > .featured:after {
+		bottom: -8%;
+	}
+
 	.home > .featured > .container {
 		display: block;
 	}
@@ -193,7 +197,6 @@ $previewWidth: 520px;
 	$previewHeight: 175px;
 
 	.home > .featured {
-		margin-top: $spacingSmall;
 		margin-bottom: $spacingSmall;
 		padding: 10% 0 10% 0;
 	}
@@ -204,8 +207,7 @@ $previewWidth: 520px;
 
 	.home > .featured:after {
 		z-index: 0;
-		bottom: -8%;
-		@include transform(skewY(-20deg));
+		bottom: -4%;
 	}
 
 	.home > .featured > .container {

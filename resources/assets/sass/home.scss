@@ -14,11 +14,11 @@
 	z-index: 0;
 	position: absolute;
 	left: 0;
-	bottom: 20%;
+	bottom: 16%;
 	width: 100%;
 	height: 400px;
 	background: $colour-green;
-	@include transform(skewY(15deg));
+	@include transform(skewY(24deg));
 }
 
 
@@ -31,14 +31,11 @@
 
 /* LIST */
 
-$projectMaxWidth: 470px;
-
 .home > .list {
 	z-index: 10;
 	position: relative;
 	margin: 0 auto 0 auto;
 	padding: 0 $paddingLarge 0 $paddingLarge;
-	max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
 }
 
 .home > .featured + .list {
@@ -49,7 +46,6 @@ $projectMaxWidth: 470px;
 	z-index: 10;
 	display: block;
 	margin-bottom: $paddingLarge;
-	max-width: $projectMaxWidth;
 	background: $colour-white;
 	@include boxShadow(2px 8px 20px 0 rgba(31, 32, 68, 0.25));
 }
@@ -120,10 +116,14 @@ $technologiesItemMargin: 10px;
 	margin-right: 0;
 }
 
-@media (min-width: $mobileBreakpointSmall + 1px) {
+@media (min-width: $mobileBreakpointLarge + 1px) {
+
+	$projectMaxWidth: 470px;
 
 	.home > .list {
 		margin-top: $spacingLarge;
+		width: auto;
+		max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
 	}
 
 	.home > .list:after {
@@ -132,6 +132,7 @@ $technologiesItemMargin: 10px;
 
 	.home > .list > .project {
 		@include calc(width, "50% - #{$paddingLarge / 2}");
+		max-width: $projectMaxWidth;
 	}
 
 	.home > .list.columns > .project {
@@ -158,13 +159,13 @@ $technologiesItemMargin: 10px;
 	.home > .list {
 		margin-top: $spacingSmall;
 		padding: 0 $paddingSmall 0 $paddingSmall;
-		width: auto;
 	}
 
 	.home > .list > .project {
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: $spacingSmall;
+		width: 100%;
 	}
 
 	.home > .list > .project > .text {
