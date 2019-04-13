@@ -1,4 +1,6 @@
-const QUERYFILTER = '-_id -__v';
+const QUERYFILTER = '-_id -order';
+
+const PHOTOSORT = 'order';
 
 const ERRORS = {
   SERVER_ERROR: 'The server encountered an internal error or misconfiguration and was unable to complete your request.',
@@ -6,4 +8,8 @@ const ERRORS = {
   INVALID_REQUEST: 'Your request was invalid and could not be completed.',
 };
 
-module.exports = { QUERYFILTER, ERRORS };
+module.exports = {
+  QUERYFILTER,
+  PHOTOSORT,
+  ERRORS,
+};

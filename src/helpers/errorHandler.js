@@ -5,9 +5,11 @@ const { ERRORS } = require('../helpers/constants');
  * @param {Object}
  * @returns {Object}
  */
-const errorHandler = ({ message = '500' }) => {
+const errorHandler = (error) => {
+  console.error(error);
+
   let text;
-  let status = message;
+  let status = error.message;
 
   switch (parseInt(status, 10)) {
     case 400:
