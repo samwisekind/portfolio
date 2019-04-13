@@ -1,20 +1,86 @@
 {
-	"private": true,
-	"scripts": {
-		"dev": "npm run development",
-		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"watch-poll": "npm run watch -- --watch-poll",
-		"hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"prod": "npm run production",
-		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-	},
-	"devDependencies": {
-		"bootstrap-sass": "^3.3.7",
-		"cross-env": "^5.1.0",
-		"hammerjs": "^2.0.8",
-		"laravel-mix": "^1.5",
-		"lodash": "^4.17.4",
-		"vue": "^2.5.2"
-	}
+  "name": "flamov-portfolio",
+  "version": "3.0.0",
+  "description": "Flamov portfolio website",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node server",
+    "postinstall": "npm run assets:build",
+    "watch": "npm run server:watch & npm run assets:watch",
+    "server:watch": "nodemon server.js --inspect",
+    "assets:build": "parcel build src/assets/main.js --out-dir src/public",
+    "assets:watch": "parcel watch src/assets/main.js --out-dir src/public",
+    "lint": "eslint *.js",
+    "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
+    "coverage": "nyc --reporter=lcov npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Flamov@github.com/Flamov/flamov-portfolio.git"
+  },
+  "keywords": [
+    "flamov",
+    "portfolio",
+    "website"
+  ],
+  "author": "Samuel Kindler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flamov/flamov-portfolio/issues"
+  },
+  "homepage": "https://github.com/Flamov/flamov-portfolio#readme",
+  "dependencies": {
+    "compression": "^1.7.3",
+    "config": "^3.0.1",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-minify-html": "^0.12.0",
+    "mongo-sanitize": "^1.0.1",
+    "mongoose": "^5.4.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cheerio": "^1.0.0-rc.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.1",
+    "mocha": "^6.1.3",
+    "nyc": "^13.1.0",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.0.0",
+    "sass": "^1.18.0",
+    "stylelint": "^10.0.0",
+    "stylelint-config-airbnb": "0.0.0",
+    "supertest": "^4.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/assets",
+      "src/public"
+    ]
+  },
+  "staticFiles": {
+    "staticPath": "src/assets/img",
+    "watcherGlob": "**"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "no-console": 0
+    },
+    "env": {
+      "node": true,
+      "mocha": true,
+      "browser": true
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-airbnb"
+  }
 }
