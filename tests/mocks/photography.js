@@ -4,26 +4,22 @@ const mongoose = require('mongoose');
 
 const mockedPhotos = [
   {
-    order: 3,
-    title: 'Test Photo 4',
+    title: 'Test Photo 1',
     thumbnailURL: '',
     imageURL: '',
   },
   {
-    order: 1,
     title: 'Test Photo 2',
     thumbnailURL: '',
     imageURL: '',
   },
   {
-    order: 2,
     title: 'Test Photo 3',
     thumbnailURL: '',
     imageURL: '',
   },
   {
-    order: 0,
-    title: 'Test Photo 1',
+    title: 'Test Photo 4',
     thumbnailURL: '',
     imageURL: '',
   },
@@ -32,18 +28,20 @@ const mockedPhotos = [
 const mockedAlbums = [
   {
     order: 2,
+    key: 'test-album-2',
     title: 'Test Album 2',
     photos: [
-      mongoose.Types.ObjectId(mockedPhotos[3]._id),
       mongoose.Types.ObjectId(mockedPhotos[2]._id),
       mongoose.Types.ObjectId(mockedPhotos[0]._id),
+      mongoose.Types.ObjectId(mockedPhotos[1]._id),
     ],
   },
   {
     order: 1,
+    key: 'test-album-1',
     title: 'Test Album 1',
     photos: [
-      mongoose.Types.ObjectId(mockedPhotos[1]._id),
+      mongoose.Types.ObjectId(mockedPhotos[3]._id),
       mongoose.Types.ObjectId(mockedPhotos[0]._id),
     ],
   },

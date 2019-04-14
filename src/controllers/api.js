@@ -1,4 +1,4 @@
-const { QUERYFILTER, PHOTOSORT } = require('../helpers/constants');
+const { QUERYFILTER } = require('../helpers/constants');
 const errorHandler = require('../helpers/errorHandler');
 
 const { Album } = require('../models/photography');
@@ -6,9 +6,9 @@ const { Album } = require('../models/photography');
 const getAlbums = async (req, res) => {
   try {
     const albums = await Album.find()
-      .populate({ path: 'photos', select: QUERYFILTER, options: { sort: PHOTOSORT } })
+      .populate({ path: 'photos', select: QUERYFILTER })
       .select(QUERYFILTER)
-      .sort(PHOTOSORT);
+      .sort('order');
 
     res.json(albums);
   } catch (error) {

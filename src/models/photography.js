@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const PhotoSchema = new mongoose.Schema({
-  order: Number,
   title: String,
   thumbnailURL: String,
   imageURL: String,
@@ -11,6 +10,7 @@ const Photo = mongoose.model('photo', PhotoSchema);
 
 const AlbumSchema = new mongoose.Schema({
   order: Number,
+  key: String,
   title: String,
   photos: [{ type: mongoose.Schema.Types.ObjectId, ref: Photo }],
 }, { collection: 'albums' });
