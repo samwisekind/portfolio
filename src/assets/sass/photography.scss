@@ -1,0 +1,597 @@
+/* COMMON */
+
+$sidebarWidth: 160px;
+
+/* OVERRIDES */
+
+body {
+	color: $colour-white;
+	background: $colour-black;
+}
+
+.outer-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.outer-wrapper > .outer-content {
+	background: $colour-black;
+}
+
+.global-footer {
+	display: none;
+}
+
+$newGlobalHeaderHeight: 50px;
+
+.global-header {
+	padding-left: 20px;
+  padding-right: 20px;
+  width: calc(100% - $sidebarWidth);
+}
+
+.global-header > .container {
+	padding: 0;
+	max-width: none;
+}
+
+.global-header a span {
+	padding: 2px;
+	border-bottom-color: transparent;
+}
+
+.global-header a:hover span,
+.global-header .nav .current > a span {
+	border-bottom-color: darken($colour-greyDark, 25%);
+}
+
+.global-header,
+.global-header .title,
+.global-header .nav li {
+	height: $newGlobalHeaderHeight;
+}
+
+.global-header .title > a,
+.global-header .nav a {
+	font-size: 16px;
+	line-height: 16px;
+	color: $colour-greyDark;
+}
+
+.global-header .links {
+	display: none;
+}
+
+/* MAIN */
+
+$navigatorHeight: 80px;
+$loadingSize: 60px;
+$scaleAmount: 0.25;
+
+#photography {
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: "Raleway", Helvetica, Verdana, sans-serif;
+	background: $colour-black;
+}
+
+/* VIEWER */
+
+$viewerPadding: 20px;
+
+#photography > .viewer {
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	bottom: $navigatorHeight;
+	padding: $viewerPadding 0 $viewerPadding $viewerPadding;
+	background: $colour-black;
+	width: calc(100% - $sidebarWidth);
+	height: calc(100% - $navigatorHeight + $newGlobalHeaderHeight);
+}
+
+#photography > .viewer > .notice,
+#photography > .viewer > .fullscreen {
+	display: none;
+}
+
+#photography > .viewer > .arrow {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	width: 20%;
+	height: 100%;
+}
+
+#photography > .viewer > .arrow:hover {
+	cursor: pointer;
+}
+
+#photography > .viewer > .arrow.prev {
+	left: 0;
+}
+
+#photography > .viewer > .arrow.next {
+	right: 0;
+}
+
+#photography > .viewer > .arrow:before {
+	content: "";
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	margin-top: -(30px / 2);
+	width: 30px;
+	height: 50px;
+	// background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
+	background-size: contain;
+	transition: all 0.2s $easeStandard;
+}
+
+#photography > .viewer > .arrow:hover:before {
+	opacity: 0.5;
+}
+
+#photography > .viewer > .arrow.prev:before {
+	left: $viewerPadding + ($viewerPadding * 2);
+	transform: translateX(0px) rotate(90deg);
+}
+
+#photography > .viewer > .arrow.prev:hover:before {
+	transform: translateX(-20px) rotate(90deg);
+}
+
+#photography > .viewer > .arrow.next:before {
+	right: $viewerPadding + $viewerPadding;
+	transform: translateX(0px) rotate(-90deg);
+}
+
+#photography > .viewer > .arrow.next:hover:before {
+	transform: translateX(20px) rotate(-90deg);
+}
+
+$photoMaxSize: 1024px;
+
+#photography > .viewer > .viewer-photo {
+	z-index: 0;
+	position: relative;
+	top: 50%;
+	margin: 0 auto 0 auto;
+	width: 100%;
+	height: 100%;
+	max-width: $photoMaxSize;
+	max-height: $photoMaxSize;
+	background: center center no-repeat transparent;
+	background-size: contain;
+	transform: translateY(-50%);
+	transition: opacity 0.2s $easeAcceleration;
+}
+
+#photography > .viewer.loading > .viewer-photo {
+	opacity: 0.5;
+	transition: opacity 0.2s $easeDeceleration;
+}
+
+#photography > .viewer.loading:before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -($loadingSize / 2);
+	margin-top: -($loadingSize / 2);
+	width: $loadingSize;
+	height: $loadingSize;
+	border-radius: 50%;
+	border: ($loadingSize / 10) solid #FFFFFF;
+	animation: loading 1s infinite $easeDeceleration;
+}
+
+@keyframes loading {
+	0% { transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { transform: scale(1); opacity: 0; }
+}
+
+/* MAP */
+
+#photography > .map {
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: $newGlobalHeaderHeight;
+	width: calc(100% - $sidebarWidth);
+	height: calc(100% - $newGlobalHeaderHeight + $navigatorHeight);
+	background: $colour-black;
+	transform: translateY(0);
+	transition: all 0.5s $easeStandard;
+}
+
+#photography > .map.v-enter,
+#photography > .map.v-leave-to {
+	opacity: 0;
+	transform: translateY(100%);
+}
+
+/* NAVIGATOR */
+
+$navigatorPadding: 20px;
+$selectorWidth: 300px;
+$buttonSize: 15px;
+
+#photography > .navigator {
+	z-index: 20;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: $navigatorHeight;
+	background: $colour-black;
+}
+
+#photography > .navigator > .details {
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	list-style: none;
+	transform: translateY(-50%);
+}
+
+#photography > .navigator > .details > .title {
+	margin-bottom: 5px;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+#photography > .navigator > .details > .index {
+	font-size: 12px;
+	line-height: 12px;
+	color: $colour-grey;
+}
+
+#photography > .navigator > .buttons {
+	position: absolute;
+	right: $selectorWidth + ($navigatorPadding * 2);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#photography > .navigator > .buttons:after {
+	@include clearFix;
+}
+
+#photography > .navigator > .buttons > .button {
+	float: left;
+	display: block;
+	margin-right: $navigatorPadding;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+	color: $colour-grey;
+	text-decoration: none;
+}
+
+#photography > .navigator > .buttons > .button:last-child {
+	margin-right: 0;
+}
+
+#photography > .navigator > .buttons > .button:before {
+	content: "";
+	display: block;
+	margin: 0 auto 5px auto;
+	width: $buttonSize;
+	height: $buttonSize;
+	background: center center no-repeat transparent;
+}
+
+#photography > .navigator > .buttons > .button.map:before {
+	// background-image: url("../images/photography/map-button.svg");
+}
+
+#photography > .navigator > .buttons > .button.close:before {
+	// background-image: url("../images/photography/close-button.svg");
+}
+
+#photography > .navigator > .selector {
+	position: absolute;
+	right: $navigatorPadding;
+	top: 50%;
+	padding: 0 ((15px * 2) + 15px) 0 15px;
+	width: $selectorWidth;
+	height: 40px;
+	font-size: 14px;
+	color: $colour-grey;
+	border-radius: 3px;
+	border: none;
+	// background: url("../images/photography/viewer-arrow.svg") no-repeat #181818;
+	background-position: calc(100% - 15px) center;
+	transform: translateY(-50%);
+	@include removeStyling;
+}
+
+#photography > .navigator > .selector:hover {
+	cursor: pointer;
+}
+
+/* SIDEBAR */
+
+#photography > .sidebar {
+	z-index: 30;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 20px 0 20px 0;
+	width: $sidebarWidth;
+	height: calc(100% - #{$navigatorHeight});
+	overflow: hidden;
+	overflow-y: scroll;
+	background: $colour-black;
+}
+
+#photography > .sidebar.loading {
+	opacity: 0.5;
+	transition: opacity 0.2s $easeDeceleration;
+}
+
+#photography > .sidebar .sidebar-thumb {
+	opacity: 0.5;
+	display: block;
+	margin: 0 auto 20px auto;
+	width: 120px;
+	height: 80px;
+	background: center center no-repeat transparent;
+	background-size: cover;
+	transition: opacity 0.2s $easeStandard;
+}
+
+#photography > .sidebar .sidebar-thumb:last-child {
+	margin-bottom: 0;
+}
+
+#photography > .sidebar .sidebar-thumb:hover {
+	opacity: 0.5;
+}
+
+#photography > .sidebar .sidebar-thumb.current {
+	opacity: 1;
+}
+
+@media(min-width: $mobileBreakpointLarge + 1px) {
+
+	#photography > .navigator > .details,
+	#photography > .sidebar {
+		transition: opacity 0.2s $easeStandard;
+	}
+
+	#photography.mapOpen > .navigator > .details,
+	#photography.mapOpen > .sidebar {
+		opacity: 0.25;
+		pointer-events: none;
+	}
+
+	/* SIDEBAR */
+
+	#photography > .sidebar > .sidebar-wrapper {
+		width: auto !important;
+	}
+
+}
+
+@media(max-width: $mobileBreakpointLarge) {
+
+	/* VARIABLES */
+
+	$sidebarHeight: 50px;
+	$navigatorHeight: 50px;
+
+	/* OVERRIDES */
+
+	$newGlobalHeaderHeight: 50px;
+
+	.outer-content {
+		background: $colour-black;
+	}
+
+	.global-header {
+		padding-left: 10px;
+		padding-right: 0;
+		width: 100%;
+	}
+
+	.global-header,
+	.global-header .title,
+	.global-header .hamburger {
+		height: $newGlobalHeaderHeight;
+	}
+
+	.global-header .hamburger {
+		width: 60px;
+	}
+
+	.global-header .hamburger:before {
+		// background-image: url("/images/global/global-header-hamburger-light.svg");
+	}
+
+	/* MAIN */
+
+	#photography {
+		top: $newGlobalHeaderHeight;
+		height: calc(100% - #{$newGlobalHeaderHeight});
+	}
+
+	/* VIEWER */
+
+	$noticeHeight: 20px;
+
+	#photography > .viewer {
+		z-index: 20;
+		bottom: auto;
+		padding: 0;
+		width: 100%;
+		height: calc(100% - #{$sidebarHeight + $navigatorHeight});
+		transition: height 0.2s $easeStandard;
+	}
+
+	#photography > .viewer.full {
+		height: 100%;
+	}
+
+	#photography > .viewer.notice > .notice {
+		pointer-events: none;
+		z-index: 30;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		display: block;
+		width: 100%;
+		height: $noticeHeight;
+		font-size: 10px;
+		line-height: 10px;
+		text-align: center;
+		color: $colour-grey;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	#photography > .viewer.notice > .notice > .wrapper {
+		position: relative;
+		top: 50%;
+		display: block;
+		transform: translateY(-50%);
+	}
+
+	$fullscreenIconSize: 24px;
+	$fullscreenOuterSize: $fullscreenIconSize + (10px * 2);
+
+	#photography > .viewer > .fullscreen {
+		opacity: 0.25;
+		z-index: 20;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		display: block;
+		width: $fullscreenOuterSize;
+		height: $fullscreenOuterSize;
+		transition: bottom 0.2s $easeStandard;
+	}
+
+	#photography > .viewer > .fullscreen:before {
+		content: "";
+		display: block;
+		margin-left: ($fullscreenOuterSize - $fullscreenIconSize) / 2;
+		margin-top: ($fullscreenOuterSize - $fullscreenIconSize) / 2;
+		width: $fullscreenIconSize;
+		height: $fullscreenIconSize;
+		// background: url("../images/photography/viewer-full.svg") left center no-repeat transparent;
+	}
+
+	#photography > .viewer.notice > .fullscreen {
+		bottom: $noticeHeight;
+	}
+
+	#photography > .viewer.full > .fullscreen {
+		background-position: right center;
+	}
+
+	#photography > .viewer > .arrow {
+		width: 50%;
+	}
+
+	#photography > .viewer > .arrow:before {
+		display: none;
+	}
+
+	#photography > .viewer > .viewer-photo {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* MAP */
+
+	#photography > .map {
+		display: none;
+	}
+
+	/* NAVIGATOR */
+
+	$navigatorPadding: 10px;
+
+	#photography > .navigator {
+		z-index: 10;
+		padding: $navigatorPadding;
+		height: $navigatorHeight;
+	}
+
+	#photography > .navigator > .details {
+		left: $navigatorPadding;
+		padding-right: $navigatorPadding;
+		width: calc(45% - #{$navigatorPadding});
+	}
+
+	#photography > .navigator > .details > .title,
+	#photography > .navigator > .details > .index {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	#photography > .navigator > .details > .title {
+		margin-bottom: 2px;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	#photography > .navigator > .details > .index {
+		font-size: 10px;
+		line-height: 10px;
+	}
+
+	#photography > .navigator > .buttons {
+		display: none;
+	}
+
+	#photography > .navigator > .selector {
+		right: $navigatorPadding;
+		padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
+		width: calc(55% - #{$navigatorPadding});
+		height: 30px;
+		font-size: 12px;
+		background-position: calc(100% - #{$navigatorPadding});
+	}
+
+	/* SIDEBAR */
+
+	#photography > .sidebar {
+		z-index: 0;
+		top: auto;
+		bottom: $navigatorHeight;
+		padding: 10px;
+		width: 100%;
+		height: $sidebarHeight;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
+	#photography > .sidebar > .sidebar-wrapper:after {
+		@include clearFix;
+	}
+
+	#photography > .sidebar .sidebar-thumb {
+		float: left;
+		margin-bottom: 0;
+		margin-right: 10px;
+		width: 50px;
+		height: 30px;
+	}
+
+	#photography > .sidebar .sidebar-thumb:last-child {
+		margin-right: 0;
+	}
+
+}

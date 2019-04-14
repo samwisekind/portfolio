@@ -1,12 +1,12 @@
 const { Router } = require('express');
 
-const { showIndex } = require('../controllers/frontend');
+const { showPhotography } = require('../controllers/frontend');
 const { getAlbums } = require('../controllers/api');
 
 const router = Router();
 
-router.get('/', showIndex);
-
 router.get('/api/photos', getAlbums);
+
+router.get('/photography', showPhotography);
 
 module.exports = router;

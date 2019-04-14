@@ -1,0 +1,10 @@
+@mixin clearFix {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@mixin removeStyling {
+  apperance: none;
+  outline: none;
+}

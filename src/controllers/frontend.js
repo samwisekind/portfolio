@@ -1,8 +1,8 @@
 const errorHandler = require('../helpers/errorHandler');
 
-const showIndex = async (req, res) => {
+const showPhotography = async (req, res) => {
   try {
-    res.render('index');
+    res.render('photography');
   } catch (error) {
     const { status, message } = errorHandler(error);
     res.status(status).json({ message });
@@ -10,5 +10,5 @@ const showIndex = async (req, res) => {
 };
 
 module.exports = {
-  showIndex,
+  showPhotography,
 };
