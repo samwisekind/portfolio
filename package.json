@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "node server",
-    "postinstall": "npm run assets:build",
     "watch": "npm run server:watch & npm run assets:watch",
     "server:watch": "nodemon server.js --inspect",
     "assets:build": "parcel build src/assets/main.js --out-dir src/public",
