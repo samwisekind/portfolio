@@ -5,4 +5,4 @@ const app = require('./src/app');
 
 database.open();
 
-app.listen(port, console.log(`${name} listening on port ${port}`));
+app.listen(port, console.log(`${name} listening on port ${port}`));   
