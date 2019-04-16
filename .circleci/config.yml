@@ -13,4 +13,6 @@ jobs:
           command: npm run test
       - run:
           name: Test linting
-          command: npm run lint
+          command: |
+            mkdir -p ~/reports
+            npm run lint -- -f junit > ~/reports/eslint.xml
