@@ -18,5 +18,3 @@ jobs:
             npm run lint -- -f junit -o ~/reports/eslint/results.xml
       - store_test_results:
           path: ~/reports
-      - store_artifacts:
-          path: ~/reports
