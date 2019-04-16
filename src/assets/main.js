@@ -1,13 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 // SASS
-import './sass/styles.scss';
+import './sass/global.scss';
+import './sass/home.scss';
+import './sass/project.scss';
+import './sass/photography.scss';
+import './sass/about.scss';
 
 // JavaScript
-import Vue from 'vue';
-
-import './js/scripts';
 import './js/menu';
-import Photography from './vue/photography.vue';
-
-new Vue(Photography).$mount('#photography');
+import './js/home';
+import './js/photography';
+import './js/videos';

@@ -20,13 +20,15 @@ body {
 	font-family: "Lora", Times, serif;
 	font-weight: 400;
 	font-size: 18px;
-	line-height: 20px;
+	@include lineHeight(18px);
 	text-align: left;
 }
 
 @media (max-width: $mobileBreakpointSmall) {
+
 	body {
 		font-size: 16px;
-		line-height: 18px;
+		@include lineHeight(16px);
 	}
+
 }

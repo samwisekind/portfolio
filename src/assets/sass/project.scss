@@ -1,0 +1,39 @@
+@import "partial/constants";
+@import "partial/colours";
+@import "partial/mixins";
+
+
+
+/* PROJECT HEADER */
+
+@import "modules/projects/header";
+
+
+
+/* PROJECT CONTENT */
+
+@import "modules/projects/content";
+
+
+
+/* PROJECT HIGHLIGHTS */
+
+@import "modules/projects/highlights";
+
+
+
+/* PROJECT CAPTION */
+
+@import "modules/projects/caption";
+
+
+
+/* PROJECT IMAGE */
+
+@import "modules/projects/image";
+
+
+
+/* PROJECTS */
+
+@import "modules/projects/projects";

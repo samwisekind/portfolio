@@ -1,0 +1,248 @@
+.home > .featured,
+.home > .featured > .container {
+	position: relative;
+}
+
+.home > .featured {
+	z-index: 0;
+	position: relative;
+	margin: 40px 0 80px 0;
+	padding: $paddingLarge 0 $paddingLarge 0;
+	height: auto;
+}
+
+.home > .featured:before,
+.home > .featured:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.home > .featured:before {
+	z-index: 10;
+	top: 0;
+	background: $colour-purple;
+	@include transform(skewY(2deg));
+}
+
+.home > .featured:after {
+	z-index: 0;
+	bottom: -12%;
+	width: 100%;
+	height: 100%;
+	background: $colour-green;
+	@include transform(skewY(-12deg));
+}
+
+.home > .featured > .container {
+	z-index: 20;
+	position: relative;
+	display: table;
+	table-layout: fixed;
+	margin: 0 auto 0 auto;
+	padding: 0 $paddingLarge 0 $paddingLarge;
+	width: 100%;
+	max-width: $maxWidth + ($paddingLarge * 2);
+}
+
+.home > .featured > .container > .text,
+.home > .featured > .container > .preview {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.home > .featured > .container > .text {
+	padding-right: $paddingLarge;
+}
+
+.home > .featured a,
+.home > .featured p {
+	color: #F3E5F5;
+}
+
+.home > .featured h2 {
+	margin-bottom: 10px;
+	font-size: 46px;
+	line-height: 46px;
+}
+
+.home > .featured h2 a {
+	display: block;
+	text-decoration: none;
+}
+
+.home > .featured p {
+	margin-bottom: 20px;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.home > .featured .links > a.link {
+	margin-right: 20px;
+}
+
+.home > .featured .links > a.link:last-child {
+	margin-right: 0;
+}
+
+.home > .featured a.link:before {
+	background-color: rgba(#F3E5F5, 0.2);
+}
+
+.home > .featured a.link:after {
+	background-color: #F3E5F5;
+}
+
+.home > .featured a.link > .icon > .icon-layer {
+	fill: #FFFFFF;
+}
+
+.home > .featured .technologies {
+	margin-top: 40px;
+	list-style: none;
+}
+
+.home > .featured .technologies:after {
+	@include clearFix;
+}
+
+.home > .featured .technologies > li {
+	float: left;
+	margin-right: 10px;
+	font-size: 18px;
+	line-height: 18px;
+	font-style: italic;
+	color: rgba(#F3E5F5, 0.8);
+}
+
+.home > .featured .technologies > li:last-child {
+	margin-right: 0;
+}
+
+$previewWidth: 520px;
+
+.home > .featured .preview > .preview {
+	margin-left: auto;
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: $previewWidth;
+}
+
+.home > .featured .preview > .preview-video,
+.home > .featured .preview > .preview-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+	overflow: hidden;
+	@include boxShadow(0 0 15px 8px rgba(0, 0, 0, 0.1));
+}
+
+.home > .featured .preview > .preview-video {
+	background-size: cover;
+}
+
+.home > .featured .preview > .preview-video + .preview-image {
+	display: none;
+}
+
+@media (max-width: $mobileBreakpointLarge) {
+
+	$previewWidth: 360px;
+	$previewHeight: 225px;
+
+	.home > .featured > .container {
+		display: block;
+	}
+
+	.home > .featured > .container > .text,
+	.home > .featured > .container > .preview {
+		display: block;
+	}
+
+	.home > .featured > .container > .text {
+		padding-right: 0;
+		padding-top: $previewHeight + 40px;
+	}
+
+	.home > .featured .preview {
+		position: absolute;
+		left: $paddingLarge;
+		top: 0;
+		display: block;
+		width: $previewWidth;
+		height: $previewHeight;
+	}
+
+	.home > .featured .preview > .preview-video + .preview-image {
+		display: block;
+	}
+
+	.home > .featured .preview > .preview-video {
+		display: none;
+	}
+
+}
+
+@media (max-width: $mobileBreakpointSmall) {
+
+	$previewWidth: 280px;
+	$previewHeight: 175px;
+
+	.home > .featured {
+		margin-top: $spacingSmall;
+		margin-bottom: $spacingSmall;
+		padding: 10% 0 10% 0;
+	}
+
+	.home > .featured:before {
+		@include transform(skewY(4deg));
+	}
+
+	.home > .featured:after {
+		z-index: 0;
+		bottom: -8%;
+		@include transform(skewY(-20deg));
+	}
+
+	.home > .featured > .container {
+		padding: 0 $paddingSmall 0 $paddingSmall;
+		max-width: 460px + ($paddingSmall * 2);
+	}
+
+	.home > .featured > .container > .text {
+		padding-top: $previewHeight + $paddingSmall;
+	}
+
+	.home > .featured h2 {
+		margin-bottom: 10px;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.home > .featured p {
+		margin-bottom: $paddingSmall;
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	.home > .featured .technologies {
+		margin-top: $spacingSmall;
+	}
+
+	.home > .featured .technologies > li {
+		margin-right: 5px;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	.home > .featured .preview {
+		left: $paddingSmall;
+		width: $previewWidth;
+		height: $previewHeight;
+	}
+
+}

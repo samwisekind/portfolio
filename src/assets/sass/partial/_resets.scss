@@ -1,16 +1,15 @@
 html {
-	box-sizing: border-box;
+	@include browserPrefix("box-sizing", "border-box");
 }
 
 body {
 	min-width: 320px;
 	color: $colour-text;
 	background: $colour-background;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-  -moz-font-feature-settings: "liga" on;
-  font-feature-settings: "liga" on;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-font-feature-settings: "liga" on;
 }
 
 *,
@@ -30,6 +29,6 @@ section,
 main,
 nav,
 header,
-footer {
+footer, {
 	display: block;
 }

@@ -1,3 +1,7 @@
+@import "partial/constants";
+@import "partial/colours";
+@import "partial/mixins";
+
 /* COMMON */
 
 $sidebarWidth: 160px;
@@ -29,8 +33,8 @@ $newGlobalHeaderHeight: 50px;
 
 .global-header {
 	padding-left: 20px;
-  padding-right: 20px;
-  width: calc(100% - $sidebarWidth);
+	padding-right: 20px;
+	@include calc(width, "100% - #{$sidebarWidth}");
 }
 
 .global-header > .container {
@@ -94,8 +98,8 @@ $viewerPadding: 20px;
 	bottom: $navigatorHeight;
 	padding: $viewerPadding 0 $viewerPadding $viewerPadding;
 	background: $colour-black;
-	width: calc(100% - $sidebarWidth);
-	height: calc(100% - $navigatorHeight + $newGlobalHeaderHeight);
+	@include calc(width, "100% - #{$sidebarWidth}");
+	@include calc(height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
 }
 
 #photography > .viewer > .notice,
@@ -133,7 +137,7 @@ $viewerPadding: 20px;
 	height: 50px;
 	// background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
 	background-size: contain;
-	transition: all 0.2s $easeStandard;
+	@include transition(all 0.2s $easeStandard);
 }
 
 #photography > .viewer > .arrow:hover:before {
@@ -142,20 +146,20 @@ $viewerPadding: 20px;
 
 #photography > .viewer > .arrow.prev:before {
 	left: $viewerPadding + ($viewerPadding * 2);
-	transform: translateX(0px) rotate(90deg);
+	@include transform(translateX(0px) rotate(90deg));
 }
 
 #photography > .viewer > .arrow.prev:hover:before {
-	transform: translateX(-20px) rotate(90deg);
+	@include transform(translateX(-20px) rotate(90deg));
 }
 
 #photography > .viewer > .arrow.next:before {
 	right: $viewerPadding + $viewerPadding;
-	transform: translateX(0px) rotate(-90deg);
+	@include transform(translateX(0px) rotate(-90deg));
 }
 
 #photography > .viewer > .arrow.next:hover:before {
-	transform: translateX(20px) rotate(-90deg);
+	@include transform(translateX(20px) rotate(-90deg));
 }
 
 $photoMaxSize: 1024px;
@@ -171,13 +175,13 @@ $photoMaxSize: 1024px;
 	max-height: $photoMaxSize;
 	background: center center no-repeat transparent;
 	background-size: contain;
-	transform: translateY(-50%);
-	transition: opacity 0.2s $easeAcceleration;
+	@include transform(translateY(-50%));
+	@include transition(opacity 0.2s $easeAcceleration);
 }
 
 #photography > .viewer.loading > .viewer-photo {
 	opacity: 0.5;
-	transition: opacity 0.2s $easeDeceleration;
+	@include transition(opacity 0.2s $easeDeceleration);
 }
 
 #photography > .viewer.loading:before {
@@ -190,8 +194,32 @@ $photoMaxSize: 1024px;
 	width: $loadingSize;
 	height: $loadingSize;
 	border-radius: 50%;
-	border: ($loadingSize / 10) solid #FFFFFF;
-	animation: loading 1s infinite $easeDeceleration;
+	border:($loadingSize / 10) solid #FFFFFF;
+	@include animation(loading 1s infinite $easeDeceleration);
+}
+
+@-webkit-keyframes loading {
+	0% { -webkit-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -webkit-transform: scale(1); opacity: 0; }
+}
+
+@-moz-keyframes loading {
+	0% { -moz-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -moz-transform: scale(1); opacity: 0; }
+}
+
+@-ms-keyframes loading {
+	0% { -ms-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -ms-transform: scale(1); opacity: 0; }
+}
+
+@-o-keyframes loading {
+	0% { -o-transform: scale(0.1); opacity: 0; }
+	50% { opacity: 1; }
+	100% { -o-transform: scale(1); opacity: 0; }
 }
 
 @keyframes loading {
@@ -200,31 +228,10 @@ $photoMaxSize: 1024px;
 	100% { transform: scale(1); opacity: 0; }
 }
 
-/* MAP */
-
-#photography > .map {
-	z-index: 10;
-	position: absolute;
-	left: 0;
-	top: $newGlobalHeaderHeight;
-	width: calc(100% - $sidebarWidth);
-	height: calc(100% - $newGlobalHeaderHeight + $navigatorHeight);
-	background: $colour-black;
-	transform: translateY(0);
-	transition: all 0.5s $easeStandard;
-}
-
-#photography > .map.v-enter,
-#photography > .map.v-leave-to {
-	opacity: 0;
-	transform: translateY(100%);
-}
-
 /* NAVIGATOR */
 
 $navigatorPadding: 20px;
 $selectorWidth: 300px;
-$buttonSize: 15px;
 
 #photography > .navigator {
 	z-index: 20;
@@ -241,7 +248,7 @@ $buttonSize: 15px;
 	left: 20px;
 	top: 50%;
 	list-style: none;
-	transform: translateY(-50%);
+	@include transform(translateY(-50%));
 }
 
 #photography > .navigator > .details > .title {
@@ -256,49 +263,6 @@ $buttonSize: 15px;
 	color: $colour-grey;
 }
 
-#photography > .navigator > .buttons {
-	position: absolute;
-	right: $selectorWidth + ($navigatorPadding * 2);
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-#photography > .navigator > .buttons:after {
-	@include clearFix;
-}
-
-#photography > .navigator > .buttons > .button {
-	float: left;
-	display: block;
-	margin-right: $navigatorPadding;
-	font-size: 12px;
-	line-height: 12px;
-	text-align: center;
-	color: $colour-grey;
-	text-decoration: none;
-}
-
-#photography > .navigator > .buttons > .button:last-child {
-	margin-right: 0;
-}
-
-#photography > .navigator > .buttons > .button:before {
-	content: "";
-	display: block;
-	margin: 0 auto 5px auto;
-	width: $buttonSize;
-	height: $buttonSize;
-	background: center center no-repeat transparent;
-}
-
-#photography > .navigator > .buttons > .button.map:before {
-	// background-image: url("../images/photography/map-button.svg");
-}
-
-#photography > .navigator > .buttons > .button.close:before {
-	// background-image: url("../images/photography/close-button.svg");
-}
-
 #photography > .navigator > .selector {
 	position: absolute;
 	right: $navigatorPadding;
@@ -311,9 +275,9 @@ $buttonSize: 15px;
 	border-radius: 3px;
 	border: none;
 	// background: url("../images/photography/viewer-arrow.svg") no-repeat #181818;
-	background-position: calc(100% - 15px) center;
-	transform: translateY(-50%);
+	@include calcBackgroundHorizontal("100% - 15px");
 	@include removeStyling;
+	@include transform(translateY(-50%));
 }
 
 #photography > .navigator > .selector:hover {
@@ -329,7 +293,7 @@ $buttonSize: 15px;
 	top: 0;
 	padding: 20px 0 20px 0;
 	width: $sidebarWidth;
-	height: calc(100% - #{$navigatorHeight});
+	@include calc(height, "100% - #{$navigatorHeight}");
 	overflow: hidden;
 	overflow-y: scroll;
 	background: $colour-black;
@@ -337,7 +301,7 @@ $buttonSize: 15px;
 
 #photography > .sidebar.loading {
 	opacity: 0.5;
-	transition: opacity 0.2s $easeDeceleration;
+	@include transition(opacity 0.2s $easeDeceleration);
 }
 
 #photography > .sidebar .sidebar-thumb {
@@ -348,7 +312,7 @@ $buttonSize: 15px;
 	height: 80px;
 	background: center center no-repeat transparent;
 	background-size: cover;
-	transition: opacity 0.2s $easeStandard;
+	@include transition(opacity 0.2s $easeStandard);
 }
 
 #photography > .sidebar .sidebar-thumb:last-child {
@@ -367,13 +331,7 @@ $buttonSize: 15px;
 
 	#photography > .navigator > .details,
 	#photography > .sidebar {
-		transition: opacity 0.2s $easeStandard;
-	}
-
-	#photography.mapOpen > .navigator > .details,
-	#photography.mapOpen > .sidebar {
-		opacity: 0.25;
-		pointer-events: none;
+		@include transition(opacity 0.2s $easeStandard);
 	}
 
 	/* SIDEBAR */
@@ -423,7 +381,7 @@ $buttonSize: 15px;
 
 	#photography {
 		top: $newGlobalHeaderHeight;
-		height: calc(100% - #{$newGlobalHeaderHeight});
+		@include calc(height, "100% - #{$newGlobalHeaderHeight}");
 	}
 
 	/* VIEWER */
@@ -435,8 +393,8 @@ $buttonSize: 15px;
 		bottom: auto;
 		padding: 0;
 		width: 100%;
-		height: calc(100% - #{$sidebarHeight + $navigatorHeight});
-		transition: height 0.2s $easeStandard;
+		@include calc(height, "100% - #{$sidebarHeight + $navigatorHeight}");
+		@include transition(height 0.2s $easeStandard);
 	}
 
 	#photography > .viewer.full {
@@ -463,7 +421,7 @@ $buttonSize: 15px;
 		position: relative;
 		top: 50%;
 		display: block;
-		transform: translateY(-50%);
+		@include transform(translateY(-50%));
 	}
 
 	$fullscreenIconSize: 24px;
@@ -478,7 +436,7 @@ $buttonSize: 15px;
 		display: block;
 		width: $fullscreenOuterSize;
 		height: $fullscreenOuterSize;
-		transition: bottom 0.2s $easeStandard;
+		@include transition(bottom 0.2s $easeStandard);
 	}
 
 	#photography > .viewer > .fullscreen:before {
@@ -512,12 +470,6 @@ $buttonSize: 15px;
 		height: 100%;
 	}
 
-	/* MAP */
-
-	#photography > .map {
-		display: none;
-	}
-
 	/* NAVIGATOR */
 
 	$navigatorPadding: 10px;
@@ -531,7 +483,7 @@ $buttonSize: 15px;
 	#photography > .navigator > .details {
 		left: $navigatorPadding;
 		padding-right: $navigatorPadding;
-		width: calc(45% - #{$navigatorPadding});
+		@include calc(width, "45% - #{$navigatorPadding}");
 	}
 
 	#photography > .navigator > .details > .title,
@@ -552,17 +504,13 @@ $buttonSize: 15px;
 		line-height: 10px;
 	}
 
-	#photography > .navigator > .buttons {
-		display: none;
-	}
-
 	#photography > .navigator > .selector {
 		right: $navigatorPadding;
 		padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
-		width: calc(55% - #{$navigatorPadding});
+		@include calc(width, "55% - #{$navigatorPadding}");
 		height: 30px;
 		font-size: 12px;
-		background-position: calc(100% - #{$navigatorPadding});
+		@include calcBackgroundHorizontal("100% - #{$navigatorPadding}");
 	}
 
 	/* SIDEBAR */

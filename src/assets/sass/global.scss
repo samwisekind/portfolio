@@ -1,12 +1,28 @@
-@import "common/constants";
-@import "common/mixins";
-@import "common/reset";
-@import "common/fonts";
+@import "partial/constants";
+@import "partial/colours";
+@import "partial/mixins";
+@import "partial/resets";
+@import "partial/fonts";
 
-@import "partials/header";
-@import "partials/footer";
 
-@import "photography";
+
+/* GLOBAL HEADER */
+
+@import "modules/global/header";
+
+
+
+/* GLOBAL FOOTER */
+
+@import "modules/global/footer";
+
+
+
+/* LINK */
+
+@import "modules/global/link";
+
+
 
 /* COMMON */
 
@@ -97,7 +113,7 @@ li .highlight {
 		right: 0;
 		display: block;
 		width: 100%;
-		transform: translateY(-50%);
+		@include transform(translateY(-50%));
 	}
 
 	.outer-menu > ul {
@@ -121,27 +137,27 @@ li .highlight {
 	}
 
 	.outer-menu .nav > li:nth-child(1) > a {
-		transition-delay: 0.1s;
+		@include transitionDelay(0.1s);
 	}
 
 	.outer-menu .nav > li:nth-child(2) > a {
-		transition-delay: 0.15s;
+		@include transitionDelay(0.15s);
 	}
 
 	.outer-menu .nav > li:nth-child(3) > a {
-		transition-delay: 0.2s;
+		@include transitionDelay(0.2s);
 	}
 
 	.outer-menu .nav > li:nth-child(4) > a {
-		transition-delay: 0.25s;
+		@include transitionDelay(0.25s);
 	}
 
 	.outer-menu .links > li:nth-child(1) > a {
-		transition-delay: 0.3s;
+		@include transitionDelay(0.3s);
 	}
 
 	.outer-menu .links > li:nth-child(2) > a {
-		transition-delay: 0.45s;
+		@include transitionDelay(0.45s);
 	}
 
 	.outer-menu > ul > li.current > a,
@@ -184,7 +200,7 @@ li .highlight {
 	.outer-content {
 		z-index: 10;
 		background: $colour-background;
-		transition: transform 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+		@include transitionTransform(0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 	}
 
 	.outer-background {
@@ -198,8 +214,7 @@ li .highlight {
 		background: $colour-black;
 		transform-style: preserve-3d;
 		-webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
 	}
 
 	body.nocanvas .outer-background {
@@ -220,7 +235,7 @@ li .highlight {
 	}
 
 	body.menu .outer-content {
-		transition-timing-function: cubic-bezier(0.175, 0.885, 0.335, 1.05);
+		@include transitionTimingFunction(cubic-bezier(0.175, 0.885, 0.335, 1.05));
 	}
 
 	body.menu .outer-overlay {
@@ -236,21 +251,21 @@ li .highlight {
 
 	body.menu .outer-content {
 		overflow: hidden;
-		box-shadow: rgba(0, 0, 0, 0.5) 0 0 $boxShadowBlur ($boxShadowBlur / 2);
+		@include boxShadow(rgba(0, 0, 0, 0.5) 0 0 $boxShadowBlur ($boxShadowBlur / 2));
 	}
 
 	body.nocanvas.menu .outer-content {
-		box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 3px;
+		@include boxShadow(rgba(0, 0, 0, 0.3) 0 0 10px 3px);
 	}
 
 	body.menu .outer-content,
 	body .outer-overlay {
-		transform: translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg) translateZ(0);
+		@include transform(translate3d(-50%, 0, 0) scale3d(0.85, 0.85, 1) rotateY(25deg) translateZ(0));
 	}
 
 	body.position .outer-menu > ul > li > a {
 		opacity: 1;
-		transition: opacity 0.25s $easeStandard;
+		@include transition(opacity 0.25s $easeStandard);
 	}
 
 }
