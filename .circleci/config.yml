@@ -15,4 +15,6 @@ jobs:
           name: Test linting
           command: |
             mkdir -p ~/reports
-            npm run lint -- -f junit > ~/reports/eslint.xml
+            npm run lint -- -f junit > ~/reports/eslint/results.xml
+      - store_test_results:
+          path: ~/reports
