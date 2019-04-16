@@ -77,7 +77,10 @@
   "eslintConfig": {
     "extends": "airbnb-base",
     "rules": {
-      "no-console": 0
+      "no-console": 0,
+      "object-curly-newline": ["error", {
+        "ObjectPattern": { "minProperties": 6 }
+      }]
     },
     "env": {
       "node": true,

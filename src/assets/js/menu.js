@@ -36,7 +36,7 @@ const generateStars = () => {
 
   const density = (width + overflowX) + (height + overflowY);
 
-  for (let i = 0; i <= density; i++) {
+  for (let i = 0; i <= density; i += 1) {
     const x = getRandomInt(-overflowX, width + overflowX);
     const y = getRandomInt(-overflowY, height + overflowY);
 

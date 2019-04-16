@@ -1,19 +1,17 @@
-var captions = document.getElementsByClassName('js-caption');
+const captions = document.querySelector('.js-caption');
 
-var bindBehaviours = function(element) {
+const bindBehaviours = (element) => {
+  const play = element.querySelector('.js-play');
+  const video = element.querySelector('.js-video');
 
-	var play = element.getElementsByClassName('js-play')[0];
-	var video = element.getElementsByClassName('js-video')[0];
-
-	play.addEventListener('click', function(event) {
-		event.preventDefault();
-		video.play();
-		video.setAttribute('controls', true);
-		element.classList.add('playing');
-	});
-
+  play.addEventListener('click', (event) => {
+    event.preventDefault();
+    video.play();
+    video.setAttribute('controls', true);
+    element.classList.add('playing');
+  });
 };
 
-for (var i = 0; i < captions.length; i++) {
-	bindBehaviours(captions[i]);
+for (let i = 0; i < captions.length; i += 1) {
+  bindBehaviours(captions[i]);
 }
