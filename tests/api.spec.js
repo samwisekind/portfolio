@@ -35,7 +35,7 @@ describe('API', () => {
       expect(type).to.equal('application/json');
       expect(body).to.deep.equal([
         {
-          key: 'test-album-1',
+          key: 'test-album-9999',
           title: 'Test Album 1',
           photos: [
             { title: 'Test Photo 4', thumbnailURL: '', imageURL: '' },

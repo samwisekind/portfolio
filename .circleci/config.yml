@@ -10,9 +10,11 @@ jobs:
           command: npm install
       - run:
           name: Run tests
-          command: npm run test
+          when: always
+          command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
       - run:
           name: Test linting
+          when: always
           command: |
             mkdir -p ~/reports/eslint
             npm run lint -- -f junit -o ~/reports/eslint/results.xml
