@@ -1,0 +1,273 @@
+
+> flamov-portfolio@3.0.0 lint /Users/Flamov/dev/flamov-portfolio
+> eslint '**/*.js' --ignore-pattern public/ "-f" "junit"
+
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/config/default.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/config/default.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/Flamov/dev/flamov-portfolio/server.js">
+<testcase time="0" name="org.eslint.no-trailing-spaces"><failure message="Trailing spaces not allowed."><![CDATA[line 8, col 68, Error - Trailing spaces not allowed. (no-trailing-spaces)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-multiple-empty-lines"><failure message="Too many blank lines at the end of file. Max of 0 allowed."><![CDATA[line 9, col 1, Error - Too many blank lines at the end of file. Max of 0 allowed. (no-multiple-empty-lines)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/app.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/app.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="176" errors="176" name="/Users/Flamov/dev/flamov-portfolio/src/assets/js/home.js">
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 1, col 1, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 2, col 1, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 4, col 1, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 5, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 5, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 6, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 6, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.comma-dangle"><failure message="Missing trailing comma."><![CDATA[line 6, col 11, Error - Missing trailing comma. (comma-dangle)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 9, col 1, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 10, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 10, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 11, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 11, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 12, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 12, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.comma-dangle"><failure message="Missing trailing comma."><![CDATA[line 12, col 10, Error - Missing trailing comma. (comma-dangle)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 15, col 17, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 17, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 17, col 2, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 17, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 19, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 19, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 21, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 21, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-plusplus"><failure message="Unary operator &apos;++&apos; used."><![CDATA[line 21, col 36, Error - Unary operator &apos;++&apos; used. (no-plusplus)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 21, col 41, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 23, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 23, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 24, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 25, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 26, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 28, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 28, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 6 spaces but found 3 tabs."><![CDATA[line 29, col 1, Error - Expected indentation of 6 spaces but found 3 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 29, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 30, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 30, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.brace-style"><failure message="Closing curly brace does not appear on the same line as the subsequent block."><![CDATA[line 30, col 3, Error - Closing curly brace does not appear on the same line as the subsequent block. (brace-style)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 31, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 31, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 6 spaces but found 3 tabs."><![CDATA[line 32, col 1, Error - Expected indentation of 6 spaces but found 3 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 32, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 33, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 33, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 35, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 35, col 2, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 35, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 37, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 37, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-plusplus"><failure message="Unary operator &apos;++&apos; used."><![CDATA[line 37, col 36, Error - Unary operator &apos;++&apos; used. (no-plusplus)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 37, col 41, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 39, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 39, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 40, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 41, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 42, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 43, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 45, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 45, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 45, col 3, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.vars-on-top"><failure message="All &apos;var&apos; declarations must be at the top of the function scope."><![CDATA[line 45, col 3, Error - All &apos;var&apos; declarations must be at the top of the function scope. (vars-on-top)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 47, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 47, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 6 spaces but found 3 tabs."><![CDATA[line 48, col 1, Error - Expected indentation of 6 spaces but found 3 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 48, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;resizeBehaviour&apos; was used before it was defined."><![CDATA[line 48, col 19, Error - &apos;resizeBehaviour&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 49, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 49, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 51, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 51, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 51, col 2, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 53, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 53, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 54, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 55, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 56, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 58, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 58, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;resizeBehaviour&apos; was used before it was defined."><![CDATA[line 58, col 36, Error - &apos;resizeBehaviour&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 60, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;resizeBehaviour&apos; was used before it was defined."><![CDATA[line 60, col 2, Error - &apos;resizeBehaviour&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 60, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 62, col 1, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 64, col 28, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 66, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 66, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 67, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 68, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 69, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 71, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 71, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 72, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 72, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;positionElements&apos; was used before it was defined."><![CDATA[line 72, col 3, Error - &apos;positionElements&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 73, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 73, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;positionElements&apos; was used before it was defined."><![CDATA[line 73, col 3, Error - &apos;positionElements&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 74, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 74, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 76, col 1, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 78, col 41, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 80, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 80, col 2, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 80, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 81, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 81, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 81, col 2, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 83, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 83, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 83, col 7, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.vars-on-top"><failure message="All &apos;var&apos; declarations must be at the top of the function scope."><![CDATA[line 83, col 7, Error - All &apos;var&apos; declarations must be at the top of the function scope. (vars-on-top)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-plusplus"><failure message="Unary operator &apos;++&apos; used."><![CDATA[line 83, col 42, Error - Unary operator &apos;++&apos; used. (no-plusplus)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 83, col 47, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 85, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 85, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.vars-on-top"><failure message="All &apos;var&apos; declarations must be at the top of the function scope."><![CDATA[line 85, col 3, Error - All &apos;var&apos; declarations must be at the top of the function scope. (vars-on-top)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 85, col 3, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 87, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 87, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 88, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 89, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 90, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 92, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 92, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-template"><failure message="Unexpected string concatenation."><![CDATA[line 92, col 29, Error - Unexpected string concatenation. (prefer-template)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 94, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 94, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 95, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 96, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 97, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 99, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 99, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 101, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 101, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 101, col 35, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 6 spaces but found 3 tabs."><![CDATA[line 103, col 1, Error - Expected indentation of 6 spaces but found 3 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 103, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 104, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 105, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 106, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 6 spaces but found 3 tabs."><![CDATA[line 108, col 1, Error - Expected indentation of 6 spaces but found 3 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 108, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 110, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 110, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 110, col 3, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 112, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 112, col 2, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 112, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 114, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 114, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 116, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 116, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;resizeContainer&apos; was used before it was defined."><![CDATA[line 116, col 2, Error - &apos;resizeContainer&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 118, col 1, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 120, col 28, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 122, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 122, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 123, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 124, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 125, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 127, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 127, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 128, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 128, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-template"><failure message="Unexpected string concatenation."><![CDATA[line 128, col 24, Error - Unexpected string concatenation. (prefer-template)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 129, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.brace-style"><failure message="Closing curly brace does not appear on the same line as the subsequent block."><![CDATA[line 129, col 2, Error - Closing curly brace does not appear on the same line as the subsequent block. (brace-style)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 129, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 130, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 130, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 131, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 131, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-template"><failure message="Unexpected string concatenation."><![CDATA[line 131, col 24, Error - Unexpected string concatenation. (prefer-template)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 132, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 132, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 134, col 1, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="5" errors="5" name="/Users/Flamov/dev/flamov-portfolio/src/assets/js/menu.js">
+<testcase time="0" name="org.eslint.object-curly-newline"><failure message="Expected a line break after this opening brace."><![CDATA[line 17, col 19, Error - Expected a line break after this opening brace. (object-curly-newline)]]></failure></testcase>
+<testcase time="0" name="org.eslint.object-curly-newline"><failure message="Expected a line break before this closing brace."><![CDATA[line 17, col 44, Error - Expected a line break before this closing brace. (object-curly-newline)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-plusplus"><failure message="Unary operator &apos;++&apos; used."><![CDATA[line 39, col 33, Error - Unary operator &apos;++&apos; used. (no-plusplus)]]></failure></testcase>
+<testcase time="0" name="org.eslint.object-curly-newline"><failure message="Expected a line break after this opening brace."><![CDATA[line 47, col 16, Error - Expected a line break after this opening brace. (object-curly-newline)]]></failure></testcase>
+<testcase time="0" name="org.eslint.object-curly-newline"><failure message="Expected a line break before this closing brace."><![CDATA[line 47, col 41, Error - Expected a line break before this closing brace. (object-curly-newline)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/assets/js/photography.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/assets/js/photography.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="32" errors="32" name="/Users/Flamov/dev/flamov-portfolio/src/assets/js/videos.js">
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 1, col 1, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 3, col 1, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.func-names"><failure message="Unexpected unnamed function."><![CDATA[line 3, col 22, Warning - Unexpected unnamed function. (func-names)]]></failure></testcase>
+<testcase time="0" name="org.eslint.space-before-function-paren"><failure message="Missing space before function parentheses."><![CDATA[line 3, col 30, Error - Missing space before function parentheses. (space-before-function-paren)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 3, col 40, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 5, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 5, col 2, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 5, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 6, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 6, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 6, col 2, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 8, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 8, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.func-names"><failure message="Unexpected unnamed function."><![CDATA[line 8, col 33, Warning - Unexpected unnamed function. (func-names)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-arrow-callback"><failure message="Unexpected function expression."><![CDATA[line 8, col 33, Error - Unexpected function expression. (prefer-arrow-callback)]]></failure></testcase>
+<testcase time="0" name="org.eslint.space-before-function-paren"><failure message="Missing space before function parentheses."><![CDATA[line 8, col 41, Error - Missing space before function parentheses. (space-before-function-paren)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 9, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 9, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 10, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 10, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 11, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 11, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 4 spaces but found 2 tabs."><![CDATA[line 12, col 1, Error - Expected indentation of 4 spaces but found 2 tabs. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 12, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 13, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 13, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+<testcase time="0" name="org.eslint.padded-blocks"><failure message="Block must not be padded by blank lines."><![CDATA[line 15, col 1, Error - Block must not be padded by blank lines. (padded-blocks)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-var"><failure message="Unexpected var, use let or const instead."><![CDATA[line 17, col 6, Error - Unexpected var, use let or const instead. (no-var)]]></failure></testcase>
+<testcase time="0" name="org.eslint.vars-on-top"><failure message="All &apos;var&apos; declarations must be at the top of the function scope."><![CDATA[line 17, col 6, Error - All &apos;var&apos; declarations must be at the top of the function scope. (vars-on-top)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-plusplus"><failure message="Unary operator &apos;++&apos; used."><![CDATA[line 17, col 38, Error - Unary operator &apos;++&apos; used. (no-plusplus)]]></failure></testcase>
+<testcase time="0" name="org.eslint.indent"><failure message="Expected indentation of 2 spaces but found 1 tab."><![CDATA[line 18, col 1, Error - Expected indentation of 2 spaces but found 1 tab. (indent)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-tabs"><failure message="Unexpected tab character."><![CDATA[line 18, col 2, Error - Unexpected tab character. (no-tabs)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/assets/main.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/assets/main.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/controllers/api.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/controllers/api.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/controllers/frontend.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/controllers/frontend.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/helpers/constants.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/helpers/constants.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/helpers/errorHandler.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/helpers/errorHandler.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/helpers/mongodb.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/helpers/mongodb.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/models/photography.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/models/photography.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/src/routes/index.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/src/routes/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/tests/api.spec.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/tests/api.spec.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/tests/app.spec.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/tests/app.spec.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/Flamov/dev/flamov-portfolio/tests/mocks/photography.js">
+<testcase time="0" name="/Users/Flamov/dev/flamov-portfolio/tests/mocks/photography.js" />
+</testsuite>
+</testsuites>
+
