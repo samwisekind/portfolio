@@ -10,8 +10,8 @@
     "start": "node server",
     "watch": "npm run server:watch & npm run assets:watch",
     "server:watch": "nodemon server.js --inspect",
-    "assets:build": "parcel build src/assets/main.js --out-dir src/public",
-    "assets:watch": "parcel watch src/assets/main.js --out-dir src/public",
+    "assets:build": "parcel build src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public --detailed-report --no-hmr",
+    "assets:watch": "parcel watch src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public",
     "lint": "eslint '**/*.js' --ignore-pattern public/",
     "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
     "coverage": "nyc --reporter=lcov npm test"
@@ -53,9 +53,8 @@
     "mocha": "^6.1.3",
     "mocha-junit-reporter": "^1.21.0",
     "mongodb-memory-server": "^5.0.2",
-    "nyc": "^13.1.0",
+    "nyc": "^14.0.0",
     "parcel-bundler": "^1.12.3",
-    "parcel-plugin-static-files-copy": "^2.0.0",
     "sass": "^1.18.0",
     "stylelint": "^10.0.0",
     "stylelint-config-airbnb": "0.0.0",
@@ -70,10 +69,6 @@
       "src/assets",
       "src/public"
     ]
-  },
-  "staticFiles": {
-    "staticPath": "src/assets/img",
-    "watcherGlob": "**"
   },
   "eslintConfig": {
     "extends": "airbnb-base",

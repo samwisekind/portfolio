@@ -1,3 +1,5 @@
+block variables
+
 doctype html
 html
 
@@ -6,10 +8,10 @@ html
     meta(http-equiv="x-ua-compatible" content="ie=edge")
     meta(name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi")
     title Flamov Portfolio
+    link(rel="stylesheet" href="/sass/global.css")
     block styles
-      link(rel="stylesheet" href="/main.css")
 
-  body
+  body(class=`page-${page}`)
     .outer-wrapper
       .outer-overlay.js-overlay
       .outer-menu
@@ -28,4 +30,4 @@ html
           p.small All logos, images, and trademarks used on this website are property of their respective owners.
     canvas.outer-background.js-stars
     block scripts
-      script(src="/main.js")
+      script(src="/js/menu.js")
