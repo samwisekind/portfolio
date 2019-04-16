@@ -12,7 +12,7 @@
     "server:watch": "nodemon server.js --inspect",
     "assets:build": "parcel build src/assets/main.js --out-dir src/public",
     "assets:watch": "parcel watch src/assets/main.js --out-dir src/public",
-    "lint": "eslint *.js",
+    "lint": "eslint src/ --ignore-pattern public/",
     "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
     "coverage": "nyc --reporter=lcov npm test"
   },
