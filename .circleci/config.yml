@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     docker:
@@ -14,10 +15,26 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+
+  unit_tests:
+    docker:
+      - image: circleci/node:11
+    steps:
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Run tests
           when: always
           command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
+      - store_test_results:
+          path: ~/reports
+
+  linting_tests:
+    docker:
+      - image: circleci/node:11
+    steps:
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Test linting
           when: always
@@ -26,3 +43,15 @@ jobs:
             npm run lint -- -f junit -o ~/reports/eslint/results.xml
       - store_test_results:
           path: ~/reports
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
+      - unit_tests:
+          requires:
+            - build
+      - linting_tests:
+          requires:
+            - build
