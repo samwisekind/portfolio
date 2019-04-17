@@ -66,8 +66,6 @@ workflows:
     jobs:
       - checkout-code
       - build-app
-          requires:
-            - checkout-code
       - unit-tests:
           requires:
             - build
