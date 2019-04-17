@@ -19,8 +19,8 @@ jobs:
       - image: circleci/node:11
     working_directory: ~/app
     steps:
-        - restore_cache:
-            key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Install dependencies
           command: npm install
