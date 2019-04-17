@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  checkout-code:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -9,6 +9,18 @@ jobs:
       - checkout
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/app
+
+  build-app:
+    docker:
+      - image: circleci/node:11
+    working_directory: ~/app
+    steps:
+        - restore_cache:
+            key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Install dependencies
           command: npm install
@@ -16,27 +28,28 @@ jobs:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/app
+      - persist_to_workspace:
+          root: .
+          paths: .
 
   unit-tests:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
     steps:
-      - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Run tests
           command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
       - store_test_results:
           path: ~/reports
+      - attach_workspace:
+          at: /app
 
   linting-tests:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
     steps:
-      - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Test linting
           command: |
@@ -44,15 +57,20 @@ jobs:
             npm run lint -- -f junit -o ~/reports/eslint/results.xml
       - store_test_results:
           path: ~/reports
+      - attach_workspace:
+          at: /app
 
 workflows:
   version: 2
   build-and-test:
     jobs:
-      - build
-      - unit_tests:
+      - checkout-code
+      - build-app
+          requires:
+            - checkout-code
+      - unit-tests:
           requires:
             - build
-      - linting_tests:
+      - linting-tests:
           requires:
             - build
