@@ -24,7 +24,7 @@ jobs:
           root: .
           paths: node_modules
 
-  unit-tests:
+  test:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -37,6 +37,18 @@ jobs:
           command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
       - store_test_results:
           path: ~/reports
+
+  unit-tests:
+    docker:
+      - image: circleci/node:11
+    working_directory: ~/app
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: ls
+          command: ls -lta
 
   linting-tests:
     docker:
@@ -59,6 +71,9 @@ workflows:
   build-and-test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
       - unit-tests:
           requires:
             - build
