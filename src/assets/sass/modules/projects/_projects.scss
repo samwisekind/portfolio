@@ -1,52 +1,52 @@
 // Project key, text colour, background colour
 $projectList: (
-	("tng-fintech-website", #00FFD3, #1C0A66),
-	("tng-website", #FEE27E, #1F134D),
-	("tng-app", #FFFFFF, #4FC3F7),
-	("joyce", #FFFFFF, #000000),
-	("enicar", #FFFFFF, #E44436),
-	("steamchat", #FFFFFF, #0064BF),
-	("k11", #FFFFFF, #A7834A),
-	("hkjc", #FAD40E, #002E65)
+  ("tng-fintech-website", #00FFD3, #1C0A66),
+  ("tng-website", #FEE27E, #1F134D),
+  ("tng-app", #FFFFFF, #4FC3F7),
+  ("joyce", #FFFFFF, #000000),
+  ("enicar", #FFFFFF, #E44436),
+  ("steamchat", #FFFFFF, #0064BF),
+  ("k11", #FFFFFF, #A7834A),
+  ("hkjc", #FAD40E, #002E65)
 );
 
 @each $project, $colour, $background in $projectList {
 
-	.project-header.#{$project},
-	.project-header.#{$project} a.link,
-	.project-content.#{$project} a.link {
-		color: $colour;
-	}
+  .project-header.#{$project},
+  .project-header.#{$project} a.link,
+  .project-content.#{$project} a.link {
+    color: $colour;
+  }
 
-	.project-content.#{$project} h3,
-	.project-content.#{$project} > h4 {
-		color: $background;
-	}
+  .project-content.#{$project} h3,
+  .project-content.#{$project} > h4 {
+    color: $background;
+  }
 
-	.project-header.#{$project},
-	.project-header.#{$project} a.link:after,
-	.project-content.#{$project} a.link:after,
-	.project-content hr:before {
-		background: $background;
-	}
+  .project-header.#{$project},
+  .project-header.#{$project} a.link:after,
+  .project-content.#{$project} a.link:after,
+  .project-content hr:before {
+    background: $background;
+  }
 
-	.project-content.#{$project} .highlight {
-		background: rgba($background, 0.2);
-	}
+  .project-content.#{$project} .highlight {
+    background: rgba($background, .2);
+  }
 
-	.project-header.#{$project} a.link:after,
-	.project-content.#{$project} a.link:after {
-		background: $colour;
-	}
+  .project-header.#{$project} a.link:after,
+  .project-content.#{$project} a.link:after {
+    background: $colour;
+  }
 
-	.project-header.#{$project} a.link:before,
-	.project-content.#{$project} a.link:before {
-		background: rgba($colour, 0.2);
-	}
+  .project-header.#{$project} a.link:before,
+  .project-content.#{$project} a.link:before {
+    background: rgba($colour, .2);
+  }
 
-	.project-header.#{$project} a.link > .icon > .icon-layer,
-	.project-content.#{$project} a.link > .icon > .icon-layer {
-		fill: $colour;
-	}
+  .project-header.#{$project} a.link > .icon > .icon-layer,
+  .project-content.#{$project} a.link > .icon > .icon-layer {
+    fill: $colour;
+  }
 
 }

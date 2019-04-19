@@ -1,9 +1,9 @@
 /* EASING */
-$easeStandard: cubic-bezier(0.4, 0.0, 0.2, 1);
-$easeDeceleration: cubic-bezier(0.0, 0.0, 0.2, 1);
-$easeAcceleration: cubic-bezier(0.4, 0.0, 1, 1);
-$easeSharp: cubic-bezier(0.4, 0.0, 0.6, 1);
-$easeQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$easeStandard: cubic-bezier(.4, 0, .2, 1);
+$easeDeceleration: cubic-bezier(0, 0, .2, 1);
+$easeAcceleration: cubic-bezier(.4, 0, 1, 1);
+$easeSharp: cubic-bezier(.4, 0, .6, 1);
+$easeQuad: cubic-bezier(.455, .030, .515, .955);
 
 /* SIZES */
 $maxWidth: 1100px;

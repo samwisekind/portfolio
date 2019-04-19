@@ -1,5 +1,7 @@
 @import "partial/constants";
+
 @import "partial/colours";
+
 @import "partial/mixins";
 
 /* COMMON */
@@ -9,223 +11,209 @@ $sidebarWidth: 160px;
 /* OVERRIDES */
 
 body {
-	color: $colour-white;
-	background: $colour-black;
+  color: $colour-white;
+  background: $colour-black;
 }
 
 .outer-wrapper {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .outer-wrapper > .outer-content {
-	background: $colour-black;
+  background: $colour-black;
 }
 
 .global-footer {
-	display: none;
+  display: none;
 }
 
 $newGlobalHeaderHeight: 50px;
 
 .global-header {
-	padding-left: 20px;
-	padding-right: 20px;
-	@include calc(width, "100% - #{$sidebarWidth}");
+  padding-left: 20px;
+  padding-right: 20px;
+  width: calc(100% - #{$sidebarWidth});
 }
 
 .global-header > .container {
-	padding: 0;
-	max-width: none;
+  padding: 0;
+  max-width: none;
 }
 
 .global-header a span {
-	padding: 2px;
-	border-bottom-color: transparent;
+  padding: 2px;
+  border-bottom-color: transparent;
 }
 
 .global-header a:hover span,
 .global-header .nav .current > a span {
-	border-bottom-color: darken($colour-greyDark, 25%);
+  border-bottom-color: darken($colour-greyDark, 25%);
 }
 
 .global-header,
 .global-header .title,
 .global-header .nav li {
-	height: $newGlobalHeaderHeight;
+  height: $newGlobalHeaderHeight;
 }
 
 .global-header .title > a,
 .global-header .nav a {
-	font-size: 16px;
-	line-height: 16px;
-	color: $colour-greyDark;
+  font-size: 16px;
+  line-height: 16px;
+  color: $colour-greyDark;
 }
 
 .global-header .links {
-	display: none;
+  display: none;
 }
 
 /* MAIN */
 
 $navigatorHeight: 80px;
 $loadingSize: 60px;
-$scaleAmount: 0.25;
+$scaleAmount: .25;
 
-#photography {
-	z-index: 0;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	font-family: "Raleway", Helvetica, Verdana, sans-serif;
-	background: $colour-black;
+.photography {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Raleway", Helvetica, Verdana, sans-serif;
+  background: $colour-black;
 }
 
 /* VIEWER */
 
 $viewerPadding: 20px;
 
-#photography > .viewer {
-	z-index: 0;
-	position: absolute;
-	left: 0;
-	bottom: $navigatorHeight;
-	padding: $viewerPadding 0 $viewerPadding $viewerPadding;
-	background: $colour-black;
-	@include calc(width, "100% - #{$sidebarWidth}");
-	@include calc(height, "100% - #{$navigatorHeight + $newGlobalHeaderHeight}");
+.photography > .viewer {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  bottom: $navigatorHeight;
+  padding: $viewerPadding 0 $viewerPadding $viewerPadding;
+  background: $colour-black;
+  width: calc(100% - #{$sidebarWidth});
+  height: calc(100% - #{$navigatorHeight + $newGlobalHeaderHeight});
 }
 
-#photography > .viewer > .notice,
-#photography > .viewer > .fullscreen {
-	display: none;
+.photography > .viewer > .notice,
+.photography > .viewer > .fullscreen {
+  display: none;
 }
 
-#photography > .viewer > .arrow {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	width: 20%;
-	height: 100%;
+.photography > .viewer > .arrow {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
 }
 
-#photography > .viewer > .arrow:hover {
-	cursor: pointer;
+.photography > .viewer > .arrow:hover {
+  cursor: pointer;
 }
 
-#photography > .viewer > .arrow.prev {
-	left: 0;
+.photography > .viewer > .arrow.prev {
+  left: 0;
 }
 
-#photography > .viewer > .arrow.next {
-	right: 0;
+.photography > .viewer > .arrow.next {
+  right: 0;
 }
 
-#photography > .viewer > .arrow:before {
-	content: "";
-	opacity: 0;
-	position: absolute;
-	top: 50%;
-	margin-top: -(30px / 2);
-	width: 30px;
-	height: 50px;
-	// background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
-	background-size: contain;
-	@include transition(all 0.2s $easeStandard);
+.photography > .viewer > .arrow:before {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -(30px / 2);
+  width: 30px;
+  height: 50px;
+  // background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
+  background-size: contain;
+  transition: all .2s $easeStandard;
 }
 
-#photography > .viewer > .arrow:hover:before {
-	opacity: 0.5;
+.photography > .viewer > .arrow:hover:before {
+  opacity: .5;
 }
 
-#photography > .viewer > .arrow.prev:before {
-	left: $viewerPadding + ($viewerPadding * 2);
-	@include transform(translateX(0px) rotate(90deg));
+.photography > .viewer > .arrow.prev:before {
+  left: $viewerPadding + ($viewerPadding * 2);
+  transform: translateX(0px) rotate(90deg);
 }
 
-#photography > .viewer > .arrow.prev:hover:before {
-	@include transform(translateX(-20px) rotate(90deg));
+.photography > .viewer > .arrow.prev:hover:before {
+  transform: translateX(-20px) rotate(90deg);
 }
 
-#photography > .viewer > .arrow.next:before {
-	right: $viewerPadding + $viewerPadding;
-	@include transform(translateX(0px) rotate(-90deg));
+.photography > .viewer > .arrow.next:before {
+  right: $viewerPadding + $viewerPadding;
+  transform: translateX(0px) rotate(-90deg);
 }
 
-#photography > .viewer > .arrow.next:hover:before {
-	@include transform(translateX(20px) rotate(-90deg));
+.photography > .viewer > .arrow.next:hover:before {
+  transform: translateX(20px) rotate(-90deg);
 }
 
 $photoMaxSize: 1024px;
 
-#photography > .viewer > .viewer-photo {
-	z-index: 0;
-	position: relative;
-	top: 50%;
-	margin: 0 auto 0 auto;
-	width: 100%;
-	height: 100%;
-	max-width: $photoMaxSize;
-	max-height: $photoMaxSize;
-	background: center center no-repeat transparent;
-	background-size: contain;
-	@include transform(translateY(-50%));
-	@include transition(opacity 0.2s $easeAcceleration);
+.photography > .viewer > .viewer-photo {
+  z-index: 0;
+  position: relative;
+  top: 50%;
+  margin: 0 auto 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: $photoMaxSize;
+  max-height: $photoMaxSize;
+  background: center center no-repeat transparent;
+  background-size: contain;
+  transform: translateY(-50%);
+  transition: opacity .2s $easeAcceleration;
 }
 
-#photography > .viewer.loading > .viewer-photo {
-	opacity: 0.5;
-	@include transition(opacity 0.2s $easeDeceleration);
+.photography > .viewer.loading > .viewer-photo {
+  opacity: .5;
+  transition: opacity .2s $easeDeceleration;
 }
 
-#photography > .viewer.loading:before {
-	content: "";
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -($loadingSize / 2);
-	margin-top: -($loadingSize / 2);
-	width: $loadingSize;
-	height: $loadingSize;
-	border-radius: 50%;
-	border:($loadingSize / 10) solid #FFFFFF;
-	@include animation(loading 1s infinite $easeDeceleration);
-}
-
-@-webkit-keyframes loading {
-	0% { -webkit-transform: scale(0.1); opacity: 0; }
-	50% { opacity: 1; }
-	100% { -webkit-transform: scale(1); opacity: 0; }
-}
-
-@-moz-keyframes loading {
-	0% { -moz-transform: scale(0.1); opacity: 0; }
-	50% { opacity: 1; }
-	100% { -moz-transform: scale(1); opacity: 0; }
-}
-
-@-ms-keyframes loading {
-	0% { -ms-transform: scale(0.1); opacity: 0; }
-	50% { opacity: 1; }
-	100% { -ms-transform: scale(1); opacity: 0; }
-}
-
-@-o-keyframes loading {
-	0% { -o-transform: scale(0.1); opacity: 0; }
-	50% { opacity: 1; }
-	100% { -o-transform: scale(1); opacity: 0; }
+.photography > .viewer.loading:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -($loadingSize / 2);
+  margin-top: -($loadingSize / 2);
+  width: $loadingSize;
+  height: $loadingSize;
+  border-radius: 50%;
+  border: ($loadingSize / 10) solid #FFFFFF;
+  animation: loading 1s infinite $easeDeceleration;
 }
 
 @keyframes loading {
-	0% { transform: scale(0.1); opacity: 0; }
-	50% { opacity: 1; }
-	100% { transform: scale(1); opacity: 0; }
+
+  0% {
+    transform: scale(.1); opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1); opacity: 0;
+  }
+
 }
 
 /* NAVIGATOR */
@@ -233,313 +221,313 @@ $photoMaxSize: 1024px;
 $navigatorPadding: 20px;
 $selectorWidth: 300px;
 
-#photography > .navigator {
-	z-index: 20;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: $navigatorHeight;
-	background: $colour-black;
+.photography > .navigator {
+  z-index: 20;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $navigatorHeight;
+  background: $colour-black;
 }
 
-#photography > .navigator > .details {
-	position: absolute;
-	left: 20px;
-	top: 50%;
-	list-style: none;
-	@include transform(translateY(-50%));
+.photography > .navigator > .details {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  list-style: none;
+  transform: translateY(-50%);
 }
 
-#photography > .navigator > .details > .title {
-	margin-bottom: 5px;
-	font-size: 16px;
-	line-height: 16px;
+.photography > .navigator > .details > .title {
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 16px;
 }
 
-#photography > .navigator > .details > .index {
-	font-size: 12px;
-	line-height: 12px;
-	color: $colour-grey;
+.photography > .navigator > .details > .index {
+  font-size: 12px;
+  line-height: 12px;
+  color: $colour-grey;
 }
 
-#photography > .navigator > .selector {
-	position: absolute;
-	right: $navigatorPadding;
-	top: 50%;
-	padding: 0 ((15px * 2) + 15px) 0 15px;
-	width: $selectorWidth;
-	height: 40px;
-	font-size: 14px;
-	color: $colour-grey;
-	border-radius: 3px;
-	border: none;
-	// background: url("../images/photography/viewer-arrow.svg") no-repeat #181818;
-	@include calcBackgroundHorizontal("100% - 15px");
-	@include removeStyling;
-	@include transform(translateY(-50%));
+.photography > .navigator > .selector {
+  position: absolute;
+  right: $navigatorPadding;
+  top: 50%;
+  padding: 0 ((15px * 2) + 15px) 0 15px;
+  width: $selectorWidth;
+  height: 40px;
+  font-size: 14px;
+  color: $colour-grey;
+  border-radius: 3px;
+  border: 0;
+  // background: url("../images/photography/viewer-arrow.svg") no-repeat #181818;
+  background-position: calc(100% - 15px) center;
+  transform: translateY(-50%);
+
+  @include removeStyling;
 }
 
-#photography > .navigator > .selector:hover {
-	cursor: pointer;
+.photography > .navigator > .selector:hover {
+  cursor: pointer;
 }
 
 /* SIDEBAR */
 
-#photography > .sidebar {
-	z-index: 30;
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding: 20px 0 20px 0;
-	width: $sidebarWidth;
-	@include calc(height, "100% - #{$navigatorHeight}");
-	overflow: hidden;
-	overflow-y: scroll;
-	background: $colour-black;
+.photography > .sidebar {
+  z-index: 30;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px 0 20px 0;
+  width: $sidebarWidth;
+  height: calc(100% - #{$navigatorHeight});
+  overflow: hidden;
+  overflow-y: scroll;
+  background: $colour-black;
 }
 
-#photography > .sidebar.loading {
-	opacity: 0.5;
-	@include transition(opacity 0.2s $easeDeceleration);
+.photography > .sidebar.loading {
+  opacity: .5;
+  transition: opacity .2s $easeDeceleration;
 }
 
-#photography > .sidebar .sidebar-thumb {
-	opacity: 0.5;
-	display: block;
-	margin: 0 auto 20px auto;
-	width: 120px;
-	height: 80px;
-	background: center center no-repeat transparent;
-	background-size: cover;
-	@include transition(opacity 0.2s $easeStandard);
+.photography > .sidebar .sidebar-thumb {
+  opacity: .5;
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 120px;
+  height: 80px;
+  background: center center no-repeat transparent;
+  background-size: cover;
+  transition: opacity .2s $easeStandard;
 }
 
-#photography > .sidebar .sidebar-thumb:last-child {
-	margin-bottom: 0;
+.photography > .sidebar .sidebar-thumb:last-child {
+  margin-bottom: 0;
 }
 
-#photography > .sidebar .sidebar-thumb:hover {
-	opacity: 0.5;
+.photography > .sidebar .sidebar-thumb:hover {
+  opacity: .5;
 }
 
-#photography > .sidebar .sidebar-thumb.current {
-	opacity: 1;
+.photography > .sidebar .sidebar-thumb.current {
+  opacity: 1;
 }
 
 @media(min-width: $mobileBreakpointLarge + 1px) {
 
-	#photography > .navigator > .details,
-	#photography > .sidebar {
-		@include transition(opacity 0.2s $easeStandard);
-	}
+  .photography > .navigator > .details,
+  .photography > .sidebar {
+    transition: opacity .2s $easeStandard;
+  }
 
-	/* SIDEBAR */
+  /* SIDEBAR */
 
-	#photography > .sidebar > .sidebar-wrapper {
-		width: auto !important;
-	}
+  .photography > .sidebar > .sidebar-wrapper {
+    width: auto !important;
+  }
 
 }
 
 @media(max-width: $mobileBreakpointLarge) {
+  /* VARIABLES */
 
-	/* VARIABLES */
+  $sidebarHeight: 50px;
+  $navigatorHeight: 50px;
 
-	$sidebarHeight: 50px;
-	$navigatorHeight: 50px;
+  /* OVERRIDES */
 
-	/* OVERRIDES */
+  $newGlobalHeaderHeight: 50px;
 
-	$newGlobalHeaderHeight: 50px;
+  .outer-content {
+    background: $colour-black;
+  }
 
-	.outer-content {
-		background: $colour-black;
-	}
+  .global-header {
+    padding-left: 10px;
+    padding-right: 0;
+    width: 100%;
+  }
 
-	.global-header {
-		padding-left: 10px;
-		padding-right: 0;
-		width: 100%;
-	}
+  .global-header,
+  .global-header .title,
+  .global-header .hamburger {
+    height: $newGlobalHeaderHeight;
+  }
 
-	.global-header,
-	.global-header .title,
-	.global-header .hamburger {
-		height: $newGlobalHeaderHeight;
-	}
+  .global-header .hamburger {
+    width: 60px;
+  }
 
-	.global-header .hamburger {
-		width: 60px;
-	}
+  .global-header .hamburger:before {
+    // background-image: url("/images/global/global-header-hamburger-light.svg");
+  }
 
-	.global-header .hamburger:before {
-		// background-image: url("/images/global/global-header-hamburger-light.svg");
-	}
+  /* MAIN */
 
-	/* MAIN */
+  .photography {
+    top: $newGlobalHeaderHeight;
+    height: calc(100% - #{$newGlobalHeaderHeight});
+  }
 
-	#photography {
-		top: $newGlobalHeaderHeight;
-		@include calc(height, "100% - #{$newGlobalHeaderHeight}");
-	}
+  /* VIEWER */
 
-	/* VIEWER */
+  $noticeHeight: 20px;
 
-	$noticeHeight: 20px;
+  .photography > .viewer {
+    z-index: 20;
+    bottom: auto;
+    padding: 0;
+    width: 100%;
+    height: calc(100% -  #{$sidebarHeight + $navigatorHeight});
+    transition: height .2s $easeStandard;
+  }
 
-	#photography > .viewer {
-		z-index: 20;
-		bottom: auto;
-		padding: 0;
-		width: 100%;
-		@include calc(height, "100% - #{$sidebarHeight + $navigatorHeight}");
-		@include transition(height 0.2s $easeStandard);
-	}
+  .photography > .viewer.full {
+    height: 100%;
+  }
 
-	#photography > .viewer.full {
-		height: 100%;
-	}
+  .photography > .viewer.notice > .notice {
+    pointer-events: none;
+    z-index: 30;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: $noticeHeight;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    color: $colour-grey;
+    background: rgba(0, 0, 0, .5);
+  }
 
-	#photography > .viewer.notice > .notice {
-		pointer-events: none;
-		z-index: 30;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		display: block;
-		width: 100%;
-		height: $noticeHeight;
-		font-size: 10px;
-		line-height: 10px;
-		text-align: center;
-		color: $colour-grey;
-		background: rgba(0, 0, 0, 0.5);
-	}
+  .photography > .viewer.notice > .notice > .wrapper {
+    position: relative;
+    top: 50%;
+    display: block;
+    transform: translateY(-50%);
+  }
 
-	#photography > .viewer.notice > .notice > .wrapper {
-		position: relative;
-		top: 50%;
-		display: block;
-		@include transform(translateY(-50%));
-	}
+  $fullscreenIconSize: 24px;
+  $fullscreenOuterSize: $fullscreenIconSize + (10px * 2);
 
-	$fullscreenIconSize: 24px;
-	$fullscreenOuterSize: $fullscreenIconSize + (10px * 2);
+  .photography > .viewer > .fullscreen {
+    opacity: .25;
+    z-index: 20;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: $fullscreenOuterSize;
+    height: $fullscreenOuterSize;
+    transition: bottom .2s $easeStandard;
+  }
 
-	#photography > .viewer > .fullscreen {
-		opacity: 0.25;
-		z-index: 20;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		display: block;
-		width: $fullscreenOuterSize;
-		height: $fullscreenOuterSize;
-		@include transition(bottom 0.2s $easeStandard);
-	}
+  .photography > .viewer > .fullscreen:before {
+    content: "";
+    display: block;
+    margin-left: ($fullscreenOuterSize - $fullscreenIconSize) / 2;
+    margin-top: ($fullscreenOuterSize - $fullscreenIconSize) / 2;
+    width: $fullscreenIconSize;
+    height: $fullscreenIconSize;
+    // background: url("../images/photography/viewer-full.svg") left center no-repeat transparent;
+  }
 
-	#photography > .viewer > .fullscreen:before {
-		content: "";
-		display: block;
-		margin-left: ($fullscreenOuterSize - $fullscreenIconSize) / 2;
-		margin-top: ($fullscreenOuterSize - $fullscreenIconSize) / 2;
-		width: $fullscreenIconSize;
-		height: $fullscreenIconSize;
-		// background: url("../images/photography/viewer-full.svg") left center no-repeat transparent;
-	}
+  .photography > .viewer.notice > .fullscreen {
+    bottom: $noticeHeight;
+  }
 
-	#photography > .viewer.notice > .fullscreen {
-		bottom: $noticeHeight;
-	}
+  .photography > .viewer.full > .fullscreen {
+    background-position: right center;
+  }
 
-	#photography > .viewer.full > .fullscreen {
-		background-position: right center;
-	}
+  .photography > .viewer > .arrow {
+    width: 50%;
+  }
 
-	#photography > .viewer > .arrow {
-		width: 50%;
-	}
+  .photography > .viewer > .arrow:before {
+    display: none;
+  }
 
-	#photography > .viewer > .arrow:before {
-		display: none;
-	}
+  .photography > .viewer > .viewer-photo {
+    width: 100%;
+    height: 100%;
+  }
 
-	#photography > .viewer > .viewer-photo {
-		width: 100%;
-		height: 100%;
-	}
+  /* NAVIGATOR */
 
-	/* NAVIGATOR */
+  $navigatorPadding: 10px;
 
-	$navigatorPadding: 10px;
+  .photography > .navigator {
+    z-index: 10;
+    padding: $navigatorPadding;
+    height: $navigatorHeight;
+  }
 
-	#photography > .navigator {
-		z-index: 10;
-		padding: $navigatorPadding;
-		height: $navigatorHeight;
-	}
+  .photography > .navigator > .details {
+    left: $navigatorPadding;
+    padding-right: $navigatorPadding;
+    width: calc(45% - #{$navigatorPadding});
+  }
 
-	#photography > .navigator > .details {
-		left: $navigatorPadding;
-		padding-right: $navigatorPadding;
-		@include calc(width, "45% - #{$navigatorPadding}");
-	}
+  .photography > .navigator > .details > .title,
+  .photography > .navigator > .details > .index {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-	#photography > .navigator > .details > .title,
-	#photography > .navigator > .details > .index {
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-	}
+  .photography > .navigator > .details > .title {
+    margin-bottom: 2px;
+    font-size: 12px;
+    line-height: 12px;
+  }
 
-	#photography > .navigator > .details > .title {
-		margin-bottom: 2px;
-		font-size: 12px;
-		line-height: 12px;
-	}
+  .photography > .navigator > .details > .index {
+    font-size: 10px;
+    line-height: 10px;
+  }
 
-	#photography > .navigator > .details > .index {
-		font-size: 10px;
-		line-height: 10px;
-	}
+  .photography > .navigator > .selector {
+    right: $navigatorPadding;
+    padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
+    width: calc(55% - #{$navigatorPadding});
+    height: 30px;
+    font-size: 12px;
+    background-position: calc(100% - #{$navigatorPadding}) center;
+  }
 
-	#photography > .navigator > .selector {
-		right: $navigatorPadding;
-		padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
-		@include calc(width, "55% - #{$navigatorPadding}");
-		height: 30px;
-		font-size: 12px;
-		@include calcBackgroundHorizontal("100% - #{$navigatorPadding}");
-	}
+  /* SIDEBAR */
 
-	/* SIDEBAR */
+  .photography > .sidebar {
+    z-index: 0;
+    top: auto;
+    bottom: $navigatorHeight;
+    padding: 10px;
+    width: 100%;
+    height: $sidebarHeight;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 
-	#photography > .sidebar {
-		z-index: 0;
-		top: auto;
-		bottom: $navigatorHeight;
-		padding: 10px;
-		width: 100%;
-		height: $sidebarHeight;
-		overflow-x: scroll;
-		overflow-y: hidden;
-	}
+  .photography > .sidebar > .sidebar-wrapper:after {
+    @include clearFix;
+  }
 
-	#photography > .sidebar > .sidebar-wrapper:after {
-		@include clearFix;
-	}
+  .photography > .sidebar .sidebar-thumb {
+    float: left;
+    margin-bottom: 0;
+    margin-right: 10px;
+    width: 50px;
+    height: 30px;
+  }
 
-	#photography > .sidebar .sidebar-thumb {
-		float: left;
-		margin-bottom: 0;
-		margin-right: 10px;
-		width: 50px;
-		height: 30px;
-	}
-
-	#photography > .sidebar .sidebar-thumb:last-child {
-		margin-right: 0;
-	}
+  .photography > .sidebar .sidebar-thumb:last-child {
+    margin-right: 0;
+  }
 
 }

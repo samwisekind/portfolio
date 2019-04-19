@@ -1,192 +1,190 @@
 @import "partial/constants";
+
 @import "partial/colours";
+
 @import "partial/mixins";
 
 /* HOME */
 
 .home {
-	position: relative;
-	margin: 0 auto 0 auto;
+  position: relative;
+  margin: 0 auto 0 auto;
 }
 
 .home:before {
-	content: "";
-	z-index: 0;
-	position: absolute;
-	left: 0;
-	bottom: 20%;
-	width: 100%;
-	height: 400px;
-	background: $colour-green;
-	@include transform(skewY(15deg));
+  content: "";
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+  width: 100%;
+  height: 400px;
+  background: $colour-green;
+  transform: skewY(15deg);
 }
-
-
 
 /* FEATURED */
 
 @import "modules/home/featured";
-
-
 
 /* LIST */
 
 $projectMaxWidth: 470px;
 
 .home > .list {
-	z-index: 10;
-	position: relative;
-	margin: 0 auto 0 auto;
-	padding: 0 $paddingLarge 0 $paddingLarge;
-	max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
+  z-index: 10;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 0 $paddingLarge 0 $paddingLarge;
+  max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
 }
 
 .home > .featured + .list {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 .home > .list > .project {
-	z-index: 10;
-	display: block;
-	margin-bottom: $paddingLarge;
-	max-width: $projectMaxWidth;
-	background: $colour-white;
-	@include boxShadow(2px 8px 20px 0 rgba(31, 32, 68, 0.25));
+  z-index: 10;
+  display: block;
+  margin-bottom: $paddingLarge;
+  max-width: $projectMaxWidth;
+  background: $colour-white;
+  box-shadow: 2px 8px 20px 0 rgba(31, 32, 68, .25);
 }
 
 .home > .list > .project .image {
-	display: block;
+  display: block;
 }
 
 .home > .list > .project .preview,
 .home > .list > .project .preview > .preview-image {
-	display: block;
+  display: block;
 }
 
 .home > .list > .project .preview > .preview-image {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .home > .list > .project > .text {
-	padding: $paddingLarge;
+  padding: $paddingLarge;
 }
 
 .home > .list > .project h2 {
-	margin-bottom: 10px;
-	font-size: 32px;
-	line-height: 32px;
+  margin-bottom: 10px;
+  font-size: 32px;
+  line-height: 32px;
 }
 
 .home > .list > .project h2 > a {
-	display: block;
-	color: inherit;
-	text-decoration: none;
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .home > .list > .project p {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .home > .list > .project .links > a.link {
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
 .home > .list > .project .links > a.link:last-child {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 $technologiesItemMargin: 10px;
 
 .home > .list > .project .technologies {
-	margin-top: 60px - ($technologiesItemMargin * 2);
-	list-style: none;
+  margin-top: 60px - ($technologiesItemMargin * 2);
+  list-style: none;
 }
 
 .home > .list > .project .technologies:after {
-	@include clearFix;
+  @include clearFix;
 }
 
 .home > .list > .project .technologies > li {
-	float: left;
-	margin: $technologiesItemMargin $technologiesItemMargin 0 0;
-	font-size: 16px;
-	line-height: 16px;
-	font-style: italic;
-	color: $colour-greyDark;
+  float: left;
+  margin: $technologiesItemMargin $technologiesItemMargin 0 0;
+  font-size: 16px;
+  line-height: 16px;
+  font-style: italic;
+  color: $colour-greyDark;
 }
 
 .home > .list > .project .technologies > li:last-child {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 @media (min-width: $mobileBreakpointSmall + 1px) {
 
-	.home > .list {
-		margin-top: $spacingLarge;
-	}
+  .home > .list {
+    margin-top: $spacingLarge;
+  }
 
-	.home > .list:after {
-		@include clearFix;
-	}
+  .home > .list:after {
+    @include clearFix;
+  }
 
-	.home > .list > .project {
-		@include calc(width, "50% - #{$paddingLarge / 2}");
-	}
+  .home > .list > .project {
+    width: 50% - #{$paddingLarge / 2};
+  }
 
-	.home > .list.columns > .project {
-		position: absolute;
-		margin-bottom: 0;
-		@include calc(width, "50% - #{$paddingLarge + ($paddingLarge / 2)}");
-	}
+  .home > .list.columns > .project {
+    position: absolute;
+    margin-bottom: 0;
+    width: calc(50% - #{$paddingLarge + ($paddingLarge / 2)});
+  }
 
-	.home > .list > .project:nth-child(odd) {
-		clear: both;
-		float: left;
-		left: $paddingLarge;
-	}
+  .home > .list > .project:nth-child(odd) {
+    clear: both;
+    float: left;
+    left: $paddingLarge;
+  }
 
-	.home > .list > .project:nth-child(even) {
-		float: right;
-		right: $paddingLarge;
-	}
+  .home > .list > .project:nth-child(even) {
+    float: right;
+    right: $paddingLarge;
+  }
 
 }
 
 @media (max-width: $mobileBreakpointSmall) {
 
-	.home > .list {
-		margin-top: $spacingSmall;
-		padding: 0 $paddingSmall 0 $paddingSmall;
-		width: auto;
-	}
+  .home > .list {
+    margin-top: $spacingSmall;
+    padding: 0 $paddingSmall 0 $paddingSmall;
+    width: auto;
+  }
 
-	.home > .list > .project {
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: $spacingSmall;
-	}
+  .home > .list > .project {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $spacingSmall;
+  }
 
-	.home > .list > .project > .text {
-		padding: $paddingSmall;
-	}
+  .home > .list > .project > .text {
+    padding: $paddingSmall;
+  }
 
-	.home > .list > .project h2 {
-		margin-bottom: 10px;
-		font-size: 24px;
-		line-height: 24px;
-	}
+  .home > .list > .project h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    line-height: 24px;
+  }
 
-	$technologiesItemMargin: 5px;
+  $technologiesItemMargin: 5px;
 
-	.home > .list > .project .technologies {
-		margin-top: $spacingSmall;
-	}
+  .home > .list > .project .technologies {
+    margin-top: $spacingSmall;
+  }
 
-	.home > .list > .project .technologies > li {
-		margin: $technologiesItemMargin $technologiesItemMargin 0 0;
-		font-size: 12px;
-		line-height: 12px;
-	}
+  .home > .list > .project .technologies > li {
+    margin: $technologiesItemMargin $technologiesItemMargin 0 0;
+    font-size: 12px;
+    line-height: 12px;
+  }
 
 }

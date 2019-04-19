@@ -1,23 +1,23 @@
 .project-image {
-	display: block;
-	margin: $spacingLarge auto $spacingLarge 0;
-	width: 100%;
-	height: auto;
+  display: block;
+  margin: $spacingLarge auto $spacingLarge 0;
+  width: 100%;
+  height: auto;
 }
 
 .project-image.large {
-	max-width: $maxWidth;
+  max-width: $maxWidth;
 }
 
 .project-image.small {
-	max-width: $contentWidth;
+  max-width: $contentWidth;
 }
 
 @media (max-width: $mobileBreakpointSmall) {
 
-	.project-image {
-		margin-top: $spacingSmall;
-		margin-bottom: $spacingSmall;
-	}
+  .project-image {
+    margin-top: $spacingSmall;
+    margin-bottom: $spacingSmall;
+  }
 
 }

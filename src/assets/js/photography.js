@@ -2,8 +2,8 @@
 import Vue from 'vue';
 
 const photography = new Vue({
-  el: '#photography',
-  template: `<div id="photography">
+  el: '.photography',
+  template: `<div class="photography">
       <viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto, notice: showingNotice }"></viewer>
       <navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex"></navigator>
       <sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth" v-bind:class="{ loading: loadingAlbum }"></sidebar>
