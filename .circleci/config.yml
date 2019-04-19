@@ -22,21 +22,6 @@ jobs:
           root: .
           paths: node_modules
 
-  test:
-    docker:
-      - image: circleci/node:11
-    working_directory: ~/app
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: ls
-          command: |
-            ls -lta
-            ls ../ -lta
-            npm ls
-
   unit-tests:
     docker:
       - image: circleci/node:11
@@ -72,9 +57,6 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - test:
-          requires:
-            - build
       - unit-tests:
           requires:
             - build
