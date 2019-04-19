@@ -33,10 +33,11 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: Run tests
-          command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
-      - store_test_results:
-          path: ~/reports
+          name: ls
+          command: |
+            ls -lta
+            ls ../ -lta
+            npm ls
 
   unit-tests:
     docker:
@@ -47,8 +48,10 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: ls
-          command: ls -lta
+          name: Run tests
+          command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
+      - store_test_results:
+          path: ~/reports
 
   linting-tests:
     docker:
