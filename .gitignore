@@ -49,3 +49,6 @@ src/public/
 
 # Parcel cache
 .cache
+
+# Test reports
+reports/
