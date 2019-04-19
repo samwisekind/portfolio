@@ -36,7 +36,7 @@ jobs:
       - store_test_results:
           path: ~/reports
 
-  linting-tests:
+  linting-eslint:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -45,10 +45,26 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: Test linting
+          name: Test JavaScript linting
           command: |
             mkdir -p ~/reports/eslint
-            npm run lint -- -f junit -o ~/reports/eslint/results.xml
+            npm run linting:eslint -- -f junit -o ~/reports/eslint/results.xml
+      - store_test_results:
+          path: ~/reports
+
+  linting-stylelint:
+    docker:
+      - image: circleci/node:11
+    working_directory: ~/app
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Test SCSS linting
+          command: |
+            mkdir -p ~/reports/stylelint
+            npm run linting:stylelint > ~/reports/stylelint/results.txt
       - store_test_results:
           path: ~/reports
 
@@ -60,6 +76,9 @@ workflows:
       - unit-tests:
           requires:
             - build
-      - linting-tests:
+      - linting-eslint:
+          requires:
+            - build
+      - linting-stylelint:
           requires:
             - build

@@ -12,7 +12,8 @@
     "server:watch": "nodemon server.js --inspect",
     "assets:build": "parcel build src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public --detailed-report --no-hmr",
     "assets:watch": "parcel watch src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public",
-    "lint": "eslint '**/*.js' --ignore-pattern public/",
+    "linting:eslint": "eslint '**/*.js' --ignore-pattern public/",
+    "linting:stylelint": "stylelint 'src/assets/**/*.scss'",
     "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
     "coverage": "nyc --reporter=lcov npm test"
   },
@@ -58,6 +59,7 @@
     "sass": "^1.19.0",
     "stylelint": "^10.0.1",
     "stylelint-config-airbnb": "0.0.0",
+    "stylelint-order": "^3.0.0",
     "stylelint-scss": "^3.6.0",
     "supertest": "^4.0.2",
     "vue": "^2.6.10",
@@ -89,7 +91,9 @@
       "browser": true
     }
   },
-  "stylelint": {},
+  "stylelint": {
+    "extends": "stylelint-config-airbnb"
+  },
   "browserslist": [
     "last 1 Chrome version"
   ]
