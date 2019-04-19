@@ -1,55 +1,49 @@
 version: 2
 
 jobs:
-  checkout-code:
+  build:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
     steps:
       - checkout
+      - attach_workspace:
+          at: ~/app
       - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-      - save_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - ~/app
-
-  build-app:
-    docker:
-      - image: circleci/node:11
-    working_directory: ~/app
-    steps:
-      - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: npm install
       - save_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ~/app
+            - ./node_modules
       - persist_to_workspace:
           root: .
-          paths: .
+          paths: ./node_modules
 
   unit-tests:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
     steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
       - run:
           name: Run tests
           command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
       - store_test_results:
           path: ~/reports
-      - attach_workspace:
-          at: /app
 
   linting-tests:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
     steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
       - run:
           name: Test linting
           command: |
@@ -57,20 +51,15 @@ jobs:
             npm run lint -- -f junit -o ~/reports/eslint/results.xml
       - store_test_results:
           path: ~/reports
-      - attach_workspace:
-          at: /app
 
 workflows:
   version: 2
   build-and-test:
     jobs:
-      - checkout-code
-      - build-app:
-          requires:
-            - checkout-code
+      - build
       - unit-tests:
           requires:
-            - build-app
+            - build
       - linting-tests:
           requires:
-            - build-app
+            - build
