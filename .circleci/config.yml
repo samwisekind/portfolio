@@ -62,11 +62,7 @@ jobs:
           at: ~/app
       - run:
           name: Test SCSS linting
-          command: |
-            mkdir -p ~/reports/stylelint
-            npm run linting:stylelint > ~/reports/stylelint/results.txt
-      - store_test_results:
-          path: ~/reports
+          command: mkdir -p ~/reports/stylelint
 
 workflows:
   version: 2
