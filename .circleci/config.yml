@@ -61,7 +61,7 @@ workflows:
       - build
       - unit-tests:
           requires:
-            - build-app
+            - build
       - linting-tests:
           requires:
-            - build-app
+            - build
