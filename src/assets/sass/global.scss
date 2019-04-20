@@ -10,7 +10,7 @@
 
 @import "common/fonts";
 
-@import "common/link";
+@import "common/links";
 
 /* PARTIALS */
 
@@ -19,28 +19,6 @@
 @import "partials/footer";
 
 /* COMMON */
-
-$iconSize: 12px;
-$iconSpacing: 4px;
-
-a.external {
-  position: relative;
-  padding-right: $iconSize + $iconSpacing;
-  white-space: nowrap;
-
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    display: block;
-    margin-top: -($iconSize / 2);
-    width: $iconSize;
-    height: $iconSize;
-    // background: url("../../images/global/global-external.svg") center center no-repeat transparent;
-    background-size: contain;
-  }
-}
 
 p .highlight,
 li .highlight {
@@ -51,13 +29,13 @@ li .highlight {
 
 /* CONTENT */
 
-.outer-overlay,
+.inner-overlay,
 .outer-menu,
 .global-header > .hamburger {
   display: none;
 }
 
-.outer-content {
+.inner-content {
   margin: 0 auto;
 }
 
@@ -67,35 +45,78 @@ li .highlight {
 
 @media (max-width: $mobileBreakpointLarge) {
 
-  .outer-wrapper,
-  .outer-content {
+  .main-container,
+  .inner-content {
     min-height: 100vh;
-    -webkit-perspective: 2000px;
     perspective: 2000px;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-font-smoothing: subpixel-antialiased;
     font-smoothing: subpixel-antialiased;
+
+    body.position & {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  .outer-wrapper {
+  .main-container {
     z-index: 10;
     position: relative;
     min-width: 320px;
+
+    // Todo: add JS check for this fallback class
+    body.nocanvas & {
+      $gradientFrom: #3F4257;
+      $gradientTo: #727998;
+
+      background: $gradientFrom;
+      background: linear-gradient(135deg, $gradientFrom 0%, $gradientTo 100%);
+    }
   }
 
-  $gradientFrom: #3F4257;
-  $gradientTo: #727998;
+  .inner-overlay,
+  .inner-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
 
-  body.nocanvas .outer-wrapper {
-    background: $gradientFrom;
-    background: -moz-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $gradientFrom), color-stop(100%, $gradientTo));
-    background: -webkit-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-    background: -o-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-    background: -ms-linear-gradient(-45deg, $gradientFrom 0%, $gradientTo 100%);
-    background: linear-gradient(135deg, $gradientFrom 0%, $gradientTo 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$gradientFrom}", endColorstr="#{$gradientTo}", GradientType=1);
+    body.menu & {
+      transform: translate3d(-50%, 0, 0) scale3d(.85, .85, 1) rotateY(25deg) translateZ(0);
+    }
+  }
+
+  body.menu .inner-overlay {
+    z-index: 20;
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .inner-content {
+    z-index: 10;
+    background: $colour-background;
+    transition: transform .4s cubic-bezier(.190, 1.000, .220, 1.000);
+
+    body.menu & {
+      $boxShadowBlur: 20px;
+
+      pointer-events: none;
+      box-shadow: rgba(#000, .5) 0 0 $boxShadowBlur ($boxShadowBlur / 2);
+      overflow: hidden;
+      transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
+
+      body.nocanvas & {
+        box-shadow: rgba(#000, .3) 0 0 10px 3px;
+      }
+    }
   }
 
   .outer-menu {
@@ -106,93 +127,78 @@ li .highlight {
     display: block;
     width: 100%;
     transform: translateY(-50%);
-  }
 
-  .outer-menu > ul {
-    list-style: none;
-  }
+    a {
+      opacity: 0;
+      padding: 20px 10% 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: $colour-white;
 
-  .outer-menu > .nav {
-    margin-bottom: 40px;
-  }
+      &.current,
+      &:hover {
+        background: rgba(#FFF, .2);
+      }
 
-  .outer-menu > ul > li > a {
-    padding: 20px 10% 20px 0;
-    display: block;
-    text-align: right;
-    text-decoration: none;
-    color: $colour-white;
-  }
+      body.position & {
+        opacity: 1;
+        transition: opacity .25s $easeStandard;
+      }
 
-  .outer-menu > ul > li > a {
-    opacity: 0;
-  }
+      span {
+        margin-left: auto;
+      }
+    }
 
-  .outer-menu .nav > li:nth-child(1) > a {
-    transition-delay: .1s;
-  }
+    ul {
+      list-style: none;
+    }
 
-  .outer-menu .nav > li:nth-child(2) > a {
-    transition-delay: .15s;
-  }
+    .nav {
+      margin-bottom: 40px;
 
-  .outer-menu .nav > li:nth-child(3) > a {
-    transition-delay: .2s;
-  }
+      li:nth-child(1) > a {
+        transition-delay: 0s;
+      }
+      
+      li:nth-child(2) > a {
+        transition-delay: .1s;
+      }
 
-  .outer-menu .nav > li:nth-child(4) > a {
-    transition-delay: .25s;
-  }
+      li:nth-child(3) > a {
+        transition-delay: .2s;
+      }
 
-  .outer-menu .links > li:nth-child(1) > a {
-    transition-delay: .3s;
-  }
+      li:nth-child(4) > a {
+        transition-delay: .3s;
+      }
+    }
 
-  .outer-menu .links > li:nth-child(2) > a {
-    transition-delay: .45s;
-  }
+    .links {
 
-  .outer-menu > ul > li.current > a,
-  .outer-menu > ul > li > a:hover {
-    background: rgba(255, 255, 255, .2);
-  }
+      span {
+        margin-left: 0;
+      }
 
-  $linkIconSize: 24px;
-  $linkPadding: 10px;
+      svg {
+        margin-left: auto;
+        margin-right: 10px;
+      }
 
-  .outer-menu > .links > li > a > span {
-    position: relative;
-    padding-left: $linkIconSize + $linkPadding;
-  }
+      li:nth-child(1) > a {
+        transition-delay: .4s;
+      }
 
-  .outer-menu > .links > li > a > span:before {
-    left: 0;
-  }
+      li:nth-child(2) > a {
+        transition-delay: .5s;
+      }
+    }
 
-  .outer-menu > .links .github a span:before {
-    // background-image: url("../images/global/global-link-github-light.svg");
-  }
-
-  .outer-menu > .links .codepen a span:before {
-    // background-image: url("../images/global/global-link-codepen-light.svg");
-  }
-
-  .outer-content,
-  .outer-overlay {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  .outer-content {
-    z-index: 10;
-    background: $colour-background;
-    transition: transform .4s cubic-bezier(.190, 1.000, .220, 1.000);
+    svg {
+      fill: $colour-white;
+    }
   }
 
   .outer-background {
@@ -205,105 +211,19 @@ li .highlight {
     height: 100%;
     background: $colour-black;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-  }
+    backface-visibility: hidden;
 
-  body.nocanvas .outer-background {
-    display: none;
-  }
-
-  body.position .outer-wrapper,
-  body.position .outer-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  body.menu .outer-content {
-    pointer-events: none;
-  }
-
-  body.menu .outer-content {
-    transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
-  }
-
-  body.menu .outer-overlay {
-    z-index: 20;
-    display: block;
-  }
-
-  body.menu .outer-overlay:hover {
-    cursor: pointer;
-  }
-
-  $boxShadowBlur: 20px;
-
-  body.menu .outer-content {
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, .5) 0 0 $boxShadowBlur ($boxShadowBlur / 2);
-  }
-
-  body.nocanvas.menu .outer-content {
-    box-shadow: rgba(0, 0, 0, .3) 0 0 10px 3px;
-  }
-
-  body.menu .outer-content,
-  body .outer-overlay {
-    transform: translate3d(-50%, 0, 0) scale3d(.85, .85, 1) rotateY(25deg) translateZ(0);
-  }
-
-  body.position .outer-menu > ul > li > a {
-    opacity: 1;
-    transition: .25s $easeStandard;
+    body.nocanvas & {
+      display: none;
+    }
   }
 
 }
 
 @media (max-width: $mobileBreakpointSmall) {
 
-  .outer-menu > ul > li > a {
+  .outer-menu a {
     font-size: 16px;
-    line-height: 16px;
-  }
-
-}
-
-/* OTHER */
-
-.other {
-  margin: $spacingLarge auto 0 auto;
-  padding: 0 $paddingLarge 0 $paddingLarge;
-  max-width: $maxWidth + ($paddingLarge * 2);
-}
-
-.other > .wrapper {
-  max-width: $contentWidth + ($paddingLarge * 2);
-}
-
-.other h2,
-.other h3 {
-  color: $colour-purple;
-}
-
-.other h2 {
-  font-size: 32px;
-  line-height: 32px;
-}
-
-@media (max-width: $mobileBreakpointSmall) {
-
-  .other {
-    margin-top: $spacingSmall;
-    padding-left: $paddingSmall;
-    padding-right: $paddingSmall;
-  }
-
-  .other h2 {
-    font-size: 24px;
-    line-height: 24px;
   }
 
 }

@@ -12,14 +12,14 @@ html
     block styles
 
   body
-    .outer-wrapper
-      .outer-overlay.js-overlay
-      .outer-menu
-        include partials/menu
-      .outer-content
+    .main-container
+      .inner-overlay.js-overlay
+      .inner-content
         include partials/header
         block content
         include partials/footer
+      .outer-menu
+        include partials/menu
     canvas.outer-background.js-stars
     script(src="/js/menu.js" async)
     block scripts
