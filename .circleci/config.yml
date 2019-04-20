@@ -21,7 +21,6 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: node_modules
-
   unit-tests:
     docker:
       - image: circleci/node:11
@@ -37,7 +36,6 @@ jobs:
           path: reports
       - store_artifacts:
           path: coverage/lcov-report
-
   eslint:
     docker:
       - image: circleci/node:11
@@ -53,7 +51,6 @@ jobs:
             npm run eslint:report
       - store_test_results:
           path: reports
-
   stylelint:
     docker:
       - image: circleci/node:11
@@ -65,6 +62,20 @@ jobs:
       - run:
           name: Test SCSS linting
           command: npm run stylelint
+  deploy:
+    docker:
+      - image: circleci/node:11
+    working_directory: ~/app
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Prune development dependencies
+          command: npm prune --production
+      - run:
+          name: Deploy
+          command: echo "Deploy step here"
 
 workflows:
   version: 2
@@ -80,3 +91,8 @@ workflows:
       - stylelint:
           requires:
             - build
+      - deploy:
+          requires:
+            - unit-tests
+            - eslint
+            - stylelint
