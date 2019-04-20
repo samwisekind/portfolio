@@ -1,24 +1,22 @@
-@import "partial/constants";
+/* COMMON */
 
-@import "partial/colours";
+@import "common/constants";
 
-@import "partial/mixins";
+@import "common/colours";
 
-@import "partial/resets";
+@import "common/mixins";
 
-@import "partial/fonts";
+@import "common/resets";
 
-/* GLOBAL HEADER */
+@import "common/fonts";
 
-@import "modules/global/header";
+@import "common/link";
 
-/* GLOBAL FOOTER */
+/* PARTIALS */
 
-@import "modules/global/footer";
+@import "partials/header";
 
-/* LINK */
-
-@import "modules/global/link";
+@import "partials/footer";
 
 /* COMMON */
 
