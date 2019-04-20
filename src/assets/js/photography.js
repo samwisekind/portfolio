@@ -1,4 +1,7 @@
-const parent = document.querySelector('.js-photography');
+// eslint-disable-next-line import/no-extraneous-dependencies
+import LazyLoad from 'vanilla-lazyload';
+
+const lazyLoad = new LazyLoad();
 
 let data;
 let thumbnails = [];
@@ -6,12 +9,12 @@ let currentAlbum;
 let currentIndex;
 
 const elements = {
-  sidebar: parent.querySelector('.js-sidebar'),
-  sidebarWrapper: parent.querySelector('.js-sidebar-wrapper'),
-  viewer: parent.querySelector('.js-viewer'),
-  header: parent.querySelector('.js-header'),
-  subheader: parent.querySelector('.js-subheader'),
-  albums: parent.querySelector('.js-albums'),
+  sidebar: document.querySelector('.js-sidebar'),
+  sidebarWrapper: document.querySelector('.js-sidebar-wrapper'),
+  viewer: document.querySelector('.js-viewer'),
+  header: document.querySelector('.js-header'),
+  subheader: document.querySelector('.js-subheader'),
+  albums: document.querySelector('.js-albums'),
 };
 
 const resizeThumbnails = () => {
@@ -70,12 +73,16 @@ const changeAlbum = (target = 'portfolio') => {
   currentAlbum = data[target];
 
   // Todo: API should return object keys for albums not an array of objects
-  currentAlbum.photos.forEach(({ thumbnailURL }, index) => {
+  currentAlbum.photos.forEach(({ title, thumbnailURL }, index) => {
     const element = document.createElement('a');
     element.setAttribute('href', '#');
     element.classList.add('thumbnail');
     element.addEventListener('click', () => changePhoto(index));
-    element.style.backgroundImage = `url("https://www.flamov.com/${thumbnailURL}")`;
+
+    const image = document.createElement('img');
+    image.setAttribute('alt', title);
+    image.setAttribute('data-src', `https://www.flamov.com/${thumbnailURL}`);
+    element.appendChild(image);
 
     thumbnails.push(element);
     sidebarWrapper.appendChild(element);
@@ -83,6 +90,8 @@ const changeAlbum = (target = 'portfolio') => {
 
   resizeThumbnails();
   changePhoto();
+
+  lazyLoad.update();
 };
 
 const setup = async () => {
@@ -91,8 +100,8 @@ const setup = async () => {
   data = await fetch('/api/photos');
   data = await data.json();
 
-  parent.querySelector('.js-prev').addEventListener('click', () => changePhoto('prev'));
-  parent.querySelector('.js-next').addEventListener('click', () => changePhoto('next'));
+  document.querySelector('.js-prev').addEventListener('click', () => changePhoto('prev'));
+  document.querySelector('.js-next').addEventListener('click', () => changePhoto('next'));
 
   Object.keys(data).forEach((key) => {
     const { title } = data[key];

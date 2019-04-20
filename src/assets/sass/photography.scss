@@ -163,16 +163,12 @@ $scaleAmount: .25;
   > .viewer-photo {
     z-index: 0;
     position: relative;
-    top: 50%;
-    margin: 0 auto;
     width: 100%;
     height: 100%;
     max-width: $photoMaxSize;
     max-height: $photoMaxSize;
     background: center center no-repeat transparent;
     background-size: contain;
-    transform: translateY(-50%);
-    transition: opacity .2s $easeAcceleration;
   }
 }
 
@@ -245,21 +241,43 @@ $scaleAmount: .25;
   .thumbnail {
     opacity: .5;
     display: block;
-    margin: 20px auto;
+    margin: 0 auto 20px;
     width: 120px;
     height: 80px;
-    background: center center no-repeat transparent;
+    background: center center no-repeat $colour-greyDark;
     background-size: cover;
+    overflow: hidden;
     transition: opacity .2s $easeStandard;
+
+    &:first-child {
+      margin-top: 20px;
+    }
 
     &.current,
     &:hover {
       opacity: 1;
     }
+
+    img {
+      opacity: 0;
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    img:not([src]) {
+      visibility: hidden;
+    }
+
+    img.loaded {
+      opacity: 1;
+      transition: opacity .2s $easeStandard;
+    }
   }
 }
 
 @media(max-width: $mobileBreakpointLarge) {
+
   $sidebarHeight: 50px;
   $navigatorHeight: 50px;
   $navigatorPadding: 10px;
@@ -375,10 +393,15 @@ $scaleAmount: .25;
     }
 
     .thumbnail {
-      display: inline-block;
-      margin: 0 10px;
+      float: left;
+      margin: 0 10px 0 0;
       width: 50px;
       height: 30px;
+
+      &:first-child {
+        margin: 0 10px 0 10px;
+      }
     }
   }
+
 }
