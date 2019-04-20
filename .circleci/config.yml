@@ -22,7 +22,7 @@ jobs:
           root: .
           paths: node_modules
 
-  unit-tests:
+  tests:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -32,11 +32,14 @@ jobs:
           at: ~/app
       - run:
           name: Run tests
-          command: npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
+          command: npm run coverage -- --reporter mocha-junit-reporter --reporter-options mochaFile=~/reports/mocha/results.xml
       - store_test_results:
           path: ~/reports
+      - store_artifacts:
+          path: ./coverage/lcov-report
 
-  linting-eslint:
+
+  eslint:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -52,7 +55,7 @@ jobs:
       - store_test_results:
           path: ~/reports
 
-  linting-stylelint:
+  stylelint:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -69,12 +72,12 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - unit-tests:
+      - tests:
           requires:
             - build
-      - linting-eslint:
+      - eslint:
           requires:
             - build
-      - linting-stylelint:
+      - stylelint:
           requires:
             - build
