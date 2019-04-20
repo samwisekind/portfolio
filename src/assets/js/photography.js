@@ -65,19 +65,21 @@ const changePhoto = (target = 0) => {
   sidebar.scrollLeft = current.offsetLeft - (sidebar.offsetWidth / 2) - (current.offsetWidth / 2);
 };
 
-const changeAlbum = (target = 'portfolio') => {
+const changeAlbum = (target) => {
   const { sidebarWrapper } = elements;
 
   thumbnails = [];
   sidebarWrapper.innerHTML = '';
   currentAlbum = data[target];
 
-  // Todo: API should return object keys for albums not an array of objects
   currentAlbum.photos.forEach(({ title, thumbnailURL }, index) => {
     const element = document.createElement('a');
     element.setAttribute('href', '#');
     element.classList.add('thumbnail');
-    element.addEventListener('click', () => changePhoto(index));
+    element.addEventListener('click', (event) => {
+      event.preventDefault();
+      changePhoto(index);
+    });
 
     const image = document.createElement('img');
     image.setAttribute('alt', title);
@@ -87,6 +89,12 @@ const changeAlbum = (target = 'portfolio') => {
     thumbnails.push(element);
     sidebarWrapper.appendChild(element);
   });
+
+  let url = `${window.location.href}?album=${target}`;
+  if (new URLSearchParams(window.location.search).get('album')) {
+    url = window.location.href.replace(/(album=)[^&]+/, `album=${target}`);
+  }
+  window.history.replaceState(null, window.document.title, url);
 
   resizeThumbnails();
   changePhoto();
@@ -100,8 +108,12 @@ const setup = async () => {
   data = await fetch('/api/photos');
   data = await data.json();
 
-  document.querySelector('.js-prev').addEventListener('click', () => changePhoto('prev'));
-  document.querySelector('.js-next').addEventListener('click', () => changePhoto('next'));
+  Array.from(document.querySelectorAll('.js-arrow')).forEach(element => element.addEventListener('click', (event) => {
+    event.preventDefault();
+    changePhoto(element.getAttribute('data-target'));
+  }));
+
+  const param = new URLSearchParams(window.location.search).get('album');
 
   Object.keys(data).forEach((key) => {
     const { title } = data[key];
@@ -110,8 +122,11 @@ const setup = async () => {
     option.value = key;
     option.innerText = title;
 
-    if (key === 'portfolio') {
+    if (param === key) {
       option.setAttribute('selected', '');
+    }
+
+    if (key === 'portfolio') {
       albums.insertBefore(option, albums.querySelector('optgroup'));
     } else {
       albums.querySelector('optgroup').appendChild(option);
@@ -128,7 +143,11 @@ const setup = async () => {
     }
   }, false);
 
-  changeAlbum();
+  let target = 'portfolio';
+  if (Object.keys(data).includes(param)) {
+    target = param;
+  }
+  changeAlbum(target);
 
   window.addEventListener('resize', resizeThumbnails);
 };
