@@ -66,15 +66,6 @@ li .highlight {
     z-index: 10;
     position: relative;
     min-width: 320px;
-
-    // Todo: add JS check for this fallback class
-    body.nocanvas & {
-      $gradientFrom: #3F4257;
-      $gradientTo: #727998;
-
-      background: $gradientFrom;
-      background: linear-gradient(135deg, $gradientFrom 0%, $gradientTo 100%);
-    }
   }
 
   .inner-overlay,
@@ -112,10 +103,6 @@ li .highlight {
       box-shadow: rgba(#000, .5) 0 0 $boxShadowBlur ($boxShadowBlur / 2);
       overflow: hidden;
       transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
-
-      body.nocanvas & {
-        box-shadow: rgba(#000, .3) 0 0 10px 3px;
-      }
     }
   }
 
@@ -212,10 +199,6 @@ li .highlight {
     background: $colour-black;
     transform-style: preserve-3d;
     backface-visibility: hidden;
-
-    body.nocanvas & {
-      display: none;
-    }
   }
 
 }
