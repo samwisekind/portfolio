@@ -36,7 +36,7 @@ jobs:
       - store_test_results:
           path: reports
       - store_artifacts:
-        path: coverage/lcov-report
+          path: coverage/lcov-report
 
   eslint:
     docker:
