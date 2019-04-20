@@ -1,5 +1,5 @@
-const list = document.querySelector('js-list');
-const projects = list.querySelectorAll('js-project');
+const list = document.querySelector('.js-list');
+const projects = Array.from(list.querySelectorAll('.js-project'));
 
 const groups = {
   left: [],

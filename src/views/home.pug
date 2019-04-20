@@ -1,0 +1,39 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet" href="/sass/home.css")
+
+block scripts
+  script(src="/js/home.js" async)
+
+mixin detail(project)
+  // Todo: add single mixin for featured and normal projects and use flex to re-order text/image
+  .text
+    h2
+      a(href=`/projects/${project.key}`)=project.title
+    p=project.description
+    .links
+      +link('arrow', 'Learn More', `/projects/${project.key}`)
+      if project.websiteURL
+        +link('external', 'Visit Website', project.websiteURL)
+      if project.technologies
+        ul.technologies
+          each technology in project.technologies
+            li=technology
+
+block content
+  main.home
+    each project, index in projects
+      if index === 0
+        section.featured
+          .container
+            +detail(project)
+            a.preview(href="/project")
+              img.preview-image(src=project.previewImage alt=`Preview image for the ${project.title} project.`)
+    section.list.js-list
+      each project, index in projects
+        if index !== 0
+          div.project.js-project
+            a.preview(href="#")
+              img.preview-image.js-image(src=project.previewImage alt=`Preview image for the ${project.title} project.`)
+            +detail(project)
