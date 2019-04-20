@@ -2,3 +2,7 @@ node_modules
 npm-debug.log
 coverage
 .env
+src/assets
+.nyc_output
+coverage
+reports

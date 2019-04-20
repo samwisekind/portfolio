@@ -77,9 +77,6 @@ jobs:
           name: Prune development dependencies
           command: npm prune --production
       - run:
-          name: Remove source assets
-          command: rm -rf src/assets
-      - run:
           name: Deploy
           command: echo "Deploy step here"
 
