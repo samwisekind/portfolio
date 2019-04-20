@@ -33,17 +33,15 @@ describe('API', () => {
 
       expect(status).to.equal(200);
       expect(type).to.equal('application/json');
-      expect(body).to.deep.equal([
-        {
-          key: 'test-album-1',
+      expect(body).to.deep.equal({
+        'test-album-1': {
           title: 'Test Album 1',
           photos: [
             { title: 'Test Photo 4', thumbnailURL: '', imageURL: '' },
             { title: 'Test Photo 1', thumbnailURL: '', imageURL: '' },
           ],
         },
-        {
-          key: 'test-album-2',
+        'test-album-2': {
           title: 'Test Album 2',
           photos: [
             { title: 'Test Photo 3', thumbnailURL: '', imageURL: '' },
@@ -51,6 +49,6 @@ describe('API', () => {
             { title: 'Test Photo 2', thumbnailURL: '', imageURL: '' },
           ],
         },
-      ]);
+      });
     }));
 });

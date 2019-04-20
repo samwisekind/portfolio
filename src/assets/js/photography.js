@@ -67,7 +67,7 @@ const changeAlbum = (target = 'portfolio') => {
 
   thumbnails = [];
   sidebarWrapper.innerHTML = '';
-  currentAlbum = data.find(({ key }) => key === target);
+  currentAlbum = data[target];
 
   // Todo: API should return object keys for albums not an array of objects
   currentAlbum.photos.forEach(({ thumbnailURL }, index) => {
@@ -80,9 +80,6 @@ const changeAlbum = (target = 'portfolio') => {
     thumbnails.push(element);
     sidebarWrapper.appendChild(element);
   });
-
-  Array.from(albums.querySelectorAll('option')).forEach(option => option.removeAttribute('selected'));
-  albums.querySelector(`option[value=${currentAlbum.key}`).setAttribute('selected', '');
 
   resizeThumbnails();
   changePhoto();
@@ -97,12 +94,15 @@ const setup = async () => {
   parent.querySelector('.js-prev').addEventListener('click', () => changePhoto('prev'));
   parent.querySelector('.js-next').addEventListener('click', () => changePhoto('next'));
 
-  data.forEach(({ key, title }) => {
+  Object.keys(data).forEach((key) => {
+    const { title } = data[key];
+
     const option = document.createElement('option');
     option.value = key;
     option.innerText = title;
 
     if (key === 'portfolio') {
+      option.setAttribute('selected', '');
       albums.insertBefore(option, albums.querySelector('optgroup'));
     } else {
       albums.querySelector('optgroup').appendChild(option);
