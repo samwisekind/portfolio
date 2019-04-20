@@ -32,7 +32,7 @@ jobs:
           at: ~/app
       - run:
           name: Run tests
-          command: npm run coverage
+          command: npm run test:coverage
       - store_test_results:
           path: ~/reports
       - store_artifacts:
