@@ -13,7 +13,7 @@
     "assets:build": "parcel build src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public --detailed-report",
     "assets:watch": "parcel watch src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public",
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
-    "eslint:report": "npm run eslint -- -f junit -o ./reports/eslint/results.xml",
+    "eslint:report": "npm run eslint -- -f junit -o ~/reports/eslint/results.xml",
     "stylelint": "stylelint 'src/assets/**/*.scss'",
     "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
     "test:report": "npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/results.xml",
