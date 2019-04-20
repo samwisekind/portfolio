@@ -215,8 +215,7 @@ $scaleAmount: .25;
     color: $colour-grey;
     border-radius: 3px;
     border: 0;
-    // background: url("../images/photography/viewer-arrow.svg") no-repeat #181818;
-    background: #181818;
+    background: url("../img/photography/albums-arrow.svg") no-repeat #181818;
     background-position: calc(100% - 15px) center;
   
     @include removeStyling;
