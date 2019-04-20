@@ -55,7 +55,7 @@ const changePhoto = (target = 0) => {
   const { title, imageURL } = photos[currentIndex];
   header.innerText = title;
   subheader.innerText = `Photo ${currentIndex + 1} of ${photos.length}`;
-  viewer.style.backgroundImage = `url("https://www.flamov.com/${imageURL}")`;
+  viewer.style.backgroundImage = `url("${imageURL}")`;
 
   Array.from(thumbnails).forEach(({ classList }) => classList.remove('current'));
   const current = thumbnails[currentIndex];
@@ -83,7 +83,7 @@ const changeAlbum = (target) => {
 
     const image = document.createElement('img');
     image.setAttribute('alt', title);
-    image.setAttribute('data-src', `https://www.flamov.com/${thumbnailURL}`);
+    image.setAttribute('data-src', thumbnailURL);
     element.appendChild(image);
 
     thumbnails.push(element);
