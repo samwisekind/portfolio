@@ -81,7 +81,7 @@ jobs:
           command: rm -rf src/assets
       - run:
           name: Deploy
-          command: echo "TBA: Deploy step here"
+          command: echo "Deploy step here"
 
 workflows:
   version: 2
