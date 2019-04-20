@@ -113,56 +113,58 @@ $scaleAmount: .25;
     z-index: 10;
     position: absolute;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20%;
     height: 100%;
 
-    &:before {
-      content: "";
+    > .icon {
       opacity: 0;
-      position: absolute;
-      top: 50%;
-      margin-top: -(30px / 2);
-      width: 30px;
-      height: 50px;
-      // background: url("../images/photography/viewer-arrow.svg") center center no-repeat transparent;
-      background-size: contain;
+      display: block;
+      width: 16px;
+      height: auto;
+      fill: $colour-grey;
       transition: all .2s $easeStandard;
     }
 
-    &:hover:before {
+    &:hover .icon {
       opacity: .5;
     }
     
     &.prev {
       left: 0;
+      padding-left: $viewerPadding + $viewerPadding;
     }
 
-    &.prev:before {
-      left: $viewerPadding + ($viewerPadding * 2);
-      transform: translateX(0px) rotate(90deg);
+    &.prev .icon {
+      margin-right: auto;
+      transform: translateX($viewerPadding);
     }
 
-    &.prev:hover:before {
-      transform: translateX(-20px) rotate(90deg);
+    &.prev:hover .icon {
+      transform: translateX(0px);
     }
 
     &.next {
       right: 0;
+      padding-right: $viewerPadding;
     }
 
-    &.next:before {
-      right: $viewerPadding + $viewerPadding;
-      transform: translateX(0px) rotate(-90deg);
+    &.next .icon {
+      margin-left: auto;
+      transform: translateX(-$viewerPadding) rotate(-180deg);
     }
     
-    &.next:hover:before {
-      transform: translateX(20px) rotate(-90deg);
+    &.next:hover .icon {
+      transform: translateX(0) rotate(-180deg);
     }
   }
 
   > .viewer-photo {
     z-index: 0;
     position: relative;
+    margin: 0 auto;
     width: 100%;
     height: 100%;
     max-width: $photoMaxSize;
@@ -316,7 +318,7 @@ $scaleAmount: .25;
     > .arrow {
       width: 50%;
 
-      &:before {
+      > .icon {
         display: none;
       }
     }
