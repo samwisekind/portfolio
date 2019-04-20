@@ -1,7 +1,22 @@
 extends layout.pug
 
-block variables
-  - var page = 'photography'
+block styles
+  link(rel="stylesheet" href="/sass/photography.css")
+
+block scripts
+  script(src="/js/photography.js" async)
 
 block content
-  div#photography
+  .photography.js-photography
+    .viewer
+      a.arrow.prev.js-prev(href="#")
+      a.arrow.next.js-next(href="#")
+      .viewer-photo.js-viewer
+    .sidebar.js-sidebar
+      .sidebar-wrapper.js-sidebar-wrapper
+    .navigator
+      ul.details
+        li.header.js-header
+        li.subheader.js-subheader
+      select.albums.js-albums
+        optgroup(label="Albums")

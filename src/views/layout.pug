@@ -11,7 +11,7 @@ html
     link(rel="stylesheet" href="/sass/global.css")
     block styles
 
-  body(class=`page-${page}`)
+  body
     .outer-wrapper
       .outer-overlay.js-overlay
       .outer-menu
@@ -32,5 +32,5 @@ html
           p Copyright &copy; Flamov.com 2005-2017
           p.small All logos, images, and trademarks used on this website are property of their respective owners.
     canvas.outer-background.js-stars
+    script(src="/js/menu.js" async)
     block scripts
-      script(src="/js/menu.js")

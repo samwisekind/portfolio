@@ -124,7 +124,7 @@ $lineMargin: 2px;
     .hamburger {
       display: flex;
       margin-left: auto;
-      width: $hamburgerIconWidth + ($paddingLarge * 2);
+      padding: 0 $paddingLarge;
 
       .open,
       body.menu & .close {
@@ -162,13 +162,10 @@ $lineMargin: 2px;
 
   .global-header .title > a {
     font-size: 16px;
-    line-height: 16px;
   }
-
-  $hamburgerIconWidth: 40px;
 
   .global-header .hamburger {
-    width: $hamburgerIconWidth + ($paddingSmall * 2);
-  }
+    padding: 0 $paddingSmall;
+  } 
 
 }

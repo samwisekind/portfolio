@@ -1,299 +1,127 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import Vue from 'vue';
+const parent = document.querySelector('.js-photography');
 
-const photography = new Vue({
-  el: '.photography',
-  template: `<div class="photography">
-      <viewer v-bind:photoData="photoData" v-bind:class="{ loading: loadingPhoto, notice: showingNotice }"></viewer>
-      <navigator v-bind:albumList="albumList" v-bind:albumData="albumData" v-bind:selectedAlbum="selectedAlbum" v-bind:photoIndex="photoIndex" v-bind:selectedIndex="selectedIndex"></navigator>
-      <sidebar v-bind:albumData="albumData" v-bind:selectedIndex="selectedIndex" v-bind:width="sidebarWidth" v-bind:class="{ loading: loadingAlbum }"></sidebar>
-    </div>`,
-  data: {
-    loadingAlbum: false,
-    loadingPhoto: true,
-    albumList: null,
-    albumData: null,
-    selectedAlbum: null,
-    photoData: null,
-    photoIndex: null,
-    selectedIndex: null,
-    sidebarWidth: null,
-    showingNotice: true,
-  },
-  methods: {
-    getAlbumList() {
-      const request = new XMLHttpRequest();
-      request.open('GET', '/api/album', true);
+let data;
+let thumbnails = [];
+let currentAlbum;
+let currentIndex;
 
-      request.onload = () => {
-        photography.albumList = JSON.parse(request.responseText); // Store album list data
-        photography.loadingPhoto = false; // Hide loading
-        if (photography.albumData === null) {
-          photography.getAlbumData('portfolio');
-        }
-      };
+const elements = {
+  sidebar: parent.querySelector('.js-sidebar'),
+  sidebarWrapper: parent.querySelector('.js-sidebar-wrapper'),
+  viewer: parent.querySelector('.js-viewer'),
+  header: parent.querySelector('.js-header'),
+  subheader: parent.querySelector('.js-subheader'),
+  albums: parent.querySelector('.js-albums'),
+};
 
-      request.send();
-    },
-    getAlbumData(album) {
-      this.loadingAlbum = true;
+const resizeThumbnails = () => {
+  const { sidebarWrapper } = elements;
 
-      const request = new XMLHttpRequest();
-      request.open('GET', `/api/album/${album}`, true);
+  if (window.innerWidth > 800) {
+    sidebarWrapper.style.width = null;
+  } else {
+    const width = thumbnails.reduce((accumulator, element) => {
+      let value = element.offsetWidth;
+      value += parseInt(getComputedStyle(element).marginLeft, 10);
+      value += parseInt(getComputedStyle(element).marginRight, 10);
+      return accumulator + value;
+    }, 0);
 
-      request.onload = () => {
-        photography.albumData = JSON.parse(request.responseText); // Store album photo data
-        photography.selectedAlbum = album; // Set the album key for the drop-down selected option
-        photography.photoIndex = 0;
-        photography.selectedIndex = 0; // Reset the photo and selected indexs to 0
-        photography.changePhoto(photography.selectedIndex); // Load the first photo
-        photography.resizeSidebar();
-        if (photography.selectedAlbum === null) {
-          photography.selectedAlbum = 'portfolio';
-        } else {
-          photography.selectedAlbum = album;
-        }
-      };
+    sidebarWrapper.style.width = `${width}px`;
+  }
+};
 
-      request.send();
-    },
-    changeAlbum(key) {
-      // Call API to get new album data with an album key
-      this.getAlbumData(key);
-    },
-    changePhoto(index) {
-      // Show loading
-      this.loadingPhoto = true;
+const changePhoto = (target = 0) => {
+  const { viewer, sidebar, header, subheader } = elements;
+  const { photos } = currentAlbum;
 
-      // Change the selected photo index even if it's loading
-      photography.selectedIndex = index;
+  if (target === 'prev') {
+    currentIndex -= 1;
+    if (currentIndex < 0) {
+      currentIndex = photos.length - 1;
+    }
+  } else if (target === 'next') {
+    currentIndex += 1;
+    if (currentIndex > photos.length - 1) {
+      currentIndex = 0;
+    }
+  } else {
+    currentIndex = target;
+  }
 
-      // Create a new image object for pre-loading
-      const image = new Image();
+  const { title, imageURL } = photos[currentIndex];
+  header.innerText = title;
+  subheader.innerText = `Photo ${currentIndex + 1} of ${photos.length}`;
+  viewer.style.backgroundImage = `url("https://www.flamov.com/${imageURL}")`;
 
-      image.onload = () => {
-        // Once the image has loaded, update the photo index and remove the loading
-        photography.photoIndex = index;
-        photography.photoData = photography.albumData[photography.photoIndex];
-        photography.loadingAlbum = false;
-        photography.loadingPhoto = false;
-      };
+  Array.from(thumbnails).forEach(({ classList }) => classList.remove('current'));
+  const current = thumbnails[currentIndex];
+  current.classList.add('current');
 
-      // Set the image src attribute to the image url to start pre-loading
-      const targetUrl = this.albumData[index].image_url;
-      image.src = targetUrl;
-    },
-    prevPhoto() {
-      // Hide notice
-      this.showingNotice = false;
+  sidebar.scrollTop = current.offsetTop - (sidebar.offsetHeight / 2) - (current.offsetHeight / 2);
+  sidebar.scrollLeft = current.offsetLeft - (sidebar.offsetWidth / 2) - (current.offsetWidth / 2);
+};
 
-      let index;
+const changeAlbum = (target = 'portfolio') => {
+  const { sidebarWrapper, albums } = elements;
 
-      // Check if index is at the minimum, reset to maximum
-      if (this.selectedIndex <= 0) {
-        index = this.albumLength;
-      } else {
-        index = this.selectedIndex - 1;
-      }
+  thumbnails = [];
+  sidebarWrapper.innerHTML = '';
+  currentAlbum = data.find(({ key }) => key === target);
 
-      this.changePhoto(index);
-    },
-    nextPhoto() {
-      // Hide notice
-      this.showingNotice = false;
+  // Todo: API should return object keys for albums not an array of objects
+  currentAlbum.photos.forEach(({ thumbnailURL }, index) => {
+    const element = document.createElement('a');
+    element.setAttribute('href', '#');
+    element.classList.add('thumbnail');
+    element.addEventListener('click', () => changePhoto(index));
+    element.style.backgroundImage = `url("https://www.flamov.com/${thumbnailURL}")`;
 
-      let index;
+    thumbnails.push(element);
+    sidebarWrapper.appendChild(element);
+  });
 
-      // Check if index is at the maximum, reset to zero
-      if (this.selectedIndex >= this.albumLength) {
-        index = 0;
-      } else {
-        index = this.selectedIndex + 1;
-      }
+  Array.from(albums.querySelectorAll('option')).forEach(option => option.removeAttribute('selected'));
+  albums.querySelector(`option[value=${currentAlbum.key}`).setAttribute('selected', '');
 
-      this.changePhoto(index);
-    },
-    closeAlbum() {
-      // Clear albumData data
-      this.albumData = null;
-    },
-    resizeSidebar() {
-      const total = this.albumData.length;
-      const width = (50 * total) + (10 * total);
-      this.sidebarWidth = width;
-    },
-  },
-  computed: {
-    albumLength() {
-      return this.albumData.length - 1;
-    },
-  },
-  mounted() {
-    this.getAlbumList();
+  resizeThumbnails();
+  changePhoto();
+};
 
-    // Attach key commands to previous and next methods
-    document.addEventListener('keydown', ({ keyCode }) => {
-      if (photography.albumData !== null) {
-        if (keyCode === 37 || keyCode === 38 || keyCode === 80 || keyCode === 65) {
-          photography.prevPhoto();
-        } else if (keyCode === 39 || keyCode === 40 || keyCode === 78 || keyCode === 68) {
-          photography.nextPhoto();
-        }
-      }
-    }, false);
-  },
-});
+const setup = async () => {
+  const { albums } = elements;
 
-Vue.component('viewer', {
-  props: ['photoData'],
-  template: `<div class="viewer" v-bind:class="{ full: fullscreen }">
-      <div class="notice">
-        <span class="wrapper">{{ noticeText }}</span>
-      </div>
-      <div href="#" class="fullscreen" v-on:click="toggleFullscreen"></div>
-      <div href="#" class="arrow prev" v-on:click="prevPhoto"></div>
-      <div href="#" class="arrow next" v-on:click="nextPhoto"></div>
-      <div v-if="photoData" class="viewer-photo" v-bind:style="{ backgroundImage: backgroundURL }"></div>
-    </div>`,
-  data() {
-    return {
-      fullscreen: false,
-    };
-  },
-  methods: {
-    toggleFullscreen() {
-      // Toggle fullscreen boolean
-      this.fullscreen = !this.fullscreen;
-    },
-    prevPhoto() {
-      // Call parent method to show the previous photo
-      photography.prevPhoto();
-    },
-    nextPhoto() {
-      // Call parent method to show the next photo
-      photography.nextPhoto();
-    },
-  },
-  computed: {
-    noticeText() {
-      let text = 'Swipe left or right above';
-      if (this.fullscreen === false) {
-        text += ', or scroll the thumbnails below';
-      }
-      return text;
-    },
-    backgroundURL() {
-      // Return background image string
-      return `url("${this.photoData.image_url}")`;
-    },
-  },
-});
+  data = await fetch('/api/photos');
+  data = await data.json();
 
-Vue.component('navigator', {
-  props: ['albumList', 'albumData', 'photoIndex', 'selectedIndex'],
-  template: `<div class="navigator">
-      <ul class="details" v-if="showDetails">
-        <li class="title">{{ photoTitle }}</li>
-        <li class="index">Photo {{ selectedIndex + 1 }} of {{ albumLength }}</li>
-      </ul>
-      <select v-if="albumList" v-bind:value="selectedValue" v-on:change="changeAlbum" class="selector" ref="selector">
-        <optgroup label="Albums">
-          <option v-for="album in albumList" :key="album" v-bind:value="album.key">{{ album.title }}</option>
-        </optgroup>
-      </select>
-    </div>`,
-  methods: {
-    changeAlbum() {
-      photography.changeAlbum(this.$refs.selector.value);
-    },
-    closeAlbum() {
-      // Call parent method to close album view
-      photography.closeAlbum();
-    },
-  },
-  computed: {
-    selectedValue() {
-      return photography.selectedAlbum;
-    },
-    showDetails() {
-      // Need to compute the v-if bind as a photo index of 0 behaves the same as false
-      return this.selectedIndex !== null;
-    },
-    photoTitle() {
-      // Return the title of currently selected photo by its index
-      return this.albumData[this.selectedIndex].title;
-    },
-    albumLength() {
-      // Return the number of photos in the current album
-      return this.albumData.length;
-    },
-  },
-});
+  parent.querySelector('.js-prev').addEventListener('click', () => changePhoto('prev'));
+  parent.querySelector('.js-next').addEventListener('click', () => changePhoto('next'));
 
-Vue.component('sidebar', {
-  props: ['albumData', 'selectedIndex', 'width'],
-  template: `<div class="sidebar" ref="scroll">
-      <div class="sidebar-wrapper" v-bind:style="{ width: sidebarWidth }">
-        <a href="#" v-for="(photo, index) in albumData" :key="index" v-on:click="changePhoto(index)" v-bind:class="{ current: index === selectedIndex }" v-bind:style="{ backgroundImage: returnBackgroundURL(photo.thumbnail_url) }" class="sidebar-thumb"></a>
-      </div>
-    </div>`,
-  methods: {
-    scrollPhotos() {
-      const thumbnailSizeLarge = 80;
-      const thumbnailMarginLarge = 20;
-      const thumbnailPaddingLarge = 20;
+  data.forEach(({ key, title }) => {
+    const option = document.createElement('option');
+    option.value = key;
+    option.innerText = title;
 
-      const largeSize = thumbnailSizeLarge + thumbnailMarginLarge;
-      let scrollLarge = largeSize * this.selectedIndex;
-      scrollLarge -= (this.$refs.scroll.offsetHeight / 2);
-      scrollLarge -= (largeSize / 2);
-      scrollLarge -= (thumbnailPaddingLarge / 2);
+    if (key === 'portfolio') {
+      albums.insertBefore(option, albums.querySelector('optgroup'));
+    } else {
+      albums.querySelector('optgroup').appendChild(option);
+    }
+  });
 
-      this.$refs.scroll.scrollTop = scrollLarge;
+  albums.addEventListener('change', () => changeAlbum(albums.value));
 
-      const thumbnailSizeSmall = 50;
-      const thumbnailMarginSmall = 10;
-      const thumbnailPaddingSmall = 10;
+  window.addEventListener('keydown', ({ keyCode }) => {
+    if (keyCode === 37 || keyCode === 38 || keyCode === 80 || keyCode === 65) {
+      changePhoto('prev');
+    } else if (keyCode === 39 || keyCode === 40 || keyCode === 78 || keyCode === 68) {
+      changePhoto('next');
+    }
+  }, false);
 
-      const smallSize = thumbnailSizeSmall + thumbnailMarginSmall;
-      let scrollSmall = smallSize * this.selectedIndex;
-      scrollSmall -= (window.innerWidth / 2);
-      scrollSmall -= (smallSize / 2);
-      scrollSmall -= (thumbnailPaddingSmall / 2);
+  changeAlbum();
 
-      this.$refs.scroll.scrollLeft = scrollSmall;
-    },
-    changePhoto(index) {
-      // Hide notice
-      photography.showingNotice = false;
-      // Call parent method to change photo index
-      photography.changePhoto(index);
-    },
-    returnBackgroundURL(url) {
-      // Return background image string
-      return `url("${url}")`;
-    },
-  },
-  computed: {
-    sidebarWidth() {
-      if (this.width === null) {
-        return null;
-      }
+  window.addEventListener('resize', resizeThumbnails);
+};
 
-      return `${this.width}px`;
-    },
-  },
-  watch: {
-    selectedIndex() {
-      this.scrollPhotos();
-    },
-  },
-  mounted() {
-    const self = this;
-    window.onresize = () => {
-      setTimeout(() => {
-        self.scrollPhotos();
-      }, 0);
-    };
-  },
-});
+setup();
