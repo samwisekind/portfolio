@@ -15,8 +15,7 @@
     "linting:eslint": "eslint '**/*.js' --ignore-pattern public/",
     "linting:stylelint": "stylelint 'src/assets/**/*.scss'",
     "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
-    "test:report": "npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/results.xml",
-    "coverage": "nyc --reporter=lcov npm run test:report"
+    "coverage": "nyc --reporter=lcov npm run test"
   },
   "repository": {
     "type": "git",

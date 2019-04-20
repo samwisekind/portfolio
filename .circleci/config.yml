@@ -32,14 +32,11 @@ jobs:
           at: ~/app
       - run:
           name: Run tests
-          command: |
-            npm run coverage
-            ls -lta
+          command: npm run coverage -- --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/results.xml
       - store_test_results:
           path: ~/reports
       - store_artifacts:
           path: ~/coverage/lcov-report
-
 
   eslint:
     docker:
@@ -53,7 +50,7 @@ jobs:
           name: Test JavaScript linting
           command: |
             mkdir -p ~/reports/eslint
-            npm run linting:eslint -- -f junit -o ~/reports/eslint/results.xml
+            npm run linting:eslint -- -f junit -o reports/eslint/results.xml
       - store_test_results:
           path: ~/reports
 
