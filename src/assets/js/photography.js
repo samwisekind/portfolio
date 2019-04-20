@@ -63,7 +63,7 @@ const changePhoto = (target = 0) => {
 };
 
 const changeAlbum = (target = 'portfolio') => {
-  const { sidebarWrapper, albums } = elements;
+  const { sidebarWrapper } = elements;
 
   thumbnails = [];
   sidebarWrapper.innerHTML = '';
