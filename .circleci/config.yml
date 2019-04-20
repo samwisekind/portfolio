@@ -22,7 +22,7 @@ jobs:
           root: .
           paths: node_modules
 
-  tests:
+  unit-tests:
     docker:
       - image: circleci/node:11
     working_directory: ~/app
@@ -32,11 +32,13 @@ jobs:
           at: ~/app
       - run:
           name: Run tests
-          command: npm run coverage
+          command: |
+            npm run coverage
+            ls -lta
       - store_test_results:
           path: ~/reports
       - store_artifacts:
-          path: ./coverage/lcov-report
+          path: ~/coverage/lcov-report
 
 
   eslint:
@@ -72,7 +74,7 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - tests:
+      - unit-tests:
           requires:
             - build
       - eslint:
