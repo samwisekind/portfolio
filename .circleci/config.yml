@@ -48,7 +48,7 @@ jobs:
           name: Test JavaScript linting
           command: |
             mkdir -p ~/reports/eslint
-            npm run linting:eslint:report
+            npm run eslint:report
       - store_test_results:
           path: ~/reports
 
@@ -62,7 +62,7 @@ jobs:
           at: ~/app
       - run:
           name: Test SCSS linting
-          command: npm run linting:stylelint
+          command: npm run stylelint
 
 workflows:
   version: 2
