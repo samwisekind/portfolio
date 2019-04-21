@@ -1,3 +1,5 @@
+const { environment } = require('config');
+
 const { ERRORS } = require('../helpers/constants');
 
 /**
@@ -6,12 +8,14 @@ const { ERRORS } = require('../helpers/constants');
  * @returns {Object}
  */
 const errorHandler = (error) => {
-  console.error(error);
+  if (environment !== 'test') {
+    console.error(error);
+  }
 
   let text;
-  let status = error.message;
+  let status = parseInt(error.message, 10);
 
-  switch (parseInt(status, 10)) {
+  switch (status) {
     case 400:
       text = ERRORS.INVALID_REQUEST;
       break;

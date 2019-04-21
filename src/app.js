@@ -1,3 +1,4 @@
+const { environment } = require('config');
 const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
@@ -8,7 +9,7 @@ const routes = require('./routes');
 
 const app = express();
 
-if (app.get('env') !== 'test') {
+if (environment !== 'test') {
   app.use(morgan('combined'));
 }
 
