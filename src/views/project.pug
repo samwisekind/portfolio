@@ -1,0 +1,28 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet" href="/sass/project.css")
+
+block content
+  main
+    section.project-header(class=key)
+      .wrapper
+        h2=title
+        p=description
+        ul
+          li
+            span.title Responsibilities:
+            =responsibilities
+          li
+            span.title Technologies:
+            =technologies.join(", ")
+          li
+            span.title Timeframe:
+            =started.toLocaleDateString("en", { month: "long", year: "numeric" })
+            if ended
+              =` – ${ended.toLocaleDateString("en", { month: "long", year: "numeric" })}`
+        if websiteURL
+          .links
+            +link({ type: "external", text: "Visit website", url: websiteURL })
+    section.project-content(class=key)
+      block body

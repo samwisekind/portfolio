@@ -91,7 +91,10 @@
     }
   },
   "stylelint": {
-    "extends": "stylelint-config-airbnb"
+    "extends": "stylelint-config-airbnb",
+    "rules": {
+      "rule-empty-line-before": null
+    }
   },
   "browserslist": [
     "last 1 Chrome version"

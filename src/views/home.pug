@@ -13,9 +13,9 @@ mixin detail(project)
       a(href=`/projects/${project.key}`)=project.title
     p=project.description
     .links
-      +link('arrow', 'Learn more', `/projects/${project.key}`)
+      +link({ type: "arrow", text: "Learn more", url: `/projects/${project.key}` })
       if project.websiteURL
-        +link('external', 'Visit website', project.websiteURL)
+        +link({ type: "external", text: "Visit website", url: project.websiteURL })
       if project.technologies
         ul.technologies
           each technology in project.technologies
