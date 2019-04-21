@@ -24,7 +24,7 @@ const showProject = async (req, res) => {
       .sort('order');
 
     if (!result) {
-      throw new Error(400);
+      throw new Error(404);
     }
 
     res.render(`projects/${project}`, result);

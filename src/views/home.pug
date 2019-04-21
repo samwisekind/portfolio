@@ -19,10 +19,10 @@ mixin detail(project)
       +link({ type: "arrow", text: "Learn more", url: `/projects/${project.key}` })
       if project.websiteURL
         +link({ type: "external", text: "Visit website", url: project.websiteURL })
-      if project.technologies
-        ul.technologies
-          each technology in project.technologies
-            li=technology
+    if project.technologies
+      ul.technologies
+        each technology in project.technologies
+          li=technology
 
 block content
   main.home
