@@ -110,7 +110,7 @@ a.link {
     transform: translate($externalArrowOffset, -$externalArrowOffset);
   }
 
-  & > .icon > .icon-layer {
+  & > .icon {
     fill: #00C853;
   }
 }

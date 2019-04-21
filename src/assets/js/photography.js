@@ -1,7 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import LazyLoad from 'vanilla-lazyload';
-
-const lazyLoad = new LazyLoad();
+import lazyLoad from './global';
 
 let data;
 let thumbnails = [];

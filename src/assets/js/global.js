@@ -1,3 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import LazyLoad from 'vanilla-lazyload';
+
+const lazyLoad = new LazyLoad();
+
 const { body } = document;
 let timeout; // Timeout for menu transition
 let menuOpen = false; // Boolean for when the menu is open/closed
@@ -115,3 +120,5 @@ window.addEventListener('resize', () => {
     removeEvents();
   }
 });
+
+export default lazyLoad;

@@ -13,9 +13,9 @@ mixin detail(project)
       a(href=`/projects/${project.key}`)=project.title
     p=project.description
     .links
-      +link('arrow', 'Learn More', `/projects/${project.key}`)
+      +link('arrow', 'Learn more', `/projects/${project.key}`)
       if project.websiteURL
-        +link('external', 'Visit Website', project.websiteURL)
+        +link('external', 'Visit website', project.websiteURL)
       if project.technologies
         ul.technologies
           each technology in project.technologies
@@ -29,11 +29,12 @@ block content
           .container
             +detail(project)
             a.preview(href="/project")
-              img.preview-image(src=project.previewImage alt=`Preview image for the ${project.title} project.`)
+              img.preview-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
     section.list.js-list
       each project, index in projects
         if index !== 0
           div.project.js-project
-            a.preview(href="#")
-              img.preview-image.js-image(src=project.previewImage alt=`Preview image for the ${project.title} project.`)
+            if project.previewImage
+              a.preview(href="#")
+                img.preview-image.js-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
             +detail(project)
