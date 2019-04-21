@@ -28,13 +28,13 @@ block content
         section.featured
           .container
             +detail(project)
-            a.preview(href="/project")
+            a.preview(href=`/projects/${project.key}`)
               img.preview-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
     section.list.js-list
       each project, index in projects
         if index !== 0
           div.project.js-project
             if project.previewImage
-              a.preview(href="#")
+              a.preview(href=`/projects/${project.key}`)
                 img.preview-image.js-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
             +detail(project)

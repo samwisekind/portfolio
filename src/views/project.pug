@@ -3,6 +3,9 @@ extends layout.pug
 block styles
   link(rel="stylesheet" href="/sass/project.css")
 
+block scripts
+  script(src="/js/project.js" async)
+
 block content
   main
     section.project-header(class=key)
@@ -23,6 +26,6 @@ block content
               =` – ${ended.toLocaleDateString("en", { month: "long", year: "numeric" })}`
         if websiteURL
           .links
-            +link({ type: "external", text: "Visit website", url: websiteURL })
+            +link({ type: "external", text: "View website", url: websiteURL })
     section.project-content(class=key)
       block body

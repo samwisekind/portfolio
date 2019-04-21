@@ -1,5 +1,5 @@
 mixin link({ type, text, url })
-  a.link(class=`icon-${type}` href=url)
+  a.link(class=`icon-${type}` class=(type === "play" ? "js-play" : "") href=url)
     span.text=text
     if type === "external"
       svg.icon(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20")
@@ -22,17 +22,20 @@ mixin project-highlights(items)
 mixin project-image({ src, alt, size })
   img.project-image(src=src, alt=alt, class=size)
 
-mixin project-caption({ image, video, autoplay, caption, alt })
+mixin project-caption({ image, video, autoplay = false, caption, alt })
   .project-caption.js-caption
     .media
       if video
         if !autoplay
           .video-play
             +link({ type: "play", text: "Play video", url: "#" })
-        video.video-element.js-video(loop mute autoplay=autoplay)
+        video.video-element.js-video(loop muted autoplay=autoplay)
           source(src=`${video}.webm` type="video/webm")
           source(src=`${video}.mp4` type="video/mp4")
           source(src=`${video}.oog` type="video/oog")
       img.image-element(src=image alt=alt)
     figcaption.text
-      block
+      if block
+        block
+      else
+        =caption

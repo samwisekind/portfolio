@@ -1,6 +1,7 @@
 extends ../project.pug
 
 block body
+
   +project-highlights([
     "Multi-language, responsive, IE7-compatible website",
     "Animated 3D globe using SVG, Canvas, and WebGL",
@@ -34,10 +35,9 @@ block body
   +project-caption({
     image: "https://cdn.flamov.com/projects/tng-fintech-website/tng-fintech-website-image-hero.png",
     video: "https://cdn.flamov.com/projects/tng-fintech-website/tng-fintech-website-video-hero",
-    autoplay: false,
     alt: "Another screenshot of the website front-page hero section."
   })
-    The front-page features a hero section comprised of an animated 3D globe, created using SVG, Canvas, and WebGL (with #[a.external(href="https://threejs.org" target="_blank" rel="noopener noreferrer") three.js])
+    | The front-page features a hero section comprised of an animated 3D globe, created using SVG, Canvas, and WebGL (with #[a.external(href="https://threejs.org" target="_blank" rel="noopener noreferrer") three.js])
 
   p The globe is introduced with a dramatic explosion of small dots that move into place and form a 3D dot-model of the Earth's basic geography, creating an eye-catching effect for first-time visitors. #[span.highlight The introduction animation is randomized each time the page is loaded, making every visit unique].
 
@@ -46,10 +46,9 @@ block body
   +project-caption({
     image: "https://cdn.flamov.com/projects/tng-fintech-website/tng-fintech-website-image-about.png",
     video: "https://cdn.flamov.com/projects/tng-fintech-website/tng-fintech-website-video-about",
-    autoplay: false,
     alt: "Video showing the About Us page animation."
   })
-    Smooth transitions are achieved by using #[code translateZ] to invoke hardware-accelerated transitions and #[code will-change] for ahead-of-time browser optimizations.
+    | Smooth transitions are achieved by using #[code translateZ] to invoke hardware-accelerated transitions and #[code will-change] for ahead-of-time browser optimizations.
 
   p The use of simple CSS-based shapes to decorate the background and foreground keeps the website lightweight and fast-loading, with #[span.highlight most pages being delivered in under a few hundred kilobytes]. The use of simple elements also enables the website to be highly accessible and cross-browser compatible, with fall-backs provided where necessary (such as the 3D globe on the front-page).
 
