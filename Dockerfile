@@ -7,7 +7,9 @@ WORKDIR /app
 COPY . /app
 
 # Install Node dependencies
-RUN npm install && npm run assets:build && npm prune --production
+RUN npm install \
+    npm run assets:build \
+    npm prune --production
 
 # Expose the port used by the app
 EXPOSE 3000
