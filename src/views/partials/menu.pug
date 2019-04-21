@@ -1,12 +1,12 @@
 ul.nav
   li
-    a(href="/")
+    a(href="/" class=((section === "home" || section === "project") ? "current" : ""))
       span Projects
   li
-    a(href="/photography")
+    a(href="/photography" class=(section === ("photography") ? "current" : ""))
       span Photography
   li
-    a(href="/about")
+    a(href="/about" class=(section === ("about") ? "current" : ""))
       span About
 
 ul.links
