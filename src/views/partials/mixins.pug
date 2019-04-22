@@ -1,5 +1,5 @@
 mixin link({ type, text, url })
-  a.link(class=`icon-${type}` class=(type === 'play' ? 'js-play' : '') href=url)
+  a.link(class=`icon-${type}` class=(type === 'play' ? 'js-play' : false) href=url target=(type === 'external' ? '_blank' : false) rel=(type === 'external' ? 'noopener noreferrer' : false))
     span.text=text
     if type === 'external'
       svg.icon(xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20')
