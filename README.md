@@ -6,10 +6,12 @@
 
 Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
 
-1. [Installation](#markdown-header-installation)
-2. [Usage](#markdown-header-usage)
-  1. [Quick Start](#markdown-header-quick-start)
-  2. [Commands](#markdown-header-commands)
+Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing.
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+    1. [Quick Start](#quick-start)
+    2. [Commands](#commands)
 
 ## Installation
 
