@@ -4,93 +4,77 @@
 
 @import "common/mixins";
 
-.about h2 {
-  position: relative;
-  display: inline-block;
-  font-size: 72px;
-  line-height: 72px;
+main.about {
+  margin: 0 auto;
+  padding: $spacingLarge $paddingLarge;
+  max-width: $contentWidth;
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    line-height: 32px;
+    color: $colour-purple;
+  }
+
+  h3 {
+    margin-top: $spacingLarge;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  p,
+  li {
+    margin-bottom: 10px;
+    font-size: 18px;
+
+    @include lineHeight(18px);
+  }
+
+  ul {
+    padding-left: 15px;
+    list-style-position: outside;
+
+    li {
+      margin-left: 1em;
+      text-align: justify;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.about h2:before {
-  content: "";
-  z-index: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 120%;
-  height: 80%;
-  background: $colour-green;
-  transform: translate(-50%, -50%) skewY(4deg);
-}
-
-.about h2 > .container {
-  z-index: 10;
-  position: relative;
-}
-
-.about h3 {
-  margin-top: 40px;
-}
-
-.about p {
-  margin-top: 20px;
-}
-
-.about p.large {
-  font-size: 22px;
-  line-height: 40px;
-  text-align: justify;
-}
-
-.about ul {
-  margin-top: 10px;
-  list-style-position: outside;
-}
-
-.about ul > li {
-  margin-left: 1em;
-  margin-bottom: 5px;
-}
-
-.about ul > li:last-child {
-  margin-bottom: 0;
-}
-
-.about .highlight {
-  font-style: italic;
-}
-
-.about .highlight.red {
-  background-color: rgba(#FF1744, .2);
-}
-
-.about .highlight.blue {
-  background-color: rgba(#00B0FF, .2);
-}
-
-.about .highlight.orange {
-  background-color: rgba(#FF9100, .2);
-}
 
 @media (max-width: $mobileBreakpointSmall) {
 
-  .about h2 {
-    position: relative;
-    font-size: 52px;
-    line-height: 52px;
-  }
+  main.about {
+    padding: $spacingSmall $paddingSmall;
 
-  .about h3 {
-    margin-top: 20px;
-  }
+    h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 24px;
+    }
 
-  .about p.large {
-    font-size: 20px;
-    line-height: 34px;
-  }
+    h3 {
+      margin-top: $spacingSmall;
+      margin-bottom: 5px;
+      font-size: 16px;
+      line-height: 16px;
+    }
 
-  .about ul {
-    margin-top: 5px;
-  }
+    p,
+    li {
+      margin-bottom: 5px;
+      font-size: 14px;
 
+      @include lineHeight(14px);
+    }
+
+    ul {
+      padding-left: 0
+    }
+  }
 }

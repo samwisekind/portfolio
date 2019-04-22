@@ -51,7 +51,7 @@ main.error {
   max-width: $contentWidth;
   text-align: center;
 
-  h1 {
+  h2 {
     margin-bottom: 20px;
     font-size: 32px;
     line-height: 32px;
@@ -229,10 +229,6 @@ main.error {
     backface-visibility: hidden;
   }
 
-  main.error {
-    padding: $spacingSmall $paddingSmall;
-  }
-
 }
 
 @media (max-width: $mobileBreakpointSmall) {
@@ -242,7 +238,9 @@ main.error {
   }
 
   main.error {
-    h1 {
+    padding: $spacingSmall $paddingSmall;
+
+    h2 {
       margin-bottom: 10px;
       font-size: 24px;
       line-height: 24px;
