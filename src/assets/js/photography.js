@@ -31,6 +31,14 @@ const resizeThumbnails = () => {
   }
 };
 
+const updateURL = (target) => {
+  let url = `${window.location.href}?album=${target}`;
+  if (new URLSearchParams(window.location.search).get('album')) {
+    url = window.location.href.replace(/(album=)[^&]+/, `album=${target}`);
+  }
+  window.history.replaceState(null, window.document.title, url);
+};
+
 const changePhoto = (target = 0) => {
   const { viewer, sidebar, header, subheader } = elements;
   const { photos } = currentAlbum;
@@ -87,30 +95,18 @@ const changeAlbum = (target) => {
     sidebarWrapper.appendChild(element);
   });
 
-  let url = `${window.location.href}?album=${target}`;
-  if (new URLSearchParams(window.location.search).get('album')) {
-    url = window.location.href.replace(/(album=)[^&]+/, `album=${target}`);
-  }
-  window.history.replaceState(null, window.document.title, url);
-
-  resizeThumbnails();
   changePhoto();
+  resizeThumbnails();
+  updateURL(target);
 
   lazyLoad.update();
 };
 
-const setup = async () => {
-  const { albums } = elements;
-
-  data = await fetch('/api/photos');
-  data = await data.json();
-
-  Array.from(document.querySelectorAll('.js-arrow')).forEach(element => element.addEventListener('click', (event) => {
-    event.preventDefault();
-    changePhoto(element.getAttribute('data-target'));
-  }));
+const setup = (response) => {
+  data = response;
 
   const param = new URLSearchParams(window.location.search).get('album');
+  const { albums } = elements;
 
   Object.keys(data).forEach((key) => {
     const { title } = data[key];
@@ -132,21 +128,29 @@ const setup = async () => {
 
   albums.addEventListener('change', () => changeAlbum(albums.value));
 
-  window.addEventListener('keydown', ({ keyCode }) => {
-    if (keyCode === 37 || keyCode === 38 || keyCode === 80 || keyCode === 65) {
-      changePhoto('prev');
-    } else if (keyCode === 39 || keyCode === 40 || keyCode === 78 || keyCode === 68) {
-      changePhoto('next');
-    }
-  }, false);
-
   let target = 'portfolio';
   if (Object.keys(data).includes(param)) {
     target = param;
   }
-  changeAlbum(target);
 
-  window.addEventListener('resize', resizeThumbnails);
+  changeAlbum(target);
 };
 
-setup();
+Array.from(document.querySelectorAll('.js-arrow')).forEach(element => element.addEventListener('click', (event) => {
+  event.preventDefault();
+  changePhoto(element.getAttribute('data-target'));
+}));
+
+window.addEventListener('keydown', ({ keyCode }) => {
+  if (keyCode === 37 || keyCode === 38 || keyCode === 80 || keyCode === 65) {
+    changePhoto('prev');
+  } else if (keyCode === 39 || keyCode === 40 || keyCode === 78 || keyCode === 68) {
+    changePhoto('next');
+  }
+});
+
+window.addEventListener('resize', resizeThumbnails);
+
+fetch('/api/photos')
+  .then(repsonse => repsonse.json())
+  .then(setup);
