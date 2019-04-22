@@ -1,5 +1,3 @@
-/*
-
 const request = require('supertest');
 const { expect } = require('chai');
 const cheerio = require('cheerio');
@@ -155,5 +153,3 @@ describe('Frontend', () => {
       expect($('main').hasClass('about')).to.equal(true);
     }));
 });
-
-*/

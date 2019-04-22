@@ -1,5 +1,3 @@
-/*
-
 const request = require('supertest');
 const { expect } = require('chai');
 
@@ -33,5 +31,3 @@ describe('App', () => {
       expect(headers.location).to.equal('/');
     }));
 });
-
-*/
