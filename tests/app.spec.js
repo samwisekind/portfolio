@@ -28,6 +28,6 @@ describe('App', () => {
       const { status, headers } = result;
 
       expect(status).to.equal(302);
-      expect(headers.location).to.equal('/////');
+      expect(headers.location).to.equal('/');
     }));
 });
