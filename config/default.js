@@ -6,7 +6,7 @@ module.exports = {
   host: process.env.NODE_HOST_URL,
   mongodb: {
     URL: process.env.NODE_MONGODB_URL,
-    replicaSet: process.env.NODE_MONGO_RS,
+    replicaSet: process.env.NODE_MONGO_REPLICA_SET,
     authSource: process.env.NODE_MONGODB_AUTH_SOURCE,
     options: {
       user: process.env.NODE_MONGODB_USER,
