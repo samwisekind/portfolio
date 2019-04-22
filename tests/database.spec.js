@@ -1,3 +1,5 @@
+/*
+
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
@@ -24,3 +26,5 @@ after(() => {
   mongoose.disconnect();
   database.stop();
 });
+
+*/
