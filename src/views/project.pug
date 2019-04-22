@@ -7,10 +7,10 @@ block variables
   - const pageImage = previewImage;
 
 block styles
-  link(rel="stylesheet" href="/sass/project.css")
+  link(rel='stylesheet' href='/sass/project.css')
 
 block scripts
-  script(src="/js/project.js" async)
+  script(src='/js/project.js' async)
 
 block content
   main.project
@@ -24,14 +24,14 @@ block content
             =responsibilities
           li
             span.title Technologies:
-            =technologies.join(", ")
+            =technologies.join(', ')
           li
             span.title Timeframe:
-            =started.toLocaleDateString("en", { month: "long", year: "numeric" })
+            =started.toLocaleDateString('en', { month: 'long', year: 'numeric' })
             if ended
-              =` – ${ended.toLocaleDateString("en", { month: "long", year: "numeric" })}`
+              =` – ${ended.toLocaleDateString('en', { month: 'long', year: 'numeric' })}`
         if websiteURL
           .links
-            +link({ type: "external", text: "View website", url: websiteURL })
+            +link({ type: 'external', text: 'View website', url: websiteURL })
     section.project-content(class=key)
       block body
