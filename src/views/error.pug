@@ -1,0 +1,10 @@
+extends layout.pug
+
+block variables
+  - const pageTitle = 'Page Not Found';
+
+block content
+  main.error
+    h1 Page Not Found
+    p=message
+    p.small Error status: #{status}

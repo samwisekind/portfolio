@@ -30,7 +30,7 @@ const showProject = async (req, res) => {
     res.render(`projects/${project}`, result);
   } catch (error) {
     const { status, message } = errorHandler(error);
-    res.status(status).json({ message });
+    res.status(status).render('error', { status, message });
   }
 };
 

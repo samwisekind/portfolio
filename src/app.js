@@ -36,4 +36,6 @@ app.get('/version', (req, res) => res.json({
   viewCache: app.get('view cache') || false,
 }));
 
+app.get('*', (req, res) => res.status(404).redirect('/'));
+
 module.exports = app;

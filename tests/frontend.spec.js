@@ -115,13 +115,10 @@ describe('Frontend', () => {
     .get('/projects/should-not-exist')
     .set('Accept', 'text/html')
     .then((result) => {
-      const { status, type, body } = result;
+      const { status, type } = result;
 
       expect(status).to.equal(404);
-      expect(type).to.equal('application/json');
-      expect(body).to.deep.equal({
-        message: 'The requested resource was not found, or has been moved or deleted.',
-      });
+      expect(type).to.equal('text/html');
     }));
 
   it('Got correct content for photography page', async () => request(app)
