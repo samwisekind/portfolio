@@ -79,7 +79,7 @@ jobs:
 
 workflows:
   version: 2
-  test:
+  build-test-deploy:
     jobs:
       - build
       - tests:
