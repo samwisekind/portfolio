@@ -1,0 +1,77 @@
+- const defaultPageTitle = 'Sam\'s Portfolio';
+- const defaultPageDescription = 'Sam\'s web development and design portfolio.'
+- const defaultPageImage = 'https://cdn.flamov.com/seo/meta-image-default.png'
+
+block variables
+
+include partials/mixins
+
+doctype html
+html
+
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name='viewport' content='user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+    title=(pageTitle ? `${pageTitle} — ${defaultPageTitle}` : defaultPageTitle)
+    meta(name='description' content=(pageDescription || defaultPageDescription))
+    meta(name='subject' content=(pageDescription || defaultPageDescription))
+
+    link(rel='index' href=baseURL)
+    link(rel='archives' href=baseURL)
+    link(rel='stylesheet' href='/sass/global.css')
+    block styles
+
+    link(href='https://cdn.flamov.com/seo/favicon-16x16.png' rel='icon' type='image/png' sizes='16x16')
+    link(href='https://cdn.flamov.com/seo/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32')
+    link(href='https://cdn.flamov.com/seo/favicon-96x96.png' rel='icon' type='image/png' sizes='96x96')
+    link(href='https://cdn.flamov.com/seo/favicon-128.png' rel='icon' type='image/png' sizes='128x128')
+    link(href='https://cdn.flamov.com/seo/favicon-192x192.png' rel='icon' type='image/png' sizes='192x192')
+    link(href='https://cdn.flamov.com/seo/favicon-196x196.png' rel='icon' type='image/png' sizes='196x196')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-57x57.png' rel='apple-touch-icon-precomposed' sizes='57x57')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-60x60.png' rel='apple-touch-icon-precomposed' sizes='60x60')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-72x72.png' rel='apple-touch-icon-precomposed' sizes='72x72')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-76x76.png' rel='apple-touch-icon-precomposed' sizes='76x76')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-114x114.png' rel='apple-touch-icon-precomposed' sizes='114x114')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-120x120.png' rel='apple-touch-icon-precomposed' sizes='120x120')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-144x144.png' rel='apple-touch-icon-precomposed' sizes='144x144')
+    link(href='https://cdn.flamov.com/seo/apple-touch-icon-152x152.png' rel='apple-touch-icon-precomposed' sizes='152x152')
+    link(rel='shortcut icon' href='https://cdn.flamov.com/seo/favicon.ico?v=1504020340')
+
+    meta(property='og:type' content='website')
+    meta(property='og:url' content=pageURL)
+    meta(property='og:title' content=(pageTitle ? `${pageTitle} – ${defaultPageTitle}` : defaultPageTitle))
+    meta(property='og:description' content=(pageDescription || defaultPageDescription))
+    meta(property='og:image' content=(pageImage || defaultPageImage))
+    meta(property='og:site_name' content=defaultPageTitle)
+
+    meta(name='twitter:card' content='summary_large_image')
+    meta(name='twitter:site' content=pageURL)
+    meta(name='twitter:title' content=(pageTitle ? `${pageTitle} – ${defaultPageTitle}` : defaultPageTitle))
+    meta(name='twitter:description' content=(pageDescription || defaultPageDescription))
+    meta(name='twitter:image' content=(pageImage || defaultPageImage))
+
+    meta(rel='apple-touch-icon' href='https://cdn.flamov.com/seo/apple-touch-icon.png')
+    meta(rel='mask-icon' href='https://cdn.flamov.com/seo/mask_icon.svg' color='#9C27B0')
+
+    meta(name='theme-color' content='#9C27B0')
+
+    meta(name='msapplication-TileColor' content='#9C27B0')
+    meta(name='msapplication-square70x70logo' content='https://cdn.flamov.com/seo/mstile-70x70.png')
+    meta(name='msapplication-TileImage' content='https://cdn.flamov.com/seo/mstile-144x144.png')
+    meta(name='msapplication-square150x150logo' content='https://cdn.flamov.com/seo/mstile-150x150.png')
+    meta(name='msapplication-wide310x150logo' content='https://cdn.flamov.com/seo/mstile-310x150.png')
+    meta(name='msapplication-square310x310logo' content='https://cdn.flamov.com/seo/mstile-310x310.png')
+
+  body
+    .main-container
+      .inner-overlay.js-overlay
+      .inner-content
+        include partials/header
+        block content
+        include partials/footer
+      .outer-menu
+        include partials/menu
+    canvas.outer-background.js-stars
+    script(src='/js/global.js' async)
+    block scripts
