@@ -2,6 +2,9 @@ extends layout.pug
 
 block variables
   - const section = 'project';
+  - const pageTitle = `${title} Project`;
+  - const pageDescription = `Project page for ${title}: ${description}`;
+  - const pageImage = previewImage;
 
 block styles
   link(rel="stylesheet" href="/sass/project.css")

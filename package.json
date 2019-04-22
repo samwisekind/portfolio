@@ -69,7 +69,8 @@
   "nodemonConfig": {
     "ignore": [
       "src/assets/*",
-      "src/public/*"
+      "src/public/*",
+      "tests/*"
     ]
   },
   "eslintConfig": {

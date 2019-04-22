@@ -77,10 +77,24 @@ describe('Frontend', () => {
         technologies,
         responsibilities,
         websiteURL,
+        previewImage,
         started,
         ended,
       } = mockedProjects[0];
       const $ = cheerio.load(text);
+
+      expect($('head title').text()).to.have.string(title);
+      expect($('head meta[name="description"]').attr('content')).to.have.string(description);
+      expect($('head meta[name="subject"]').attr('content')).to.have.string(description);
+      expect($('head meta[property="og:url"]').attr('content')).to.have.string(key);
+      expect($('head meta[property="og:title"]').attr('content')).to.have.string(title);
+      expect($('head meta[property="og:description"]').attr('content')).to.have.string(title);
+      expect($('head meta[property="og:description"]').attr('content')).to.have.string(description);
+      expect($('head meta[property="og:image"]').attr('content')).to.equal(previewImage);
+      expect($('head meta[name="twitter:site"]').attr('content')).to.have.string(key);
+      expect($('head meta[name="twitter:title"]').attr('content')).to.have.string(title);
+      expect($('head meta[name="twitter:description"]').attr('content')).to.have.string(description);
+      expect($('head meta[name="twitter:image"]').attr('content')).to.equal(previewImage);
 
       expect($('.global-header .nav li').eq(0).find('a').hasClass('current')).to.equal(true);
       expect($('.outer-menu .nav li').eq(0).find('a').hasClass('current')).to.equal(true);
