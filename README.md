@@ -18,7 +18,7 @@ Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio
 1. Clone the repository
 2. Ensure you are using Node version >= 11 (`nvm install 11` / `nvm use 11`)
 3. Install Node modules (`npm i`)
-4. Either in the process or in a `.env` file in the root of the repository pass in the following environment variables:
+4. Either in the process or in a `.env` file in the root of the repository, pass in the following environment variables:
 
 | Key | Description | Required |
 | --- | --- | --- |
@@ -45,11 +45,11 @@ Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio
 | ```npm run start``` | Run the server |
 | ```npm run watch``` | Watch the server and assets |
 | ```npm run server:watch``` | Watch the server with nodemon and restart on changes |
-| ```npm run assets:build``` | Build the frontend assets (CSS, JS, etc.) |
-| ```npm run assets:watch``` | Watch the assets and rebuild on changes |
+| ```npm run assets:build``` | Build the frontend assets (CSS, JS, etc.) for production |
+| ```npm run assets:watch``` | Watch the assets and rebuild on changes with hot-reloading |
 | ```npm run eslint``` | Test JavaScript linting with ESLint |
 | ```npm run eslint:report``` | Same as ```npm run eslint``` but generates a JUnit report |
 | ```npm run stylelint``` | Test SCSS linting |
 | ```npm run test``` | Run unit and integration tests |
 | ```npm run test:report``` | Same as ```npm run test``` but generates a JUnit report |
-| ```npm run test:coverage``` | Same as ```npm run test``` but generates a coverage report |
+| ```npm run test:coverage``` | Same as ```npm run test:report``` but also generates a coverage report |
