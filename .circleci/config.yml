@@ -80,6 +80,7 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
+      - setup_remote_docker
       - attach_workspace:
           at: ~/app
       - run:
