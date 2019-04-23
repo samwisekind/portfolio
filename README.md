@@ -1,5 +1,6 @@
 # Personal Portfolio Website
 
+[![CircleCI](https://circleci.com/gh/Flamov/flamov-portfolio.svg?style=svg)](https://circleci.com/gh/Flamov/flamov-portfolio)
 [![codebeat badge](https://codebeat.co/badges/7e311611-c065-47c7-ac47-fd1891aa92b2)](https://codebeat.co/projects/github-com-flamov-flamov-portfolio-master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bbb7d20257647f6ad669/maintainability)](https://codeclimate.com/github/Flamov/flamov-portfolio/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bbb7d20257647f6ad669/test_coverage)](https://codeclimate.com/github/Flamov/flamov-portfolio/test_coverage)
@@ -8,6 +9,8 @@
 Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
 
 Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing.
+
+[Previously built](901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
 
 1. [Installation](#installation)
 2. [Usage](#usage)
