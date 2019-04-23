@@ -6,11 +6,11 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bbb7d20257647f6ad669/test_coverage)](https://codeclimate.com/github/Flamov/flamov-portfolio/test_coverage)
 [![Issue Count](https://codeclimate.com/github/Flamov/flamov-portfolio/badges/issue_count.svg)](https://codeclimate.com/github/Flamov/flamov-portfolio)
 
-Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
+Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com)
 
-Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing.
+Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker.
 
-[Previously built](901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
+[Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
 
 1. [Installation](#installation)
 2. [Usage](#usage)
