@@ -67,10 +67,6 @@ main.error {
       font-size: 14px;
       line-height: 14px;
       color: $colour-greyDark;
-
-      .foo {
-        background: red;
-      }
     }
   }
 }
@@ -126,7 +122,7 @@ main.error {
   .inner-content {
     z-index: 10;
     background: $colour-background;
-    transition: transform 0.4s cubic-bezier(.190, 1.000, .220, 1.000);
+    transition: transform .4s cubic-bezier(.190, 1.000, .220, 1.000);
 
     body.menu & {
       $boxShadowBlur: 20px;
