@@ -23,7 +23,7 @@ Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio
 4. Either in the process or in a `.env` file in the root of the repository, pass in the following environment variables:
 
 | Key | Description |
-| --- | --- | --- |
+| --- | --- |
 | ```NODE_ENV``` | Run the server |
 | ```NODE_HOST_URL``` | Base URL of the website (without trailing slash) |
 | ```NODE_MONGODB_URL``` | MongoDB connection string |
