@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
 
-const { mongodb: { URL, replicaSet, authSource, options } } = require('config');
-
-let connectionString = URL;
-if (replicaSet && authSource) {
-  connectionString += `?replicaSet=${replicaSet}&authSource=${authSource}`;
-}
+const { mongodb: { URL, options } } = require('config');
 
 const open = () => new Promise((resolve, reject) => {
-  mongoose.connect(connectionString, options, error => (error ? reject(error) : resolve()));
+  mongoose.connect(URL, options, error => (error ? reject(error) : resolve()));
 });
 
 const close = () => mongoose.disconnect();

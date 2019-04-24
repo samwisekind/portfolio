@@ -22,15 +22,13 @@ Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio
 3. Install Node modules (`npm i`)
 4. Either in the process or in a `.env` file in the root of the repository, pass in the following environment variables:
 
-| Key | Description | Required |
+| Key | Description |
 | --- | --- | --- |
-| ```NODE_ENV``` | Run the server | True |
-| ```NODE_HOST_URL``` | Base URL of the website (without trailing slash) | True |
-| ```NODE_MONGODB_URL``` | MongoDB connection string | True |
-| ```NODE_MONGODB_REPLICA_SET``` | MongoDB replica set option | False |
-| ```NODE_MONGODB_AUTH_SOURCE``` | MongoDB authentication source | False |
-| ```NODE_MONGODB_USER``` | MongoDB username | True |
-| ```NODE_MONGODB_PASS``` | MongoDB username | True |
+| ```NODE_ENV``` | Run the server |
+| ```NODE_HOST_URL``` | Base URL of the website (without trailing slash) |
+| ```NODE_MONGODB_URL``` | MongoDB connection string |
+| ```NODE_MONGODB_USER``` | MongoDB username |
+| ```NODE_MONGODB_PASS``` | MongoDB username |
 
 ## Usage
 
