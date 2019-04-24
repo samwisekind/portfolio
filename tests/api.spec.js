@@ -19,15 +19,6 @@ describe('API', () => {
 
       expect(status).to.equal(200);
       expect(type).to.equal('application/json');
-      expect(body).to.deep.equal({
-        [album1.key]: {
-          title: album1.title,
-          photos: [photo4, photo1],
-        },
-        [album2.key]: {
-          title: album2.title,
-          photos: [photo3, photo1, photo2],
-        },
-      });
+      expect(body).to.deep.equal('asdf');
     }));
 });

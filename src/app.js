@@ -7,11 +7,14 @@ const minifyHTML = require('express-minify-html');
 const { version } = require('../package.json');
 const routes = require('./routes');
 
-const app = express();
+const app = express(   );
 
 if (environment !== 'test') {
   app.use(morgan('combined'));
 }
+
+
+
 
 app.use(compression());
 app.set('view engine', 'pug');
