@@ -49,7 +49,7 @@ Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio
 | ```npm run assets:watch``` | Watch the assets and rebuild on changes with hot-reloading |
 | ```npm run eslint``` | Test JavaScript linting with ESLint |
 | ```npm run eslint:report``` | Same as ```npm run eslint``` but generates a JUnit report |
-| ```npm run stylelint``` | Test SCSS linting |
+| ```npm run stylelint``` | Test SCSS linting with stylelint |
 | ```npm run test``` | Run unit and integration tests |
 | ```npm run test:report``` | Same as ```npm run test``` but generates a JUnit report |
 | ```npm run test:coverage``` | Same as ```npm run test:report``` but also generates a coverage report |
