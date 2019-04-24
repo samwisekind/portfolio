@@ -8,9 +8,7 @@
 
 Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com)
 
-Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker.
-
-[Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
+Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker. [Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
 
 1. [Installation](#installation)
 2. [Usage](#usage)
