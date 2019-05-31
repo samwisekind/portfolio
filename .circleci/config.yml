@@ -16,7 +16,10 @@ jobs:
           command: npm install
       - run:
           name: Build assets
-          command: npm run assets:build
+          command: |
+            npm run assets:build
+            npm ls
+            ls
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
