@@ -94,7 +94,7 @@ jobs:
             docker push flamov/flamov-portfolio
       - run:
           name: Deploy new image
-          command: ssh -o StrictHostKeyChecking=no root@$SSH_IP "docker-compose up -d --no-deps -e NODE_ENV=production -e NODE_HOST_URL=$NODE_HOST_URL -e NODE_MONGODB_URL=$NODE_MONGODB_URL -e MONGODB_AUTH_SOURCE=$MONGODB_AUTH_SOURCE -e NODE_MONGODB_USER=$NODE_MONGODB_USER -e NODE_MONGODB_PASS=$NODE_MONGODB_PASS  --build flamov/flamov-portfolio:latest"
+          command: ssh -o StrictHostKeyChecking=no root@$SSH_IP "docker-compose up -d --no-deps -e NODE_HOST_URL=$NODE_HOST_URL -e NODE_MONGODB_URL=$NODE_MONGODB_URL -e MONGODB_AUTH_SOURCE=$MONGODB_AUTH_SOURCE -e NODE_MONGODB_USER=$NODE_MONGODB_USER -e NODE_MONGODB_PASS=$NODE_MONGODB_PASS  --build flamov/flamov-portfolio:latest"
 
 workflows:
   version: 2
