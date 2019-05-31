@@ -10,6 +10,8 @@ Source code for my personal web development and design portfolio, located at [ht
 
 Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker. [Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
 
+![Infrastructure diagram](https://cdn.flamov.com/misc/infastructure-diagram.png)
+
 1. [Installation](#installation)
 2. [Usage](#usage)
     1. [Quick Start](#quick-start)
