@@ -11,6 +11,9 @@ RUN npm install \
     && npm run assets:build \
     && npm prune --production
 
+# Set to production
+ENV NODE_ENV=production
+
 # Expose the port used by the app
 EXPOSE 3000
 
