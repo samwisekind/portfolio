@@ -1,6 +1,6 @@
 const { environment } = require('config');
 const express = require('express');
-const forceSSL = require('express-force-ssl');
+const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 const minifyHTML = require('express-minify-html');
@@ -11,7 +11,7 @@ const routes = require('./routes');
 const app = express();
 
 if (environment === 'production') {
-  app.use(forceSSL);
+  app.use(helmet());
 }
 
 if (environment !== 'test') {
