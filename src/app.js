@@ -1,5 +1,6 @@
 const { environment } = require('config');
 const express = require('express');
+const forceSSL = require('express-force-ssl');
 const morgan = require('morgan');
 const compression = require('compression');
 const minifyHTML = require('express-minify-html');
@@ -8,6 +9,10 @@ const { version } = require('../package.json');
 const routes = require('./routes');
 
 const app = express();
+
+if (environment === 'production') {
+  app.use(forceSSL);
+}
 
 if (environment !== 'test') {
   app.use(morgan('combined'));
