@@ -91,7 +91,7 @@ jobs:
             docker push flamov/flamov-portfolio
       - run:
           name: Deploy new image
-          command: ssh -o StrictHostKeyChecking=no root@$SSH_IP "docker-compose up -d --no-deps --build app"
+          command: ssh -o StrictHostKeyChecking=no root@$SSH_IP "docker-compose pull app && docker-compose up -d app"
 
 workflows:
   version: 2
