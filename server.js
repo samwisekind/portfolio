@@ -13,7 +13,7 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('listening', () => console.log(`${name} listening on port ${port}`));
 
-if (process.env === 'production') {
+if (process.env.NODE_ENV === 'production') {
   const serverSSL = https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/archive/flamov.com/privkey1.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/archive/flamov.com/fullchain1.pem'),
