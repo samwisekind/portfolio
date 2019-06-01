@@ -1,2 +1,2 @@
-*.pug linguist-detectable=false
-*.html linguist-detectable=false
+*.pug linguist-documentation=false
+*.html linguist-documentation=false
