@@ -9,11 +9,11 @@ Source code for my personal web development and design portfolio, located at [ht
 
 Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker Compose (see the [compose files here](https://github.com/Flamov/flamov-portfolio-compose)).
 
-[Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Laravel/Lumen, Vue, and MySQL.
+See the [next steps and technical roadmap of the project here](https://github.com/users/Flamov/projects/1).
 
 ![Infrastructure diagram](https://cdn.flamov.com/misc/infrastructure-diagram.png)
 
-See the [next steps and technical roadmap of the project here](https://github.com/users/Flamov/projects/1).
+[Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Laravel/Lumen, Vue, and MySQL.
 
 ## Contents
 
