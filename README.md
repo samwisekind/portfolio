@@ -5,13 +5,13 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bbb7d20257647f6ad669/test_coverage)](https://codeclimate.com/github/Flamov/flamov-portfolio/test_coverage)
 [![Issue Count](https://codeclimate.com/github/Flamov/flamov-portfolio/badges/issue_count.svg)](https://codeclimate.com/github/Flamov/flamov-portfolio)
 
-Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com)
+Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
 
 Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker. [Previously built](https://github.com/Flamov/flamov-portfolio/tree/901d0ad5c6cbc5ee6c6486c7a7c6f463908e6a28) with Lumen and Vue.
 
 ![Infrastructure diagram](https://cdn.flamov.com/misc/infrastructure-diagram.png)
 
-See the [next steps technical roadmap of the project here](https://github.com/users/Flamov/projects/1).
+See the [next steps and technical roadmap of the project here](https://github.com/users/Flamov/projects/1).
 
 ## Contents
 
@@ -29,8 +29,8 @@ See the [next steps technical roadmap of the project here](https://github.com/us
 
 | Key | Description | Required |
 | --- | --- | --- |
-| ```NODE_ENV``` | Environment name (use `production` for production website) | False |
-| ```NODE_CERTIFICATE_PATH``` | Path to SSL certificates | True when `NODE_ENV` is `production` |
+| ```NODE_ENV``` | Environment name | False |
+| ```NODE_CERTIFICATE_PATH``` | Path to SSL certificate files | True if `NODE_ENV` is `production` |
 | ```NODE_HOST_URL``` | Base URL of the website (without trailing slash) | True |
 | ```NODE_MONGODB_URL``` | MongoDB connection string | True |
 | ```NODE_MONGODB_USER``` | MongoDB username | True |
