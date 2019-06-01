@@ -2,23 +2,19 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 
-const { port } = require('config');
+const { port, certificatePath } = require('config');
 const { name } = require('./package.json');
 const database = require('./src/helpers/mongodb');
 const app = require('./src/app');
 
 database.open();
 
-const server = http.createServer(app);
-server.listen(port);
-server.on('listening', () => console.log(`${name} listening on port ${port}`));
+http.createServer(app).listen(port).on('listening', () => console.log(`${name} listening on port ${port}`));
 
 if (process.env.NODE_ENV === 'production') {
-  const serverSSL = https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/archive/flamov.com/privkey1.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/archive/flamov.com/fullchain1.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/archive/flamov.com/chain1.pem'),
-  }, app);
-  serverSSL.listen(443);
-  serverSSL.on('listening', () => console.log(`${name} listening on port 443`));
+  https.createServer({
+    key: fs.readFileSync(`${certificatePath}/privkey1.pem`),
+    cert: fs.readFileSync(`${certificatePath}/fullchain1.pem`),
+    ca: fs.readFileSync(`${certificatePath}/chain1.pem`),
+  }, app).listen(443).on('listening', () => console.log(`${name} listening on port 443`));
 }
