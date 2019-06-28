@@ -13,10 +13,10 @@ mixin detail(project)
   // Todo: add single mixin for featured and normal projects and use flex to re-order text/image
   .text
     h2
-      a(href=`/projects/${project.key}`)=project.title
+      a(href=`/projects/${project.key}`, title=project.title)=project.title
     p=project.description
     .links
-      +link({ type: 'arrow', text: 'Learn more', url: `/projects/${project.key}` })
+      +link({ type: 'arrow', text: 'Project details', url: `/projects/${project.key}` })
       if project.websiteURL
         +link({ type: 'external', text: 'Visit website', url: project.websiteURL })
     if project.technologies
@@ -31,13 +31,13 @@ block content
         section.featured
           .container
             +detail(project)
-            a.preview(href=`/projects/${project.key}`)
+            a.preview(href=`/projects/${project.key}` title=project.title)
               img.preview-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
     section.list.js-list
       each project, index in projects
         if index !== 0
           div.project.js-project
             if project.previewImage
-              a.preview(href=`/projects/${project.key}`)
+              a.preview(href=`/projects/${project.key}`, title=project.title)
                 img.preview-image.js-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
             +detail(project)

@@ -206,10 +206,14 @@ $scaleAmount: .25;
     }
   }
 
-  > .albums {
+  .albums-label {
     margin-left: auto;
-    padding: 0 ((15px * 2) + 15px) 0 15px;
     width: 300px;
+  }
+
+  .albums {
+    padding: 0 ((15px * 2) + 15px) 0 15px;
+    width: 100%;
     height: 40px;
     font-size: 14px;
     color: $colour-grey;
@@ -363,9 +367,12 @@ $scaleAmount: .25;
       }
     }
 
-    > .albums {
-      padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
+    .albums-label {
       width: 55%;
+    }
+
+    .albums {
+      padding: 0 (($navigatorPadding * 2) + 15px) 0 $navigatorPadding;
       height: 30px;
       font-size: 12px;
       background-position: calc(100% - #{$navigatorPadding}) center;

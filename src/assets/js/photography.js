@@ -80,6 +80,7 @@ const changeAlbum = (target) => {
   currentAlbum.photos.forEach(({ title, thumbnailURL }, index) => {
     const element = document.createElement('a');
     element.setAttribute('href', '#');
+    element.setAttribute('title', title);
     element.classList.add('thumbnail');
     element.addEventListener('click', (event) => {
       event.preventDefault();
@@ -89,6 +90,7 @@ const changeAlbum = (target) => {
     const image = document.createElement('img');
     image.setAttribute('alt', title);
     image.setAttribute('data-src', thumbnailURL);
+    image.setAttribute('title', title);
     element.appendChild(image);
 
     thumbnails.push(element);
