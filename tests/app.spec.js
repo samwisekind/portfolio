@@ -21,6 +21,17 @@ describe('App', () => {
       expect(viewCache).to.equal(app.get('view cache') || false);
     }));
 
+  it('Got robots.txt', async () => request(app)
+    .get('/robots.txt')
+    .set('Accept', '*')
+    .then((result) => {
+      const { status, type, text } = result;
+
+      expect(status).to.equal(200);
+      expect(type).to.equal('text/plain');
+      expect(text).to.equal('User-agent: *\nDisallow: /');
+    }));
+
   it('Got redirect for non-existing route', async () => request(app)
     .get('/this-route-should/not/exist')
     .set('Accept', '*')
