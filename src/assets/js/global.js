@@ -60,7 +60,7 @@ const moveStars = ({ beta, gamma }) => {
   const offsetX = (beta * 15) - (canvas.width / 2);
   const offsetY = (gamma * 15) - (canvas.height / 2);
 
-  stars.forEach(star => drawStar({
+  stars.forEach((star) => drawStar({
     ...star,
     x: star.x + (offsetX * 0.25) * (star.radius * 0.5),
     y: star.y + (offsetY * 0.25) * (star.radius * 0.5),
