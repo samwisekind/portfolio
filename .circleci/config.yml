@@ -3,7 +3,7 @@ version: 2
 jobs:
   audit:
     docker:
-      - image: circleci/node:12-slim
+      - image: circleci/node:12
     working_directory: ~/app
     steps:
       - checkout
@@ -14,7 +14,7 @@ jobs:
           command: npm audit --audit-level=critical
   build:
     docker:
-      - image: circleci/node:12-slim
+      - image: circleci/node:12
     working_directory: ~/app
     steps:
       - checkout
@@ -37,7 +37,7 @@ jobs:
           paths: node_modules
   tests:
     docker:
-      - image: circleci/node:12-slim
+      - image: circleci/node:12
     working_directory: ~/app
     steps:
       - checkout
@@ -61,7 +61,7 @@ jobs:
           path: coverage/lcov-report
   eslint:
     docker:
-      - image: circleci/node:12-slim
+      - image: circleci/node:12
     working_directory: ~/app
     steps:
       - checkout
@@ -76,7 +76,7 @@ jobs:
           path: reports
   stylelint:
     docker:
-      - image: circleci/node:12-slim
+      - image: circleci/node:12
     working_directory: ~/app
     steps:
       - checkout
@@ -87,7 +87,7 @@ jobs:
           command: npm run stylelint
   deploy:
     docker:
-      - image: circleci/node:12-slim
+      - image: circleci/node:12
     working_directory: ~/app
     steps:
       - checkout
