@@ -109,7 +109,7 @@ workflows:
   build-test-deploy:
     jobs:
       - audit
-      - build
+      - build:
           requires:
             - audit
       - tests:
