@@ -20,8 +20,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: npm ci
