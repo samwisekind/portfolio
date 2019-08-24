@@ -138,7 +138,7 @@ const setup = (response) => {
   changeAlbum(target);
 };
 
-Array.from(document.querySelectorAll('.js-arrow')).forEach(element => element.addEventListener('click', (event) => {
+Array.from(document.querySelectorAll('.js-arrow')).forEach((element) => element.addEventListener('click', (event) => {
   event.preventDefault();
   changePhoto(element.getAttribute('data-target'));
 }));
@@ -154,5 +154,5 @@ window.addEventListener('keydown', ({ keyCode }) => {
 window.addEventListener('resize', resizeThumbnails);
 
 fetch('/api/photos')
-  .then(repsonse => repsonse.json())
+  .then((repsonse) => repsonse.json())
   .then(setup);

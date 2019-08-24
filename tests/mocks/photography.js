@@ -23,7 +23,7 @@ const mockedPhotos = [
     thumbnailURL: '',
     imageURL: '',
   },
-].map(photo => ({ ...photo, _id: mongoose.Types.ObjectId() }));
+].map((photo) => ({ ...photo, _id: mongoose.Types.ObjectId() }));
 
 const mockedAlbums = [
   {
