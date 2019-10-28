@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 
 const { mongodb: { URL, options } } = require('config');
 
-const open = () => new Promise((resolve, reject) => {
-  mongoose.connect(URL, options, (error) => (error ? reject(error) : resolve()));
-});
+const open = () => mongoose.connect(URL, options);
 
 const close = () => mongoose.disconnect();
 
