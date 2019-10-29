@@ -11,7 +11,10 @@ let database;
 
 before(async () => {
   database = new MongoMemoryServer();
-  await mongoose.connect(await database.getConnectionString(), { useNewUrlParser: true });
+  await mongoose.connect(await database.getConnectionString(), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
   await Promise.all([
     Project.collection.insertMany(mockedProjects),

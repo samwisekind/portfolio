@@ -11,6 +11,7 @@ module.exports = {
       user: process.env.NODE_MONGODB_USER,
       pass: process.env.NODE_MONGODB_PASS,
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     },
   },
 };
