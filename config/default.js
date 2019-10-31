@@ -4,7 +4,6 @@ module.exports = {
   environment: process.env.NODE_ENV,
   port: 3000,
   host: process.env.NODE_HOST_URL,
-  certificatePath: process.env.NODE_CERTIFICATE_PATH,
   mongodb: {
     URL: process.env.NODE_MONGODB_URL,
     options: {
