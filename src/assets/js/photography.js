@@ -154,5 +154,5 @@ window.addEventListener('keydown', ({ keyCode }) => {
 window.addEventListener('resize', resizeThumbnails);
 
 fetch('/api/photos')
-  .then((repsonse) => repsonse.json())
+  .then((response) => response.json())
   .then(setup);
