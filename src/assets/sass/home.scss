@@ -50,7 +50,7 @@
     z-index: 10;
     top: 0;
     background: $colour-purple;
-    transform: skeyY(2deg);
+    transform: skewY(2deg);
   }
 
   &:after {
@@ -190,10 +190,10 @@ $projectMaxWidth: 470px;
   margin: 0 auto;
   padding: 0 $paddingLarge;
   max-width: ($projectMaxWidth * 2) + ($paddingLarge) + ($paddingLarge * 2);
-
-  + .list {
-    margin-top: 0;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .home > .list > .project {
@@ -201,6 +201,7 @@ $projectMaxWidth: 470px;
   display: block;
   margin-bottom: $paddingLarge;
   max-width: $projectMaxWidth;
+  width: calc(50% - #{($paddingLarge / 2)});
   background: $colour-white;
   box-shadow: 2px 8px 20px 0 rgba(31, 32, 68, .25);
 
@@ -291,7 +292,6 @@ $projectMaxWidth: 470px;
 }
 
 @media (max-width: $mobileBreakpointLarge) {
-
   .home > .featured {
     $previewWidth: 360px;
     $previewHeight: 225px;
@@ -329,43 +329,13 @@ $projectMaxWidth: 470px;
     }
   }
 
-}
-
-@media (min-width: $mobileBreakpointSmall + 1px) {
-
-  .home > .list {
-    margin-top: $spacingLarge;
-
-    &:after {
-      @include clearFix;
-    }
-  }
-
   .home > .list > .project {
-    width: 50% - #{$paddingLarge / 2};
+    width: 100%;
+    max-width: none;
   }
-
-  .home > .list.columns > .project {
-    position: absolute;
-    margin-bottom: 0;
-    width: calc(50% - #{$paddingLarge + ($paddingLarge / 2)});
-
-    &:nth-child(odd) {
-      clear: both;
-      float: left;
-      left: $paddingLarge;
-    }
-
-    &:nth-child(even) {
-      float: right;
-      right: $paddingLarge;
-    }
-  }
-
 }
 
 @media (max-width: $mobileBreakpointSmall) {
-
   .home > .featured {
     $previewWidth: 280px;
     $previewHeight: 175px;
@@ -455,5 +425,4 @@ $projectMaxWidth: 470px;
       }
     }
   }
-
 }
