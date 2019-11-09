@@ -44,6 +44,7 @@
     "mongo-sanitize": "^1.0.1",
     "mongoose": "^5.7.7",
     "morgan": "^1.9.1",
+    "newrelic": "^6.1.0",
     "nodemon": "^1.19.4",
     "pug": "^2.0.4"
   },

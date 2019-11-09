@@ -1,3 +1,5 @@
+require('newrelic');
+
 const { port } = require('config');
 const { name } = require('./package.json');
 const database = require('./src/helpers/mongodb');

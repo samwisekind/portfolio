@@ -13,4 +13,5 @@ module.exports = {
       useUnifiedTopology: true,
     },
   },
+  newRelicKey: process.env.NODE_NEW_RELIC_LICENSE_KEY,
 };
