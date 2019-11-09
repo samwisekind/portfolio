@@ -32,7 +32,9 @@ jobs:
             - ~/app/node_modules
       - persist_to_workspace:
           root: .
-          paths: node_modules
+          paths:
+            - node_modules
+            - src/public
   tests:
     docker:
       - image: circleci/node:12
