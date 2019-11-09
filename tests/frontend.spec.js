@@ -22,9 +22,9 @@ describe('Frontend', () => {
       const [featured, item1, item2, item3] = mockedProjects;
       const $ = cheerio.load(text);
 
-      expect($('body > style').attr('type')).to.equal('text/css');
-      expect($('body > style').attr('media')).to.equal('screen');
-      expect($('body > style').html()).to.equal(globalCSS);
+      expect($('head > style[type="text/css"]').attr('type')).to.equal('text/css');
+      expect($('head > style[type="text/css"]').attr('media')).to.equal('screen');
+      expect($('head > style[type="text/css"]').html()).to.equal(globalCSS);
 
       expect($('.global-header .nav li').eq(0).find('a').hasClass('current')).to.equal(true);
       expect($('.outer-menu .nav li').eq(0).find('a').hasClass('current')).to.equal(true);
@@ -91,9 +91,9 @@ describe('Frontend', () => {
 
       const $ = cheerio.load(text);
 
-      expect($('body > style').attr('type')).to.equal('text/css');
-      expect($('body > style').attr('media')).to.equal('screen');
-      expect($('body > style').html()).to.equal(globalCSS);
+      expect($('head > style[type="text/css"]').attr('type')).to.equal('text/css');
+      expect($('head > style[type="text/css"]').attr('media')).to.equal('screen');
+      expect($('head > style[type="text/css"]').html()).to.equal(globalCSS);
 
       expect($('head title').text()).to.have.string(title);
       expect($('head meta[name="description"]').attr('content')).to.have.string(description);
@@ -144,13 +144,13 @@ describe('Frontend', () => {
 
       const $ = cheerio.load(text);
 
-      expect($('body > style').attr('type')).to.equal('text/css');
-      expect($('body > style').attr('media')).to.equal('screen');
-      expect($('body > style').html()).to.equal(globalCSS);
+      expect($('head > style[type="text/css"]').attr('type')).to.equal('text/css');
+      expect($('head > style[type="text/css"]').attr('media')).to.equal('screen');
+      expect($('head > style[type="text/css"]').html()).to.equal(globalCSS);
 
-      expect($('body > style').attr('type')).to.equal('text/css');
-      expect($('body > style').attr('media')).to.equal('screen');
-      expect($('body > style').html()).to.equal(globalCSS);
+      expect($('head > style[type="text/css"]').attr('type')).to.equal('text/css');
+      expect($('head > style[type="text/css"]').attr('media')).to.equal('screen');
+      expect($('head > style[type="text/css"]').html()).to.equal(globalCSS);
 
       expect($('.global-header .nav li').eq(1).find('a').hasClass('current')).to.equal(true);
       expect($('.outer-menu .nav li').eq(1).find('a').hasClass('current')).to.equal(true);
@@ -168,9 +168,9 @@ describe('Frontend', () => {
 
       const $ = cheerio.load(text);
 
-      expect($('body > style').attr('type')).to.equal('text/css');
-      expect($('body > style').attr('media')).to.equal('screen');
-      expect($('body > style').html()).to.equal(globalCSS);
+      expect($('head > style[type="text/css"]').attr('type')).to.equal('text/css');
+      expect($('head > style[type="text/css"]').attr('media')).to.equal('screen');
+      expect($('head > style[type="text/css"]').html()).to.equal(globalCSS);
 
       expect($('.global-header .nav li').eq(2).find('a').hasClass('current')).to.equal(true);
       expect($('.outer-menu .nav li').eq(2).find('a').hasClass('current')).to.equal(true);

@@ -20,7 +20,9 @@ html(lang='en')
     base(href='/')
     link(rel='index' href=baseURL)
     link(rel='archives' href=baseURL)
-    if !globalCSS
+    if globalCSS
+      style(type="text/css" media="screen")!=globalCSS
+    else
       link(rel='stylesheet' href='/sass/global.css')
     block styles
 
@@ -66,8 +68,6 @@ html(lang='en')
     meta(name='msapplication-square310x310logo' content='https://cdn.flamov.com/seo/mstile-310x310.png')
 
   body
-    if globalCSS
-      style(type="text/css" media="screen")!=globalCSS
     .main-container
       .inner-overlay.js-overlay
       .inner-content
