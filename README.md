@@ -32,7 +32,6 @@ See the [next steps and technical roadmap of the project here](https://github.co
 | Key | Description | Required |
 | --- | --- | --- |
 | ```NODE_ENV``` | Environment name | False |
-| ```NODE_CERTIFICATE_PATH``` | Path to SSL certificate files | True if `NODE_ENV` is `production` |
 | ```NODE_HOST_URL``` | Base URL of the website (without trailing slash) | True |
 | ```NODE_MONGODB_URL``` | MongoDB connection string | True |
 | ```NODE_MONGODB_USER``` | MongoDB username | True |
