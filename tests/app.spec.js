@@ -29,7 +29,7 @@ describe('App', () => {
 
       expect(status).to.equal(200);
       expect(type).to.equal('text/plain');
-      expect(text).to.equal('User-agent: *\nDisallow: /');
+      expect(text).to.equal('User-agent: *\nDisallow:');
     }));
 
   it('Got redirect for non-existing route', async () => request(app)
