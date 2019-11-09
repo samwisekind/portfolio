@@ -37,6 +37,7 @@ See the [next steps and technical roadmap of the project here](https://github.co
 | ```NODE_MONGODB_URL``` | MongoDB connection string | True |
 | ```NODE_MONGODB_USER``` | MongoDB username | True |
 | ```NODE_MONGODB_PASS``` | MongoDB username | True |
+| ```NODE_NEW_RELIC_LICENSE_KEY``` | New Relic license key | True |
 
 ## Usage
 

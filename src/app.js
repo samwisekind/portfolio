@@ -37,6 +37,8 @@ app.use(routes);
 
 app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\nDisallow:'));
 
+app.get('/status', (req, res) => res.status(200).send());
+
 app.get('/version', (req, res) => res.json({
   version,
   environment: app.get('env'),
