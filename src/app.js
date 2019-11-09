@@ -35,7 +35,7 @@ app.use(express.static('./src/public'));
 
 app.use(routes);
 
-app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\nDisallow: /'));
+app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\nDisallow:'));
 
 app.get('/version', (req, res) => res.json({
   version,
