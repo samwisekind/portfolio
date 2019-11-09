@@ -20,7 +20,8 @@ html(lang='en')
     base(href='/')
     link(rel='index' href=baseURL)
     link(rel='archives' href=baseURL)
-    link(rel='stylesheet' href='/sass/global.css')
+    if !globalCSS
+      link(rel='stylesheet' href='/sass/global.css')
     block styles
 
     link(href='https://cdn.flamov.com/seo/favicon-16x16.png' rel='icon' type='image/png' sizes='16x16')
@@ -65,6 +66,8 @@ html(lang='en')
     meta(name='msapplication-square310x310logo' content='https://cdn.flamov.com/seo/mstile-310x310.png')
 
   body
+    if globalCSS
+      style(type="text/css" media="screen")!=globalCSS
     .main-container
       .inner-overlay.js-overlay
       .inner-content

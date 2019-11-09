@@ -15,7 +15,7 @@
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
     "eslint:report": "npm run eslint -- -f junit -o reports/eslint/results.xml",
     "stylelint": "stylelint 'src/assets/**/*.scss'",
-    "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
+    "test": "export NODE_ENV=test && npm run assets:build && mocha ./tests/**/*.spec.js --exit",
     "test:report": "npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/results.xml",
     "test:coverage": "nyc --reporter=lcov npm run test:report"
   },
