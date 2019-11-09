@@ -6,6 +6,12 @@ const app = require('../src/app');
 const packageFile = require('../package.json');
 
 describe('App', () => {
+  it('Got status check', () => {
+    request(app)
+      .get('/status')
+      .expect(200);
+  });
+
   it('Got version content', async () => request(app)
     .get('/version')
     .set('Accept', 'application/json')
