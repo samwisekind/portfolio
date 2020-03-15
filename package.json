@@ -15,9 +15,9 @@
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
     "eslint:report": "npm run eslint -- -f junit -o reports/eslint/results.xml",
     "stylelint": "stylelint 'src/assets/**/*.scss'",
-    "test": "export NODE_ENV=test && mocha ./tests/**/*.spec.js --exit",
-    "test:report": "npm run test -- --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/results.xml",
-    "test:coverage": "nyc --reporter=lcov npm run test:report"
+    "test": "export NODE_ENV=test && jest .*.spec.js",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --coverage"
   },
   "repository": {
     "type": "git",
@@ -49,18 +49,16 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "mocha": "^7.1.0",
+    "jest": "^25.1.0",
     "mocha-junit-reporter": "^1.23.1",
     "mongodb-memory-server": "^6.0.1",
     "nyc": "^15.0.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.23.1",
-    "sinon": "^9.0.0",
     "stylelint": "^13.2.0",
     "stylelint-config-airbnb": "0.0.0",
     "stylelint-order": "^4.0.0",
@@ -90,7 +88,7 @@
     },
     "env": {
       "node": true,
-      "mocha": true,
+      "jest": true,
       "browser": true
     }
   },
@@ -99,6 +97,9 @@
     "rules": {
       "rule-empty-line-before": null
     }
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "browserslist": [
     "last 1 Chrome version"
