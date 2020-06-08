@@ -1,21 +1,15 @@
-FROM node:14
+FROM node:14-alpine AS build
 
-# Set working directory
 WORKDIR /app
-
-# Copy application files
 COPY . /app
 
-# Install Node dependencies
-RUN npm install \
-    && npm run assets:build \
-    && npm prune --production
+RUN npm ci \
+    npm run assets:build \
+    npm prune --production
 
-# Set to production
+RUN rm -rf ./.cache ./config/test.js package-lock.json README.md ./mocks ./tests ./src/assets
+
 ENV NODE_ENV=production
 
-# Expose the port used by the app
 EXPOSE 3000
-
-# Build and run the app
 CMD ["npm", "start"]
