@@ -25,7 +25,7 @@ See the [next steps and technical roadmap of the project here](https://github.co
 ## Installation
 
 1. Clone the repository
-2. Ensure you are using Node version >= 12 (`nvm install 12` / `nvm use 12`)
+2. Ensure you are using Node version >= 14 (`nvm install 14` / `nvm use 14`)
 3. Install Node modules (`npm i`)
 4. Either in the process or in a `.env` file in the root of the repository, pass in the following environment variables:
 
