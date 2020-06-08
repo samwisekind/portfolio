@@ -1,21 +1,12 @@
-FROM node:14
-
-# Set working directory
+# Install dependencies and bundle assets
+FROM node:14-alpine AS build
 WORKDIR /app
-
-# Copy application files
 COPY . /app
+RUN npm ci --unsafe-perm
 
-# Install Node dependencies
-RUN npm install \
-    && npm run assets:build \
-    && npm prune --production
-
-# Set to production
-ENV NODE_ENV=production
-
-# Expose the port used by the app
+# Clean build and run app
+FROM build
+RUN rm -rf ./.cache ./config/test.js package-lock.json README.md ./mocks ./tests ./src/assets
+RUN npm prune --production
 EXPOSE 3000
-
-# Build and run the app
 CMD ["npm", "start"]
