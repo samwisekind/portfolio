@@ -1,6 +1,6 @@
 const { environment } = require('config');
 
-const { ERRORS } = require('../helpers/constants');
+const { ERRORS } = require('./constants');
 
 /**
  * Returns HTTP status code and message based on error message
