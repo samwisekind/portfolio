@@ -7,7 +7,7 @@
 
 Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
 
-Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Mocha, Chai, and Cheerio for testing. Deployed with CircleCI and Docker Compose ([compose files can be found here](https://github.com/Flamov/flamov-portfolio-compose)).
+Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Jest for testing. Deployed with CircleCI and Docker Compose ([compose files can be found here](https://github.com/Flamov/flamov-portfolio-compose)).
 
 ![Infrastructure diagram](https://cdn.flamov.com/misc/infrastructure-diagram.png?v4)
 
