@@ -1,0 +1,47 @@
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin: $spacing-large auto ($spacing-large * 3);
+  padding: 0 $spacing-large;
+  max-width: $max-width + ($spacing-large * 2);
+
+  > a {
+    margin-right: 25px;
+    padding-bottom: 8px;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    line-height: 24px;
+    text-decoration: none;
+    color: $color-primary;
+    border-bottom: 5px solid transparent;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    &.title {
+      margin-right: 40px;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    &.spacing {
+      margin-left: auto;
+    }
+
+    &:hover,
+    &.active {
+      border-bottom-color: $color-primary;
+    }
+
+    > .icon {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      vertical-align: bottom;
+      fill: $color-primary;
+    }
+  }
+}

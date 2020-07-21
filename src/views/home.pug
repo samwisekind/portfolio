@@ -1,39 +1,39 @@
 extends layout.pug
 
 block variables
-  - const section = 'home';
+  - const SECTION = 'home';
 
 block styles
   link(rel='stylesheet' href='/sass/home.css')
 
-mixin detail(project)
-  .text
-    h2
-      a(href=`/projects/${project.key}`, title=project.title)=project.title
-    p=project.description
-    .links
-      +link({ type: 'arrow', text: 'Project details', url: `/projects/${project.key}` })
-      if project.websiteURL
-        +link({ type: 'external', text: 'Visit website', url: project.websiteURL })
-    if project.technologies
-      ul.technologies
-        each technology in project.technologies
-          li=technology
-
 block content
-  main.home
-    each project, index in projects
-      if index === 0
-        section.featured
-          .container
-            +detail(project)
-            a.preview(href=`/projects/${project.key}` title=project.title)
-              img.preview-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
-    section.list
-      each project, index in projects
-        if index !== 0
-          div.project
-            if project.previewImage
-              a.preview(href=`/projects/${project.key}`, title=project.title)
-                img.preview-image.js-image(data-src=project.previewImage alt=`Preview image for the ${project.title} project.`)
-            +detail(project)
+  section.work
+    h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum odio nunc, non elementum mi hendrerit in. Nullam sollicitudin ipsum tincidunt velit pharetra accumsan. Morbi in nunc sapien.
+    a.more Learn More
+  section.journal
+    h2 Journal
+      a.more(href="#") Read More
+    div.journal-item
+      h3
+        a(href="#") Donec tincidunt neque eu mauris sagittis suscipit
+      p 25th July 2020
+    div.journal-item
+      h3
+        a(href="#") Proin sed ligula nec augue fringilla tincidunt vitae vel leo
+      p 25th July 2020
+  section.photography
+    h2 Photography
+      a.more(href="#") View More
+    .photography-item-wrapper
+      figure.photography-item
+        a(href="#")
+          img(src="https://cdn.flamov.com/photography/kenya/kenya-1-full.jpg" alt="")
+          figcaption='Lorem ipsum dolor sit amet'
+      figure.photography-item
+        a(href="#")
+          img(src="https://cdn.flamov.com/photography/yunnan/yunnan-1-full.jpg" alt="")
+          figcaption='Consectetur adipiscing elit'
+      figure.photography-item
+          a(href="#")
+            img(src="https://cdn.flamov.com/photography/peak-district/peakdistrict-1-full.jpg" alt="")
+            figcaption='Consectetur adipiscing elit'

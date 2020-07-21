@@ -1,0 +1,18 @@
+extends layout.pug
+
+block variables
+  - const SECTION = 'journal';
+  - const PAGE_TITLE = attributes.title;
+  - const PAGE_DESCRIPTION = attributes.description;
+
+block styles
+  link(rel='stylesheet' href='/sass/journal.css')
+
+block content
+  article    
+    | !{content}
+    p.footnote
+      =`Published ${attributes.published}`
+      if attributes.updated
+        br
+        =`Updated ${attributes.updated}`

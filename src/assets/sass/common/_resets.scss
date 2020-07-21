@@ -4,8 +4,6 @@ html {
 
 body {
   min-width: 320px;
-  color: $colour-text;
-  background: $colour-background;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,13 +20,4 @@ body {
 
 a {
   color: inherit;
-}
-
-aside,
-section,
-main,
-nav,
-header,
-footer {
-  display: block;
 }

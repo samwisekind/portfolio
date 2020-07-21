@@ -1,0 +1,88 @@
+/* COMMON */
+
+@import "common/colours";
+
+@import "common/constants";
+
+@import "common/mixins";
+
+@import "common/resets";
+
+@import "common/typography";
+
+
+
+/* JOURNAL */
+
+main {
+  margin: 0 auto;
+  padding: 0 50px;
+  max-width: 1200px;
+
+  article {
+    margin-right: auto;
+    max-width: 800px;
+  }
+}
+
+@import "highlight.js/styles/night-owl.css";
+
+p.foo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  line-height: 28px;
+  color: #B5B5B5;
+
+  .symbol {
+    display: inline-block;
+    margin: 0 15px;
+    width: 8px;
+    height: 8px;
+    background: #B5B5B5;
+    transform: translateY(2px) rotate(45deg);
+  }
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 52px * 1.4;
+}
+
+h2 {
+  margin-top: 60px;
+  font-size: 32px;
+  line-height: 32px * 1.4;
+}
+
+p {
+  margin-top: 15px;
+  font-size: 24px;
+  line-height: 24px * 1.6;
+
+  > a {
+    text-shadow: 0 0 1px transparent;
+  }
+
+  > code {
+    padding: 2px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+}
+
+pre {
+  display: block;
+  width: calc(100% + 100px);
+  margin: 50px 0;
+  margin-left: -50px;
+  padding: 25px;
+  overflow-x: auto;
+  background: #151515;
+  color: #d6deeb;
+  font-size: 18px;
+  line-height: 28px;
+}
