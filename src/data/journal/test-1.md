@@ -1,14 +1,14 @@
 ---
-title: Test article
-slug: test-article
-description: This is a test article
+title: Test article 1
+slug: test-article-1
+description: This is a test article 1
 published: 25th September 2020
 updated: 26th November 2020
 tags:
   - Development
 ---
 
-# Test Article
+# Test Article 1
 
 Lorem ipsum dolor sit amet, _consectetur adipiscing elit_. *Aenean pharetra eros purus*, nec suscipit justo mollis et. _*Nunc semper vulputate blandit*_. Vivamus ac ipsum nec [lorem varius molestie](https://flamov.com).
 

@@ -10,20 +10,99 @@
 
 @import "common/typography";
 
+section {
+  &:last-child {
+    margin-bottom: 0;
+  }
 
+  h2 {
+    margin-bottom: 40px;
+    font-size: 38px;
+    line-height: 38px;
 
-/* JOURNAL */
-
-main {
-  margin: 0 auto;
-  padding: 0 50px;
-  max-width: 1200px;
-
-  article {
-    margin-right: auto;
-    max-width: 800px;
+    a.more {
+      margin-left: 20px;
+      font-size: 24px;
+      line-height: 24px;
+      color: $color-secondary;
+      text-decoration: none;
+    }
   }
 }
+
+section.work {
+  padding-top: 0;
+
+  h1 {
+    font-size: 38px;
+    line-height: 46px;
+  }
+}
+
+
+section.journal {
+  .journal-item {
+    margin-top: 40px;
+
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    p {
+      color: $color-secondary;
+    }
+  }
+}
+
+section.photography {
+  .photography-item-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .photography-item {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      color: $color-secondary;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @import "highlight.js/styles/night-owl.css";
 

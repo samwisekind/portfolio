@@ -11,9 +11,7 @@
 @import "common/typography";
 
 section {
-  margin: 0 auto ($spacing-large * 2);
-  padding: 0 $spacing-large;
-  max-width: $max-width + ($spacing-large * 2);
+  margin-bottom: $spacing-large * 2;
 
   &:last-child {
     margin-bottom: 0;
@@ -42,7 +40,6 @@ section.work {
     line-height: 46px;
   }
 }
-
 
 section.journal {
   .journal-item {

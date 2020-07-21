@@ -12,15 +12,12 @@ block content
     a.more Learn More
   section.journal
     h2 Journal
-      a.more(href="#") Read More
-    div.journal-item
-      h3
-        a(href="#") Donec tincidunt neque eu mauris sagittis suscipit
-      p 25th July 2020
-    div.journal-item
-      h3
-        a(href="#") Proin sed ligula nec augue fringilla tincidunt vitae vel leo
-      p 25th July 2020
+      a.more(href="/journal") Read More
+    for article in articles
+      div.journal-item
+        h3
+          a(href=`/journal/${article.slug}`)= article.title
+        p= article.published
   section.photography
     h2 Photography
       a.more(href="#") View More
