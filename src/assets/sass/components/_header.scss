@@ -15,6 +15,7 @@ nav {
     text-decoration: none;
     color: $color-primary;
     border-bottom: 5px solid transparent;
+    white-space: nowrap;
 
     &:last-child {
       margin-right: 0;

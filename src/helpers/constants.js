@@ -6,7 +6,10 @@ const ERRORS = {
   NOT_FOUND: 'The requested resource was not found, or has been moved or deleted.',
 };
 
+const JOURNAL_DATA_DIRECTORY = './src/data/journal';
+
 module.exports = {
   QUERYFILTER,
   ERRORS,
+  JOURNAL_DATA_DIRECTORY,
 };

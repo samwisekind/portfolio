@@ -8,7 +8,7 @@ block variables
 block styles
   link(rel='stylesheet' href='/sass/journal.css')
 
-block content
+block main
   article    
     | !{content}
     p.footnote
@@ -16,3 +16,6 @@ block content
       if attributes.updated
         br
         =`Updated ${attributes.updated}`
+  aside
+    h2 Contents
+    | !{toc}

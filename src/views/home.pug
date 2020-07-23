@@ -6,7 +6,7 @@ block variables
 block styles
   link(rel='stylesheet' href='/sass/home.css')
 
-block content
+block main
   section.work
     h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum odio nunc, non elementum mi hendrerit in. Nullam sollicitudin ipsum tincidunt velit pharetra accumsan. Morbi in nunc sapien.
     a.more Learn More
@@ -17,7 +17,7 @@ block content
       div.journal-item
         h3
           a(href=`/journal/${article.slug}`)= article.title
-        p= article.published
+        p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
   section.photography
     h2 Photography
       a.more(href="#") View More

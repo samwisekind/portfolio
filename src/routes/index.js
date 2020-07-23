@@ -1,49 +1,22 @@
-const fs = require('fs');
 const { Router } = require('express');
 
-const marked = require('marked');
-const frontmatter = require('front-matter');
-
-const { renderMarkdown } = require('../helpers/markdown');
+const { getJournalArticlesList } = require('../helpers/journal');
 
 const router = Router();
 
 router.get('/', (req, res) => {
-  const dir = './src/data/journal';
-  const articles = fs.readdirSync(dir).map((file) => {
-    const data = fs.readFileSync(`${dir}/${file}`, 'utf-8');
-
-    const { attributes } = frontmatter(data);
-
-    return attributes;
-  });
-
+  const articles = getJournalArticlesList().slice(0, 2);
   res.render('home', { articles });
 });
 
 router.get('/journal', (req, res) => {
-  res.render('journal');
+  const articles = getJournalArticlesList();
+  res.render('journal', { articles });
 });
 
 router.get('/journal/:slug', (req, res) => {
-  const dir = './src/data/journal';
-  const result = fs.readdirSync(dir).map((file) => {
-    const data = fs.readFileSync(`${dir}/${file}`, 'utf-8');
-
-    const { text } = marked.lexer(data).find((item) => item.type === 'heading' && item.depth === 1);
-
-    const { attributes } = frontmatter(data);
-
-    return {
-      file,
-      title: text,
-      slug: attributes.slug,
-    };
-  }).find((item) => item.slug === req.params.slug);
-
-  const data = renderMarkdown(`${dir}/${result.file}`);
-
-  res.render('journal-detail', data);
+  const article = getJournalArticlesList().find((item) => item.slug === req.params.slug);
+  res.render('journal-detail', article);
 });
 
 module.exports = router;

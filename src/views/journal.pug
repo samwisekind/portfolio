@@ -6,16 +6,12 @@ block variables
 block styles
   link(rel='stylesheet' href='/sass/journal.css')
 
-block content
+block main
   section.journal-list
     h1 Journal
-    div.journal-item
-      h2
-        a(href="#") Donec tincidunt neque eu mauris sagittis suscipit
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pharetra eros purus, nec suscipit justo mollis et. Nunc semper vulputate blandit. Vivamus ac ipsum nec lorem varius molestie.
-      p 25th July 2020
-    div.journal-item
-      h2
-        a(href="#") Proin sed ligula nec augue fringilla tincidunt vitae vel leo
-      p Suspendisse tincidunt tincidunt tellus lacinia aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-      p 25th July 2020
+    for article in articles
+      div.journal-item
+        h2
+          a(href=`/journal/${article.slug}`)= article.title
+        p= article.description
+        p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
