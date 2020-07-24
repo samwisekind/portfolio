@@ -6,28 +6,28 @@ const showHome = (req, res) => {
   const articles = getJournalArticlesList(JOURNAL_FEATURED_LIMIT);
   const photos = getFeaturedPhotos();
 
-  return res.render('home', { articles, photos });
+  return res.render('pages/home', { articles, photos });
 };
 
 const showJournalList = (req, res) => {
   const articles = getJournalArticlesList();
 
-  res.render('journal', { articles });
+  res.render('pages/journal', { articles });
 };
 
 const showJournalArticle = (req, res) => {
   const article = getJournalArticlesList().find((item) => item.slug === req.params.slug);
 
-  res.render('journal-detail', article);
+  res.render('pages/journal-detail', article);
 };
 
 const showPhotography = (req, res) => {
   const photos = getPhotos();
 
-  res.render('photography', { photos });
+  res.render('pages/photography', { photos });
 };
 
-const showWork = (req, res) => res.render('work');
+const showWork = (req, res) => res.render('pages/work');
 
 module.exports = {
   showHome,
