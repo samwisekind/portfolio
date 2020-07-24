@@ -7,6 +7,7 @@ const highlightjs = require('highlight.js');
 
 const { JOURNAL_DATA_DIRECTORY } = require('./constants');
 
+/* istanbul ignore next */
 marked.setOptions({
   highlight: (code, language) => highlightjs.highlight(
     highlightjs.getLanguage(language) ? language : 'plaintext',
@@ -28,7 +29,7 @@ const getJournalArticleData = (file) => {
   const { body, attributes } = frontmatter(data);
 
   // Render markdown from the body
-  const content = marked(body);
+  const content = marked(body).trim();
 
   return { slug, attributes, content };
 };
