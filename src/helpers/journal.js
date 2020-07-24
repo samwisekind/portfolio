@@ -7,6 +7,7 @@ const highlightjs = require('highlight.js');
 
 const { JOURNAL_DATA_DIRECTORY } = require('./constants');
 
+/* istanbul ignore next */
 marked.setOptions({
   highlight: (code, language) => highlightjs.highlight(
     highlightjs.getLanguage(language) ? language : 'plaintext',
