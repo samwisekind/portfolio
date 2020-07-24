@@ -1,0 +1,41 @@
+/* COMMON */
+
+@import "common/colours";
+
+@import "common/constants";
+
+@import "common/mixins";
+
+@import "common/resets";
+
+@import "common/typography";
+
+main {
+  max-width: 2000px;
+}
+
+main > section.photography {
+  column-count: 2;
+  column-gap: 40px;
+
+  > figure {
+    display: block;
+    break-inside: avoid;
+
+    > img {
+      margin: 0 auto;
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      max-height: calc(100vh - 40px);
+    }
+
+    > figcaption {
+      padding: 20px 20px 60px;
+      font-size: 20px;
+      line-height: 20px;
+      color: $color-secondary;
+    }
+  }
+}

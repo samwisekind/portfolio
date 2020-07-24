@@ -19,4 +19,15 @@ router.get('/journal/:slug', (req, res) => {
   res.render('journal-detail', article);
 });
 
+const fs = require('fs');
+const YAML = require('yaml');
+
+router.get('/photography', (req, res) => {
+  const photos = YAML.parse(fs.readFileSync('./src/data/photography.yaml', 'utf-8'))
+    .sort((a, b) => a.order - b.order);
+
+  console.log('photos', photos);
+  res.render('photography', { photos });
+});
+
 module.exports = router;
