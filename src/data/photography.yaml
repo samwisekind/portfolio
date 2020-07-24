@@ -3,11 +3,13 @@
   alt: foo
   description: Kenya, 2009
   src: https://cdn.flamov.com/photography/kenya/kenya-1-full.jpg
+  featured: true
 - order: 1
   title: Surprised Fox
   alt: foo
   description: London, 2010
   src: https://cdn.flamov.com/photography/london/london-1-full.jpg
+  featured: true
 - order: 2
   title: Valley
   alt: foo

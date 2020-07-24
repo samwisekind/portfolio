@@ -20,17 +20,10 @@ block main
         p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
   section.photography
     h2 Photography
-      a.more(href="#") View More
+      a.more(href="/photography") View More
     .photography-item-wrapper
-      figure.photography-item
-        a(href="#")
-          img(src="https://cdn.flamov.com/photography/kenya/kenya-1-full.jpg" alt="")
-          figcaption='Lorem ipsum dolor sit amet'
-      figure.photography-item
-        a(href="#")
-          img(src="https://cdn.flamov.com/photography/yunnan/yunnan-1-full.jpg" alt="")
-          figcaption='Consectetur adipiscing elit'
-      figure.photography-item
-          a(href="#")
-            img(src="https://cdn.flamov.com/photography/peak-district/peakdistrict-1-full.jpg" alt="")
-            figcaption='Consectetur adipiscing elit'
+      for photo in photos
+        figure.photography-item
+          a(href="/photography")
+            img(src=photo.src alt=photo.alt)
+            figcaption= photo.description
