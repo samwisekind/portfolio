@@ -44,6 +44,9 @@ describe('getJournalArticleData', () => {
     it('gets journal articles list with no limit', async () => {
       const results = await getJournalArticlesList();
 
+      expect(glob.sync).toHaveBeenCalledTimes(1);
+      expect(glob.sync).toHaveBeenCalledWith('./src/data/journal/**.md');
+
       expect(fs.readFileSync).toHaveBeenCalledTimes(4);
       expect(fs.readFileSync).toHaveBeenNthCalledWith(1, 'test-journal-article-file-1.md', 'utf-8');
       expect(fs.readFileSync).toHaveBeenNthCalledWith(2, 'test-journal-article-file-2.md', 'utf-8');
