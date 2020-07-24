@@ -1,12 +1,11 @@
-const QUERYFILTER = '-_id -order';
+const JOURNAL_DATA_DIRECTORY = './src/data/journal/**.md';
 
-const ERRORS = {
-  SERVER_ERROR: 'The server encountered an internal error or misconfiguration and was unable to complete your request.',
-  INVALID_REQUEST: 'Your request was invalid and could not be completed.',
-  NOT_FOUND: 'The requested resource was not found, or has been moved or deleted.',
-};
+const PHOTOGRAPHY_DATA_PATH = './src/data/photography.yaml';
+
+const JOURNAL_FEATURED_LIMIT = 2;
 
 module.exports = {
-  QUERYFILTER,
-  ERRORS,
+  JOURNAL_DATA_DIRECTORY,
+  PHOTOGRAPHY_DATA_PATH,
+  JOURNAL_FEATURED_LIMIT,
 };

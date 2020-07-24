@@ -10,12 +10,12 @@
     "start": "node server",
     "watch": "npm run server:watch & npm run assets:watch",
     "server:watch": "nodemon server.js --inspect",
-    "assets:build": "parcel build src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public --detailed-report",
-    "assets:watch": "parcel watch src/assets/js/*.js src/assets/sass/*.scss src/assets/img/**/* -d src/public",
+    "assets:build": "parcel build src/assets/js/*.js src/assets/styles/*.scss src/assets/img/**/* -d src/public --detailed-report",
+    "assets:watch": "parcel watch src/assets/js/*.js src/assets/styles/*.scss src/assets/img/**/* -d src/public",
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
     "eslint:report": "npm run eslint -- -f junit -o reports/eslint/results.xml",
     "stylelint": "stylelint 'src/assets/**/*.scss'",
-    "test": "export NODE_ENV=test && jest .*.spec.js",
+    "test": "export NODE_ENV=test && jest .*.spec.js --passWithNoTests",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm run test -- --coverage"
   },
@@ -36,34 +36,34 @@
   "homepage": "https://github.com/Flamov/flamov-portfolio#readme",
   "dependencies": {
     "compression": "^1.7.4",
-    "config": "^3.2.4",
+    "config": "^3.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-minify-html": "^0.12.0",
-    "helmet": "^3.21.2",
-    "mongo-sanitize": "^1.0.1",
-    "mongoose": "^5.7.7",
-    "morgan": "^1.9.1",
-    "newrelic": "^6.1.0",
-    "nodemon": "^2.0.2",
-    "pug": "^3.0.0"
+    "front-matter": "^4.0.2",
+    "glob": "^7.1.6",
+    "helmet": "^3.23.3",
+    "highlight.js": "^10.1.2",
+    "marked": "^1.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "jest": "^26.0.1",
-    "mongodb-memory-server": "^6.6.1",
-    "nyc": "^15.0.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.1.0",
+    "nyc": "^15.1.0",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.23.1",
-    "stylelint": "^13.2.0",
+    "sass": "^1.26.10",
+    "stylelint": "^13.6.1",
     "stylelint-config-airbnb": "0.0.0",
-    "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.12.0",
-    "supertest": "^4.0.2",
-    "vanilla-lazyload": "^16.1.0"
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
+    "supertest": "^4.0.2"
   },
   "nodemonConfig": {
     "ignore": [
@@ -74,17 +74,6 @@
   },
   "eslintConfig": {
     "extends": "airbnb-base",
-    "rules": {
-      "no-console": 0,
-      "object-curly-newline": [
-        "error",
-        {
-          "ObjectPattern": {
-            "minProperties": 6
-          }
-        }
-      ]
-    },
     "env": {
       "node": true,
       "jest": true,

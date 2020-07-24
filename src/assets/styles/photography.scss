@@ -1,0 +1,55 @@
+/* COMMON */
+
+@import "common/colours";
+
+@import "common/constants";
+
+@import "common/mixins";
+
+@import "common/resets";
+
+@import "common/typography";
+
+main {
+  max-width: 2000px;
+}
+
+main > section.photography {
+  column-count: 3;
+  column-gap: 40px;
+}
+
+main > section.photography > figure {
+  display: block;
+  break-inside: avoid;
+
+  > img {
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 40px);
+  }
+
+  > figcaption {
+    display: flex;
+    padding: 10px 0 60px;
+    font-size: 16px;
+    line-height: 16px;
+    color: $color-secondary;
+
+    > span {
+      width: 50%;
+      white-space: nowrap;
+    }
+
+    > span.description {
+      font-weight: 700;
+    }
+
+    > span.date {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+/* COMMON */
+
+@import "common/colours";
+
+@import "common/constants";
+
+@import "common/mixins";
+
+@import "common/resets";
+
+@import "common/typography";
+
+
+
+/* COMPONENTS */
+
+@import "components/header";
+
+@import "components/footer";
+
+
+
+/* GLOBAL */
+
+body {
+  color: $color-primary;
+  background: $color-background;
+}
+
+main {
+  margin: 0 auto;
+  padding: 0 $spacing-large;
+  max-width: $max-width + ($spacing-large * 2);
+}

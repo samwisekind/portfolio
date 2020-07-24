@@ -1,0 +1,15 @@
+extends ../layout.pug
+
+block variables
+  - const PAGE_SECTION = 'journal';
+  - const PAGE_TITLE = attributes.title;
+  - const PAGE_DESCRIPTION = attributes.description;
+
+block styles
+  link(rel='stylesheet' href='/styles/journal.css')
+
+block main
+  article.journal-detail
+    | !{content}
+    p.footnote
+      =`Published ${new Date(attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })}`

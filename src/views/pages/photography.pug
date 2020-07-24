@@ -1,0 +1,16 @@
+extends ../layout.pug
+
+block variables
+  - const PAGE_SECTION = 'photography';
+
+block styles
+  link(rel='stylesheet' href='/styles/photography.css')
+
+block main
+  section.photography
+    each photo in photos
+      figure
+        img(src=photo.src alt=photo.alt)
+        figcaption
+          span.description= photo.description
+          span.date= photo.date

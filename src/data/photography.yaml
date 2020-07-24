@@ -1,0 +1,50 @@
+- order: 0
+  title: New Kind of Hug
+  alt: foo
+  description: Maasai Mara, Kenya
+  date: 2009
+  src: https://cdn.flamov.com/photography/kenya/kenya-1-full.jpg
+  featured: true
+- order: 1
+  title: Surprised Fox
+  alt: foo
+  description: London, UK
+  date: 2010
+  src: https://cdn.flamov.com/photography/london/london-1-full.jpg
+  featured: true
+- order: 2
+  title: Valley
+  alt: foo
+  description: 云南 (Yúnnán), China
+  date: 2009
+  src: https://cdn.flamov.com/photography/yunnan/yunnan-1-full.jpg
+- order: 3
+  title: Sunrise on the Dunes
+  alt: foo
+  description: Mũi Né, Việt Nam (Vietnam)
+  date: 2010
+  src: https://cdn.flamov.com/photography/vietnam/vietnam-1-full.jpg
+- order: 4
+  title: Vietnamese Fisherman
+  alt: foo
+  description: Mũi Né, Việt Nam (Vietnam)
+  date: 2009
+  src: https://cdn.flamov.com/photography/vietnam/vietnam-2-full.jpg
+- order: 5
+  title: By The Fence
+  alt: foo
+  description: Peak District, UK
+  date: 2016
+  src: https://cdn.flamov.com/photography/peak-district/peakdistrict-1-full.jpg
+- order: 6
+  title: Tree With A View
+  alt: foo
+  description: Peak District, UK
+  date: 2016
+  src: https://cdn.flamov.com/photography/peak-district/peakdistrict-4-full.jpg
+- order: 7
+  title: Corn
+  alt: foo
+  description: 云南 (Yúnnán), China
+  date: 2009
+  src: https://cdn.flamov.com/photography/yunnan/yunnan-2-full.jpg

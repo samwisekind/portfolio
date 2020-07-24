@@ -1,0 +1,129 @@
+/* COMMON */
+
+@import "common/colours";
+
+@import "common/constants";
+
+@import "common/mixins";
+
+@import "common/resets";
+
+@import "common/typography";
+
+main {
+  display: flex;
+}
+
+main > .journal-list {
+  margin: 0 auto;
+  max-width: 700px;
+
+  h1 {
+    margin-bottom: 60px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+  }
+
+  .journal-item {
+    margin-top: 40px;
+
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    p.date {
+      color: $color-secondary;
+    }
+  }
+}
+
+main > .journal-detail {
+  margin: 0 auto;
+  max-width: 700px;
+
+  h1 {
+    margin-bottom: 60px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px * 1.4;
+  }
+  
+  h2 {
+    margin-top: 60px;
+    font-size: 32px;
+    line-height: 32px * 1.4;
+  }
+  
+  h3 {
+    margin-top: 40px;
+    font-size: 28px;
+    line-height: 28px * 1.4;
+  }
+  
+  h4 {
+    margin-top: 40px;
+    font-size: 24px;
+    line-height: 24px * 1.4;
+  }
+  
+  h5 {
+    margin-top: 30px;
+    font-size: 22px;
+    line-height: 22px * 1.4;
+  }
+  
+  h6 {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 16px * 1.4;
+  }
+  
+  p {
+    margin-top: 20px;
+    font-size: 24px;
+    line-height: 24px * 1.6;
+
+    &.footnote {
+      margin-top: 60px;
+      font-size: 18px;
+      line-height: 18px;
+      color: $color-secondary;
+    }
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  i,
+  em {
+    font-style: italic;
+  }
+
+  code {
+    padding: 2px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  pre {
+    display: block;
+    margin: 40px 0;
+    padding: 20px;
+    overflow-x: auto;
+    background: #151515;
+    color: #D6DEEB;
+    font-size: 18px;
+    line-height: 28px;
+    border-radius: 4px;
+
+    > code {
+      white-space: unset;
+
+      @import "highlight.js/styles/night-owl.css";
+    }
+  }
+}

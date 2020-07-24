@@ -1,0 +1,85 @@
+/* COMMON */
+
+@import "common/colours";
+
+@import "common/constants";
+
+@import "common/mixins";
+
+@import "common/resets";
+
+@import "common/typography";
+
+section {
+  margin-bottom: $spacing-large * 2;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 40px;
+    font-size: 38px;
+    line-height: 38px;
+
+    a.more {
+      margin-left: 20px;
+      font-size: 24px;
+      line-height: 24px;
+      color: $color-secondary;
+      text-decoration: none;
+    }
+  }
+}
+
+section.work {
+  padding-top: 0;
+
+  h1 {
+    font-size: 38px;
+    line-height: 46px;
+  }
+}
+
+section.journal {
+  .journal-item {
+    margin-top: 40px;
+
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    p {
+      color: $color-secondary;
+    }
+  }
+}
+
+section.photography {
+  .photography-item-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .photography-item {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      color: $color-secondary;
+    }
+  }
+}
