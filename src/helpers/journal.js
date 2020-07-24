@@ -45,10 +45,18 @@ const getJournalArticleData = (file) => {
 
 /**
  * Returns object of articles with slug, title, description
- * @param {Number} limit Number of articles to return
+ * @param {number=} limit Number of articles to return or returns all articles if omitted
  */
-const getJournalArticlesList = (limit) => fs.readdirSync(JOURNAL_DATA_DIRECTORY)
-  .map((file) => getJournalArticleData(`${JOURNAL_DATA_DIRECTORY}/${file}`))
-  .sort((a, b) => Date.parse(b.attributes.published) - Date.parse(a.attributes.published));
+const getJournalArticlesList = (limit) => {
+  const results = fs.readdirSync(JOURNAL_DATA_DIRECTORY)
+    .map((file) => getJournalArticleData(`${JOURNAL_DATA_DIRECTORY}/${file}`))
+    .sort((a, b) => Date.parse(b.attributes.published) - Date.parse(a.attributes.published));
+
+  if (limit) {
+    return results.slice(0, limit);
+  }
+
+  return results;
+};
 
 module.exports = { getJournalArticleData, getJournalArticlesList };

@@ -1,12 +1,14 @@
 const { Router } = require('express');
 
+const { JOURNAL_FEATURED_LIMIT } = require('../helpers/constants');
+
 const { getJournalArticlesList } = require('../helpers/journal');
 const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
 
 const router = Router();
 
 router.get('/', (req, res) => {
-  const articles = getJournalArticlesList().slice(0, 2);
+  const articles = getJournalArticlesList(JOURNAL_FEATURED_LIMIT);
   const photos = getFeaturedPhotos();
 
   res.render('home', { articles, photos });
