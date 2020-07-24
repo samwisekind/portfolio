@@ -91,3 +91,16 @@ describe('showJournalList', () => {
     expect(journal2.querySelectorAll('p')[1].textContent).toBe('5 May 2020');
   });
 });
+
+describe('showJournalArticle', () => {
+  it('shows journal list', async () => {
+    const response = await request(app).get('/journal/test-1');
+
+    expect(response.status).toBe(200);
+    expect(response.type).toBe('text/html');
+
+    document.body.innerHTML = response.text;
+
+    expect(document.body.querySelector('.journal-detail').innerHTML).toBe('<p>Lorem ipsum</p><p class="footnote">Published 1 January 2010</p>');
+  });
+});
