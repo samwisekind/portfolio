@@ -147,3 +147,12 @@ describe('showPhotography', () => {
     expect(photo4.querySelector('figcaption > .date').textContent).toBe('2040');
   });
 });
+
+describe('showWork', () => {
+  it('shows work', async () => {
+    const response = await request(app).get('/work');
+
+    expect(response.status).toBe(200);
+    expect(response.type).toBe('text/html');
+  });
+});
