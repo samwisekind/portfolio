@@ -11,4 +11,6 @@ block main
     each photo in photos
       figure
         img(src=photo.src alt=photo.alt)
-        figcaption= photo.description
+        figcaption
+          span.description= photo.description
+          span.date= photo.date
