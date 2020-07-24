@@ -20,20 +20,36 @@ const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
 
 beforeEach(() => {
   getJournalArticlesList.mockImplementation(() => ([
-    { slug: 'test-1', attributes: { title: 'foo', blurb: 'bar', published: '2010-01-01T12:00:00.000Z' }, content: '<p>Lorem ipsum</p>' },
-    { slug: 'test-2', attributes: { title: 'hello', blurb: 'world', published: '2020-05-05T12:00:00.000Z' }, content: '<p>Dolor sit amet</p>' },
+    {
+      slug: 'test-1', attributes: { title: 'foo', blurb: 'bar', published: '2010-01-01T12:00:00.000Z' }, content: '<p>Lorem ipsum</p>',
+    },
+    {
+      slug: 'test-2', attributes: { title: 'hello', blurb: 'world', published: '2020-05-05T12:00:00.000Z' }, content: '<p>Dolor sit amet</p>',
+    },
   ]));
 
   getPhotos.mockImplementation(() => ([
-    { order: 0, title: 'photo 1', alt: 'photo 1 alt', description: 'photo 1 description', date: '2010', src: 'photo-1-src.jpg' },
-    { order: 1, title: 'photo 2', alt: 'photo 2 alt', description: 'photo 2 description', date: '2020', src: 'photo-2-src.jpg' },
-    { order: 2, title: 'photo 3', alt: 'photo 3 alt', description: 'photo 3 description', date: '2030', src: 'photo-3-src.jpg' },
-    { order: 3, title: 'photo 4', alt: 'photo 4 alt', description: 'photo 4 description', date: '2040', src: 'photo-4-src.jpg' },
+    {
+      order: 0, title: 'photo 1', alt: 'photo 1 alt', description: 'photo 1 description', date: '2010', src: 'photo-1-src.jpg',
+    },
+    {
+      order: 1, title: 'photo 2', alt: 'photo 2 alt', description: 'photo 2 description', date: '2020', src: 'photo-2-src.jpg',
+    },
+    {
+      order: 2, title: 'photo 3', alt: 'photo 3 alt', description: 'photo 3 description', date: '2030', src: 'photo-3-src.jpg',
+    },
+    {
+      order: 3, title: 'photo 4', alt: 'photo 4 alt', description: 'photo 4 description', date: '2040', src: 'photo-4-src.jpg',
+    },
   ]));
 
   getFeaturedPhotos.mockImplementation(() => ([
-    { order: 0, title: 'photo 1', alt: 'photo 1 alt', description: 'photo 1 description', date: '2010', src: 'photo-1-src.jpg' },
-    { order: 1, title: 'photo 2', alt: 'photo 2 alt', description: 'photo 2 description', date: '2020', src: 'photo-2-src.jpg' },
+    {
+      order: 0, title: 'photo 1', alt: 'photo 1 alt', description: 'photo 1 description', date: '2010', src: 'photo-1-src.jpg',
+    },
+    {
+      order: 1, title: 'photo 2', alt: 'photo 2 alt', description: 'photo 2 description', date: '2020', src: 'photo-2-src.jpg',
+    },
   ]));
 });
 
@@ -46,10 +62,10 @@ describe('showHome', () => {
   it('shows home', async () => {
     const response = await request(app).get('/');
 
+    expect(getJournalArticlesList).toHaveBeenCalledWith(2);
+
     expect(response.status).toBe(200);
     expect(response.type).toBe('text/html');
-
-    // expect(getJournalArticlesList).toHaveBeenCalledWith(2);
 
     document.body.innerHTML = response.text;
 
@@ -80,6 +96,8 @@ describe('showJournalList', () => {
   it('shows journal list', async () => {
     const response = await request(app).get('/journal');
 
+    expect(getJournalArticlesList).toHaveBeenCalledTimes(1);
+
     expect(response.status).toBe(200);
     expect(response.type).toBe('text/html');
 
@@ -104,6 +122,8 @@ describe('showJournalArticle', () => {
   it('shows journal list', async () => {
     const response = await request(app).get('/journal/test-1');
 
+    expect(getJournalArticlesList).toHaveBeenCalledTimes(1);
+
     expect(response.status).toBe(200);
     expect(response.type).toBe('text/html');
 
@@ -116,6 +136,8 @@ describe('showJournalArticle', () => {
 describe('showPhotography', () => {
   it('shows photography', async () => {
     const response = await request(app).get('/photography');
+
+    expect(getPhotos).toHaveBeenCalledTimes(1);
 
     expect(response.status).toBe(200);
     expect(response.type).toBe('text/html');
