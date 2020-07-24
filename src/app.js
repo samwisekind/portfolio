@@ -27,7 +27,7 @@ app.use(minifyHTML({
   },
 }));
 
-app.use(express.static('./src/public'));
+app.use('/public', express.static('./src/public'));
 
 app.use(routes);
 
