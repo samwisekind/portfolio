@@ -34,13 +34,6 @@ const getJournalArticleData = (file) => {
   // Infer description from the first paragraph
   const description = lexer.find((item) => item.type === 'paragraph');
 
-  const toc = lexer.filter((item) => item.type === 'heading').map((item) => ({
-    text: item.text,
-    link: item.text.replace(/[^0-9a-z]+/i, '-').toLowerCase(),
-  }));
-
-  console.log('toc', toc);
-
   return {
     slug,
     attributes,

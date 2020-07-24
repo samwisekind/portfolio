@@ -9,13 +9,7 @@ block styles
   link(rel='stylesheet' href='/sass/journal.css')
 
 block main
-  article    
+  article.journal-detail
     | !{content}
     p.footnote
-      =`Published ${attributes.published}`
-      if attributes.updated
-        br
-        =`Updated ${attributes.updated}`
-  aside
-    h2 Contents
-    | !{toc}
+      =`Published ${new Date(attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })}`

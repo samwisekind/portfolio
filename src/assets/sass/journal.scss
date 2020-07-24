@@ -10,47 +10,12 @@
 
 @import "common/typography";
 
-
-
-
-
-
-
-
-
-
-
-@import "highlight.js/styles/night-owl.css";
-
-p.foo {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  line-height: 28px;
-  color: #B5B5B5;
-
-  .symbol {
-    display: inline-block;
-    margin: 0 15px;
-    width: 8px;
-    height: 8px;
-    background: #B5B5B5;
-    transform: translateY(2px) rotate(45deg);
-  }
-}
-
-
-
-
-
-
-
-
 main {
   display: flex;
 }
 
-main > article {
+main > article.journal-detail {
+  margin: 0 auto;
   max-width: 700px;
 
   h1 {
@@ -94,6 +59,13 @@ main > article {
     margin-top: 20px;
     font-size: 24px;
     line-height: 24px * 1.6;
+
+    &.footnote {
+      margin-top: 60px;
+      font-size: 18px;
+      line-height: 18px;
+      color: $color-secondary;
+    }
   }
 
   b,
@@ -125,10 +97,8 @@ main > article {
 
     > code {
       white-space: unset;
+
+      @import "highlight.js/styles/night-owl.css";
     }
-  }
-
-  + aside {
-
   }
 }
