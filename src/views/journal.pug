@@ -14,4 +14,4 @@ block main
         h2
           a(href=`/journal/${article.slug}`)= article.title
         p= article.description
-        p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+        p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })

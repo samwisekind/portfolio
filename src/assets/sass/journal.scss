@@ -14,7 +14,32 @@ main {
   display: flex;
 }
 
-main > article.journal-detail {
+main > .journal-list {
+  margin: 0 auto;
+  max-width: 700px;
+
+  h1 {
+    margin-bottom: 60px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+  }
+
+  .journal-item {
+    margin-top: 40px;
+
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    p.date {
+      color: $color-secondary;
+    }
+  }
+}
+
+main > .journal-detail {
   margin: 0 auto;
   max-width: 700px;
 
