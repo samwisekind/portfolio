@@ -1,15 +1,8 @@
-const QUERYFILTER = '-_id -order';
-
-const ERRORS = {
-  SERVER_ERROR: 'The server encountered an internal error or misconfiguration and was unable to complete your request.',
-  INVALID_REQUEST: 'Your request was invalid and could not be completed.',
-  NOT_FOUND: 'The requested resource was not found, or has been moved or deleted.',
-};
-
 const JOURNAL_DATA_DIRECTORY = './src/data/journal';
 
+const PHOTOGRAPHY_DATA_PATH = './src/data/photography.yaml';
+
 module.exports = {
-  QUERYFILTER,
-  ERRORS,
   JOURNAL_DATA_DIRECTORY,
+  PHOTOGRAPHY_DATA_PATH,
 };
