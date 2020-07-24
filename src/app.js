@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const compression = require('compression');
 const minifyHTML = require('express-minify-html');
 
-const { version } = require('../package.json');
 const routes = require('./routes');
 
 const app = express();
