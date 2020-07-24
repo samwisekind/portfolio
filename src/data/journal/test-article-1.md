@@ -1,4 +1,6 @@
 ---
+title: Test Article 1
+blurb: A test article (#1)
 published: 2019-09-25T12:00:00.000Z
 ---
 

@@ -1,7 +1,7 @@
 extends ../layout.pug
 
 block variables
-  - const SECTION = 'journal';
+  - const PAGE_SECTION = 'journal';
 
 block styles
   link(rel='stylesheet' href='/styles/journal.css')
@@ -12,6 +12,6 @@ block main
     for article in articles
       div.journal-item
         h2
-          a(href=`/journal/${article.slug}`)= article.title
-        p= article.description
+          a(href=`/journal/${article.slug}`)= article.attributes.title
+        p= article.attributes.blurb
         p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })

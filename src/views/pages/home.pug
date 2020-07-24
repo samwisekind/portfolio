@@ -1,7 +1,7 @@
 extends ../layout.pug
 
 block variables
-  - const SECTION = 'home';
+  - const PAGE_SECTION = 'home';
 
 block styles
   link(rel='stylesheet' href='/styles/home.css')
@@ -16,7 +16,7 @@ block main
     for article in articles
       div.journal-item
         h3
-          a(href=`/journal/${article.slug}`)= article.title
+          a(href=`/journal/${article.slug}`)= article.attributes.title
         p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
   section.photography
     h2 Photography

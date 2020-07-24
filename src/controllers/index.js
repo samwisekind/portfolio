@@ -2,21 +2,22 @@ const { JOURNAL_FEATURED_LIMIT } = require('../helpers/constants');
 const { getJournalArticlesList } = require('../helpers/journal');
 const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
 
-const showHome = (req, res) => {
-  const articles = getJournalArticlesList(JOURNAL_FEATURED_LIMIT);
+const showHome = async (req, res) => {
+  const articles = await getJournalArticlesList(JOURNAL_FEATURED_LIMIT);
   const photos = getFeaturedPhotos();
 
   return res.render('pages/home', { articles, photos });
 };
 
-const showJournalList = (req, res) => {
-  const articles = getJournalArticlesList();
+const showJournalList = async (req, res) => {
+  const articles = await getJournalArticlesList();
 
   res.render('pages/journal', { articles });
 };
 
-const showJournalArticle = (req, res) => {
-  const article = getJournalArticlesList().find((item) => item.slug === req.params.slug);
+const showJournalArticle = async (req, res) => {
+  let article = await getJournalArticlesList();
+  article = article.find((item) => item.slug === req.params.slug);
 
   res.render('pages/journal-detail', article);
 };
