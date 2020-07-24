@@ -51,7 +51,7 @@ jobs:
             ./cc-test-reporter before-build
       - run:
           name: Run tests
-      #     command: npm run test:coverage
+          command: npm run test:coverage
       # - run:
       #     name: Upload coverage report to Code Climate
       #     command: ./cc-test-reporter after-build -t lcov --exit-code $?
