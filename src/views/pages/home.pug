@@ -1,5 +1,8 @@
 extends ../layout.pug
 
+include ../components/link
+include ../components/photo
+
 block variables
   - const PAGE_SECTION = 'home';
 
@@ -9,21 +12,21 @@ block styles
 block main
   section.work
     h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum odio nunc, non elementum mi hendrerit in. Nullam sollicitudin ipsum tincidunt velit pharetra accumsan. Morbi in nunc sapien.
-    a.more Learn More
+    +button({ text: "Learn More", url: "/work" })
   section.journal
-    h2 Journal
-      a.more(href="/journal") Read More
+    .section-header
+      h2 Journal
+      +button({ text: "Read More", url: "/journal" })
     for article in articles
       div.journal-item
         h3
           a(href=`/journal/${article.slug}`)= article.attributes.title
-        p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+        p.blurb= article.attributes.blurb
+        p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
   section.photography
-    h2 Photography
-      a.more(href="/photography") View More
+    .section-header
+      h2 Photography
+      +button({ text: "View More", url: "/photography" })
     .photography-item-wrapper
       for photo in photos
-        figure.photography-item
-          a(href="/photography")
-            img(src=photo.src alt=photo.alt)
-            figcaption= photo.description
+        +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })

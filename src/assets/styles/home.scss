@@ -1,85 +1,102 @@
-/* COMMON */
-
 @import "common/colours";
 
 @import "common/constants";
 
-@import "common/mixins";
-
-@import "common/resets";
-
-@import "common/typography";
-
 section {
-  margin-bottom: $spacing-large * 2;
+  margin-bottom: $spacing-large * 3;
 
   &:last-child {
     margin-bottom: 0;
   }
 
-  h2 {
+  > .section-header {
     margin-bottom: 40px;
-    font-size: 38px;
-    line-height: 38px;
+    display: flex;
+    align-items: center;
 
-    a.more {
-      margin-left: 20px;
-      font-size: 24px;
-      line-height: 24px;
-      color: $color-secondary;
-      text-decoration: none;
+    > h2 {
+      margin-right: 40px;
+      font-size: 38px;
+    }
+
+    > .button {
+      transform: translateY(3px);
     }
   }
 }
 
 section.work {
-  padding-top: 0;
-
   h1 {
+    margin-bottom: 40px;
     font-size: 38px;
     line-height: 46px;
   }
 }
 
-section.journal {
-  .journal-item {
-    margin-top: 40px;
+section.journal > .journal-item {
+  margin-bottom: 40px;
 
-    h3 {
-      font-size: 24px;
-      line-height: 32px;
-    }
-  
-    p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+
+    > a:hover {
       color: $color-secondary;
     }
+  }
+
+  p.date {
+    margin-top: 10px;
+    font-size: 14px;
+    color: $color-primary-alt;
   }
 }
 
 section.photography {
-  .photography-item-wrapper {
+  > .photography-item-wrapper {
     display: flex;
     align-items: start;
     justify-content: space-between;
   }
 
-  .photography-item {
+  figure {
     margin-right: 40px;
+    width: 50%;
+    display: block;
+    break-inside: avoid;
 
     &:last-child {
       margin-right: 0;
     }
-
-    a {
-      text-decoration: none;
-    }
-    
-    img {
+  
+    > img {
+      display: block;
       width: 100%;
+      height: auto;
     }
-
-    figcaption {
-      color: $color-secondary;
+  
+    > figcaption {
+      display: flex;
+      padding-top: 10px;
+      font-size: 14px;
+      color: $color-primary-alt;
+  
+      > span {
+        width: 50%;
+        white-space: nowrap;
+      }
+  
+      > span.description {
+        font-weight: 700;
+      }
+  
+      > span.date {
+        text-align: right;
+      }
     }
   }
 }

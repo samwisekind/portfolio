@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manuale&family=Playfair+Display:wght@400;700&family=Roboto+Mono:ital@0;1&display=swap");
 
 body {
-  font-family: "Manuale", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 h1,
@@ -10,11 +10,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  // font-family: "Playfair Display", serif;
   font-weight: 700;
 }
 
 pre,
 code {
-  font-family: "Roboto Mono", monospace;
+  // font-family: "Roboto Mono", monospace;
 }
