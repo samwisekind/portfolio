@@ -1,14 +1,6 @@
-/* COMMON */
-
 @import "common/colours";
 
 @import "common/constants";
-
-@import "common/mixins";
-
-@import "common/resets";
-
-@import "common/typography";
 
 main {
   display: flex;
@@ -16,7 +8,6 @@ main {
 
 main > .journal-list {
   margin: 0 auto;
-  max-width: 700px;
 
   h1 {
     margin-bottom: 60px;
@@ -25,16 +16,26 @@ main > .journal-list {
     line-height: 48px;
   }
 
-  .journal-item {
-    margin-top: 40px;
-
+  > .journal-item {
+    margin-bottom: 40px;
+  
+    &:last-child {
+      margin-bottom: 0;
+    }
+  
     h2 {
+      margin-bottom: 10px;
       font-size: 24px;
-      line-height: 32px;
+    }
+
+    h2 > a:hover {
+      color: $color-secondary;
     }
   
     p.date {
-      color: $color-secondary;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: $color-primary-alt;
     }
   }
 }
@@ -63,21 +64,22 @@ main > .journal-detail {
   }
   
   h4 {
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 24px;
     line-height: 24px * 1.4;
   }
   
   h5 {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 22px;
     line-height: 22px * 1.4;
   }
   
   h6 {
     margin-top: 20px;
-    font-size: 16px;
-    line-height: 16px * 1.4;
+    font-size: 18px;
+    line-height: 18px * 1.4;
+    color: $color-primary-alt;
   }
   
   p {
@@ -85,12 +87,26 @@ main > .journal-detail {
     font-size: 24px;
     line-height: 24px * 1.6;
 
+    &:first-child {
+      margin-bottom: 0;
+    }
+
     &.footnote {
-      margin-top: 60px;
+      margin-top: 80px;
       font-size: 18px;
       line-height: 18px;
-      color: $color-secondary;
+      color: $color-primary-alt;
     }
+
+    > code {
+      border-radius: 4px;
+      color: lighten($color-secondary, 20%);
+      background: darken($color-primary, 80%);
+    }
+  }
+
+  a:hover {
+    color: $color-secondary;
   }
 
   b,
@@ -103,6 +119,26 @@ main > .journal-detail {
     font-style: italic;
   }
 
+  blockquote {
+    position: relative;
+    margin: 40px 0;
+    padding-left: 40px;
+    color: $color-primary-alt;
+
+    &:before {
+      $size: 5px;
+
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $size;
+      height: 100%;
+      border-radius: $size;
+      background: $color-primary-alt;
+    }
+  }
+
   code {
     padding: 2px 4px;
     border-radius: 4px;
@@ -112,15 +148,16 @@ main > .journal-detail {
   pre {
     display: block;
     margin: 40px 0;
-    padding: 20px;
-    overflow-x: auto;
-    background: #151515;
     color: #D6DEEB;
     font-size: 18px;
     line-height: 28px;
     border-radius: 4px;
+    background: #151515;
+    overflow-x: auto;
 
     > code {
+      margin: 20px;
+      display: inline-block;
       white-space: unset;
 
       @import "highlight.js/styles/night-owl.css";
