@@ -13,7 +13,6 @@ main > .journal-list {
     margin-bottom: 60px;
     font-size: 48px;
     font-weight: 700;
-    line-height: 48px;
   }
 
   > .journal-item {
@@ -33,7 +32,7 @@ main > .journal-list {
     }
   
     p.date {
-      margin-bottom: 10px;
+      margin-top: 10px;
       font-size: 14px;
       color: $color-primary-alt;
     }
@@ -97,12 +96,6 @@ main > .journal-detail {
       line-height: 18px;
       color: $color-primary-alt;
     }
-
-    > code {
-      border-radius: 4px;
-      color: lighten($color-secondary, 20%);
-      background: darken($color-primary, 80%);
-    }
   }
 
   a:hover {
@@ -139,9 +132,11 @@ main > .journal-detail {
     }
   }
 
-  code {
-    padding: 2px 4px;
+  :not(pre) > code {
+    padding: 2px 6px;
     border-radius: 4px;
+    color: #C792EA;
+    background: #0D0D0D;
     white-space: nowrap;
   }
 
@@ -152,7 +147,7 @@ main > .journal-detail {
     font-size: 18px;
     line-height: 28px;
     border-radius: 4px;
-    background: #151515;
+    background: #0D0D0D;
     overflow-x: auto;
 
     > code {
