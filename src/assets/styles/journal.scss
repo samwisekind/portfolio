@@ -1,5 +1,3 @@
-@import "common/colours";
-
 @import "common/constants";
 
 main {
@@ -38,6 +36,7 @@ main > .journal-list {
     p.date {
       margin-top: 20px;
       font-size: 14px;
+      font-family: $font-monospace;
       color: $color-primary-alt;
     }
 
@@ -126,8 +125,12 @@ main > .journal-detail {
   blockquote {
     position: relative;
     margin: 40px 0;
-    padding-left: 40px;
+    padding: 5px 0 5px 40px;
     color: $color-primary-alt;
+
+    p:first-child {
+      margin-top: 0;
+    }
 
     &:before {
       $size: 5px;

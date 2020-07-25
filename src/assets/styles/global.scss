@@ -1,26 +1,12 @@
-/* COMMON */
-
-@import "common/colours";
-
 @import "common/constants";
-
-@import "common/mixins";
 
 @import "common/resets";
 
 @import "common/typography";
 
-
-
-/* COMPONENTS */
-
 @import "components/header";
 
 @import "components/footer";
-
-
-
-/* GLOBAL */
 
 body {
   color: $color-primary;
@@ -34,7 +20,7 @@ main {
 }
 
 .button {
-  $transition-timing: .2s;
+  $transition-timing: .15s;
   $height: 40px;
 
   position: relative;
