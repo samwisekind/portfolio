@@ -1,11 +1,27 @@
+@import "../common/colours";
+
+@import "../common/constants";
+
 footer {
-  padding: 150px 40px 40px;
+  padding: ($spacing-large * 5) 0 60px;
   text-align: center;
-  
-  p.small {
-    margin-top: 5px;
-    font-size: 14px;
-    line-height: 14px;
-    color: $color-secondary;
+
+  > a {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    > svg {
+      width: 32px;
+      height: 32px;
+      fill: $color-primary-alt;
+    }
+
+    &:hover > svg,
+    &:focus > svg {
+      fill: $color-primary;
+    }
   }
 }
