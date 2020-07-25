@@ -14,7 +14,7 @@ html(lang='en')
     meta(name='description' content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     meta(name='subject' content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     base(href='/')
-    link(href='/styles/global.css' rel='stylesheet')
+    link(href='/public/global.css' rel='stylesheet')
     block styles
 
   body
@@ -22,4 +22,4 @@ html(lang='en')
     main
       block main
     include components/footer
-    script(src='/js/global.js' async defer)
+    script(src='/public/global.js' async defer)
