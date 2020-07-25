@@ -56,47 +56,45 @@ section.journal > .journal-item {
   }
 }
 
-section.photography {
-  > .photography-item-wrapper {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
+section.photography > .photography-item-wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+section.photography figure {
+  margin-right: 40px;
+  width: 50%;
+  display: block;
+  break-inside: avoid;
+
+  &:last-child {
+    margin-right: 0;
   }
 
-  figure {
-    margin-right: 40px;
-    width: 50%;
+  > img {
     display: block;
-    break-inside: avoid;
+    width: 100%;
+    height: auto;
+  }
 
-    &:last-child {
-      margin-right: 0;
+  > figcaption {
+    display: flex;
+    padding-top: 10px;
+    font-size: 14px;
+    color: $color-primary-alt;
+
+    > span {
+      width: 50%;
+      white-space: nowrap;
     }
-  
-    > img {
-      display: block;
-      width: 100%;
-      height: auto;
+
+    > span.description {
+      font-weight: 700;
     }
-  
-    > figcaption {
-      display: flex;
-      padding-top: 10px;
-      font-size: 14px;
-      color: $color-primary-alt;
-  
-      > span {
-        width: 50%;
-        white-space: nowrap;
-      }
-  
-      > span.description {
-        font-weight: 700;
-      }
-  
-      > span.date {
-        text-align: right;
-      }
+
+    > span.date {
+      text-align: right;
     }
   }
 }

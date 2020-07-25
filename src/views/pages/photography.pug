@@ -8,9 +8,17 @@ block styles
 
 block main
   section.photography
-    each photo in photos
-      figure
-        img(src=photo.src alt=photo.alt)
-        figcaption
-          span.description= photo.description
-          span.date= photo.date
+    .photos-controls
+      a(href="#").active All
+      a(href="#") 🇰🇪 Kenya
+      a(href="#") 🇭🇰 Hong Kong
+      a(href="#") 🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales
+      a(href="#") 🇬🇧 UK
+      a(href="#") 🇨🇳 China
+    .photos-wrapper
+      each photo in photos
+        figure
+          img(src=photo.src alt=photo.alt)
+          figcaption
+            span.description= photo.description
+            span.date= photo.date
