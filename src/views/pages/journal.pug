@@ -1,5 +1,7 @@
 extends ../layout.pug
 
+include ../components/link
+
 block variables
   - const PAGE_SECTION = 'journal';
 
@@ -15,3 +17,4 @@ block main
           a(href=`/journal/${article.slug}`)= article.attributes.title
         p= article.attributes.blurb
         p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+        +button({ text: "Read", url: `/journal/${article.slug}` })
