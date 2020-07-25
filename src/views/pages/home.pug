@@ -14,19 +14,21 @@ block main
     h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum odio nunc, non elementum mi hendrerit in. Nullam sollicitudin ipsum tincidunt velit pharetra accumsan. Morbi in nunc sapien.
     +button({ text: "Learn More", url: "/work" })
   section.journal
-    .section-header
-      h2 Journal
-      +button({ text: "Read More", url: "/journal" })
-    for article in articles
-      div.journal-item
-        h3
-          a(href=`/journal/${article.slug}`)= article.attributes.title
-        p.blurb= article.attributes.blurb
-        p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+    h2 Journal
+    .wrapper
+      for article in articles
+        div.item
+          h3
+            a(href=`/journal/${article.slug}`)= article.attributes.title
+          p.blurb= article.attributes.blurb
+          p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+      div.item
+        +button({ text: "Read More", url: "/journal" })
   section.photography
-    .section-header
-      h2 Photography
-      +button({ text: "View More", url: "/photography" })
-    .photography-item-wrapper
+    h2 Photography
+    .wrapper
       for photo in photos
-        +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
+        div.item
+          +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
+      div.item
+        +button({ text: "View More", url: "/photography" })

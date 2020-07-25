@@ -3,24 +3,38 @@
 @import "common/constants";
 
 section {
-  margin-bottom: $spacing-large * 3;
+  margin-bottom: $spacing-large * 2;
 
   &:last-child {
     margin-bottom: 0;
   }
 
-  > .section-header {
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
+  h2 {
+    margin-bottom: 25px;
+    font-size: 38px;
+  }
+}
 
-    > h2 {
-      margin-right: 40px;
-      font-size: 38px;
+section > .wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  .item {
+    margin-right: 40px;
+    width: 100%;
+
+    &:last-child {
+      padding: 0;
+      width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
     }
-
-    > .button {
-      transform: translateY(3px);
+  
+    &:last-child {
+      margin-right: 0;
     }
   }
 }
@@ -33,20 +47,19 @@ section.work {
   }
 }
 
-section.journal > .journal-item {
-  margin-bottom: 40px;
-
-  &:last-child {
-    margin-bottom: 0;
+section.journal {
+  .item {
+    padding: 20px;
+    background: $color-background-alt;
   }
 
   h3 {
     margin-bottom: 10px;
     font-size: 24px;
-  }
 
-  h3 > a:hover {
-    color: $color-secondary;
+    > a:hover {
+      color: $color-secondary;
+    }
   }
 
   p.date {
@@ -63,8 +76,7 @@ section.photography > .photography-item-wrapper {
 }
 
 section.photography figure {
-  margin-right: 40px;
-  width: 50%;
+  width: 100%;
   display: block;
   break-inside: avoid;
 
