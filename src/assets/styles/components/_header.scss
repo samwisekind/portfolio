@@ -1,21 +1,34 @@
+@import "../common/constants";
+
+@import "../common/mixins";
+
 nav {
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  margin: $spacing-large auto ($spacing-large * 3);
-  padding: 0 $spacing-large;
-  // max-width: $max-width + ($spacing-large * 2);
+  align-items: end;
+  margin: $spacingLarge auto ($spacingLarge * 3);
+  padding: 0 $spacingLarge;
+  max-width: 1000px + ($spacingLarge * 2);
 
   > a {
+    position: relative;
     margin-right: 25px;
     padding-bottom: 8px;
-    font-family: "Playfair Display", serif;
-    font-size: 24px;
-    line-height: 24px;
+    font-weight: 700;
+    font-size: fontSize(24px);
+    line-height: fontSize(24px);
     text-decoration: none;
-    color: $color-primary;
-    border-bottom: 5px solid transparent;
+    color: $colorPrimary;
     white-space: nowrap;
+
+    &:before {
+      position: absolute;
+      bottom: -5px;
+      display: none;
+      width: 100%;
+      background: $colorPrimary;
+
+      @extend %line;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -23,9 +36,9 @@ nav {
     
     &.title {
       margin-right: 40px;
-      font-size: 32px;
+      font-size: fontSize(32px);
+      line-height: fontSize(32px);
       font-weight: 700;
-      line-height: 32px;
     }
 
     &.spacing {
@@ -34,15 +47,33 @@ nav {
 
     &:hover,
     &.active {
-      border-bottom-color: $color-primary;
+      border-bottom-color: $colorPrimary;
+    }
+
+    &:hover:before,
+    &.active:before {
+      display: block;
+    }
+
+    &.active {
+      color: $colorSecondary;
+      border-bottom-color: $colorSecondary;
+    }
+
+    &.active:before {
+      background: $colorSecondary;
+    }
+
+    &.active > svg {
+      fill: $colorSecondary;
     }
 
     > .icon {
       margin-right: 8px;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       vertical-align: bottom;
-      fill: $color-primary;
+      fill: $colorPrimary;
     }
   }
 }

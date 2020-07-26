@@ -10,6 +10,8 @@ block styles
 
 block main
   article.journal-detail
-    | !{content}
-    p.footnote
-      =`Published ${new Date(attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })}`
+    if content
+      | !{content}
+    if attributes && attributes.published
+      p.footnote
+        =`Published ${new Date(attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })}`

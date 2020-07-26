@@ -3,6 +3,7 @@ const { Router } = require('express');
 const { JOURNAL_FEATURED_LIMIT } = require('../helpers/constants');
 const { getJournalArticlesList } = require('../helpers/journal');
 const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
+const { getWork } = require('../helpers/work');
 
 const router = Router();
 
@@ -32,6 +33,9 @@ router.get('/photography', (req, res) => {
   res.render('pages/photography', { photos });
 });
 
-router.get('/work', (req, res) => res.render('pages/work'));
+router.get('/work', (req, res) => {
+  const data = getWork();
+  res.render('pages/work', data);
+});
 
 module.exports = router;

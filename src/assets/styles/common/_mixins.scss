@@ -1,1 +1,43 @@
+@import "constants";
 
+$lineSize: 6px;
+$lineColor: rgba($colorPrimaryAlt, .3);
+
+%line {
+  content: "";
+  display: block;
+  height: $lineSize;
+  border-radius: $lineSize;
+  background: $lineColor;
+}
+
+%lineVertical {
+  width: $lineSize;
+
+  @extend %line;
+}
+
+$boxBorderRadius: 10px;
+$boxPadding: 20px;
+
+%box {
+  padding: $boxPadding;
+  border-radius: $boxBorderRadius;
+  background: $colorBackgroundAlt;
+}
+
+%fontMain {
+  font-family: $fontMain;
+}
+
+%fontMonospace {
+  font-family: $fontMonospace;
+}
+
+@function fontSize($size) {
+  @return ($size / 10px) * 1rem;
+}
+
+@function lineHeight($size) {
+  @return fontSize($size) * 1.6;
+}

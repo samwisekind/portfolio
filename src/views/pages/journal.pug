@@ -1,5 +1,7 @@
 extends ../layout.pug
 
+include ../components/link
+
 block variables
   - const PAGE_SECTION = 'journal';
 
@@ -7,11 +9,14 @@ block styles
   link(rel='stylesheet' href='/public/styles/journal.css')
 
 block main
-  section.journal-list
-    h1 Journal
-    for article in articles
-      div.journal-item
-        h2
-          a(href=`/journal/${article.slug}`)= article.attributes.title
-        p= article.attributes.blurb
-        p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+
+  if articles
+    section.journal
+      h1 Journal
+      for article in articles
+        div.item
+          h2
+            a(href=`/journal/${article.slug}`)= article.attributes.title
+          p= article.attributes.blurb
+          p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+          +button({ text: "Read", url: `/journal/${article.slug}` })

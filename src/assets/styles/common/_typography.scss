@@ -1,20 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Manuale&family=Playfair+Display:wght@400;700&family=Roboto+Mono:ital@0;1&display=swap");
+@import "constants";
 
-body {
-  font-family: "Manuale", serif;
+@import "mixins";
+
+html {
+  font-size: (10px / 16px) * 100%;
+  line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
+body {
+  font-size: fontSize(16px);
+
+  @extend %fontMain;
 }
 
 pre,
 code {
-  font-family: "Roboto Mono", monospace;
+  @extend %fontMonospace;
 }

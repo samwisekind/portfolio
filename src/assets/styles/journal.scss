@@ -1,127 +1,169 @@
-/* COMMON */
-
-@import "common/colours";
-
 @import "common/constants";
 
 @import "common/mixins";
 
-@import "common/resets";
-
-@import "common/typography";
-
-main {
-  display: flex;
-}
-
-main > .journal-list {
-  margin: 0 auto;
-  max-width: 700px;
-
+main > .journal {
   h1 {
-    margin-bottom: 60px;
-    font-size: 48px;
+    margin-bottom: 40px;
+    font-size: fontSize(48px);
+    line-height: fontSize(48px);
     font-weight: 700;
-    line-height: 48px;
   }
 
-  .journal-item {
-    margin-top: 40px;
+  > .item {
+    position: relative;
+    margin-bottom: 60px;
 
+    @extend %box;
+  
+    &:last-child {
+      margin-bottom: 0;
+    }
+  
     h2 {
-      font-size: 24px;
-      line-height: 32px;
+      margin-bottom: 20px;
+      font-size: fontSize(24px);
+    }
+
+    h2 > a:hover {
+      color: $colorSecondary;
     }
   
     p.date {
-      color: $color-secondary;
+      margin-top: 20px;
+      font-size: fontSize(14px);
+      line-height: fontSize(14px);
+      color: $colorPrimaryAlt;
+
+      @extend %fontMonospace;
+    }
+
+    .button {
+      z-index: 1;
+      position: absolute;
+      right: 20px;
+      bottom: -20px;
     }
   }
 }
 
 main > .journal-detail {
-  margin: 0 auto;
-  max-width: 700px;
-
   h1 {
     margin-bottom: 60px;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 48px * 1.4;
+    font-size: fontSize(48px);
+    font-weight: 700;    
   }
   
   h2 {
     margin-top: 60px;
-    font-size: 32px;
-    line-height: 32px * 1.4;
+    font-size: fontSize(32px);
+
+    &:after {
+      margin-top: 20px;
+      width: 180px;
+
+      @extend %line;
+    }
   }
   
   h3 {
     margin-top: 40px;
-    font-size: 28px;
-    line-height: 28px * 1.4;
+    font-size: fontSize(28px);
   }
   
   h4 {
-    margin-top: 40px;
-    font-size: 24px;
-    line-height: 24px * 1.4;
+    margin-top: 30px;
+    font-size: fontSize(24px);
   }
   
   h5 {
-    margin-top: 30px;
-    font-size: 22px;
-    line-height: 22px * 1.4;
+    margin-top: 20px;
+    font-size: fontSize(22px);
   }
   
   h6 {
     margin-top: 20px;
-    font-size: 16px;
-    line-height: 16px * 1.4;
+    font-size: fontSize(18px);
+    color: $colorPrimaryAlt;
   }
   
   p {
     margin-top: 20px;
-    font-size: 24px;
-    line-height: 24px * 1.6;
+    font-size: fontSize(24px);
 
-    &.footnote {
-      margin-top: 60px;
-      font-size: 18px;
-      line-height: 18px;
-      color: $color-secondary;
+    &:first-child {
+      margin-bottom: 0;
     }
   }
 
-  b,
-  strong {
-    font-weight: 700;
+  p.footnote {
+    margin-top: 80px;
+    font-size: fontSize(18px);
+    color: $colorPrimaryAlt;
+
+    @extend %fontMonospace;
+    
+    &:before {
+      margin-bottom: 20px;
+      width: 150px;
+
+      @extend %line;
+    }
   }
 
-  i,
-  em {
-    font-style: italic;
+  a:hover {
+    color: $colorSecondary;
   }
 
-  code {
-    padding: 2px 4px;
-    border-radius: 4px;
+  blockquote {
+    position: relative;
+    margin: 40px 0;
+    padding: 5px 0 5px 30px;
+    color: $colorPrimaryAlt;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+
+      @extend %lineVertical;
+    }
+  }
+
+  :not(pre) > code {
+    /* To-do: fix this up, make same colours as code block, etc. */
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: #C792EA;
+    background: #0D0D0D;
     white-space: nowrap;
   }
 
   pre {
-    display: block;
-    margin: 40px 0;
-    padding: 20px;
+    $over-extend: 1000px;
+
+    margin-top: 40px;
+    margin-left: -($over-extend - $maxWidth + ($spacingLarge * 2)) / 2;
+    padding: 0;
+    width: $over-extend;
+    font-size: fontSize(16px);
     overflow-x: auto;
-    background: #151515;
-    color: #D6DEEB;
-    font-size: 18px;
-    line-height: 28px;
-    border-radius: 4px;
+
+    @extend %box;
+
+    @media(max-width: $over-extend + $spacingLarge) {
+      width: 100%;
+      margin-left: 0;
+    }
 
     > code {
-      white-space: unset;
+      margin: 20px;
+      display: inline-block;
 
       @import "highlight.js/styles/night-owl.css";
     }

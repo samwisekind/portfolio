@@ -1,0 +1,6 @@
+mixin photo({ src, alt, description, date })
+  figure
+    img(src=src alt=alt)
+    figcaption
+      span.description= description
+      span.date= date

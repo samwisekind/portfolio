@@ -1,5 +1,8 @@
 extends ../layout.pug
 
+include ../components/link
+include ../components/photo
+
 block variables
   - const PAGE_SECTION = 'home';
 
@@ -9,21 +12,28 @@ block styles
 block main
   section.work
     h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum odio nunc, non elementum mi hendrerit in. Nullam sollicitudin ipsum tincidunt velit pharetra accumsan. Morbi in nunc sapien.
-    a.more Learn More
-  section.journal
-    h2 Journal
-      a.more(href="/journal") Read More
-    for article in articles
-      div.journal-item
-        h3
-          a(href=`/journal/${article.slug}`)= article.attributes.title
-        p= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
-  section.photography
-    h2 Photography
-      a.more(href="/photography") View More
-    .photography-item-wrapper
-      for photo in photos
-        figure.photography-item
-          a(href="/photography")
-            img(src=photo.src alt=photo.alt)
-            figcaption= photo.description
+    .bottom
+      +button({ text: "Learn More", url: "/work" })
+
+  if articles
+    section.journal
+      h2 Journal
+      .wrapper
+        for article in articles
+          .item
+            h3
+              a(href=`/journal/${article.slug}`)= article.attributes.title
+            p.blurb= article.attributes.blurb
+            p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+        .item.end
+          +button({ text: "Read More", url: "/journal" })
+
+  if photos
+    section.photography
+      h2 Photography
+      .wrapper
+        for photo in photos
+          .item
+            +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
+        .item.end
+          +button({ text: "View More", url: "/photography" })

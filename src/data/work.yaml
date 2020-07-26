@@ -1,0 +1,24 @@
+projects:
+  - title: Simple Canvas Manager
+    description: A simple 2D canvas manager library built in TypeScript with no dependencies
+    technologies:
+      - TypeScript
+      - Canvas
+    links:
+      github: https://github.com/Flamov/simple-canvas-manager
+  - title: WebVTT Audio
+    description: A library to help build and render interactive audio transcripts using WebVTT
+    technologies:
+      - TypeScript
+      - HTML5 Audio
+  - title: Steamchat
+    description: Gaming podcast with 15,000+ monthly listeners and 4,000,000+ annual views, spanning over 100 episodes
+    technologies:
+      - Laravel
+      - Vue
+      - MySQL
+      - Adobe Soundbooth
+      - Apple Motion
+    links:
+      website: https://thesteamchat.com
+      github: https://github.com/Flamov/steamchat-website

@@ -10,7 +10,7 @@
     "start": "node server",
     "watch": "npm run server:watch & npm run assets:watch",
     "server:watch": "nodemon server.js --inspect",
-    "assets:build": "parcel build src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --detailed-report --public-url ./",
+    "assets:build": "parcel build src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --public-url ./ --detailed-report",
     "assets:watch": "parcel watch src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --public-url ./",
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
     "eslint:report": "npm run eslint -- -f junit -o reports/eslint/results.xml",
