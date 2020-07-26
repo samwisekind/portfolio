@@ -5,8 +5,8 @@
 main > .journal {
   h1 {
     margin-bottom: 40px;
-    font-size: font-size(48px);
-    line-height: font-size(48px);
+    font-size: fontSize(48px);
+    line-height: fontSize(48px);
     font-weight: 700;
   }
 
@@ -22,20 +22,20 @@ main > .journal {
   
     h2 {
       margin-bottom: 20px;
-      font-size: font-size(24px);
+      font-size: fontSize(24px);
     }
 
     h2 > a:hover {
-      color: $color-secondary;
+      color: $colorSecondary;
     }
   
     p.date {
       margin-top: 20px;
-      font-size: font-size(14px);
-      line-height: font-size(14px);
-      color: $color-primary-alt;
+      font-size: fontSize(14px);
+      line-height: fontSize(14px);
+      color: $colorPrimaryAlt;
 
-      @extend %font-monospace;
+      @extend %fontMonospace;
     }
 
     .button {
@@ -50,13 +50,13 @@ main > .journal {
 main > .journal-detail {
   h1 {
     margin-bottom: 60px;
-    font-size: font-size(48px);
+    font-size: fontSize(48px);
     font-weight: 700;    
   }
   
   h2 {
     margin-top: 60px;
-    font-size: font-size(32px);
+    font-size: fontSize(32px);
 
     &:after {
       margin-top: 20px;
@@ -68,28 +68,28 @@ main > .journal-detail {
   
   h3 {
     margin-top: 40px;
-    font-size: font-size(28px);
+    font-size: fontSize(28px);
   }
   
   h4 {
     margin-top: 30px;
-    font-size: font-size(24px);
+    font-size: fontSize(24px);
   }
   
   h5 {
     margin-top: 20px;
-    font-size: font-size(22px);
+    font-size: fontSize(22px);
   }
   
   h6 {
     margin-top: 20px;
-    font-size: font-size(18px);
-    color: $color-primary-alt;
+    font-size: fontSize(18px);
+    color: $colorPrimaryAlt;
   }
   
   p {
     margin-top: 20px;
-    font-size: font-size(24px);
+    font-size: fontSize(24px);
 
     &:first-child {
       margin-bottom: 0;
@@ -98,10 +98,10 @@ main > .journal-detail {
 
   p.footnote {
     margin-top: 80px;
-    font-size: font-size(18px);
-    color: $color-primary-alt;
+    font-size: fontSize(18px);
+    color: $colorPrimaryAlt;
 
-    @extend %font-monospace;
+    @extend %fontMonospace;
     
     &:before {
       margin-bottom: 20px;
@@ -112,14 +112,14 @@ main > .journal-detail {
   }
 
   a:hover {
-    color: $color-secondary;
+    color: $colorSecondary;
   }
 
   blockquote {
     position: relative;
     margin: 40px 0;
     padding: 5px 0 5px 30px;
-    color: $color-primary-alt;
+    color: $colorPrimaryAlt;
 
     p:first-child {
       margin-top: 0;
@@ -131,7 +131,7 @@ main > .journal-detail {
       top: 0;
       height: 100%;
 
-      @extend %line-vertical;
+      @extend %lineVertical;
     }
   }
 
@@ -148,15 +148,15 @@ main > .journal-detail {
     $over-extend: 1000px;
 
     margin-top: 40px;
-    margin-left: -($over-extend - $max-width + ($spacing-large * 2)) / 2;
+    margin-left: -($over-extend - $maxWidth + ($spacingLarge * 2)) / 2;
     padding: 0;
     width: $over-extend;
-    font-size: font-size(16px);
+    font-size: fontSize(16px);
     overflow-x: auto;
 
     @extend %box;
 
-    @media(max-width: $over-extend + $spacing-large) {
+    @media(max-width: $over-extend + $spacingLarge) {
       width: 100%;
       margin-left: 0;
     }

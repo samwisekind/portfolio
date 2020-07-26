@@ -1,43 +1,43 @@
 @import "constants";
 
-$line-size: 6px;
-$line-color: rgba($color-primary-alt, .3);
+$lineSize: 6px;
+$lineColor: rgba($colorPrimaryAlt, .3);
 
 %line {
   content: "";
   display: block;
-  height: $line-size;
-  border-radius: $line-size;
-  background: $line-color;
+  height: $lineSize;
+  border-radius: $lineSize;
+  background: $lineColor;
 }
 
-%line-vertical {
-  width: $line-size;
+%lineVertical {
+  width: $lineSize;
 
   @extend %line;
 }
 
-$box-border-radius: 10px;
-$box-padding: 20px;
+$boxBorderRadius: 10px;
+$boxPadding: 20px;
 
 %box {
-  padding: $box-padding;
-  border-radius: $box-border-radius;
-  background: $color-background-alt;
+  padding: $boxPadding;
+  border-radius: $boxBorderRadius;
+  background: $colorBackgroundAlt;
 }
 
-%font-main {
-  font-family: $font-main;
+%fontMain {
+  font-family: $fontMain;
 }
 
-%font-monospace {
-  font-family: $font-monospace;
+%fontMonospace {
+  font-family: $fontMonospace;
 }
 
-@function font-size($size) {
+@function fontSize($size) {
   @return ($size / 10px) * 1rem;
 }
 
-@function line-height($size) {
-  @return font-size($size) * 1.6;
+@function lineHeight($size) {
+  @return fontSize($size) * 1.6;
 }

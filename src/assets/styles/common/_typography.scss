@@ -8,13 +8,12 @@ html {
 }
 
 body {
-  font-size: font-size(16px);
-  // line-height: line-height(24px);
+  font-size: fontSize(16px);
 
-  @extend %font-main;
+  @extend %fontMain;
 }
 
 pre,
 code {
-  @extend %font-monospace;
+  @extend %fontMonospace;
 }

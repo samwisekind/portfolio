@@ -11,15 +11,15 @@ $transition-timing: .15s;
   padding: 0 20px;
   height: $height;
   font-weight: 700;
-  font-size: font-size(16px);
-  line-height: font-size(16px);
-  color: $color-primary;
+  font-size: fontSize(16px);
+  line-height: fontSize(16px);
+  color: $colorPrimary;
   border-radius: $height;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  background: $color-secondary;
-  transition: background $transition-timing $ease-standard;
+  background: $colorSecondary;
+  transition: background $transition-timing $easeStandard;
 
   &:before {
     z-index: -1;
@@ -32,14 +32,14 @@ $transition-timing: .15s;
     height: calc(100%);
     display: block;
     border-radius: $height;
-    border: 2px solid $color-primary;
+    border: 2px solid $colorPrimary;
     transform: translate(-50%, -50%);
-    transition: all $transition-timing $ease-standard;
+    transition: all $transition-timing $easeStandard;
   }
 
   &:hover,
   &:active {
-    background: $color-secondary-alt;
+    background: $colorSecondaryAlt;
 
     &:before {
       opacity: 1;
@@ -55,7 +55,7 @@ $transition-timing: .15s;
   > svg {
     margin-top: 1px;
     margin-left: 8px;
-    fill: $color-primary;
-    transition: transform $transition-timing $ease-standard;
+    fill: $colorPrimary;
+    transition: transform $transition-timing $easeStandard;
   }
 }

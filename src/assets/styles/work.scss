@@ -5,13 +5,13 @@
 main > section.work {
   > h1 {
     font-weight: 700;
-    font-size: font-size(48px);
-    line-height: font-size(48px);
+    font-size: fontSize(48px);
+    line-height: fontSize(48px);
   }
 
   p {
     margin-top: 40px;
-    font-size: font-size(20px);
+    font-size: fontSize(20px);
   }
 
   > .columns {
@@ -31,9 +31,9 @@ main > section.work {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    color: lighten($color-secondary, 20%);
+    color: lighten($colorSecondary, 20%);
 
-    @extend %font-monospace;
+    @extend %fontMonospace;
 
     &:last-child {
       margin: 0;
@@ -42,7 +42,7 @@ main > section.work {
     &:before {
       margin-right: 15px;
       min-width: 30px;
-      background: $color-secondary;
+      background: $colorSecondary;
 
       @extend %line;
     }  
@@ -81,7 +81,7 @@ main > section.projects .item {
   }
 
   > p {
-    font-size: font-size(18px);
+    font-size: fontSize(18px);
   }
 
   > .bottom {
@@ -96,10 +96,10 @@ main > section.projects .item {
     
     > li {
       margin-right: 15px;
-      font-size: font-size(14px);
-      color: $color-primary-alt;
+      font-size: fontSize(14px);
+      color: $colorPrimaryAlt;
 
-      @extend %font-monospace;
+      @extend %fontMonospace;
     }
 
     > li:last-child {
@@ -122,11 +122,11 @@ main > section.projects .item {
     }
 
     &:hover > svg {
-      fill: $color-primary;
+      fill: $colorPrimary;
     }
 
     > svg {
-      fill: $color-secondary;
+      fill: $colorSecondary;
     }
   }
 }
@@ -145,7 +145,7 @@ main > section.projects > .items-more {
     border: 2px solid transparent;
     text-decoration: none;
 
-    @extend %box, %font-monospace;
+    @extend %box, %fontMonospace;
 
     &:last-child {
       margin-right: 0;
@@ -153,11 +153,11 @@ main > section.projects > .items-more {
 
     &:hover {
       border-color: #FFF;
-      background: lighten($color-background-alt, 10%);
+      background: lighten($colorBackgroundAlt, 10%);
     }
 
     &:hover > svg {
-      fill: $color-primary;
+      fill: $colorPrimary;
     }
 
     > svg {
@@ -166,7 +166,7 @@ main > section.projects > .items-more {
       margin-bottom: 20px;
       width: $size;
       height: $size;
-      fill: $color-primary-alt;
+      fill: $colorPrimaryAlt;
     }
   }
 }

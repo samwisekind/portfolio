@@ -1,7 +1,7 @@
 @import "../common/constants";
 
 footer {
-  padding: ($spacing-large * 5) 0 60px;
+  padding: ($spacingLarge * 5) 0 60px;
   text-align: center;
 
   > a {
@@ -14,12 +14,12 @@ footer {
     > svg {
       width: 32px;
       height: 32px;
-      fill: $color-primary-alt;
+      fill: $colorPrimaryAlt;
     }
 
     &:hover > svg,
     &:focus > svg {
-      fill: $color-primary;
+      fill: $colorPrimary;
     }
   }
 }

@@ -6,19 +6,19 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
-  margin: $spacing-large auto ($spacing-large * 3);
-  padding: 0 $spacing-large;
-  max-width: 1000px + ($spacing-large * 2);
+  margin: $spacingLarge auto ($spacingLarge * 3);
+  padding: 0 $spacingLarge;
+  max-width: 1000px + ($spacingLarge * 2);
 
   > a {
     position: relative;
     margin-right: 25px;
     padding-bottom: 8px;
     font-weight: 700;
-    font-size: font-size(24px);
-    line-height: font-size(24px);
+    font-size: fontSize(24px);
+    line-height: fontSize(24px);
     text-decoration: none;
-    color: $color-primary;
+    color: $colorPrimary;
     white-space: nowrap;
 
     &:before {
@@ -26,7 +26,7 @@ nav {
       bottom: -5px;
       display: none;
       width: 100%;
-      background: $color-primary;
+      background: $colorPrimary;
 
       @extend %line;
     }
@@ -37,7 +37,7 @@ nav {
     
     &.title {
       margin-right: 40px;
-      font-size: font-size(32px);
+      font-size: fontSize(32px);
       font-weight: 700;
     }
 
@@ -47,7 +47,7 @@ nav {
 
     &:hover,
     &.active {
-      border-bottom-color: $color-primary;
+      border-bottom-color: $colorPrimary;
 
       &:before {
         display: block;
@@ -55,15 +55,15 @@ nav {
     }
 
     &.active {
-      color: $color-secondary;
-      border-bottom-color: $color-secondary;
+      color: $colorSecondary;
+      border-bottom-color: $colorSecondary;
 
       &:before {
-        background: $color-secondary;
+        background: $colorSecondary;
       }
 
       > svg {
-        fill: $color-secondary;
+        fill: $colorSecondary;
       }
     }
 
@@ -72,7 +72,7 @@ nav {
       width: 24px;
       height: 24px;
       vertical-align: bottom;
-      fill: $color-primary;
+      fill: $colorPrimary;
     }
   }
 }
