@@ -4,8 +4,7 @@
 
 nav {
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
+  align-items: end;
   margin: $spacingLarge auto ($spacingLarge * 3);
   padding: 0 $spacingLarge;
   max-width: 1000px + ($spacingLarge * 2);
@@ -38,6 +37,7 @@ nav {
     &.title {
       margin-right: 40px;
       font-size: fontSize(32px);
+      line-height: fontSize(32px);
       font-weight: 700;
     }
 
@@ -48,23 +48,24 @@ nav {
     &:hover,
     &.active {
       border-bottom-color: $colorPrimary;
+    }
 
-      &:before {
-        display: block;
-      }
+    &:hover:before,
+    &.active:before {
+      display: block;
     }
 
     &.active {
       color: $colorSecondary;
       border-bottom-color: $colorSecondary;
+    }
 
-      &:before {
-        background: $colorSecondary;
-      }
+    &.active:before {
+      background: $colorSecondary;
+    }
 
-      > svg {
-        fill: $colorSecondary;
-      }
+    &.active > svg {
+      fill: $colorSecondary;
     }
 
     > .icon {
