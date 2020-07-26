@@ -68,26 +68,26 @@ it('shows home', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelectorAll('.journal-item').length).toBe(2);
-  const [journal1, journal2] = document.body.querySelectorAll('.journal-item');
+  expect(document.body.querySelectorAll('section.journal .item:not(.end)').length).toBe(2);
+  const [journal1, journal2] = document.body.querySelectorAll('section.journal .item:not(.end)');
 
   expect(journal1.querySelector('h3 > a').getAttribute('href')).toBe('/journal/test-1');
   expect(journal1.querySelector('h3 > a').textContent).toBe('foo');
   expect(journal2.querySelector('h3 > a').getAttribute('href')).toBe('/journal/test-2');
   expect(journal2.querySelector('h3 > a').textContent).toBe('hello');
 
-  expect(document.body.querySelectorAll('.photography-item').length).toBe(2);
-  const [photo1, photo2] = document.body.querySelectorAll('.photography-item');
+  expect(document.body.querySelectorAll('section.photography .item:not(.end)').length).toBe(2);
+  const [photo1, photo2] = document.body.querySelectorAll('section.photography .item:not(.end)');
 
-  expect(photo1.querySelector('a').getAttribute('href')).toBe('/photography');
-  expect(photo1.querySelector('a > img').getAttribute('src')).toBe('photo-1-src.jpg');
-  expect(photo1.querySelector('a > img').getAttribute('alt')).toBe('photo 1 alt');
-  expect(photo1.querySelector('a > figcaption').textContent).toBe('photo 1 description');
+  expect(photo1.querySelector('img').getAttribute('src')).toBe('photo-1-src.jpg');
+  expect(photo1.querySelector('img').getAttribute('alt')).toBe('photo 1 alt');
+  expect(photo1.querySelector('figcaption > .description').textContent).toBe('photo 1 description');
+  expect(photo1.querySelector('figcaption > .date').textContent).toBe('2010');
 
-  expect(photo2.querySelector('a').getAttribute('href')).toBe('/photography');
-  expect(photo2.querySelector('a > img').getAttribute('src')).toBe('photo-2-src.jpg');
-  expect(photo2.querySelector('a > img').getAttribute('alt')).toBe('photo 2 alt');
-  expect(photo2.querySelector('a > figcaption').textContent).toBe('photo 2 description');
+  expect(photo2.querySelector('img').getAttribute('src')).toBe('photo-2-src.jpg');
+  expect(photo2.querySelector('img').getAttribute('alt')).toBe('photo 2 alt');
+  expect(photo2.querySelector('figcaption > .description').textContent).toBe('photo 2 description');
+  expect(photo2.querySelector('figcaption > .date').textContent).toBe('2020');
 });
 
 it('shows journal list', async () => {
@@ -100,8 +100,8 @@ it('shows journal list', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelectorAll('.journal-item').length).toBe(2);
-  const [journal1, journal2] = document.body.querySelectorAll('.journal-item');
+  expect(document.body.querySelectorAll('section.journal > .item').length).toBe(2);
+  const [journal1, journal2] = document.body.querySelectorAll('section.journal > .item');
 
   expect(journal1.querySelector('h2 > a').getAttribute('href')).toBe('/journal/test-1');
   expect(journal1.querySelector('h2 > a').textContent).toBe('foo');
@@ -137,9 +137,9 @@ it('shows photography', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelectorAll('.photography > figure').length).toBe(4);
+  expect(document.body.querySelectorAll('section.photography > .photos-wrapper > figure').length).toBe(4);
 
-  const [photo1, photo2, photo3, photo4] = document.body.querySelectorAll('.photography > figure');
+  const [photo1, photo2, photo3, photo4] = document.body.querySelectorAll('section.photography > .photos-wrapper > figure');
 
   expect(photo1.querySelector('img').getAttribute('src')).toBe('photo-1-src.jpg');
   expect(photo1.querySelector('img').getAttribute('alt')).toBe('photo 1 alt');

@@ -35,7 +35,7 @@ section > .wrapper {
     margin-right: 40px;
     width: 100%;
 
-    &:last-child {
+    &.end {
       margin-right: 0;
       padding: 0;
       display: flex;

@@ -25,7 +25,7 @@ block main
               a(href=`/journal/${article.slug}`)= article.attributes.title
             p.blurb= article.attributes.blurb
             p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
-        .item
+        .item.end
           +button({ text: "Read More", url: "/journal" })
 
   if photos
@@ -35,5 +35,5 @@ block main
         for photo in photos
           .item
             +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
-        .item
+        .item.end
           +button({ text: "View More", url: "/photography" })
