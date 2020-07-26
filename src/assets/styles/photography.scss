@@ -7,11 +7,11 @@ main {
 }
 
 main > section.photography > .photos-controls {
-  margin-bottom: 80px;
+  margin-bottom: $spacingLarge * 2;
   text-align: center;
 
   @include breakpoint("small") {
-    margin-bottom: 40px;
+    margin-bottom: $spacingSmall * 2;
   }
 
   > a {
@@ -56,7 +56,7 @@ main > section.photography > .photos-controls {
 
 main > section.photography > .photos-wrapper {
   column-count: 3;
-  column-gap: 40px;
+  column-gap: $spacingLarge * 2;
 
   @include breakpoint("small") {
     column-count: 1;
@@ -77,12 +77,12 @@ main > section.photography > .photos-wrapper > figure {
   > figcaption {
     display: flex;
     padding-top: 10px;
-    margin-bottom: 60px;
+    margin-bottom: $spacingLarge * 2;
     font-size: 14px;
     color: $colorPrimaryAlt;
 
     @include breakpoint("small") {
-      margin-bottom: 40px;
+      margin-bottom: $spacingSmall * 2;
     }
 
     > span {

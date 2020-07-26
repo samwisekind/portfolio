@@ -1,15 +1,15 @@
 @import "../common/constants";
 
 footer {
-  padding: ($spacingLarge * 5) 0 60px;
+  padding: ($spacingLarge * 5) 0 $spacingLarge * 2;
   text-align: center;
 
   @include breakpoint("small") {
-    padding: 60px 0 20px;
+    padding: ($spacingSmall * 5) 0 ($spacingSmall * 2);
   }
 
   > a {
-    margin-right: 20px;
+    margin-right: $spacingLarge;
 
     &:last-child {
       margin-right: 0;

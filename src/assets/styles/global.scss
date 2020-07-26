@@ -17,10 +17,10 @@ body {
 
 main {
   margin: 0 auto;
-  padding: 0 $spacingLarge;
+  padding: 0 ($spacingLarge * 2);
   max-width: $maxWidth;
 
   @include breakpoint("small") {
-    padding: 0 20px;
+    padding: 0 ($spacingSmall * 2);
   }
 }

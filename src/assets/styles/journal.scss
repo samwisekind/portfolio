@@ -4,24 +4,24 @@
 
 main > .journal {
   h1 {
-    margin-bottom: 40px;
+    margin-bottom: $spacingLarge;
     font-size: fontSize(48px);
     line-height: fontSize(48px);
     font-weight: 700;
 
     @include breakpoint("small") {
-      margin-bottom: 15px;
+      margin-bottom: $spacingSmall;
     }
   }
 
   > .item {
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: $spacingLarge + 15px;
 
     @extend %box;
 
     @include breakpoint("small") {
-      margin-bottom: 30px;
+      margin-bottom: $spacingSmall + 10px;
     }
   
     &:last-child {
@@ -29,7 +29,7 @@ main > .journal {
     }
   
     h2 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       font-size: fontSize(24px);
 
       @include breakpoint("small") {
@@ -42,7 +42,7 @@ main > .journal {
     }
   
     p.date {
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: fontSize(14px);
       line-height: fontSize(14px);
       color: $colorPrimaryAlt;
@@ -70,12 +70,12 @@ main > .journal {
 
 main > .journal-detail {
   h1 {
-    margin-bottom: 60px;
+    margin-bottom: $spacingLarge * 2;
     font-size: fontSize(48px);
     font-weight: 700;    
 
     @include breakpoint("small") {
-      margin-bottom: 20px;
+      margin-bottom: $spacingSmall * 2;
     }
   }
   
@@ -151,24 +151,24 @@ main > .journal-detail {
   }
 
   p.footnote {
-    margin-top: 80px;
+    margin-top: $spacingLarge * 3;
     font-size: fontSize(18px);
     color: $colorPrimaryAlt;
 
     @extend %fontMonospace;
 
     @include breakpoint("small") {
-      margin-top: 40px;
+      margin-top: $spacingSmall * 3;
     }
     
     &:before {
-      margin-bottom: 20px;
+      margin-bottom: $spacingLarge;
       width: 150px;
 
       @extend %line;
 
       @include breakpoint("small") {
-        margin-bottom: 10px;
+        margin-bottom: $spacingSmall;
         width: 80px;
       }
     }
@@ -180,12 +180,12 @@ main > .journal-detail {
 
   blockquote {
     position: relative;
-    margin: 40px 0;
+    margin: 20px 0;
     padding: 5px 0 5px 30px;
     color: $colorPrimaryAlt;
 
     @include breakpoint("small") {
-      margin: 15px 0;
+      margin: 10px 0;
       padding: 2px 0 2px 20px;
     }
 
@@ -219,7 +219,7 @@ main > .journal-detail {
   pre {
     $over-extend: 1000px;
 
-    margin-top: 40px;
+    margin-top: $spacingLarge;
     margin-left: -($over-extend - $maxWidth + ($spacingLarge * 2)) / 2;
     padding: 0;
     width: $over-extend;
@@ -238,11 +238,11 @@ main > .journal-detail {
     }
 
     > code {
-      margin: 20px;
+      margin: $spacingLarge;
       display: inline-block;
 
       @include breakpoint("small") {
-        margin: 10px;
+        margin: $spacingSmall;
       }
 
       @import "highlight.js/styles/night-owl.css";
