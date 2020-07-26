@@ -17,7 +17,7 @@ main > .journal-list {
     position: relative;
     margin-bottom: 60px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: $border-radius;
     background: $color-background-alt;
   
     &:last-child {
@@ -160,7 +160,7 @@ main > .journal-detail {
     color: #D6DEEB;
     font-size: 18px;
     line-height: 28px;
-    border-radius: 10px;
+    border-radius: $border-radius;
     background: #0D0D0D;
     overflow-x: auto;
 

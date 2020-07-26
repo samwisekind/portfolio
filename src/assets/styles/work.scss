@@ -1,5 +1,7 @@
 @import "common/constants";
 
+@import "common/mixins";
+
 main {
   max-width: 700px;
 }
@@ -35,20 +37,18 @@ main > section.work {
       margin-bottom: 20px;
       font-size: 16px;
       font-family: $font-monospace;
-      color: $color-primary-alt;
+      color: lighten($color-secondary, 20%);
 
       &:last-child {
         margin: 0;
       }
 
       &:before {
-        content: "";
         margin-right: 15px;
-        display: block;
         min-width: 30px;
-        height: 6px;
-        border-radius: 6px;
-        background: rgba($color-primary-alt, .3);
+        background: $color-secondary;
+
+        @extend %line;
       }  
     }
   }
@@ -63,14 +63,12 @@ main > section.projects {
     align-items: center;
 
     &:after {
-      content: "";
       margin-left: 20px;
-      display: block;
       width: 100%;
-      height: 5px;
-      border-radius: 5px;
       background: rgba($color-primary-alt, .3);
       transform: translateY(2px);
+
+      @extend %line;
     }
   }
 }
@@ -78,7 +76,7 @@ main > section.projects {
 main > section.projects > .projects-item {
   margin-bottom: 20px;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: $border-radius;
   background: #0D0D0D;
 
   &:last-child {
@@ -152,7 +150,7 @@ main > section.projects > .projects-links {
     width: 50%;
     height: 150px;
     font-family: $font-monospace;
-    border-radius: 10px;
+    border-radius: $border-radius;
     text-decoration: none;
     background: #0D0D0D;
 

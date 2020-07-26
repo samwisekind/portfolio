@@ -1,1 +1,12 @@
+@import "constants";
 
+$line-size: 6px;
+$line-color: rgba($color-primary-alt, .3);
+
+%line {
+  content: "";
+  display: block;
+  height: $line-size;
+  border-radius: $line-size;
+  background: $line-color;
+}

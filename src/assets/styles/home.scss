@@ -1,5 +1,7 @@
 @import "common/constants";
 
+@import "common/mixins";
+
 section {
   margin-bottom: $spacing-large * 2;
 
@@ -50,11 +52,7 @@ section.work {
 
     &:before,
     &:after {
-      content: "";
-      display: block;
-      height: 5px;
-      border-radius: 5px;
-      background: rgba($color-primary-alt, .3);
+      @extend %line;
     }
 
     &:before {
@@ -74,7 +72,7 @@ section.journal {
     display: flex;
     flex-flow: column;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: $border-radius;
     background: $color-background-alt;
   }
 

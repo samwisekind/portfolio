@@ -1,5 +1,7 @@
 @import "../common/constants";
 
+@import "../common/mixins";
+
 nav {
   display: flex;
   justify-content: flex-start;
@@ -20,16 +22,13 @@ nav {
     white-space: nowrap;
 
     &:before {
-      $size: 5px;
-
-      content: "";
       position: absolute;
       bottom: -5px;
       display: none;
       width: 100%;
-      height: $size;
-      border-radius: $size;
       background: $color-primary;
+
+      @extend %line;
     }
 
     &:last-child {
