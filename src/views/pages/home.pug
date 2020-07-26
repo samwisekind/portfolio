@@ -16,23 +16,25 @@ block main
     .bottom
       +button({ text: "Learn More", url: "/work" })
 
-  section.journal
-    h2 Journal
-    .wrapper
-      for article in articles
+  if articles
+    section.journal
+      h2 Journal
+      .wrapper
+        for article in articles
+          .item
+            h3
+              a(href=`/journal/${article.slug}`)= article.attributes.title
+            p.blurb= article.attributes.blurb
+            p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
         .item
-          h3
-            a(href=`/journal/${article.slug}`)= article.attributes.title
-          p.blurb= article.attributes.blurb
-          p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
-      .item
-        +button({ text: "Read More", url: "/journal" })
+          +button({ text: "Read More", url: "/journal" })
 
-  section.photography
-    h2 Photography
-    .wrapper
-      for photo in photos
+  if photos
+    section.photography
+      h2 Photography
+      .wrapper
+        for photo in photos
+          .item
+            +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
         .item
-          +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
-      .item
-        +button({ text: "View More", url: "/photography" })
+          +button({ text: "View More", url: "/photography" })
