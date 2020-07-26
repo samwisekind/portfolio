@@ -1,9 +1,9 @@
 @import "constants";
 
-%line {
-  $line-size: 6px;
-  $line-color: rgba($color-primary-alt, .3);
+$line-size: 6px;
+$line-color: rgba($color-primary-alt, .3);
 
+%line {
   content: "";
   display: block;
   height: $line-size;
@@ -11,10 +11,16 @@
   background: $line-color;
 }
 
-%box {
-  $box-border-radius: 10px;
-  $box-padding: 20px;
+%line-vertical {
+  width: $line-size;
 
+  @extend %line;
+}
+
+$box-border-radius: 10px;
+$box-padding: 20px;
+
+%box {
   padding: $box-padding;
   border-radius: $box-border-radius;
   background: $color-background-alt;

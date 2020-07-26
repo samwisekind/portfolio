@@ -2,20 +2,14 @@
 
 @import "common/mixins";
 
-main {
-  display: flex;
-}
-
-main > .journal-list {
-  margin: 0 auto;
-
+main > .journal {
   h1 {
     margin-bottom: 40px;
     font-size: 48px;
     font-weight: 700;
   }
 
-  > .journal-item {
+  > .item {
     position: relative;
     margin-bottom: 60px;
 
@@ -37,8 +31,9 @@ main > .journal-list {
     p.date {
       margin-top: 20px;
       font-size: 14px;
-      font-family: $font-monospace;
       color: $color-primary-alt;
+
+      @extend %font-monospace;
     }
 
     .button {
@@ -51,9 +46,6 @@ main > .journal-list {
 }
 
 main > .journal-detail {
-  margin: 0 auto;
-  max-width: 700px;
-
   h1 {
     margin-bottom: 60px;
     font-size: 48px;
@@ -100,12 +92,21 @@ main > .journal-detail {
     &:first-child {
       margin-bottom: 0;
     }
+  }
 
-    &.footnote {
-      margin-top: 80px;
-      font-size: 18px;
-      line-height: 18px;
-      color: $color-primary-alt;
+  p.footnote {
+    margin-top: 80px;
+    font-size: 18px;
+    line-height: 18px;
+    color: $color-primary-alt;
+
+    @extend %font-monospace;
+    
+    &:before {
+      margin-bottom: 20px;
+      width: 150px;
+
+      @extend %line;
     }
   }
 
@@ -113,20 +114,10 @@ main > .journal-detail {
     color: $color-secondary;
   }
 
-  b,
-  strong {
-    font-weight: 700;
-  }
-
-  i,
-  em {
-    font-style: italic;
-  }
-
   blockquote {
     position: relative;
     margin: 40px 0;
-    padding: 5px 0 5px 40px;
+    padding: 5px 0 5px 30px;
     color: $color-primary-alt;
 
     p:first-child {
@@ -134,20 +125,17 @@ main > .journal-detail {
     }
 
     &:before {
-      $size: 5px;
-
-      content: "";
       position: absolute;
       left: 0;
       top: 0;
-      width: $size;
       height: 100%;
-      border-radius: $size;
-      background: $color-primary-alt;
+
+      @extend %line-vertical;
     }
   }
 
   :not(pre) > code {
+    /* To-do: fix this up */
     padding: 2px 6px;
     border-radius: 5px;
     color: #C792EA;
@@ -156,12 +144,10 @@ main > .journal-detail {
   }
 
   pre {
-    display: block;
     margin: 40px 0;
-    color: #D6DEEB;
+    padding: 0;
     font-size: 18px;
     line-height: 28px;
-    background: #0D0D0D;
     overflow-x: auto;
 
     @extend %box;
@@ -169,7 +155,6 @@ main > .journal-detail {
     > code {
       margin: 20px;
       display: inline-block;
-      white-space: unset;
 
       @import "highlight.js/styles/night-owl.css";
     }
