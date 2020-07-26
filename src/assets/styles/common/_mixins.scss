@@ -2,13 +2,19 @@
 
 @mixin breakpoint($size) {
   @if $size == "large" {
-    @media (min-width: $breakpointLarge + 1px) {
+    @media screen and (min-width: $breakpointLarge + 1px) {
       @content;
     }
   }
 
-  @if $size == "small" {
-    @media (max-width: $breakpointLarge) {
+  @else if $size == "medium" {
+    @media screen and (min-width: $breakpointSmall + 1px) and (max-width: $breakpointLarge) {
+      @content;
+    }
+  }
+
+  @else if $size == "small" {
+    @media screen and (max-width: $breakpointSmall) {
       @content;
     }
   }
@@ -44,8 +50,12 @@ $boxPadding: 20px;
   border-radius: $boxBorderRadius;
   background: $colorBackgroundAlt;
 
+  @include breakpoint("medium") {
+    padding: $spacingMedium;
+  }
+
   @include breakpoint("small") {
-    padding: 12px;
+    padding: $spacingSmall;
   }
 }
 

@@ -20,6 +20,11 @@ $transition-timing: .15s;
   white-space: nowrap;
   background: $colorSecondary;
   transition: background $transition-timing $easeStandard;
+
+  @include breakpoint("medium") {
+    padding: 0 18px;
+    height: 35px;
+  }
   
   @include breakpoint("small") {
     padding: 0 15px;
@@ -54,6 +59,10 @@ $transition-timing: .15s;
 
     > svg {
       transform: translateX(5px);
+
+      @include breakpoint("medium") {
+        transform: translateX(4px);
+      }
 
       @include breakpoint("small") {
         transform: translateX(3px);

@@ -20,8 +20,12 @@ main > .journal {
 
     @extend %box;
 
+    @include breakpoint("medium") {
+      margin-bottom: $spacingMedium + 15px;
+    }
+
     @include breakpoint("small") {
-      margin-bottom: $spacingSmall + 10px;
+      margin-bottom: $spacingSmall + 15px;
     }
   
     &:last-child {
@@ -31,10 +35,6 @@ main > .journal {
     h2 {
       margin-bottom: 10px;
       font-size: fontSize(24px);
-
-      @include breakpoint("small") {
-        margin-bottom: 10px;
-      }
     }
 
     h2 > a:hover {
@@ -48,10 +48,6 @@ main > .journal {
       color: $colorPrimaryAlt;
 
       @extend %fontMonospace;
-
-      @include breakpoint("small") {
-        margin-top: 15px;
-      }
     }
 
     .button {
@@ -59,6 +55,11 @@ main > .journal {
       position: absolute;
       right: 20px;
       bottom: -20px;
+
+      @include breakpoint("medium") {
+        right: 16px;
+        bottom: -16px;
+      }
 
       @include breakpoint("small") {
         right: 12px;
@@ -72,7 +73,11 @@ main > .journal-detail {
   h1 {
     margin-bottom: $spacingLarge * 2;
     font-size: fontSize(48px);
-    font-weight: 700;    
+    font-weight: 700;
+
+    @include breakpoint("medium") {
+      margin-bottom: $spacingMedium * 2;
+    }
 
     @include breakpoint("small") {
       margin-bottom: $spacingSmall * 2;
@@ -83,6 +88,10 @@ main > .journal-detail {
     margin-top: 60px;
     font-size: fontSize(32px);
 
+    @include breakpoint("medium") {
+      margin-top: 45px;
+    }
+
     @include breakpoint("small") {
       margin-top: 30px;
     }
@@ -92,6 +101,11 @@ main > .journal-detail {
       width: 180px;
 
       @extend %line;
+
+      @include breakpoint("medium") {
+        margin-top: 15px;
+        width: 120px;
+      }
 
       @include breakpoint("small") {
         margin-top: 10px;
@@ -104,6 +118,10 @@ main > .journal-detail {
     margin-top: 40px;
     font-size: fontSize(28px);
 
+    @include breakpoint("medium") {
+      margin-top: 30px;
+    }
+
     @include breakpoint("small") {
       margin-top: 20px;
     }
@@ -113,6 +131,10 @@ main > .journal-detail {
     margin-top: 30px;
     font-size: fontSize(24px);
 
+    @include breakpoint("medium") {
+      margin-top: 25px;
+    }
+
     @include breakpoint("small") {
       margin-top: 15px;
     }
@@ -121,6 +143,10 @@ main > .journal-detail {
   h5 {
     margin-top: 20px;
     font-size: fontSize(22px);
+
+    @include breakpoint("medium") {
+      margin-top: 15px;
+    }
 
     @include breakpoint("small") {
       margin-top: 10px;
@@ -132,6 +158,10 @@ main > .journal-detail {
     font-size: fontSize(18px);
     color: $colorPrimaryAlt;
 
+    @include breakpoint("medium") {
+      margin-top: 15px;
+    }
+
     @include breakpoint("small") {
       margin-top: 10px;
     }
@@ -140,6 +170,10 @@ main > .journal-detail {
   p {
     margin-top: 20px;
     font-size: fontSize(24px);
+
+    @include breakpoint("medium") {
+      margin-top: 15px;
+    }
 
     @include breakpoint("small") {
       margin-top: 10px;
@@ -157,6 +191,10 @@ main > .journal-detail {
 
     @extend %fontMonospace;
 
+    @include breakpoint("medium") {
+      margin-top: $spacingMedium * 3;
+    }
+
     @include breakpoint("small") {
       margin-top: $spacingSmall * 3;
     }
@@ -166,6 +204,11 @@ main > .journal-detail {
       width: 150px;
 
       @extend %line;
+
+      @include breakpoint("medium") {
+        margin-bottom: $spacingMedium;
+        width: 100px;
+      }
 
       @include breakpoint("small") {
         margin-bottom: $spacingSmall;
@@ -183,6 +226,11 @@ main > .journal-detail {
     margin: 20px 0;
     padding: 5px 0 5px 30px;
     color: $colorPrimaryAlt;
+
+    @include breakpoint("medium") {
+      margin: 15px 0;
+      padding: 4px 0 4px 25px;
+    }
 
     @include breakpoint("small") {
       margin: 10px 0;
@@ -228,8 +276,12 @@ main > .journal-detail {
 
     @extend %box;
 
+    @include breakpoint("medium") {
+      margin-top: $spacingMedium;
+    }
+
     @include breakpoint("small") {
-      margin-top: 10px;
+      margin-top: $spacingSmall;
     }
 
     @media(max-width: $over-extend + $spacingLarge) {

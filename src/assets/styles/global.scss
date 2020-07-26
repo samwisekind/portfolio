@@ -20,6 +20,10 @@ main {
   padding: 0 ($spacingLarge * 2);
   max-width: $maxWidth;
 
+  @include breakpoint("medium") {
+    padding: 0 ($spacingMedium * 2);
+  }
+
   @include breakpoint("small") {
     padding: 0 ($spacingSmall * 2);
   }

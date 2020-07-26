@@ -4,6 +4,10 @@ footer {
   padding: ($spacingLarge * 5) 0 $spacingLarge * 2;
   text-align: center;
 
+  @include breakpoint("medium") {
+    padding: ($spacingMedium * 5) 0 ($spacingMedium * 2);
+  }
+
   @include breakpoint("small") {
     padding: ($spacingSmall * 5) 0 ($spacingSmall * 2);
   }
@@ -19,6 +23,11 @@ footer {
       width: 32px;
       height: 32px;
       fill: $colorPrimaryAlt;
+
+      @include breakpoint("medium") {
+        width: 28px;
+        height: 28px;
+      }
 
       @include breakpoint("small") {
         width: 24px;
