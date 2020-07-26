@@ -3,7 +3,7 @@
 @import "common/mixins";
 
 main {
-  max-width: $max-width + ($spacing-large * 2);
+  max-width: 1000px + ($spacing-large * 2);
 }
 
 section {
