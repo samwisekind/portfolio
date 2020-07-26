@@ -33,3 +33,11 @@ $box-padding: 20px;
 %font-monospace {
   font-family: $font-monospace;
 }
+
+@function font-size($size) {
+  @return ($size / 10px) * 1rem;
+}
+
+@function line-height($size) {
+  @return font-size($size) * 1.6;
+}

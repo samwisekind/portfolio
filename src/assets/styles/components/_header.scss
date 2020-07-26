@@ -14,9 +14,9 @@ nav {
     position: relative;
     margin-right: 25px;
     padding-bottom: 8px;
-    font-size: 24px;
     font-weight: 700;
-    line-height: 24px;
+    font-size: font-size(24px);
+    line-height: font-size(24px);
     text-decoration: none;
     color: $color-primary;
     white-space: nowrap;
@@ -37,9 +37,8 @@ nav {
     
     &.title {
       margin-right: 40px;
-      font-size: 32px;
+      font-size: font-size(32px);
       font-weight: 700;
-      line-height: 32px;
     }
 
     &.spacing {

@@ -5,7 +5,8 @@
 main > .journal {
   h1 {
     margin-bottom: 40px;
-    font-size: 48px;
+    font-size: font-size(48px);
+    line-height: font-size(48px);
     font-weight: 700;
   }
 
@@ -21,7 +22,7 @@ main > .journal {
   
     h2 {
       margin-bottom: 20px;
-      font-size: 24px;
+      font-size: font-size(24px);
     }
 
     h2 > a:hover {
@@ -30,7 +31,8 @@ main > .journal {
   
     p.date {
       margin-top: 20px;
-      font-size: 14px;
+      font-size: font-size(14px);
+      line-height: font-size(14px);
       color: $color-primary-alt;
 
       @extend %font-monospace;
@@ -48,15 +50,13 @@ main > .journal {
 main > .journal-detail {
   h1 {
     margin-bottom: 60px;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 48px * 1.4;
+    font-size: font-size(48px);
+    font-weight: 700;    
   }
   
   h2 {
     margin-top: 60px;
-    font-size: 32px;
-    line-height: 32px * 1.4;
+    font-size: font-size(32px);
 
     &:after {
       margin-top: 20px;
@@ -68,33 +68,28 @@ main > .journal-detail {
   
   h3 {
     margin-top: 40px;
-    font-size: 28px;
-    line-height: 28px * 1.4;
+    font-size: font-size(28px);
   }
   
   h4 {
     margin-top: 30px;
-    font-size: 24px;
-    line-height: 24px * 1.4;
+    font-size: font-size(24px);
   }
   
   h5 {
     margin-top: 20px;
-    font-size: 22px;
-    line-height: 22px * 1.4;
+    font-size: font-size(22px);
   }
   
   h6 {
     margin-top: 20px;
-    font-size: 18px;
-    line-height: 18px * 1.4;
+    font-size: font-size(18px);
     color: $color-primary-alt;
   }
   
   p {
     margin-top: 20px;
-    font-size: 24px;
-    line-height: 24px * 1.6;
+    font-size: font-size(24px);
 
     &:first-child {
       margin-bottom: 0;
@@ -103,8 +98,7 @@ main > .journal-detail {
 
   p.footnote {
     margin-top: 80px;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: font-size(18px);
     color: $color-primary-alt;
 
     @extend %font-monospace;
@@ -157,8 +151,7 @@ main > .journal-detail {
     margin-left: -($over-extend - $max-width + ($spacing-large * 2)) / 2;
     padding: 0;
     width: $over-extend;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: font-size(16px);
     overflow-x: auto;
 
     @extend %box;

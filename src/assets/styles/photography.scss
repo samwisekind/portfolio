@@ -18,7 +18,7 @@ main > section.photography > .photos-controls {
     margin-left: 20px;
     padding: 0 20px;
     height: $height;
-    font-size: 18px;
+    font-size: font-size(18px);
     font-weight: 700;
     color: $color-primary;
     border-radius: $height;
