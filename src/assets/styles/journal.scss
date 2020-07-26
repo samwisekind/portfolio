@@ -8,6 +8,10 @@ main > .journal {
     font-size: fontSize(48px);
     line-height: fontSize(48px);
     font-weight: 700;
+
+    @include breakpoint("small") {
+      margin-bottom: 15px;
+    }
   }
 
   > .item {
@@ -15,6 +19,10 @@ main > .journal {
     margin-bottom: 60px;
 
     @extend %box;
+
+    @include breakpoint("small") {
+      margin-bottom: 30px;
+    }
   
     &:last-child {
       margin-bottom: 0;
@@ -23,6 +31,10 @@ main > .journal {
     h2 {
       margin-bottom: 20px;
       font-size: fontSize(24px);
+
+      @include breakpoint("small") {
+        margin-bottom: 10px;
+      }
     }
 
     h2 > a:hover {
@@ -36,6 +48,10 @@ main > .journal {
       color: $colorPrimaryAlt;
 
       @extend %fontMonospace;
+
+      @include breakpoint("small") {
+        margin-top: 15px;
+      }
     }
 
     .button {
@@ -43,6 +59,11 @@ main > .journal {
       position: absolute;
       right: 20px;
       bottom: -20px;
+
+      @include breakpoint("small") {
+        right: 12px;
+        bottom: -12px;
+      }
     }
   }
 }
@@ -52,44 +73,77 @@ main > .journal-detail {
     margin-bottom: 60px;
     font-size: fontSize(48px);
     font-weight: 700;    
+
+    @include breakpoint("small") {
+      margin-bottom: 20px;
+    }
   }
   
   h2 {
     margin-top: 60px;
     font-size: fontSize(32px);
 
+    @include breakpoint("small") {
+      margin-top: 30px;
+    }
+
     &:after {
       margin-top: 20px;
       width: 180px;
 
       @extend %line;
+
+      @include breakpoint("small") {
+        margin-top: 10px;
+        width: 80px;
+      }
     }
   }
   
   h3 {
     margin-top: 40px;
     font-size: fontSize(28px);
+
+    @include breakpoint("small") {
+      margin-top: 20px;
+    }
   }
   
   h4 {
     margin-top: 30px;
     font-size: fontSize(24px);
+
+    @include breakpoint("small") {
+      margin-top: 15px;
+    }
   }
   
   h5 {
     margin-top: 20px;
     font-size: fontSize(22px);
+
+    @include breakpoint("small") {
+      margin-top: 10px;
+    }
   }
   
   h6 {
     margin-top: 20px;
     font-size: fontSize(18px);
     color: $colorPrimaryAlt;
+
+    @include breakpoint("small") {
+      margin-top: 10px;
+    }
   }
   
   p {
     margin-top: 20px;
     font-size: fontSize(24px);
+
+    @include breakpoint("small") {
+      margin-top: 10px;
+    }
 
     &:first-child {
       margin-bottom: 0;
@@ -102,12 +156,21 @@ main > .journal-detail {
     color: $colorPrimaryAlt;
 
     @extend %fontMonospace;
+
+    @include breakpoint("small") {
+      margin-top: 40px;
+    }
     
     &:before {
       margin-bottom: 20px;
       width: 150px;
 
       @extend %line;
+
+      @include breakpoint("small") {
+        margin-bottom: 10px;
+        width: 80px;
+      }
     }
   }
 
@@ -120,6 +183,11 @@ main > .journal-detail {
     margin: 40px 0;
     padding: 5px 0 5px 30px;
     color: $colorPrimaryAlt;
+
+    @include breakpoint("small") {
+      margin: 15px 0;
+      padding: 2px 0 2px 20px;
+    }
 
     p:first-child {
       margin-top: 0;
@@ -142,6 +210,10 @@ main > .journal-detail {
     color: #C792EA;
     background: #0D0D0D;
     white-space: nowrap;
+
+    @include breakpoint("small") {
+      padding: 2px 4px;
+    }
   }
 
   pre {
@@ -156,6 +228,10 @@ main > .journal-detail {
 
     @extend %box;
 
+    @include breakpoint("small") {
+      margin-top: 10px;
+    }
+
     @media(max-width: $over-extend + $spacingLarge) {
       width: 100%;
       margin-left: 0;
@@ -164,6 +240,10 @@ main > .journal-detail {
     > code {
       margin: 20px;
       display: inline-block;
+
+      @include breakpoint("small") {
+        margin: 10px;
+      }
 
       @import "highlight.js/styles/night-owl.css";
     }

@@ -1,5 +1,19 @@
 @import "constants";
 
+@mixin breakpoint($size) {
+  @if $size == "large" {
+    @media (min-width: $breakpointLarge + 1px) {
+      @content;
+    }
+  }
+
+  @if $size == "small" {
+    @media (max-width: $breakpointLarge) {
+      @content;
+    }
+  }
+}
+
 $lineSize: 6px;
 $lineColor: rgba($colorPrimaryAlt, .3);
 
@@ -9,6 +23,11 @@ $lineColor: rgba($colorPrimaryAlt, .3);
   height: $lineSize;
   border-radius: $lineSize;
   background: $lineColor;
+
+  @include breakpoint("small") {
+    height: 3px;
+    border-radius: 3px;
+  }
 }
 
 %lineVertical {
@@ -24,6 +43,10 @@ $boxPadding: 20px;
   padding: $boxPadding;
   border-radius: $boxBorderRadius;
   background: $colorBackgroundAlt;
+
+  @include breakpoint("small") {
+    padding: 12px;
+  }
 }
 
 %fontMain {

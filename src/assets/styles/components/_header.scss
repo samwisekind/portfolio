@@ -2,78 +2,98 @@
 
 @import "../common/mixins";
 
-nav {
+nav.header {
   display: flex;
   align-items: end;
   margin: $spacingLarge auto ($spacingLarge * 3);
   padding: 0 $spacingLarge;
   max-width: 1000px + ($spacingLarge * 2);
 
-  > a {
-    position: relative;
-    margin-right: 25px;
-    padding-bottom: 8px;
-    font-weight: 700;
-    font-size: fontSize(24px);
-    line-height: fontSize(24px);
-    text-decoration: none;
-    color: $colorPrimary;
-    white-space: nowrap;
+  @include breakpoint("small") {
+    margin: 20px 0 40px;
+    padding: 0 20px;
+  }
+}
 
-    &:before {
-      position: absolute;
-      bottom: -5px;
+nav.header > a {
+  position: relative;
+  margin-right: 25px;
+  padding-bottom: 8px;
+  font-weight: 700;
+  font-size: fontSize(24px);
+  line-height: fontSize(24px);
+  text-decoration: none;
+  color: $colorPrimary;
+  white-space: nowrap;
+
+  @include breakpoint("small") {
+    &:not(.title) {
       display: none;
-      width: 100%;
-      background: $colorPrimary;
+    }
+  }
 
-      @extend %line;
-    }
+  &:before {
+    position: absolute;
+    bottom: -5px;
+    display: none;
+    width: 100%;
+    background: $colorPrimary;
 
-    &:last-child {
-      margin-right: 0;
-    }
-    
-    &.title {
-      margin-right: 40px;
-      font-size: fontSize(32px);
-      line-height: fontSize(32px);
-      font-weight: 700;
-    }
+    @extend %line;
 
-    &.spacing {
-      margin-left: auto;
+    @include breakpoint("small") {
+      bottom: -2px;
     }
+  }
 
-    &:hover,
-    &.active {
-      border-bottom-color: $colorPrimary;
-    }
+  &:last-child {
+    margin-right: 0;
+  }
+  
+  &.title {
+    margin-right: 40px;
+    font-size: fontSize(32px);
+    line-height: fontSize(32px);
+    font-weight: 700;
 
-    &:hover:before,
-    &.active:before {
-      display: block;
+    @include breakpoint("small") {
+      // font-size: fontSize(22px);
+      // line-height: fontSize(22px);
     }
+  }
 
-    &.active {
-      color: $colorSecondary;
-      border-bottom-color: $colorSecondary;
-    }
+  &.spacing {
+    margin-left: auto;
+  }
 
-    &.active:before {
-      background: $colorSecondary;
-    }
+  &:hover,
+  &.active {
+    border-bottom-color: $colorPrimary;
+  }
 
-    &.active > svg {
-      fill: $colorSecondary;
-    }
+  &:hover:before,
+  &.active:before {
+    display: block;
+  }
 
-    > .icon {
-      margin-right: 8px;
-      width: 24px;
-      height: 24px;
-      vertical-align: bottom;
-      fill: $colorPrimary;
-    }
+  &.active {
+    color: $colorSecondary;
+    border-bottom-color: $colorSecondary;
+  }
+
+  &.active:before {
+    background: $colorSecondary;
+  }
+
+  &.active > svg {
+    fill: $colorSecondary;
+  }
+
+  > .icon {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    vertical-align: bottom;
+    fill: $colorPrimary;
   }
 }

@@ -12,6 +12,10 @@ main > section.work {
   p {
     margin-top: 40px;
     font-size: fontSize(20px);
+
+    @include breakpoint("small") {
+      margin-top: 15px;
+    }
   }
 
   > .columns {
@@ -25,6 +29,10 @@ main > section.work {
   ul {
     margin-top: 20px;
     list-style: none;
+
+    @include breakpoint("small") {
+      margin-top: 15px;
+    }
   }
 
   ul > li {
@@ -32,6 +40,10 @@ main > section.work {
     align-items: center;
     margin-bottom: 20px;
     color: lighten($colorSecondary, 20%);
+
+    @include breakpoint("small") {
+      margin-bottom: 15px;
+    }
 
     @extend %fontMonospace;
 
@@ -44,6 +56,11 @@ main > section.work {
       min-width: 30px;
       background: $colorSecondary;
 
+      @include breakpoint("small") {
+        margin-right: 5px;
+        min-width: 15px;
+      }
+
       @extend %line;
     }  
   }
@@ -52,10 +69,18 @@ main > section.work {
 main > section.projects {
   margin-top: 80px;
 
+  @include breakpoint("small") {
+    margin-top: 40px;
+  }
+
   > h2 {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+
+    @include breakpoint("small") {
+      margin-bottom: 10px;
+    }
 
     &:after {
       margin-left: 20px;
@@ -63,12 +88,20 @@ main > section.projects {
       transform: translateY(2px);
 
       @extend %line;
+
+      @include breakpoint("small") {
+        margin-left: 10px;
+      }
     }
   }
 }
 
 main > section.projects .item {
   margin-bottom: 20px;
+
+  @include breakpoint("small") {
+    margin-bottom: 10px;
+  }
 
   @extend %box;
 
@@ -78,6 +111,10 @@ main > section.projects .item {
 
   > h3 {
     margin-bottom: 20px;
+
+    @include breakpoint("small") {
+      margin-bottom: 10px;
+    }
   }
 
   > p {
@@ -88,16 +125,29 @@ main > section.projects .item {
     margin-top: 20px;
     display: flex;
     align-items: center;
+
+    @include breakpoint("small") {
+      display: block;
+      margin-top: 10px;
+    }
   }
 
   > .bottom > .technologies {
     display: flex;
     list-style: none;
+
+    @include breakpoint("small") {
+      margin-bottom: 15px;
+    }
     
     > li {
       margin-right: 15px;
       font-size: fontSize(14px);
       color: $colorPrimaryAlt;
+      
+      @include breakpoint("small") {
+        margin-right: 10px;
+      }
 
       @extend %fontMonospace;
     }
@@ -116,6 +166,10 @@ main > section.projects .item {
   a {
     display: block;
     margin-right: 20px;
+
+    @include breakpoint("small") {
+      margin-right: 10px;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -147,6 +201,14 @@ main > section.projects > .items-more {
 
     @extend %box, %fontMonospace;
 
+    @include breakpoint("small") {
+      height: 100px;
+    }
+
+    @include breakpoint("small") {
+      margin-right: 10px;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -167,6 +229,12 @@ main > section.projects > .items-more {
       width: $size;
       height: $size;
       fill: $colorPrimaryAlt;
+
+      @include breakpoint("small") {
+        margin-bottom: 15px;
+        width: 32px;
+        height: 32px;
+      }
     }
   }
 }
