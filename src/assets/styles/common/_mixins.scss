@@ -29,11 +29,6 @@ $lineColor: rgba($colorPrimaryAlt, .3);
   height: $lineSize;
   border-radius: $lineSize;
   background: $lineColor;
-
-  @include breakpoint("small") {
-    height: 3px;
-    border-radius: 3px;
-  }
 }
 
 %lineVertical {

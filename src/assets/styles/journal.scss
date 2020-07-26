@@ -172,11 +172,11 @@ main > .journal-detail {
     font-size: fontSize(24px);
 
     @include breakpoint("medium") {
-      margin-top: 15px;
+      margin-top: 18px;
     }
 
     @include breakpoint("small") {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     &:first-child {
@@ -265,12 +265,8 @@ main > .journal-detail {
   }
 
   pre {
-    $over-extend: 1000px;
-
     margin-top: $spacingLarge;
-    margin-left: -($over-extend - $maxWidth + ($spacingLarge * 2)) / 2;
     padding: 0;
-    width: $over-extend;
     font-size: fontSize(16px);
     overflow-x: auto;
 
@@ -282,11 +278,6 @@ main > .journal-detail {
 
     @include breakpoint("small") {
       margin-top: $spacingSmall;
-    }
-
-    @media(max-width: $over-extend + $spacingLarge) {
-      width: 100%;
-      margin-left: 0;
     }
 
     > code {

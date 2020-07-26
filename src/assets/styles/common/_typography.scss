@@ -9,11 +9,11 @@ html {
   line-height: 1.5;
 
   @include breakpoint("medium") {
-    font-size: $baseFontSize * .85;
+    font-size: $baseFontSize * .9;
   }
 
   @include breakpoint("small") {
-    font-size: $baseFontSize * .7;
+    font-size: $baseFontSize * .8;
   }
 }
 
