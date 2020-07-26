@@ -2,13 +2,8 @@
 
 @import "common/mixins";
 
-main {
-  max-width: 700px;
-}
-
 main > section.work {
-  h1 {
-    margin-bottom: 40px;
+  > h1 {
     font-size: 48px;
     font-weight: 700;
   }
@@ -19,7 +14,7 @@ main > section.work {
     line-height: 28px;
   }
 
-  .columns {
+  > .columns {
     display: flex;
 
     > .columns-wrapper {
@@ -30,27 +25,28 @@ main > section.work {
   ul {
     margin-top: 20px;
     list-style: none;
+  }
 
-    > li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 16px;
-      font-family: $font-monospace;
-      color: lighten($color-secondary, 20%);
+  ul > li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: lighten($color-secondary, 20%);
 
-      &:last-child {
-        margin: 0;
-      }
+    @extend %font-monospace;
 
-      &:before {
-        margin-right: 15px;
-        min-width: 30px;
-        background: $color-secondary;
-
-        @extend %line;
-      }  
+    &:last-child {
+      margin: 0;
     }
+
+    &:before {
+      margin-right: 15px;
+      min-width: 30px;
+      background: $color-secondary;
+
+      @extend %line;
+    }  
   }
 }
 
@@ -65,7 +61,6 @@ main > section.projects {
     &:after {
       margin-left: 20px;
       width: 100%;
-      background: rgba($color-primary-alt, .3);
       transform: translateY(2px);
 
       @extend %line;
@@ -73,104 +68,107 @@ main > section.projects {
   }
 }
 
-main > section.projects > .projects-item {
+main > section.projects .item {
   margin-bottom: 20px;
-  padding: 20px;
-  border-radius: $border-radius;
-  background: #0D0D0D;
+
+  @extend %box;
 
   &:last-child {
     margin-bottom: 0;
   }
 
-  h3 {
+  > h3 {
     margin-bottom: 20px;
   }
 
-  p {
+  > p {
     font-size: 18px;
     line-height: 26px;
   }
 
-  .bottom {
+  > .bottom {
     margin-top: 20px;
     display: flex;
     align-items: center;
   }
 
-  .bottom > .technologies {
+  > .bottom > .technologies {
     display: flex;
     list-style: none;
     
     > li {
       margin-right: 15px;
       font-size: 14px;
-      font-family: $font-monospace;
       line-height: 14px;
       color: $color-primary-alt;
 
-      &:last-child {
-        margin-right: 0;
-      }
+      @extend %font-monospace;
+    }
+
+    > li:last-child {
+      margin-right: 0;
     }
   }
 
   .bottom > .links {
+    display: flex;
+    align-items: center;
     margin-left: auto;
+  }
 
-    a {
-      margin-right: 20px;
+  a {
+    display: block;
+    margin-right: 20px;
 
-      &:hover {
-        border: 2px solid #FFF;
-      }
+    &:last-child {
+      margin-right: 0;
+    }
 
-      &:hover > svg {
-        fill: $color-primary;
-      }
+    &:hover > svg {
+      fill: $color-primary;
+    }
 
-      > svg {
-        fill: $color-primary-alt;
-        fill: #A187D2;
-      }
+    > svg {
+      fill: $color-secondary;
     }
   }
 }
 
-main > section.projects > .projects-links {
+main > section.projects > .items-more {
   display: flex;
 
-  > a {
+  > .item {
     margin-right: 20px;
-    padding: 20px;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
     width: 50%;
     height: 150px;
-    font-family: $font-monospace;
-    border-radius: $border-radius;
+    border: 2px solid transparent;
     text-decoration: none;
-    background: #0D0D0D;
+
+    @extend %box, %font-monospace;
 
     &:last-child {
       margin-right: 0;
     }
 
     &:hover {
-      border: 2px solid #FFF;
-      background: lighten(#0D0D0D, 10%);
+      border-color: #FFF;
+      background: lighten($color-background-alt, 10%);
+    }
 
-      > svg {
-        fill: $color-primary;
-      }
+    &:hover > svg {
+      fill: $color-primary;
     }
 
     > svg {
+      $size: 60px;
+
       margin-bottom: 20px;
-      width: 60px;
-      height: 60px;
+      width: $size;
+      height: $size;
       fill: $color-primary-alt;
     }
   }

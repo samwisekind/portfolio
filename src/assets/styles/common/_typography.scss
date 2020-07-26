@@ -1,10 +1,12 @@
-@import "common/constants";
+@import "constants";
+
+@import "mixins";
 
 body {
-  font-family: $font-main;
+  @extend %font-main;
 }
 
 pre,
 code {
-  font-family: $font-monospace;
+  @extend %font-monospace;
 }

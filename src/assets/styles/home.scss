@@ -2,6 +2,10 @@
 
 @import "common/mixins";
 
+main {
+  max-width: $max-width + ($spacing-large * 2);
+}
+
 section {
   margin-bottom: $spacing-large * 2;
 
@@ -9,7 +13,7 @@ section {
     margin-bottom: 0;
   }
 
-  h2 {
+  > h2 {
     margin-bottom: 25px;
     font-size: 38px;
   }
@@ -20,33 +24,34 @@ section > .wrapper {
   align-items: stretch;
   justify-content: space-between;
 
-  .item {
+  > .item {
+    display: flex;
+    flex-flow: column;
     margin-right: 40px;
     width: 100%;
 
     &:last-child {
+      margin-right: 0;
       padding: 0;
-      max-width: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
+      max-width: 150px;
       background: none;
-    }
-  
-    &:last-child {
-      margin-right: 0;
     }
   }
 }
 
 section.work {
-  h1 {
+  > h1 {
     margin-bottom: 20px;
     font-size: 38px;
     line-height: 46px;
   }
 
-  .bottom {
+  > .bottom {
+    $margin: 20px;
+
     display: flex;
     align-items: center;
 
@@ -56,12 +61,12 @@ section.work {
     }
 
     &:before {
-      margin-right: 20px;
+      margin-right: $margin;
       width: 100%;
     }
 
     &:after {
-      margin-left: 20px;
+      margin-left: $margin;
       min-width: 90px;
     }
   }
@@ -69,11 +74,7 @@ section.work {
 
 section.journal {
   .item {
-    display: flex;
-    flex-flow: column;
-    padding: 20px;
-    border-radius: $border-radius;
-    background: $color-background-alt;
+    @extend %box;
   }
 
   h3 {
@@ -94,38 +95,25 @@ section.journal {
     font-size: 14px;
     text-align: right;
     color: $color-primary-alt;
+
+    @extend %font-monospace;
   }
 }
 
-section.photography > .photography-item-wrapper {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-}
-
-section.photography figure {
-  width: 100%;
-  display: block;
-  break-inside: avoid;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  > img {
+section.photography {
+  figure > img {
     display: block;
     width: 100%;
     height: auto;
   }
 
-  > figcaption {
+  figcaption {
     display: flex;
     padding-top: 10px;
     font-size: 14px;
     color: $color-primary-alt;
 
     > span {
-      width: 50%;
       white-space: nowrap;
     }
 
@@ -134,7 +122,10 @@ section.photography figure {
     }
 
     > span.date {
+      margin-left: auto;
       text-align: right;
+
+      @extend %font-monospace;
     }
   }
 }

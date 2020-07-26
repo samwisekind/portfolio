@@ -1,5 +1,7 @@
 @import "common/constants";
 
+@import "common/mixins";
+
 main {
   display: flex;
 }
@@ -16,9 +18,8 @@ main > .journal-list {
   > .journal-item {
     position: relative;
     margin-bottom: 60px;
-    padding: 20px;
-    border-radius: $border-radius;
-    background: $color-background-alt;
+
+    @extend %box;
   
     &:last-child {
       margin-bottom: 0;
@@ -160,9 +161,10 @@ main > .journal-detail {
     color: #D6DEEB;
     font-size: 18px;
     line-height: 28px;
-    border-radius: $border-radius;
     background: #0D0D0D;
     overflow-x: auto;
+
+    @extend %box;
 
     > code {
       margin: 20px;

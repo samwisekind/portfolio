@@ -9,6 +9,7 @@ block styles
   link(rel='stylesheet' href='/public/work.css')
 
 block main
+
   section.work
     h1 Work
     p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies sit amet nibh facilisis porta. Duis feugiat mauris ac mi tristique eleifend. Suspendisse elementum bibendum lorem, sed tristique eros pulvinar et. Suspendisse potenti. Fusce sed nulla non mauris luctus pellentesque. Etiam in dui eros:
@@ -33,31 +34,32 @@ block main
     p Etiam at tortor eget lorem egestas elementum. <a href="#">Duis laoreet tincidunt justo, nec venenatis nisl</a>.
 
   section.projects
-    h2 Projects
-    for project in projects
-      .projects-item
-        h3=project.title
-        p=project.description
-        .bottom
-          ul.technologies
-            for technology in project.technologies
-              li=technology
-          .links
-            if project.links && project.links.github
-              a.github(href=project.links.github)
-                svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24')
-                  path(d='M12,0A12,12,0,0,0,8.21,23.39c.6.11.82-.26.82-.58s0-1,0-2c-3.34.73-4-1.61-4-1.61A3.18,3.18,0,0,0,3.64,17.4c-1.09-.74.08-.73.08-.73a2.52,2.52,0,0,1,1.84,1.24,2.55,2.55,0,0,0,3.49,1,2.56,2.56,0,0,1,.76-1.6C7.15,17,4.34,16,4.34,11.37A4.64,4.64,0,0,1,5.58,8.15,4.32,4.32,0,0,1,5.7,5s1-.32,3.3,1.23a11.37,11.37,0,0,1,6,0C17.3,4.65,18.3,5,18.3,5a4.31,4.31,0,0,1,.12,3.18,4.63,4.63,0,0,1,1.23,3.22c0,4.61-2.81,5.62-5.48,5.92A2.86,2.86,0,0,1,15,19.52c0,1.6,0,2.9,0,3.29s.22.69.83.58A12,12,0,0,0,12,0Z')
-            if project.links && project.links.website
-              a.website(href=project.links.website)
-                svg(xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20')
-                  path(d='M16,10a1,1,0,0,0-1,1v6a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5H9A1,1,0,0,0,9,3H3A3,3,0,0,0,0,6V17a3,3,0,0,0,3,3H14a3,3,0,0,0,3-3V11A1,1,0,0,0,16,10Z')
-                  path(d='M19.92.62A1,1,0,0,0,19,0H13a1,1,0,0,0,0,2h3.59L7.29,11.29a1,1,0,1,0,1.41,1.41L18,3.41V7a1,1,0,0,0,2,0V1A1,1,0,0,0,19.92.62Z')
-    .projects-links
-      a(href='https://github.com/Flamov')
+    if projects
+      h2 Projects
+      for project in projects
+        .item
+          h3=project.title
+          p=project.description
+          .bottom
+            ul.technologies
+              for technology in project.technologies
+                li=technology
+            .links
+              if project.links && project.links.github
+                a.github(href=project.links.github)
+                  svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24')
+                    path(d='M12,0A12,12,0,0,0,8.21,23.39c.6.11.82-.26.82-.58s0-1,0-2c-3.34.73-4-1.61-4-1.61A3.18,3.18,0,0,0,3.64,17.4c-1.09-.74.08-.73.08-.73a2.52,2.52,0,0,1,1.84,1.24,2.55,2.55,0,0,0,3.49,1,2.56,2.56,0,0,1,.76-1.6C7.15,17,4.34,16,4.34,11.37A4.64,4.64,0,0,1,5.58,8.15,4.32,4.32,0,0,1,5.7,5s1-.32,3.3,1.23a11.37,11.37,0,0,1,6,0C17.3,4.65,18.3,5,18.3,5a4.31,4.31,0,0,1,.12,3.18,4.63,4.63,0,0,1,1.23,3.22c0,4.61-2.81,5.62-5.48,5.92A2.86,2.86,0,0,1,15,19.52c0,1.6,0,2.9,0,3.29s.22.69.83.58A12,12,0,0,0,12,0Z')
+              if project.links && project.links.website
+                a.website(href=project.links.website)
+                  svg(xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20')
+                    path(d='M16,10a1,1,0,0,0-1,1v6a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5H9A1,1,0,0,0,9,3H3A3,3,0,0,0,0,6V17a3,3,0,0,0,3,3H14a3,3,0,0,0,3-3V11A1,1,0,0,0,16,10Z')
+                    path(d='M19.92.62A1,1,0,0,0,19,0H13a1,1,0,0,0,0,2h3.59L7.29,11.29a1,1,0,1,0,1.41,1.41L18,3.41V7a1,1,0,0,0,2,0V1A1,1,0,0,0,19.92.62Z')
+    .items-more
+      a(href='https://github.com/Flamov').item
         svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24')
           path(d='M12,0A12,12,0,0,0,8.21,23.39c.6.11.82-.26.82-.58s0-1,0-2c-3.34.73-4-1.61-4-1.61A3.18,3.18,0,0,0,3.64,17.4c-1.09-.74.08-.73.08-.73a2.52,2.52,0,0,1,1.84,1.24,2.55,2.55,0,0,0,3.49,1,2.56,2.56,0,0,1,.76-1.6C7.15,17,4.34,16,4.34,11.37A4.64,4.64,0,0,1,5.58,8.15,4.32,4.32,0,0,1,5.7,5s1-.32,3.3,1.23a11.37,11.37,0,0,1,6,0C17.3,4.65,18.3,5,18.3,5a4.31,4.31,0,0,1,.12,3.18,4.63,4.63,0,0,1,1.23,3.22c0,4.61-2.81,5.62-5.48,5.92A2.86,2.86,0,0,1,15,19.52c0,1.6,0,2.9,0,3.29s.22.69.83.58A12,12,0,0,0,12,0Z')
         span More on <b>GitHub</b>
-      a(href='https://codepen.com/Flamov')
+      a(href='https://codepen.com/Flamov').item
         svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24')
           polygon(points='5.86 10.93 5.86 13.07 7.45 12 5.86 10.93')
           polygon(points='11.36 9.38 11.36 6.41 6.37 9.74 8.6 11.23 11.36 9.38')

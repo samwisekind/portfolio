@@ -1,12 +1,29 @@
 @import "constants";
 
-$line-size: 6px;
-$line-color: rgba($color-primary-alt, .3);
-
 %line {
+  $line-size: 6px;
+  $line-color: rgba($color-primary-alt, .3);
+
   content: "";
   display: block;
   height: $line-size;
   border-radius: $line-size;
   background: $line-color;
+}
+
+%box {
+  $box-border-radius: 10px;
+  $box-padding: 20px;
+
+  padding: $box-padding;
+  border-radius: $box-border-radius;
+  background: $color-background-alt;
+}
+
+%font-main {
+  font-family: $font-main;
+}
+
+%font-monospace {
+  font-family: $font-monospace;
 }
