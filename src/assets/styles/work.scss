@@ -2,79 +2,77 @@
 
 @import "common/mixins";
 
-main > section.work {
-  > h1 {
-    font-weight: 700;
-    font-size: fontSize(48px);
-    line-height: fontSize(48px);
+main > section.work > h1 {
+  font-weight: 700;
+  font-size: fontSize(48px);
+  line-height: fontSize(48px);
+}
+
+main > section.work p {
+  margin-top: $spacingLarge;
+  font-size: fontSize(20px);
+
+  @include breakpoint("medium") {
+    margin-top: $spacingMedium;
   }
 
-  p {
-    margin-top: $spacingLarge;
-    font-size: fontSize(20px);
+  @include breakpoint("small") {
+    margin-top: $spacingSmall;
+  }
+}
 
-    @include breakpoint("medium") {
-      margin-top: $spacingMedium;
-    }
+main > section.work > .columns {
+  display: flex;
+}
+
+main > section.work > .columns > .columns-wrapper {
+  width: 50%;
+}
+
+main > section.work ul {
+  margin-top: $spacingLarge;
+  list-style: none;
+
+  @include breakpoint("medium") {
+    margin-top: $spacingMedium;
+  }
+
+  @include breakpoint("small") {
+    margin-top: $spacingSmall;
+  }
+}
+
+main > section.work ul > li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: lighten($colorSecondary, 20%);
+
+  @extend %fontMonospace;
+
+  @include breakpoint("medium") {
+    margin-bottom: 15px;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: 8px;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &:before {
+    margin-right: 15px;
+    min-width: 30px;
+    background: $colorSecondary;
+
+    @extend %line;
 
     @include breakpoint("small") {
-      margin-top: $spacingSmall;
+      margin-right: 8px;
+      min-width: 15px;
     }
-  }
-
-  > .columns {
-    display: flex;
-
-    > .columns-wrapper {
-      width: 50%;
-    }
-  }
-
-  ul {
-    margin-top: $spacingLarge;
-    list-style: none;
-
-    @include breakpoint("medium") {
-      margin-top: $spacingMedium;
-    }
-
-    @include breakpoint("small") {
-      margin-top: $spacingSmall;
-    }
-  }
-
-  ul > li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    color: lighten($colorSecondary, 20%);
-
-    @include breakpoint("medium") {
-      margin-bottom: 15px;
-    }
-
-    @include breakpoint("small") {
-      margin-bottom: 8px;
-    }
-
-    @extend %fontMonospace;
-
-    &:last-child {
-      margin: 0;
-    }
-
-    &:before {
-      margin-right: 15px;
-      min-width: 30px;
-      background: $colorSecondary;
-
-      @include breakpoint("small") {
-        margin-right: 8px;
-        min-width: 15px;
-      }
-
-      @extend %line;
-    }  
   }
 }
 
@@ -88,36 +86,38 @@ main > section.projects {
   @include breakpoint("small") {
     margin-top: $spacingSmall * 3;
   }
+}
 
-  > h2 {
-    margin-bottom: $spacingLarge;
-    display: flex;
-    align-items: center;
+main > section.projects > h2 {
+  margin-bottom: $spacingLarge;
+  display: flex;
+  align-items: center;
 
-    @include breakpoint("small") {
-      margin-bottom: $spacingSmall;
+  @include breakpoint("small") {
+    margin-bottom: $spacingSmall;
+  }
+
+  &:after {
+    margin-left: $spacingLarge;
+    width: 100%;
+    transform: translateY(2px);
+
+    @extend %line;
+
+    @include breakpoint("medium") {
+      margin-left: $spacingMedium;
     }
 
-    &:after {
-      margin-left: $spacingLarge;
-      width: 100%;
-      transform: translateY(2px);
-
-      @extend %line;
-
-      @include breakpoint("medium") {
-        margin-left: $spacingMedium;
-      }
-
-      @include breakpoint("small") {
-        margin-left: $spacingSmall;
-      }
+    @include breakpoint("small") {
+      margin-left: $spacingSmall;
     }
   }
 }
 
-main > section.projects .item {
+main > section.projects > .item {
   margin-bottom: $spacingLarge;
+
+  @extend %box;
 
   @include breakpoint("medium") {
     margin-bottom: $spacingMedium;
@@ -127,142 +127,140 @@ main > section.projects .item {
     margin-bottom: $spacingSmall;
   }
 
-  @extend %box;
-
   &:last-child {
     margin-bottom: 0;
   }
+}
 
-  > h3 {
-    margin-bottom: 10px;
-  }
+main > section.projects .item > h3 {
+  margin-bottom: 10px;
+}
 
-  > p {
-    font-size: fontSize(18px);
-  }
+main > section.projects .item > p {
+  font-size: fontSize(18px);
+}
 
-  > .bottom {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
+main > section.projects .item > .bottom {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 
-    @include breakpoint("small") {
-      display: block;
-    }
-  }
-
-  > .bottom > .technologies {
-    display: flex;
-    list-style: none;
-    
-    > li {
-      margin-right: 15px;
-      font-size: fontSize(14px);
-      color: $colorPrimaryAlt;
-      
-      @include breakpoint("small") {
-        margin-right: 10px;
-      }
-
-      @extend %fontMonospace;
-    }
-
-    > li:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .bottom > .links {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    
-    @include breakpoint("small") {
-      margin-top: 15px;
-    }
-  }
-
-  a {
+  @include breakpoint("small") {
     display: block;
-    margin-right: 15px;
+  }
+}
 
-    @include breakpoint("small") {
-      margin-right: 10px;
-    }
+main > section.projects .item > .bottom > .technologies {
+  display: flex;
+  list-style: none;
+}
 
-    &:last-child {
-      margin-right: 0;
-    }
+main > section.projects .item > .bottom > .technologies > li {
+  margin-right: 15px;
+  font-size: fontSize(14px);
+  color: $colorPrimaryAlt;
 
-    &:hover > svg {
-      fill: $colorPrimary;
-    }
+  @extend %fontMonospace;
+  
+  @include breakpoint("small") {
+    margin-right: 10px;
+  }
 
-    > svg {
-      fill: $colorSecondary;
-    }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+main > section.projects .item > .bottom > .links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  
+  @include breakpoint("small") {
+    margin-top: 15px;
+  }
+}
+
+main > section.projects .item > .bottom > .links > a {
+  display: block;
+  margin-right: 15px;
+
+  @include breakpoint("small") {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover > svg {
+    fill: $colorPrimary;
+  }
+
+  > svg {
+    fill: $colorSecondary;
   }
 }
 
 main > section.projects > .items-more {
   display: flex;
+}
 
-  > .item {
-    margin-right: $spacingLarge;
-    margin-bottom: 0;
-    width: 50%;
-    min-height: 100%;
-    border: 2px solid transparent;
-    text-align: center;
-    text-decoration: none;
+main > section.projects > .items-more > .item {
+  margin-right: $spacingLarge;
+  margin-bottom: 0;
+  width: 50%;
+  min-height: 100%;
+  border: 2px solid transparent;
+  text-align: center;
+  text-decoration: none;
 
-    @extend %box, %fontMonospace;
+  @extend %box, %fontMonospace;
 
-    @include breakpoint("medium") {
-      margin-right: $spacingMedium;
-    }
+  @include breakpoint("medium") {
+    margin-right: $spacingMedium;
+  }
 
-    @include breakpoint("small") {
-      margin-right: $spacingSmall;
-    }
+  @include breakpoint("small") {
+    margin-right: $spacingSmall;
+  }
 
-    &:last-child {
-      margin-right: 0;
-    }
+  &:last-child {
+    margin-right: 0;
+  }
 
-    &:hover {
-      border-color: #FFF;
-      background: lighten($colorBackgroundAlt, 10%);
-    }
+  &:hover {
+    border-color: #FFF;
+    background: lighten($colorBackgroundAlt, 10%);
+  }
 
-    &:hover > svg {
-      fill: $colorPrimary;
-    }
+  &:hover > svg {
+    fill: $colorPrimary;
+  }
+}
 
-    > svg {
-      $size: 60px;
+main > section.projects > .items-more > .item > svg {
+  $size: 60px;
 
-      display: block;
-      margin: 0 auto 15px;
-      width: $size;
-      height: $size;
-      fill: $colorPrimaryAlt;
+  display: block;
+  margin: 0 auto 15px;
+  width: $size;
+  height: $size;
+  fill: $colorPrimaryAlt;
 
-      @include breakpoint("medium") {
-        $size: 48px;
+  @include breakpoint("medium") {
+    $size: 48px;
 
-        margin-bottom: 10px;
-        width: $size;
-        height: $size;
-      }
+    margin-bottom: 10px;
+    width: $size;
+    height: $size;
+  }
 
-      @include breakpoint("small") {
-        $size: 32px;
+  @include breakpoint("small") {
+    $size: 32px;
 
-        margin-bottom: 8px;
-        width: $size;
-        height: $size;
-      }
-    }
+    margin-bottom: 8px;
+    width: $size;
+    height: $size;
   }
 }

@@ -20,24 +20,24 @@ section {
   &:last-child {
     margin-bottom: 0;
   }
+}
 
-  > h1,
-  > h2 {
-    margin-bottom: $spacingLarge;
-    font-size: fontSize(32px);
+section > h1,
+section > h2 {
+  margin-bottom: $spacingLarge;
+  font-size: fontSize(32px);
 
-    @include breakpoint("medium") {
-      margin-bottom: $spacingMedium;
-    }
-
-    @include breakpoint("small") {
-      margin-bottom: $spacingSmall;
-    }
+  @include breakpoint("medium") {
+    margin-bottom: $spacingMedium;
   }
 
-  > h2 {
-    line-height: fontSize(32px);
+  @include breakpoint("small") {
+    margin-bottom: $spacingSmall;
   }
+}
+
+section > h2 {
+  line-height: fontSize(32px);
 }
 
 section > .wrapper {
@@ -48,10 +48,49 @@ section > .wrapper {
   @include breakpoint("small") {
     display: block;
   }
+}
 
-  > .item {
+section > .wrapper > .item {
+  display: flex;
+  flex-flow: column;
+  margin-right: $spacingLarge;
+  width: 100%;
+
+  @include breakpoint("medium") {
+    margin-right: $spacingMedium;
+  }
+
+  @include breakpoint("small") {
+    margin-right: 0;
+    margin-bottom: $spacingSmall;
+  }
+
+  &.end {
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
+    background: none;
+
+    @include breakpoint("small") {
+      max-width: none;
+      align-items: end;
+    }
+  }
+}
+
+section.work > .bottom {
+  display: flex;
+  align-items: center;
+
+  &:before,
+  &:after {
+    @extend %line;
+  }
+
+  &:before {
     margin-right: $spacingLarge;
     width: 100%;
 
@@ -60,141 +99,96 @@ section > .wrapper {
     }
 
     @include breakpoint("small") {
-      margin-right: 0;
-      margin-bottom: $spacingSmall;
+      margin-right: $spacingSmall;
+    }
+  }
+
+  &:after {
+    margin-left: $spacingLarge;
+    min-width: 90px;
+
+    @include breakpoint("medium") {
+      min-width: 60px;
     }
 
-    &.end {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 150px;
-      background: none;
-
-      @include breakpoint("small") {
-        max-width: none;
-        align-items: end;
-      }
+    @include breakpoint("small") {
+      display: none;
     }
   }
 }
 
-section.work {
-  > .bottom {
-    display: flex;
-    align-items: center;
+section.journal .item {
+  @extend %box;
+}
 
-    &:before,
-    &:after {
-      @extend %line;
-    }
+section.journal h3 {
+  margin-bottom: 15px;
+  font-size: fontSize(22px);
 
-    &:before {
-      margin-right: $spacingLarge;
-      width: 100%;
+  @include breakpoint("medium") {
+    margin-bottom: 10px;
+  }
 
-      @include breakpoint("medium") {
-        margin-right: $spacingMedium;
-      }
+  @include breakpoint("small") {
+    margin-bottom: 5px;
+  }
 
-      @include breakpoint("small") {
-        margin-right: $spacingSmall;
-      }
-    }
+  > a:hover {
+    color: $colorSecondary;
+  }  
+}
 
-    &:after {
-      margin-left: $spacingLarge;
-      min-width: 90px;
+section.journal p.blurb {
+  margin-bottom: 20px;
 
-      @include breakpoint("medium") {
-        min-width: 60px;
-      }
+  @include breakpoint("medium") {
+    margin-bottom: 12px;
+  }
 
-      @include breakpoint("small") {
-        display: none;
-      }
-    }
+  @include breakpoint("small") {
+    margin-bottom: 8px;
   }
 }
 
-section.journal {
-  .item {
-    @extend %box;
+section.journal p.date {
+  margin-top: auto;
+  font-size: fontSize(14px);
+  line-height: fontSize(14px);
+  text-align: right;
+  color: $colorPrimaryAlt;
+
+  @extend %fontMonospace;
+}
+
+section.photography figure > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+section.photography figcaption {
+  display: flex;
+  padding-top: 10px;
+  font-size: fontSize(16px);
+  line-height: fontSize(16px);
+  color: $colorPrimaryAlt;
+
+  @include breakpoint("small") {
+    padding-top: 8px;
+  }
+}
+
+section.photography span {
+  white-space: nowrap;
+
+  &.description {
+    font-weight: 700;
   }
 
-  h3 {
-    margin-bottom: 15px;
-    font-size: fontSize(22px);
-
-    @include breakpoint("medium") {
-      margin-bottom: 10px;
-    }
-
-    @include breakpoint("small") {
-      margin-bottom: 5px;
-    }
-
-    > a:hover {
-      color: $colorSecondary;
-    }
-  }
-
-  p.blurb {
-    margin-bottom: 20px;
-
-    @include breakpoint("medium") {
-      margin-bottom: 12px;
-    }
-
-    @include breakpoint("small") {
-      margin-bottom: 8px;
-    }
-  }
-
-  p.date {
-    margin-top: auto;
-    font-size: fontSize(14px);
-    line-height: fontSize(14px);
+  &.date {
+    margin-left: auto;
     text-align: right;
-    color: $colorPrimaryAlt;
 
     @extend %fontMonospace;
-  }
-}
-
-section.photography {
-  figure > img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  figcaption {
-    display: flex;
-    padding-top: 10px;
-    font-size: fontSize(16px);
-    line-height: fontSize(16px);
-    color: $colorPrimaryAlt;
-
-    @include breakpoint("small") {
-      padding-top: 8px;
-    }
-
-    > span {
-      white-space: nowrap;
-    }
-
-    > span.description {
-      font-weight: 700;
-    }
-
-    > span.date {
-      margin-left: auto;
-      text-align: right;
-
-      @extend %fontMonospace;
-    }
   }
 }

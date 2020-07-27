@@ -108,16 +108,16 @@ nav.header > a {
   &.active > svg {
     fill: $colorSecondary;
   }
+}
 
-  > .icon {
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
-    vertical-align: bottom;
-    fill: $colorPrimary;
+nav.header > a > .icon {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  vertical-align: bottom;
+  fill: $colorPrimary;
 
-    @include breakpoint("medium") {
-      margin-right: 0;
-    }
+  @include breakpoint("medium") {
+    margin-right: 0;
   }
 }

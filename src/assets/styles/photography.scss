@@ -17,55 +17,55 @@ main > section.photography > .photos-controls {
   @include breakpoint("small") {
     margin-bottom: $spacingSmall * 2;
   }
+}
 
-  > a {
-    /* To-do: combine these with the .button styles */
+main > section.photography > .photos-controls > a {
+  /* To-do: combine these with the .button styles */
 
-    $transition-timing: .2s;
-    $height: 40px;
+  $transition-timing: .2s;
+  $height: 40px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  height: $height;
+  font-size: fontSize(18px);
+  font-weight: 700;
+  color: $colorPrimary;
+  border-radius: $height;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  color: $colorBackground;
+  background: $colorPrimary;
+
+  @include breakpoint("medium") {
     margin-bottom: 15px;
-    padding: 0 20px;
-    height: $height;
-    font-size: fontSize(18px);
-    font-weight: 700;
+    margin-left: 15px;
+    padding: 0 15px;
+    min-width: 80px;
+    height: 35px;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 0 10px;
+    min-width: 60px;
+    height: 30px;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover,
+  &.active {
     color: $colorPrimary;
-    border-radius: $height;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    color: $colorBackground;
-    background: $colorPrimary;
-
-    @include breakpoint("medium") {
-      margin-bottom: 15px;
-      margin-left: 15px;
-      padding: 0 15px;
-      min-width: 80px;
-      height: 35px;
-    }
-
-    @include breakpoint("small") {
-      margin-bottom: 10px;
-      margin-left: 10px;
-      padding: 0 10px;
-      min-width: 60px;
-      height: 30px;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:hover,
-    &.active {
-      color: $colorPrimary;
-      background: $colorSecondary;
-    }
+    background: $colorSecondary;
   }
 }
 
@@ -86,40 +86,40 @@ main > section.photography > .photos-wrapper {
 main > section.photography > .photos-wrapper > figure {
   display: block;
   break-inside: avoid;
+  margin-bottom: $spacingLarge * 2;
 
-  > img {
-    margin: 0 auto;
-    display: block;
-    width: 100%;
-    height: auto;
+  @include breakpoint("medium") {
+    margin-bottom: $spacingMedium * 2;
   }
 
-  > figcaption {
-    display: flex;
-    padding-top: 10px;
-    margin-bottom: $spacingLarge * 2;
-    font-size: 14px;
-    color: $colorPrimaryAlt;
+  @include breakpoint("small") {
+    margin-bottom: $spacingSmall * 2;
+  }
+}
 
-    @include breakpoint("medium") {
-      margin-bottom: $spacingMedium * 2;
-    }
+main > section.photography > .photos-wrapper > figure > img {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-    @include breakpoint("small") {
-      margin-bottom: $spacingSmall * 2;
-    }
+main > section.photography > .photos-wrapper > figure > figcaption {
+  display: flex;
+  padding-top: 10px;
+  font-size: 14px;
+  color: $colorPrimaryAlt;
+}
 
-    > span {
-      width: 50%;
-      white-space: nowrap;
-    }
+main > section.photography > .photos-wrapper > figure > figcaption > span {
+  width: 50%;
+  white-space: nowrap;
 
-    > span.description {
-      font-weight: 700;
-    }
+  &.description {
+    font-weight: 700;
+  }
 
-    > span.date {
-      text-align: right;
-    }
+  &.date {
+    text-align: right;
   }
 }

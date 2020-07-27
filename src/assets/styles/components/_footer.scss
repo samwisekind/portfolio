@@ -11,33 +11,33 @@ footer {
   @include breakpoint("small") {
     padding: ($spacingSmall * 5) 0 ($spacingSmall * 2);
   }
+}
 
-  > a {
-    margin-right: $spacingLarge;
+footer > a {
+  margin-right: $spacingLarge;
 
-    &:last-child {
-      margin-right: 0;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  > svg {
+    width: 32px;
+    height: 32px;
+    fill: $colorPrimaryAlt;
+
+    @include breakpoint("medium") {
+      width: 28px;
+      height: 28px;
     }
 
-    > svg {
-      width: 32px;
-      height: 32px;
-      fill: $colorPrimaryAlt;
-
-      @include breakpoint("medium") {
-        width: 28px;
-        height: 28px;
-      }
-
-      @include breakpoint("small") {
-        width: 24px;
-        height: 24px;
-      }
+    @include breakpoint("small") {
+      width: 24px;
+      height: 24px;
     }
+  }
 
-    &:hover > svg,
-    &:focus > svg {
-      fill: $colorPrimary;
-    }
+  &:hover > svg,
+  &:focus > svg {
+    fill: $colorPrimary;
   }
 }
