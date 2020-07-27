@@ -56,28 +56,30 @@ $transition-timing: .15s;
       width: calc(100% + 10px);
       height: calc(100% + 10px);
     }
-
-    > svg {
-      transform: translateX(5px);
-
-      @include breakpoint("medium") {
-        transform: translateX(4px);
-      }
-
-      @include breakpoint("small") {
-        transform: translateX(3px);
-      }
-    }
   }
 
-  > svg {
-    margin-top: 1px;
-    margin-left: 8px;
-    fill: $colorPrimary;
-    transition: transform $transition-timing $easeStandard;
+}
 
-    @include breakpoint("small") {
-      width: 15px;
-    }
+.button > svg {
+  margin-top: 1px;
+  margin-left: 8px;
+  fill: $colorPrimary;
+  transition: transform $transition-timing $easeStandard;
+
+  @include breakpoint("small") {
+    width: 15px;
+  }
+}
+
+.button:hover > svg,
+.button.active > svg {
+  transform: translateX(5px);
+
+  @include breakpoint("medium") {
+    transform: translateX(4px);
+  }
+
+  @include breakpoint("small") {
+    transform: translateX(3px);
   }
 }
