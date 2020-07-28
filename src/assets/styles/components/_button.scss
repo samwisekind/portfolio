@@ -5,7 +5,7 @@ $transition-timing: .15s;
 
 .button {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 20px;
@@ -20,6 +20,16 @@ $transition-timing: .15s;
   white-space: nowrap;
   background: $colorSecondary;
   transition: background $transition-timing $easeStandard;
+
+  @include breakpoint("medium") {
+    padding: 0 18px;
+    height: 35px;
+  }
+  
+  @include breakpoint("small") {
+    padding: 0 15px;
+    height: 30px;
+  }
 
   &:before {
     z-index: -1;
@@ -46,16 +56,30 @@ $transition-timing: .15s;
       width: calc(100% + 10px);
       height: calc(100% + 10px);
     }
-
-    > svg {
-      transform: translateX(5px);
-    }
   }
 
-  > svg {
-    margin-top: 1px;
-    margin-left: 8px;
-    fill: $colorPrimary;
-    transition: transform $transition-timing $easeStandard;
+}
+
+.button > svg {
+  margin-top: 1px;
+  margin-left: 8px;
+  fill: $colorPrimary;
+  transition: transform $transition-timing $easeStandard;
+
+  @include breakpoint("small") {
+    width: 15px;
+  }
+}
+
+.button:hover > svg,
+.button.active > svg {
+  transform: translateX(5px);
+
+  @include breakpoint("medium") {
+    transform: translateX(4px);
+  }
+
+  @include breakpoint("small") {
+    transform: translateX(3px);
   }
 }

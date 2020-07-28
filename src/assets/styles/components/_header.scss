@@ -2,78 +2,122 @@
 
 @import "../common/mixins";
 
-nav {
+nav.header {
   display: flex;
   align-items: end;
-  margin: $spacingLarge auto ($spacingLarge * 3);
-  padding: 0 $spacingLarge;
-  max-width: 1000px + ($spacingLarge * 2);
+  margin: 0 auto $spacingLarge;
+  padding: ($spacingLarge * 2);
+  max-width: $maxWidthExtra;
 
-  > a {
-    position: relative;
-    margin-right: 25px;
-    padding-bottom: 8px;
-    font-weight: 700;
-    font-size: fontSize(24px);
-    line-height: fontSize(24px);
-    text-decoration: none;
-    color: $colorPrimary;
-    white-space: nowrap;
+  @include breakpoint("medium") {
+    margin: ($spacingMedium * 2) auto ($spacingMedium * 3);
+    padding: 0 ($spacingMedium * 2);
+  }
 
-    &:before {
-      position: absolute;
-      bottom: -5px;
+  @include breakpoint("small") {
+    margin: ($spacingSmall * 2) auto ($spacingSmall * 3);
+    padding: 0 ($spacingSmall * 2);
+  }
+}
+
+nav.header > a {
+  position: relative;
+  margin-right: 20px;
+  padding-bottom: 8px;
+  font-weight: 700;
+  font-size: fontSize(24px);
+  line-height: fontSize(24px);
+  text-decoration: none;
+  color: $colorPrimary;
+  white-space: nowrap;
+
+  @include breakpoint("medium") {
+    margin-right: 15px;
+
+    > span {
       display: none;
-      width: 100%;
-      background: $colorPrimary;
+    }
+  }
 
-      @extend %line;
+  @include breakpoint("small") {
+    &:not(.title) {
+      display: none;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    bottom: -6px;
+    display: none;
+    width: 100%;
+    background: $colorPrimary;
+
+    @extend %line;
+
+    @include breakpoint("medium") {
+      bottom: -4px;
     }
 
-    &:last-child {
+    @include breakpoint("small") {
+      bottom: -2px;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+  
+  &.title {
+    margin-right: 30px;
+    font-size: fontSize(30px);
+    line-height: fontSize(30px);
+    font-weight: 700;
+
+    @include breakpoint("medium") {
+      margin-right: 20px;
+    }
+
+    @include breakpoint("small") {
       margin-right: 0;
     }
-    
-    &.title {
-      margin-right: 40px;
-      font-size: fontSize(32px);
-      line-height: fontSize(32px);
-      font-weight: 700;
-    }
+  }
 
-    &.spacing {
-      margin-left: auto;
-    }
+  &.spacing {
+    margin-left: auto;
+  }
 
-    &:hover,
-    &.active {
-      border-bottom-color: $colorPrimary;
-    }
+  &:hover,
+  &.active {
+    border-bottom-color: $colorPrimary;
+  }
 
-    &:hover:before,
-    &.active:before {
-      display: block;
-    }
+  &:hover:before,
+  &.active:before {
+    display: block;
+  }
 
-    &.active {
-      color: $colorSecondary;
-      border-bottom-color: $colorSecondary;
-    }
+  &.active {
+    color: $colorSecondary;
+    border-bottom-color: $colorSecondary;
+  }
 
-    &.active:before {
-      background: $colorSecondary;
-    }
+  &.active:before {
+    background: $colorSecondary;
+  }
 
-    &.active > svg {
-      fill: $colorSecondary;
-    }
+  &.active > svg {
+    fill: $colorSecondary;
+  }
+}
 
-    > .icon {
-      margin-right: 8px;
-      width: 24px;
-      height: 24px;
-      vertical-align: bottom;
-      fill: $colorPrimary;
-    }
+nav.header > a > .icon {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  vertical-align: bottom;
+  fill: $colorPrimary;
+
+  @include breakpoint("medium") {
+    margin-right: 0;
   }
 }

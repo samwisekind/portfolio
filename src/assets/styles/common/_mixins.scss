@@ -1,5 +1,25 @@
 @import "constants";
 
+@mixin breakpoint($size) {
+  @if $size == "large" {
+    @media screen and (min-width: $breakpointLarge + 1px) {
+      @content;
+    }
+  }
+
+  @else if $size == "medium" {
+    @media screen and (min-width: $breakpointSmall + 1px) and (max-width: $breakpointLarge) {
+      @content;
+    }
+  }
+
+  @else if $size == "small" {
+    @media screen and (max-width: $breakpointSmall) {
+      @content;
+    }
+  }
+}
+
 $lineSize: 6px;
 $lineColor: rgba($colorPrimaryAlt, .3);
 
@@ -24,6 +44,14 @@ $boxPadding: 20px;
   padding: $boxPadding;
   border-radius: $boxBorderRadius;
   background: $colorBackgroundAlt;
+
+  @include breakpoint("medium") {
+    padding: $spacingMedium;
+  }
+
+  @include breakpoint("small") {
+    padding: $spacingSmall;
+  }
 }
 
 %fontMain {

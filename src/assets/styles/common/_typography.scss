@@ -3,8 +3,18 @@
 @import "mixins";
 
 html {
-  font-size: (10px / 16px) * 100%;
+  $baseFontSize: (10px / 16px) * 100%;
+
+  font-size: $baseFontSize;
   line-height: 1.5;
+
+  @include breakpoint("medium") {
+    font-size: $baseFontSize * .9;
+  }
+
+  @include breakpoint("small") {
+    font-size: $baseFontSize * .8;
+  }
 }
 
 body {

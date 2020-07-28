@@ -1,25 +1,43 @@
 @import "../common/constants";
 
 footer {
-  padding: ($spacingLarge * 5) 0 60px;
+  padding: ($spacingLarge * 5) 0 $spacingLarge * 2;
   text-align: center;
 
-  > a {
-    margin-right: 20px;
+  @include breakpoint("medium") {
+    padding: ($spacingMedium * 5) 0 ($spacingMedium * 2);
+  }
 
-    &:last-child {
-      margin-right: 0;
+  @include breakpoint("small") {
+    padding: ($spacingSmall * 5) 0 ($spacingSmall * 2);
+  }
+}
+
+footer > a {
+  margin-right: $spacingLarge;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  > svg {
+    width: 32px;
+    height: 32px;
+    fill: $colorPrimaryAlt;
+
+    @include breakpoint("medium") {
+      width: 28px;
+      height: 28px;
     }
 
-    > svg {
-      width: 32px;
-      height: 32px;
-      fill: $colorPrimaryAlt;
+    @include breakpoint("small") {
+      width: 24px;
+      height: 24px;
     }
+  }
 
-    &:hover > svg,
-    &:focus > svg {
-      fill: $colorPrimary;
-    }
+  &:hover > svg,
+  &:focus > svg {
+    fill: $colorPrimary;
   }
 }

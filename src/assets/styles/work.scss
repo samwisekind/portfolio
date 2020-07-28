@@ -2,171 +2,265 @@
 
 @import "common/mixins";
 
-main > section.work {
-  > h1 {
-    font-weight: 700;
-    font-size: fontSize(48px);
-    line-height: fontSize(48px);
+main > section.work > h1 {
+  font-weight: 700;
+  font-size: fontSize(48px);
+  line-height: fontSize(48px);
+}
+
+main > section.work p {
+  margin-top: $spacingLarge;
+  font-size: fontSize(20px);
+
+  @include breakpoint("medium") {
+    margin-top: $spacingMedium;
   }
 
-  p {
-    margin-top: 40px;
-    font-size: fontSize(20px);
+  @include breakpoint("small") {
+    margin-top: $spacingSmall;
+  }
+}
+
+main > section.work > .columns {
+  display: flex;
+}
+
+main > section.work > .columns > .columns-wrapper {
+  width: 50%;
+}
+
+main > section.work ul {
+  margin-top: $spacingLarge;
+  list-style: none;
+
+  @include breakpoint("medium") {
+    margin-top: $spacingMedium;
   }
 
-  > .columns {
-    display: flex;
+  @include breakpoint("small") {
+    margin-top: $spacingSmall;
+  }
+}
 
-    > .columns-wrapper {
-      width: 50%;
+main > section.work ul > li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: lighten($colorSecondary, 20%);
+
+  @extend %fontMonospace;
+
+  @include breakpoint("medium") {
+    margin-bottom: 15px;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: 8px;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &:before {
+    margin-right: 15px;
+    min-width: 30px;
+    background: $colorSecondary;
+
+    @extend %line;
+
+    @include breakpoint("small") {
+      margin-right: 8px;
+      min-width: 15px;
     }
-  }
-
-  ul {
-    margin-top: 20px;
-    list-style: none;
-  }
-
-  ul > li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    color: lighten($colorSecondary, 20%);
-
-    @extend %fontMonospace;
-
-    &:last-child {
-      margin: 0;
-    }
-
-    &:before {
-      margin-right: 15px;
-      min-width: 30px;
-      background: $colorSecondary;
-
-      @extend %line;
-    }  
   }
 }
 
 main > section.projects {
-  margin-top: 80px;
+  margin-top: $spacingLarge * 3;
 
-  > h2 {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
+  @include breakpoint("medium") {
+    margin-top: $spacingMedium * 3;
+  }
 
-    &:after {
-      margin-left: 20px;
-      width: 100%;
-      transform: translateY(2px);
+  @include breakpoint("small") {
+    margin-top: $spacingSmall * 3;
+  }
+}
 
-      @extend %line;
+main > section.projects > h2 {
+  margin-bottom: $spacingLarge;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingSmall;
+  }
+
+  &:after {
+    margin-left: $spacingLarge;
+    width: 100%;
+    transform: translateY(2px);
+
+    @extend %line;
+
+    @include breakpoint("medium") {
+      margin-left: $spacingMedium;
+    }
+
+    @include breakpoint("small") {
+      margin-left: $spacingSmall;
     }
   }
 }
 
-main > section.projects .item {
-  margin-bottom: 20px;
+main > section.projects > .item {
+  margin-bottom: $spacingLarge;
 
   @extend %box;
+
+  @include breakpoint("medium") {
+    margin-bottom: $spacingMedium;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingSmall;
+  }
 
   &:last-child {
     margin-bottom: 0;
   }
+}
 
-  > h3 {
-    margin-bottom: 20px;
-  }
+main > section.projects .item > h3 {
+  margin-bottom: 10px;
+}
 
-  > p {
-    font-size: fontSize(18px);
-  }
+main > section.projects .item > p {
+  font-size: fontSize(18px);
+}
 
-  > .bottom {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-  }
+main > section.projects .item > .bottom {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 
-  > .bottom > .technologies {
-    display: flex;
-    list-style: none;
-    
-    > li {
-      margin-right: 15px;
-      font-size: fontSize(14px);
-      color: $colorPrimaryAlt;
-
-      @extend %fontMonospace;
-    }
-
-    > li:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .bottom > .links {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-
-  a {
+  @include breakpoint("small") {
     display: block;
-    margin-right: 20px;
+  }
+}
 
-    &:last-child {
-      margin-right: 0;
-    }
+main > section.projects .item > .bottom > .technologies {
+  display: flex;
+  list-style: none;
+}
 
-    &:hover > svg {
-      fill: $colorPrimary;
-    }
+main > section.projects .item > .bottom > .technologies > li {
+  margin-right: 15px;
+  font-size: fontSize(14px);
+  color: $colorPrimaryAlt;
 
-    > svg {
-      fill: $colorSecondary;
-    }
+  @extend %fontMonospace;
+  
+  @include breakpoint("small") {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+main > section.projects .item > .bottom > .links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  
+  @include breakpoint("small") {
+    margin-top: 15px;
+  }
+}
+
+main > section.projects .item > .bottom > .links > a {
+  display: block;
+  margin-right: 15px;
+
+  @include breakpoint("small") {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover > svg {
+    fill: $colorPrimary;
+  }
+
+  > svg {
+    fill: $colorSecondary;
   }
 }
 
 main > section.projects > .items-more {
   display: flex;
+}
 
-  > .item {
-    margin-right: 20px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 150px;
-    border: 2px solid transparent;
-    text-decoration: none;
+main > section.projects > .items-more > .item {
+  margin-right: $spacingLarge;
+  margin-bottom: 0;
+  width: 50%;
+  min-height: 100%;
+  border: 2px solid transparent;
+  text-align: center;
+  text-decoration: none;
 
-    @extend %box, %fontMonospace;
+  @extend %box, %fontMonospace;
 
-    &:last-child {
-      margin-right: 0;
-    }
+  @include breakpoint("medium") {
+    margin-right: $spacingMedium;
+  }
 
-    &:hover {
-      border-color: #FFF;
-      background: lighten($colorBackgroundAlt, 10%);
-    }
+  @include breakpoint("small") {
+    margin-right: $spacingSmall;
+  }
 
-    &:hover > svg {
-      fill: $colorPrimary;
-    }
+  &:last-child {
+    margin-right: 0;
+  }
 
-    > svg {
-      $size: 60px;
+  &:hover {
+    border-color: #FFF;
+    background: lighten($colorBackgroundAlt, 10%);
+  }
 
-      margin-bottom: 20px;
-      width: $size;
-      height: $size;
-      fill: $colorPrimaryAlt;
-    }
+  &:hover > svg {
+    fill: $colorPrimary;
+  }
+}
+
+main > section.projects > .items-more > .item > svg {
+  $size: 60px;
+
+  display: block;
+  margin: 0 auto 15px;
+  width: $size;
+  height: $size;
+  fill: $colorPrimaryAlt;
+
+  @include breakpoint("medium") {
+    $size: 48px;
+
+    margin-bottom: 10px;
+    width: $size;
+    height: $size;
+  }
+
+  @include breakpoint("small") {
+    $size: 32px;
+
+    margin-bottom: 8px;
+    width: $size;
+    height: $size;
   }
 }
