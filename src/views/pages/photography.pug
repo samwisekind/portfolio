@@ -15,9 +15,11 @@ block main
   section.photography
     if albums
       .controls
-        a(href="#" data-album="all").active.js-album All
-        for album in albums
-          a(href="#" data-album=album.key).js-album=album.name
+        label(for="albums") Select album:
+        select#albums.js-albums
+          option(value="all" selected) All
+          for album in albums
+            option(value=album.key)=album.name
     .gallery.js-gallery
       .column.js-column
         each photo in photos

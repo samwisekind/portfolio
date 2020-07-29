@@ -7,66 +7,91 @@ main {
 }
 
 main > section.photography > .controls {
+  display: flex;
+  align-items: center;
   margin-bottom: $spacingLarge * 2;
-  text-align: center;
 
   @include breakpoint("medium") {
     margin-bottom: $spacingMedium * 2;
   }
 
   @include breakpoint("small") {
-    margin-bottom: $spacingSmall * 2;
+    margin-bottom: $spacingSmall * 4;
+  }
+
+  &:before,
+  &:after {
+    width: 100%;
+
+    @extend %line;
+  }
+
+  &:before {
+    margin-right: $spacingLarge;
+
+    @include breakpoint("medium") {
+      margin-right: $spacingMedium;
+    }
+  
+    @include breakpoint("small") {
+      margin-right: $spacingSmall;
+    }
+  }
+
+  &:after {
+    margin-left: $spacingLarge;
+
+    @include breakpoint("medium") {
+      margin-left: $spacingMedium;
+    }
+  
+    @include breakpoint("small") {
+      margin-left: $spacingSmall;
+    }
   }
 }
 
-main > section.photography > .controls > a {
-  /* To-do: combine these with the .button styles */
-
-  $transition-timing: .2s;
-  $height: 40px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
-  margin-bottom: 15px;
-  padding: 0 20px;
-  height: $height;
-  font-size: fontSize(18px);
-  font-weight: 700;
-  color: $colorPrimary;
-  border-radius: $height;
-  text-align: center;
-  text-decoration: none;
+main > section.photography > .controls > label {
   white-space: nowrap;
-  color: $colorBackground;
-  background: $colorPrimary;
+}
+
+main > section.photography > .controls > select {
+  margin-left: 20px;
+  padding: 0 40px 0 20px;
+  height: 40px;
+  font-weight: 700;
+  font-size: fontSize(18px);
+  color: $colorPrimary;
+  border-radius: 40px;
+  -webkit-appearance: none;
+  apperance: none;
+  outline: none;
+  border: 0;
+  background: no-repeat $colorSecondary url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4LjU3IiB2aWV3Qm94PSIwIDAgMTUgOC41NyI+CiAgPHBhdGggZD0iTTcuNSw4LjU3YTEuMDcsMS4wNywwLDAsMS0uNzYtLjMxTC4zMSwxLjgzQTEuMDcsMS4wNywwLDAsMSwxLjgzLjMxTDcuNSw2LDEzLjE3LjMxYTEuMDcsMS4wNywwLDAsMSwxLjUyLDEuNTJMOC4yNiw4LjI2QTEuMDcsMS4wNywwLDAsMSw3LjUsOC41N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIHN0eWxlPSJmaWxsOiAjRkZGIiAvPgo8L3N2Zz4K");
+  background-position: calc(100% - 20px) center;
 
   @include breakpoint("medium") {
-    margin-bottom: 15px;
     margin-left: 15px;
-    padding: 0 15px;
-    min-width: 80px;
+    padding: 0 40px 0 15px;
     height: 35px;
+    border-radius: 35px;
+    background-position: calc(100% - 15px) center;
   }
 
   @include breakpoint("small") {
-    margin-bottom: 10px;
     margin-left: 10px;
-    padding: 0 10px;
-    min-width: 60px;
+    padding: 0 40px 0 10px;
     height: 30px;
+    border-radius: 30px;
+    background-position: calc(100% - 15px) center;
   }
+}
 
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:hover,
-  &.active {
-    color: $colorPrimary;
-    background: $colorSecondary;
-  }
+main > section.photography > .controls > select > option {
+  -webkit-appearance: unset;
+  apperance: unset;
+  outline: unset;
+  background: unset;
 }
 
 main > section.photography > .gallery {
@@ -109,7 +134,7 @@ main > section.photography > .gallery figure {
   }
 }
 
-main > section.photography figure > img {
+main > section.photography figure img {
   margin: 0 auto;
   display: block;
   width: 100%;

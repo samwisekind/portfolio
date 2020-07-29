@@ -1,7 +1,10 @@
 mixin photo({ title, alt, location, album, date, src })
   figure(data-album=album).photo.js-photo
     .container
-      img(data-src=src alt=alt).js-lazy
+      picture
+        if src.webp
+          source(type="image/webp" data-srcset=src.webp)
+        img(data-src=src.jpg alt=alt).js-lazy
     figcaption
       div.info
         p.title=title
