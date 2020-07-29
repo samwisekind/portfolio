@@ -1,73 +1,73 @@
 albums:
   - name: 🇰🇪 Kenya
-    key: kenya
+    key: &kenya kenya
   - name: 🇭🇰 Hong Kong
-    key: hong-Kong
+    key: &hong-kong hong-Kong
   - name: 🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales
-    key: wales
+    key: &wales wales
   - name: 🇬🇧 UK
-    key: uk
+    key: &uk uk
   - name: 🇻🇳 Vietnam
-    key: vietnam
+    key: &vietnam vietnam
   - name: 🇨🇳 China
-    key: china
+    key: &china china
 
 photos:
   - order: 0
     title: New Kind of Hug
-    alt: foo
-    description: Maasai Mara, Kenya
-    album: kenya
+    alt: A photo of two lions in Kenya
+    location: Maasai Mara, Kenya
+    album: *kenya
     date: 2009
     src: https://cdn.flamov.com/photography/kenya/kenya-1-full.jpg
     featured: true
   - order: 1
     title: Surprised Fox
-    alt: foo
-    description: London, UK
-    album: uk
+    alt: A photo of a fox looking surprised in London
+    location: London, UK
+    album: *uk
     date: 2010
     src: https://cdn.flamov.com/photography/london/london-1-full.jpg
     featured: true
   - order: 2
     title: Valley
-    alt: foo
-    description: 云南 (Yúnnán), China
-    album: china
+    alt: A photo of a valley above a river in China
+    location: 云南 (Yúnnán), China
+    album: *china
     date: 2009
     src: https://cdn.flamov.com/photography/yunnan/yunnan-1-full.jpg
   - order: 3
     title: Sunrise on the Dunes
-    alt: foo
-    description: Mũi Né, Việt Nam (Vietnam)
-    album: vietnam
+    alt: A photo of a sunrise in a desert in Vietnam
+    location: Mũi Né, Việt Nam (Vietnam)
+    album: *vietnam
     date: 2010
     src: https://cdn.flamov.com/photography/vietnam/vietnam-1-full.jpg
   - order: 4
     title: Vietnamese Fisherman
-    alt: foo
-    description: Mũi Né, Việt Nam (Vietnam)
-    album: vietnam
+    alt: A photo of a fisherman in a fishing village in Vietnam
+    location: Mũi Né, Việt Nam (Vietnam)
+    album: *vietnam
     date: 2009
     src: https://cdn.flamov.com/photography/vietnam/vietnam-2-full.jpg
   - order: 5
     title: By The Fence
-    alt: foo
-    description: Peak District, UK
-    album: uk
+    alt: A photo of a set of fences leading up a hill in the UK
+    location: Peak District, UK
+    album: *uk
     date: 2016
     src: https://cdn.flamov.com/photography/peak-district/peakdistrict-1-full.jpg
   - order: 6
     title: Tree With A View
-    alt: foo
-    description: Peak District, UK
-    album: uk
+    alt: A black and white photo of a tree on the side of a hill in the UK
+    location: Peak District, UK
+    album: *uk
     date: 2016
     src: https://cdn.flamov.com/photography/peak-district/peakdistrict-4-full.jpg
   - order: 7
     title: Corn
-    alt: foo
-    description: 云南 (Yúnnán), China
-    album: china
+    alt: A close-up photo of corn in China
+    location: 云南 (Yúnnán), China
+    album: *china
     date: 2009
     src: https://cdn.flamov.com/photography/yunnan/yunnan-2-full.jpg

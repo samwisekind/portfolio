@@ -54,36 +54,36 @@ beforeEach(() => {
     photos: [
       {
         order: 0,
-        title: 'photo 1',
+        title: 'photo 1 title',
         alt: 'photo 1 alt',
-        description: 'photo 1 description',
+        location: 'photo 1 location',
         album: 'test-album-1',
         date: '2010',
         src: 'photo-1-src.jpg',
       },
       {
         order: 1,
-        title: 'photo 2',
+        title: 'photo 2 title',
         alt: 'photo 2 alt',
-        description: 'photo 2 description',
+        location: 'photo 2 location',
         album: 'test-album-1',
         date: '2020',
         src: 'photo-2-src.jpg',
       },
       {
         order: 2,
-        title: 'photo 3',
+        title: 'photo 3 title',
         alt: 'photo 3 alt',
-        description: 'photo 3 description',
+        location: 'photo 3 location',
         album: 'test-album-2',
         date: '2030',
         src: 'photo-3-src.jpg',
       },
       {
         order: 3,
-        title: 'photo 4',
+        title: 'photo 4 title',
         alt: 'photo 4 alt',
-        description: 'photo 4 description',
+        location: 'photo 4 location',
         album: 'test-album-2',
         date: '2040',
         src: 'photo-4-src.jpg',
@@ -94,18 +94,18 @@ beforeEach(() => {
   getFeaturedPhotos.mockImplementation(() => ([
     {
       order: 0,
-      title: 'photo 1',
+      title: 'photo 1 title',
       alt: 'photo 1 alt',
-      description: 'photo 1 description',
+      location: 'photo 1 location',
       album: 'test-album-1',
       date: '2010',
       src: 'photo-1-src.jpg',
     },
     {
       order: 1,
-      title: 'photo 2',
+      title: 'photo 2 title',
       alt: 'photo 2 alt',
-      description: 'photo 2 description',
+      location: 'photo 2 location',
       album: 'test-album-2',
       date: '2020',
       src: 'photo-2-src.jpg',
@@ -141,13 +141,15 @@ it('shows home', async () => {
 
   expect(photo1.querySelector('img').getAttribute('src')).toBe('photo-1-src.jpg');
   expect(photo1.querySelector('img').getAttribute('alt')).toBe('photo 1 alt');
-  expect(photo1.querySelector('figcaption > .description').textContent).toBe('photo 1 description');
-  expect(photo1.querySelector('figcaption > .date').textContent).toBe('2010');
+  expect(photo1.querySelector('figcaption .title').textContent).toBe('photo 1 title');
+  expect(photo1.querySelector('figcaption .location').textContent).toBe('photo 1 location');
+  expect(photo1.querySelector('figcaption .date').textContent).toBe('2010');
 
   expect(photo2.querySelector('img').getAttribute('src')).toBe('photo-2-src.jpg');
   expect(photo2.querySelector('img').getAttribute('alt')).toBe('photo 2 alt');
-  expect(photo2.querySelector('figcaption > .description').textContent).toBe('photo 2 description');
-  expect(photo2.querySelector('figcaption > .date').textContent).toBe('2020');
+  expect(photo2.querySelector('figcaption .title').textContent).toBe('photo 2 title');
+  expect(photo2.querySelector('figcaption .location').textContent).toBe('photo 2 location');
+  expect(photo2.querySelector('figcaption .date').textContent).toBe('2020');
 });
 
 it('shows journal list', async () => {
@@ -213,29 +215,29 @@ it('shows photography', async () => {
 
   const [photo1, photo2, photo3, photo4] = document.body.querySelectorAll('section.photography > .gallery figure');
 
-  expect(photo1.getAttribute('data-album')).toBe('test-album-1');
   expect(photo1.querySelector('img').getAttribute('src')).toBe('photo-1-src.jpg');
   expect(photo1.querySelector('img').getAttribute('alt')).toBe('photo 1 alt');
-  expect(photo1.querySelector('figcaption > .description').textContent).toBe('photo 1 description');
-  expect(photo1.querySelector('figcaption > .date').textContent).toBe('2010');
+  expect(photo1.querySelector('figcaption > .title').textContent).toBe('photo 1 title');
+  expect(photo1.querySelector('figcaption > .info > .location').textContent).toBe('photo 1 location');
+  expect(photo1.querySelector('figcaption > .info > .date').textContent).toBe('2010');
 
-  expect(photo2.getAttribute('data-album')).toBe('test-album-1');
   expect(photo2.querySelector('img').getAttribute('src')).toBe('photo-2-src.jpg');
   expect(photo2.querySelector('img').getAttribute('alt')).toBe('photo 2 alt');
-  expect(photo2.querySelector('figcaption > .description').textContent).toBe('photo 2 description');
-  expect(photo2.querySelector('figcaption > .date').textContent).toBe('2020');
+  expect(photo2.querySelector('figcaption > .title').textContent).toBe('photo 2 title');
+  expect(photo2.querySelector('figcaption > .info > .location').textContent).toBe('photo 2 location');
+  expect(photo2.querySelector('figcaption > .info > .date').textContent).toBe('2020');
 
-  expect(photo3.getAttribute('data-album')).toBe('test-album-2');
   expect(photo3.querySelector('img').getAttribute('src')).toBe('photo-3-src.jpg');
   expect(photo3.querySelector('img').getAttribute('alt')).toBe('photo 3 alt');
-  expect(photo3.querySelector('figcaption > .description').textContent).toBe('photo 3 description');
-  expect(photo3.querySelector('figcaption > .date').textContent).toBe('2030');
+  expect(photo3.querySelector('figcaption > .title').textContent).toBe('photo 3 title');
+  expect(photo3.querySelector('figcaption > .info > .location').textContent).toBe('photo 3 location');
+  expect(photo3.querySelector('figcaption > .info > .date').textContent).toBe('2030');
 
-  expect(photo4.getAttribute('data-album')).toBe('test-album-2');
   expect(photo4.querySelector('img').getAttribute('src')).toBe('photo-4-src.jpg');
   expect(photo4.querySelector('img').getAttribute('alt')).toBe('photo 4 alt');
-  expect(photo4.querySelector('figcaption > .description').textContent).toBe('photo 4 description');
-  expect(photo4.querySelector('figcaption > .date').textContent).toBe('2040');
+  expect(photo4.querySelector('figcaption > .title').textContent).toBe('photo 4 title');
+  expect(photo4.querySelector('figcaption > .info > .location').textContent).toBe('photo 4 location');
+  expect(photo4.querySelector('figcaption > .info > .date').textContent).toBe('2040');
 });
 
 it('shows work', async () => {

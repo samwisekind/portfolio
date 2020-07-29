@@ -1,5 +1,7 @@
 extends ../layout.pug
 
+include ../components/photo
+
 block variables
   - const PAGE_SECTION = 'photography';
 
@@ -19,8 +21,4 @@ block main
     .gallery.js-gallery
       .column.js-column
         each photo in photos
-          figure(data-album=photo.album).js-photo
-            img(src=photo.src alt=photo.alt)
-            figcaption
-              span.description= photo.description
-              span.date= photo.date
+          +photo(photo)

@@ -1,0 +1,33 @@
+@import "../common/constants";
+
+.photo > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.photo > figcaption {
+  display: flex;
+  padding-top: 10px;
+  font-size: fontSize(14px);
+  text-align: left;
+  color: $colorPrimaryAlt;
+
+  @include breakpoint("small") {
+    padding-top: 8px;
+  }
+}
+
+.photo > figcaption > .info,
+.photo > figcaption > .date {
+  width: 50%;
+  white-space: nowrap;
+
+  &.info > .title {
+    font-weight: 700;
+  }
+
+  &.date {
+    text-align: right;
+  }
+}

@@ -110,23 +110,3 @@ main > section.photography figure > img {
   width: 100%;
   height: auto;
 }
-
-main > section.photography figure > figcaption {
-  display: flex;
-  padding-top: 10px;
-  font-size: 14px;
-  color: $colorPrimaryAlt;
-}
-
-main > section.photography figure > figcaption > span {
-  width: 50%;
-  white-space: nowrap;
-
-  &.description {
-    font-weight: 700;
-  }
-
-  &.date {
-    text-align: right;
-  }
-}
