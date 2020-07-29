@@ -66,6 +66,7 @@ albums.forEach((element) => element.addEventListener('click', (event) => {
 }));
 
 window.addEventListener('resize', sortColumns);
-sortColumns();
 
 lazyLoad.update();
+
+sortColumns();
