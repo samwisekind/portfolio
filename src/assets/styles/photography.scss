@@ -102,10 +102,6 @@ main > section.photography > .gallery figure {
   @include breakpoint("small") {
     margin-bottom: $spacingSmall * 2;
   }
-
-  &.hidden {
-    display: none;
-  }
 }
 
 main > section.photography figure > img {

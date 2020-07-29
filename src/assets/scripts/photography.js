@@ -10,27 +10,27 @@ const breakpoints = {
 };
 
 /**
- * Filter by albums
- * @param {Object} element Album button to filter by
+ * Filter and sort photos by albums
+ * @param {Object=} element Album button to filter by
  */
-const filterPhotos = (target) => {
+const sortPhotos = (target = albums.find((album) => album.classList.contains('active'))) => {
   const key = target.getAttribute('data-album');
-
-  photos.forEach((photo) => {
-    if (key === 'all' || photo.getAttribute('data-album') === key) {
-      return photo.classList.remove('hidden');
-    }
-    return photo.classList.add('hidden');
-  });
 
   albums.find((album) => album.classList.contains('active')).classList.remove('active');
   target.classList.add('active');
+
+  // Remove all photos first
+  photos.forEach((photo) => photo.remove());
+
+  // Get photos that are filtered
+  photos.filter((photo) => key === 'all' || photo.getAttribute('data-album') === key)
+    .forEach((photo, index) => columns[index % columns.length].appendChild(photo));
 };
 
 /**
  * Sorts photos by columns to ensure photos are ordered correctly in columns
  */
-const sortPhotos = () => {
+const sortColumns = () => {
   let number = 1;
   let className = 'small';
   if (window.innerWidth > breakpoints.small && window.innerWidth <= breakpoints.large) {
@@ -60,13 +60,13 @@ const sortPhotos = () => {
     columns.push(element);
   }
 
-  photos.forEach((element, index) => columns[index % number].appendChild(element));
+  sortPhotos();
 };
 
 albums.forEach((element) => element.addEventListener('click', (event) => {
   event.preventDefault();
-  filterPhotos(element);
+  sortPhotos(element);
 }));
 
-window.addEventListener('resize', sortPhotos);
-sortPhotos();
+window.addEventListener('resize', sortColumns);
+sortColumns();
