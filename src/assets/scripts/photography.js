@@ -1,4 +1,7 @@
 /* eslint-disable no-param-reassign */
+
+import lazyLoad from './global';
+
 const albums = Array.from(document.querySelectorAll('.js-album'));
 const photos = Array.from(document.querySelectorAll('.js-photo'));
 const gallery = document.querySelector('.js-gallery');
@@ -64,3 +67,5 @@ albums.forEach((element) => element.addEventListener('click', (event) => {
 
 window.addEventListener('resize', sortColumns);
 sortColumns();
+
+lazyLoad.update();

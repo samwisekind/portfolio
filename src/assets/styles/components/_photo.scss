@@ -1,9 +1,21 @@
 @import "../common/constants";
 
-.photo > img {
+.photo > .container {
+  background: rgba($colorPrimaryAlt, .3);
+}
+
+.photo > .container > img {
   display: block;
   width: 100%;
   height: auto;
+
+  &:not(.loaded) {
+    padding-top: (9 / 16) * 100%;
+  }
+  
+  &:not([src]) {
+    visibility: hidden;
+  }
 }
 
 .photo > figcaption {

@@ -1,6 +1,7 @@
-mixin photo({ title, src, alt, album, location, date })
+mixin photo({ title, alt, location, album, date, src })
   figure(data-album=album).photo.js-photo
-    img(src=src alt=alt)
+    .container
+      img(data-src=src alt=alt).js-lazy
     figcaption
       div.info
         p.title=title
