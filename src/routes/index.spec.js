@@ -217,27 +217,27 @@ it('shows photography', async () => {
 
   expect(photo1.querySelector('img').getAttribute('src')).toBe('photo-1-src.jpg');
   expect(photo1.querySelector('img').getAttribute('alt')).toBe('photo 1 alt');
-  expect(photo1.querySelector('figcaption > .title').textContent).toBe('photo 1 title');
+  expect(photo1.querySelector('figcaption > .info > .title').textContent).toBe('photo 1 title');
   expect(photo1.querySelector('figcaption > .info > .location').textContent).toBe('photo 1 location');
-  expect(photo1.querySelector('figcaption > .info > .date').textContent).toBe('2010');
+  expect(photo1.querySelector('figcaption > .date').textContent).toBe('2010');
 
   expect(photo2.querySelector('img').getAttribute('src')).toBe('photo-2-src.jpg');
   expect(photo2.querySelector('img').getAttribute('alt')).toBe('photo 2 alt');
-  expect(photo2.querySelector('figcaption > .title').textContent).toBe('photo 2 title');
+  expect(photo2.querySelector('figcaption > .info > .title').textContent).toBe('photo 2 title');
   expect(photo2.querySelector('figcaption > .info > .location').textContent).toBe('photo 2 location');
-  expect(photo2.querySelector('figcaption > .info > .date').textContent).toBe('2020');
+  expect(photo2.querySelector('figcaption > .date').textContent).toBe('2020');
 
   expect(photo3.querySelector('img').getAttribute('src')).toBe('photo-3-src.jpg');
   expect(photo3.querySelector('img').getAttribute('alt')).toBe('photo 3 alt');
-  expect(photo3.querySelector('figcaption > .title').textContent).toBe('photo 3 title');
+  expect(photo3.querySelector('figcaption > .info > .title').textContent).toBe('photo 3 title');
   expect(photo3.querySelector('figcaption > .info > .location').textContent).toBe('photo 3 location');
-  expect(photo3.querySelector('figcaption > .info > .date').textContent).toBe('2030');
+  expect(photo3.querySelector('figcaption > .date').textContent).toBe('2030');
 
   expect(photo4.querySelector('img').getAttribute('src')).toBe('photo-4-src.jpg');
   expect(photo4.querySelector('img').getAttribute('alt')).toBe('photo 4 alt');
-  expect(photo4.querySelector('figcaption > .title').textContent).toBe('photo 4 title');
+  expect(photo4.querySelector('figcaption > .info > .title').textContent).toBe('photo 4 title');
   expect(photo4.querySelector('figcaption > .info > .location').textContent).toBe('photo 4 location');
-  expect(photo4.querySelector('figcaption > .info > .date').textContent).toBe('2040');
+  expect(photo4.querySelector('figcaption > .date').textContent).toBe('2040');
 });
 
 it('shows work', async () => {
