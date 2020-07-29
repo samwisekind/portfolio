@@ -34,6 +34,6 @@ block main
       .wrapper
         for photo in photos
           .item
-            +photo({ src: photo.src, alt: photo.alt, description: photo.description, date: photo.date })
+            +photo(photo)
         .item.end
           +button({ text: "View More", url: "/photography" })

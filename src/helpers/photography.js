@@ -5,13 +5,19 @@ const { PHOTOGRAPHY_DATA_PATH } = require('./constants');
 
 const getPhotos = () => {
   const data = fs.readFileSync(PHOTOGRAPHY_DATA_PATH, 'utf-8');
-  const photos = yaml.parse(data).sort((a, b) => a.order - b.order);
 
-  return photos;
+  const results = yaml.parse(data);
+
+  return {
+    photos: results.photos.sort((a, b) => a.order - b.order),
+    albums: results.albums,
+  };
 };
 
 const getFeaturedPhotos = () => {
-  const featuredPhotos = getPhotos().filter((photo) => photo.featured);
+  const { photos } = getPhotos();
+
+  const featuredPhotos = photos.filter((photo) => photo.featured);
 
   return featuredPhotos;
 };

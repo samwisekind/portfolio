@@ -1,24 +1,24 @@
 extends ../layout.pug
 
+include ../components/photo
+
 block variables
   - const PAGE_SECTION = 'photography';
 
 block styles
   link(rel='stylesheet' href='/public/styles/photography.css')
 
+block scripts
+  script(src='/public/scripts/photography.js' async defer)
+
 block main
   section.photography
-    .photos-controls
-      a(href="#").active All
-      a(href="#") 🇰🇪 Kenya
-      a(href="#") 🇭🇰 Hong Kong
-      a(href="#") 🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales
-      a(href="#") 🇬🇧 UK
-      a(href="#") 🇨🇳 China
-    .photos-wrapper
-      each photo in photos
-        figure
-          img(src=photo.src alt=photo.alt)
-          figcaption
-            span.description= photo.description
-            span.date= photo.date
+    if albums
+      .controls
+        a(href="#" data-album="all").active.js-album All
+        for album in albums
+          a(href="#" data-album=album.key).js-album=album.name
+    .gallery.js-gallery
+      .column.js-column
+        each photo in photos
+          +photo(photo)
