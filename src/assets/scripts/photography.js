@@ -4,10 +4,7 @@ const photos = Array.from(document.querySelectorAll('.js-photo'));
 const gallery = document.querySelector('.js-gallery');
 const columns = Array.from(gallery.querySelectorAll('.js-column'));
 
-const breakpoints = {
-  large: 1200,
-  small: 800,
-};
+const breakpoint = 800;
 
 /**
  * Filter and sort photos by albums
@@ -33,12 +30,9 @@ const sortPhotos = (target = albums.find((album) => album.classList.contains('ac
 const sortColumns = () => {
   let number = 1;
   let className = 'small';
-  if (window.innerWidth > breakpoints.small && window.innerWidth <= breakpoints.large) {
+  if (window.innerWidth > breakpoint) {
     number = 2;
     className = 'medium';
-  } else if (window.innerWidth > breakpoints.large) {
-    number = 3;
-    className = 'large';
   }
 
   // Don't do anything if columns don't need to be resorted
