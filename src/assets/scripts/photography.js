@@ -2,7 +2,7 @@
 const albums = Array.from(document.querySelectorAll('.js-album'));
 const photos = Array.from(document.querySelectorAll('.js-photo'));
 const gallery = document.querySelector('.js-gallery');
-let columns = [];
+const columns = Array.from(gallery.querySelectorAll('.js-column'));
 
 const breakpoints = {
   large: 1000,
