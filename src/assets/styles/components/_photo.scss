@@ -1,10 +1,10 @@
 @import "../common/constants";
 
-.photo > .container {
+figure.photo > .container {
   background: rgba($colorPrimaryAlt, .3);
 }
 
-.photo > .container > img {
+figure.photo > .container > img {
   display: block;
   width: 100%;
   height: auto;
@@ -18,7 +18,7 @@
   }
 }
 
-.photo > figcaption {
+figure.photo > figcaption {
   display: flex;
   padding-top: 10px;
   font-size: fontSize(14px);
@@ -30,8 +30,8 @@
   }
 }
 
-.photo > figcaption > .info,
-.photo > figcaption > .date {
+figure.photo > figcaption > .info,
+figure.photo > figcaption > .date {
   width: 50%;
   white-space: nowrap;
 
