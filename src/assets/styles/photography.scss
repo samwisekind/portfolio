@@ -6,7 +6,7 @@ main {
   max-width: 2000px;
 }
 
-main > section.photography > .photos-controls {
+main > section.photography > .controls {
   margin-bottom: $spacingLarge * 2;
   text-align: center;
 
@@ -19,7 +19,7 @@ main > section.photography > .photos-controls {
   }
 }
 
-main > section.photography > .photos-controls > a {
+main > section.photography > .controls > a {
   /* To-do: combine these with the .button styles */
 
   $transition-timing: .2s;
@@ -69,21 +69,28 @@ main > section.photography > .photos-controls > a {
   }
 }
 
-main > section.photography > .photos-wrapper {
-  column-count: 3;
-  column-gap: $spacingLarge * 2;
+main > section.photography > .gallery {
+  display: flex;
+  justify-content: space-evenly;
+}
 
-  @include breakpoint("medium") {
-    column-count: 2;
-    column-gap: $spacingMedium * 2;
+main > section.photography > .gallery > .column {
+  width: 100%;
+
+  &.large {
+    margin-right: $spacingLarge * 2;
   }
 
-  @include breakpoint("small") {
-    column-count: 1;
+  &.medium {
+    margin-right: $spacingMedium * 2;
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 }
 
-main > section.photography > .photos-wrapper > figure {
+main > section.photography > .gallery figure {
   display: block;
   break-inside: avoid;
   margin-bottom: $spacingLarge * 2;
@@ -95,23 +102,27 @@ main > section.photography > .photos-wrapper > figure {
   @include breakpoint("small") {
     margin-bottom: $spacingSmall * 2;
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
-main > section.photography > .photos-wrapper > figure > img {
+main > section.photography figure > img {
   margin: 0 auto;
   display: block;
   width: 100%;
   height: auto;
 }
 
-main > section.photography > .photos-wrapper > figure > figcaption {
+main > section.photography figure > figcaption {
   display: flex;
   padding-top: 10px;
   font-size: 14px;
   color: $colorPrimaryAlt;
 }
 
-main > section.photography > .photos-wrapper > figure > figcaption > span {
+main > section.photography figure > figcaption > span {
   width: 50%;
   white-space: nowrap;
 

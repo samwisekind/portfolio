@@ -28,9 +28,9 @@ router.get('/journal/:slug', async (req, res) => {
 });
 
 router.get('/photography', (req, res) => {
-  const photos = getPhotos();
+  const data = getPhotos();
 
-  res.render('pages/photography', { photos });
+  res.render('pages/photography', data);
 });
 
 router.get('/work', (req, res) => {
