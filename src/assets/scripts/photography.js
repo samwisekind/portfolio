@@ -5,8 +5,8 @@ const gallery = document.querySelector('.js-gallery');
 const columns = Array.from(gallery.querySelectorAll('.js-column'));
 
 const breakpoints = {
-  large: 1000,
-  small: 600,
+  large: 1200,
+  small: 800,
 };
 
 /**
