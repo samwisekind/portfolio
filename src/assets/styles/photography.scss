@@ -102,7 +102,7 @@ main > section.photography > .gallery figure {
   @include breakpoint("small") {
     margin-bottom: $spacingSmall * 2;
 
-    img {
+    > .container {
       margin-left: -($spacingSmall * 2);
       width: 100vw;
     }
