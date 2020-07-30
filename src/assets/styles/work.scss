@@ -8,7 +8,7 @@ main > section.work > h1 {
   line-height: fontSize(48px);
 }
 
-main > section.work p {
+main > section.work > p {
   margin-top: $spacingLarge;
   font-size: fontSize(20px);
 
@@ -19,17 +19,53 @@ main > section.work p {
   @include breakpoint("small") {
     margin-top: $spacingSmall;
   }
+  > span.mono {
+    @extend %fontMonospace;
+  }
 }
 
-main > section.work > .columns {
+main > section.work > p.greeting {
   display: flex;
-}
+  align-items: center;
 
-main > section.work > .columns > .columns-wrapper {
-  width: 50%;
+  $rotation: 20deg;
+
+  @keyframes cycle {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(-$rotation);
+    }
+
+    15% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+
+    85% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: scale(0) rotate($rotation);
+    }
+  }
+
+  &:before {
+    content: attr(data-current);
+    display: inline-block;
+    margin-right: 10px;
+    font-size: fontSize(28px);
+    line-height: fontSize(28px);
+    animation: 3s cubic-bezier(.68, -.6, .32, 1.6) 0s infinite cycle;
+    animation-fill-mode: forwards;
+    will-change: opacity, transform;
+  }
 }
 
 main > section.work ul {
+  columns: 2;
   margin-top: $spacingLarge;
   list-style: none;
 
@@ -76,7 +112,8 @@ main > section.work ul > li {
   }
 }
 
-main > section.projects {
+main > section.projects,
+main > section.awards {
   margin-top: $spacingLarge * 3;
 
   @include breakpoint("medium") {
@@ -88,10 +125,12 @@ main > section.projects {
   }
 }
 
-main > section.projects > h2 {
+main > section.projects > h2,
+main > section.awards > h2 {
   margin-bottom: $spacingLarge;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   @include breakpoint("small") {
     margin-bottom: $spacingSmall;
@@ -114,7 +153,8 @@ main > section.projects > h2 {
   }
 }
 
-main > section.projects > .item {
+main > section.projects > .item,
+main > section.awards > .item {
   margin-bottom: $spacingLarge;
 
   @extend %box;
@@ -132,15 +172,17 @@ main > section.projects > .item {
   }
 }
 
-main > section.projects .item > h3 {
+main > section.projects > .item > h3,
+main > section.awards > .item > h3 {
   margin-bottom: 10px;
 }
 
-main > section.projects .item > p {
+main > section.projects > .item > p,
+main > section.awards > .item > h3 {
   font-size: fontSize(18px);
 }
 
-main > section.projects .item > .bottom {
+main > section.projects > .item > .bottom {
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -263,4 +305,11 @@ main > section.projects > .items-more > .item > svg {
     width: $size;
     height: $size;
   }
+}
+
+main > section.awards > .item > p.date {
+  font-size: fontSize(14px);
+  color: $colorPrimaryAlt;
+
+  @extend %fontMonospace;
 }

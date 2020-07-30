@@ -81,6 +81,10 @@ section > .wrapper > .item {
   }
 }
 
+main > section.work > h1 > span {
+  color: $colorSecondary;
+}
+
 main > section.work > .bottom {
   display: flex;
   align-items: center;
