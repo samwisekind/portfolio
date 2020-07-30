@@ -69,6 +69,7 @@ main > section.photography > .controls > select {
   border: 0;
   background: no-repeat $colorSecondary url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4LjU3IiB2aWV3Qm94PSIwIDAgMTUgOC41NyI+CiAgPHBhdGggZD0iTTcuNSw4LjU3YTEuMDcsMS4wNywwLDAsMS0uNzYtLjMxTC4zMSwxLjgzQTEuMDcsMS4wNywwLDAsMSwxLjgzLjMxTDcuNSw2LDEzLjE3LjMxYTEuMDcsMS4wNywwLDAsMSwxLjUyLDEuNTJMOC4yNiw4LjI2QTEuMDcsMS4wNywwLDAsMSw3LjUsOC41N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIHN0eWxlPSJmaWxsOiAjRkZGIiAvPgo8L3N2Zz4K");
   background-position: calc(100% - 20px) center;
+  transition: background-color .1s $easeStandard;
 
   @include breakpoint("medium") {
     margin-left: 15px;
@@ -84,6 +85,15 @@ main > section.photography > .controls > select {
     height: 30px;
     border-radius: 30px;
     background-position: calc(100% - 15px) center;
+  }
+
+  &:hover,
+  &:active {
+    background-color: $colorSecondaryAlt;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
