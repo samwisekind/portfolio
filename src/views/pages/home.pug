@@ -11,13 +11,13 @@ block styles
 
 block main
   section.work
-    h1 I am a software engineer focusing on <span>frontend</span> & <span>backend</span> web development. I currently work as a <span>tech lead</span> in London.
+    h1 a software engineer focusing on <span>frontend</span> & <span>backend</span> web development working as a <span>tech lead</span> in London
     .bottom
-      +button({ text: "Learn More", url: "/work" })
+      +button({ text: "hello", url: "/work" })
 
   if articles
     section.journal
-      h2 Journal
+      h2 Writing
       .wrapper
         for article in articles
           .item
@@ -26,7 +26,7 @@ block main
             p.blurb= article.attributes.blurb
             p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
         .item.end
-          +button({ text: "Read More", url: "/journal" })
+          +button({ text: "words", url: "/journal" })
 
   if photos
     section.photography
@@ -36,4 +36,4 @@ block main
           .item
             +photo(photo)
         .item.end
-          +button({ text: "View More", url: "/photography" })
+          +button({ text: "photos", url: "/photography" })

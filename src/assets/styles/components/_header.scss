@@ -22,18 +22,15 @@ nav.header {
 
 nav.header > a {
   position: relative;
-  margin-right: 20px;
-  padding-bottom: 8px;
   font-weight: 700;
   font-size: fontSize(24px);
   line-height: fontSize(24px);
   text-decoration: none;
+  text-transform: lowercase;
   color: $colorPrimary;
   white-space: nowrap;
 
   @include breakpoint("medium") {
-    margin-right: 15px;
-
     > span {
       display: none;
     }
@@ -45,36 +42,14 @@ nav.header > a {
     }
   }
 
-  &:before {
-    position: absolute;
-    bottom: -6px;
-    display: none;
-    width: 100%;
-    background: $colorPrimary;
-
-    @extend %line;
-
-    @include breakpoint("medium") {
-      bottom: -4px;
-    }
-
-    @include breakpoint("small") {
-      bottom: -2px;
-    }
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
-  
   &.title {
-    margin-right: 30px;
+    margin-right: $spacingLarge / 2;
     font-size: fontSize(30px);
     line-height: fontSize(30px);
     font-weight: 700;
 
     @include breakpoint("medium") {
-      margin-right: 20px;
+      margin-right: $spacingSmall / 2;
     }
 
     @include breakpoint("small") {
@@ -82,31 +57,25 @@ nav.header > a {
     }
   }
 
+  &.link {
+    padding: 0 $spacingLarge / 2;
+
+    @include breakpoint("medium") {
+      padding: 0 $spacingSmall / 2;
+    }
+  }
+
   &.spacing {
     margin-left: auto;
   }
 
-  &:hover,
-  &.active {
-    border-bottom-color: $colorPrimary;
-  }
-
-  &:hover:before,
-  &.active:before {
-    display: block;
-  }
-
-  &.active {
+  &.active,
+  &:hover {
     color: $colorSecondary;
-    border-bottom-color: $colorSecondary;
-  }
 
-  &.active:before {
-    background: $colorSecondary;
-  }
-
-  &.active > svg {
-    fill: $colorSecondary;
+    > svg {
+      fill: $colorSecondary;
+    }
   }
 }
 

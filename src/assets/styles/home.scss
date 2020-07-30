@@ -26,6 +26,7 @@ section > h1,
 section > h2 {
   margin-bottom: $spacingLarge;
   font-size: fontSize(32px);
+  text-transform: lowercase;
 
   @include breakpoint("medium") {
     margin-bottom: $spacingMedium;
