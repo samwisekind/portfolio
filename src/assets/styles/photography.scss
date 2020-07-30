@@ -9,14 +9,14 @@ main {
 main > section.photography > .controls {
   display: flex;
   align-items: center;
-  margin-bottom: $spacingLarge * 2;
+  margin-bottom: $spacingLarge * 3;
 
   @include breakpoint("medium") {
-    margin-bottom: $spacingMedium * 2;
+    margin-bottom: $spacingMedium * 3;
   }
 
   @include breakpoint("small") {
-    margin-bottom: $spacingSmall * 4;
+    margin-bottom: $spacingSmall * 3;
   }
 
   &:before,
