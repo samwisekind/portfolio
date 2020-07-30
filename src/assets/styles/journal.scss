@@ -9,6 +9,7 @@ main > .journal > h1 {
   font-size: fontSize(48px);
   line-height: fontSize(48px);
   font-weight: 700;
+  text-transform: lowercase;
 
   @include breakpoint("small") {
     margin-bottom: $spacingSmall;

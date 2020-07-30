@@ -130,6 +130,7 @@ main > section.awards > h2 {
   display: flex;
   align-items: center;
   white-space: nowrap;
+  text-transform: lowercase;
 
   @include breakpoint("small") {
     margin-bottom: $spacingSmall;
