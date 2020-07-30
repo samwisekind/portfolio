@@ -7,8 +7,8 @@ albums:
     key: &wales wales
   - name: 🇨🇦 Canada
     key: &canada canada
-  - name: 🇬🇧 UK
-    key: &uk uk
+  - name: 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England
+    key: &england england
   - name: 🇻🇳 Vietnam
     key: &vietnam vietnam
   - name: 🇨🇳 China
@@ -28,7 +28,7 @@ photos:
   - title: Surprised Fox
     alt: A photo of a fox looking surprised in London, UK
     location: London, UK
-    album: *uk
+    album: *england
     date: 2010
     src:
       jpg: https://cdn.flamov.com/photos-new/surprised-fox.jpg
@@ -74,7 +74,7 @@ photos:
   - title: By The Fence
     alt: A photo of a set of fences leading up a hill in Peak District, UK
     location: Peak District, UK
-    album: *uk
+    album: *england
     date: 2016
     src:
       jpg: https://cdn.flamov.com/photos-new/by-the-fence.jpg
@@ -110,7 +110,7 @@ photos:
   - title: Tree With A View
     alt: A black and white photo of a tree on the side of a hill in the Peak District, UK
     location: Peak District, UK
-    album: *uk
+    album: *england
     date: 2017
     src:
       jpg: https://cdn.flamov.com/photos-new/tree-with-a-view.jpg
@@ -128,7 +128,7 @@ photos:
   - title: Curvature
     alt: A photo of a fox in the London, UK
     location: London, UK
-    album: *uk
+    album: *england
     date: 2010
     src:
       jpg: https://cdn.flamov.com/photos-new/curvature.jpg
@@ -173,7 +173,7 @@ photos:
   - title: Swan Wings
     alt: A photo of a swan in a lake in London, UK
     location: London, UK
-    album: *uk
+    album: *england
     date: 2010
     src:
       jpg: https://cdn.flamov.com/photos-new/swan-wings.jpg
@@ -236,7 +236,7 @@ photos:
   - title: Ridgeline
     alt: A photo of a snow-topped ridgeline in Snowdonia, Wales
     location: Wales, UK
-    album: *uk
+    album: *wales
     date: 2017
     src:
       jpg: https://cdn.flamov.com/photos-new/ridgeline.jpg
