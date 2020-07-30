@@ -2,7 +2,7 @@
 
 import lazyLoad from './global';
 
-const albums = Array.from(document.querySelectorAll('.js-album'));
+const albums = document.querySelector('.js-albums');
 const photos = Array.from(document.querySelectorAll('.js-photo'));
 const gallery = document.querySelector('.js-gallery');
 const columns = Array.from(gallery.querySelectorAll('.js-column'));
@@ -11,19 +11,13 @@ const breakpoint = 800;
 
 /**
  * Filter and sort photos by albums
- * @param {Object=} element Album button to filter by
  */
-const sortPhotos = (target = albums.find((album) => album.classList.contains('active'))) => {
-  const key = target.getAttribute('data-album');
-
-  albums.find((album) => album.classList.contains('active')).classList.remove('active');
-  target.classList.add('active');
-
+const sortPhotos = () => {
   // Remove all photos first
   photos.forEach((photo) => photo.remove());
 
   // Get photos that are filtered
-  photos.filter((photo) => key === 'all' || photo.getAttribute('data-album') === key)
+  photos.filter((photo) => albums.value === 'all' || photo.getAttribute('data-album') === albums.value)
     .forEach((photo, index) => columns[index % columns.length].appendChild(photo));
 };
 
@@ -60,11 +54,7 @@ const sortColumns = () => {
   sortPhotos();
 };
 
-albums.forEach((element) => element.addEventListener('click', (event) => {
-  event.preventDefault();
-  sortPhotos(element);
-}));
-
+albums.addEventListener('input', sortPhotos);
 window.addEventListener('resize', sortColumns);
 
 lazyLoad.update();
