@@ -1,4 +1,4 @@
-name: Pull Request
+name: Build and deploy test
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - feature/redesign
 
 jobs:
-  pull-request:
+  build-deploy-test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
