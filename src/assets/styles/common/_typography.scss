@@ -19,6 +19,7 @@ html {
 
 body {
   font-size: fontSize(16px);
+  font-weight: 500;
 
   @extend %fontMain;
 }

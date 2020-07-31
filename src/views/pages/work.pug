@@ -11,9 +11,9 @@ block styles
 block main
   section.work
     h1 me
-    p(data-current="👋" data-emojis="👋|✌️|🤙|🖖|🤘|🤝|❤️").greeting.js-greeting you!
+    p(data-current="👋" data-emojis="👋|✌️|🤙|🖖|🤘|🤝|❤️").greeting.js-greeting Hello you!
     p I am a software engineer focusing on frontend and backend web development as well as a number of things in-between, currently working in London as a Tech Lead in e-commerce.
-    p I aim for performant, accessible, and engaging visual frontend experiences and scalable, robust, and well-documented backend systems. All in all using as few bytes as possible to deliver great experiences to as many people as possible.
+    p I aim for performant, accessible, and engaging frontend experiences with scalable, robust, and well-documented backend systems. All in all using as few bytes as possible to deliver great experiences to as many people as possible.
     p Here are some of the technologies I use the most:
     ul
       li Node.js
@@ -67,11 +67,11 @@ block main
           polygon(points='18.14 13.07 18.14 10.93 16.55 12 18.14 13.07')
         span More on <b>CodePen</b>
 
-  if awards
-    section.awards
-      h2 Awards
-      for award in awards
+  if recognitions
+    section.recognitions
+      h2 Recognitions
+      for item in recognitions
         .item
           h3
-            a(href=award.url alt="")=award.title
-          p.date=award.date
+            a(href=item.url alt="")=item.title
+          p.date=item.date
