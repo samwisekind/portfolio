@@ -16,6 +16,7 @@ $transition-timing: .1s;
   border-radius: $height;
   text-align: center;
   text-decoration: none;
+  text-transform: lowercase;
   white-space: nowrap;
   background: $colorSecondary;
   transition: background $transition-timing $easeStandard;

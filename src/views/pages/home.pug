@@ -13,7 +13,7 @@ block main
   section.work
     h1 a software engineer focusing on <span>frontend</span> & <span>backend</span> web development working as a <span>tech lead</span> in London
     .bottom
-      +button({ text: "hello", url: "/work" })
+      +button({ text: "Hello", url: "/work" })
 
   if articles
     section.journal
@@ -26,7 +26,7 @@ block main
             p.blurb= article.attributes.blurb
             p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
         .item.end
-          +button({ text: "words", url: "/journal" })
+          +button({ text: "More", url: "/journal" })
 
   if photos
     section.photography
@@ -36,4 +36,4 @@ block main
           .item
             +photo(photo)
         .item.end
-          +button({ text: "photos", url: "/photography" })
+          +button({ text: "More", url: "/photography" })
