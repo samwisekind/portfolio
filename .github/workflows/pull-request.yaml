@@ -18,8 +18,8 @@ jobs:
     - name: Install dependencies and build assets
       run: npm ci --unsafe-perm && npm run assets:build
     - name: Test eslint
-      run: npm run test:eslint:report
+      run: npm run eslint:report
     - name: Test stylelint
-      run: npm run test:stylelint
+      run: npm run stylelint
     - name: Test unit and integration
-      run: npm run test:unit:coverage
+      run: npm run test:coverage
