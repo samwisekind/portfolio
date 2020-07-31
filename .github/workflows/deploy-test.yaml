@@ -19,3 +19,4 @@ jobs:
         registry: docker.pkg.github.com
         repository: flamov/portfolio/portfolio
         tag_with_sha: true
+        tags: test
