@@ -45,20 +45,20 @@ jobs:
           docker-compose pull app-test:test
           docker-compose up --no-deps -d app-test
 
-      - name: Update deployment status (success)
-        if: success()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: ${{ github.token }}
-          target_url: https://flamov.com/test
-          state: "success"
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: ${{ github.token }}
+        target_url: https://flamov.com/test
+        state: "success"
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: ${{ github.token }}
-          target_url: https://flamov.com/test
-          state: "failure"
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+    - name: Update deployment status (failure)
+      if: failure()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: ${{ github.token }}
+        target_url: https://flamov.com/test
+        state: "failure"
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
