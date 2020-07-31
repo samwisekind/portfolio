@@ -11,17 +11,28 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - uses: chrnorm/deployment-action@releases/v1
+      name: Create GitHub deployment
+      id: deployment
+      with:
+        token: ${{ github.token }}
+        target_url: https://flamov.com/test
+        environment: test
+
     - name: Get git hash
       id: hash
       run: echo "::set-output name=hash::$(git rev-parse --short=7 ${{ github.sha }})"
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v1
       with:
         username: Flamov
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ github.token }}
         registry: docker.pkg.github.com
         repository: flamov/portfolio/portfolio
         tags: test
+
     - name: Deploy test image
       uses: appleboy/ssh-action@master
       with:
@@ -33,3 +44,21 @@ jobs:
           cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u Flamov --password-stdin
           docker-compose pull app-test:test
           docker-compose up --no-deps -d app-test
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ github.token }}
+          target_url: https://flamov.com/test
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ github.token }}
+          target_url: https://flamov.com/test
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
