@@ -42,7 +42,7 @@ jobs:
         script_stop: true
         script: |
           cd flamov-portfolio-compose
-          cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u Flamov -p --password-stdin
+          echo ${{ secrets.GITHUB_PACKAGES_TOKEN }} | docker login docker.pkg.github.com -u Flamov -p --password-stdin
           docker-compose pull app-test
           docker-compose up --no-deps -d app-test
 
