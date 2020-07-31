@@ -19,4 +19,4 @@ block main
             a(href=`writing/${article.slug}`)= article.attributes.title
           p= article.attributes.blurb
           p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
-          +button({ text: "Read", url: `/writing/${article.slug}` })
+          +button({ text: "Read", url: `writing/${article.slug}` })
