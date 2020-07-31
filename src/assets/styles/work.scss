@@ -272,8 +272,8 @@ main > section.projects > .items-more > .item {
   }
 
   &:hover {
-    border-color: #FFF;
-    background: lighten($colorBackgroundAlt, 10%);
+    color: $colorPrimary;
+    border-color: $colorSecondary;
   }
 
   &:hover > svg {

@@ -27,3 +27,12 @@ pre,
 code {
   @extend %fontMonospace;
 }
+
+a {
+  font-weight: 700;
+  text-decoration: underline;
+
+  &:hover {
+    color: $colorSecondary;
+  }
+}
