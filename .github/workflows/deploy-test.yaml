@@ -16,7 +16,7 @@ jobs:
       name: Create GitHub deployment
       id: deployment
       with:
-        token: ${{ github.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         target_url: https://flamov.com/test
         environment: test
 
@@ -28,7 +28,7 @@ jobs:
       uses: docker/build-push-action@v1
       with:
         username: Flamov
-        password: ${{ github.token }}
+        password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: flamov/portfolio/portfolio
         tags: test
@@ -39,6 +39,7 @@ jobs:
         host: ${{ secrets.SSH_IP }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: true
         script: |
           cd flamov-portfolio-compose
           cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u Flamov --password-stdin
@@ -49,7 +50,7 @@ jobs:
       if: success()
       uses: chrnorm/deployment-status@releases/v1
       with:
-        token: ${{ github.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         target_url: https://flamov.com/test
         state: "success"
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
@@ -58,7 +59,7 @@ jobs:
       if: failure()
       uses: chrnorm/deployment-status@releases/v1
       with:
-        token: ${{ github.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         target_url: https://flamov.com/test
         state: "failure"
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
