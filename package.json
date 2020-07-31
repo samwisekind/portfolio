@@ -1,7 +1,8 @@
 {
-  "name": "flamov-portfolio",
+  "name": "portfolio",
   "version": "3.1.0",
-  "description": "Flamov portfolio website",
+  "private": true,
+  "description": "Portfolio website",
   "main": "server.js",
   "directories": {
     "test": "tests"
@@ -13,27 +14,26 @@
     "assets:build": "parcel build src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --public-url ./ --detailed-report",
     "assets:watch": "parcel watch src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --public-url ./",
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
-    "eslint:report": "npm run eslint -- -f junit -o reports/eslint/results.xml",
+    "eslint:report": "npm run eslint -- -f json -o reports/eslint.xml",
     "stylelint": "stylelint 'src/assets/**/*.scss'",
-    "test": "export NODE_ENV=test && jest .*.spec.js --verbose",
+    "test": "NODE_ENV=test && jest .*.spec.js --verbose",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm run test -- --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://Flamov@github.com/Flamov/flamov-portfolio.git"
+    "url": "git+https://Flamov@github.com/Flamov/portfolio.git"
   },
   "keywords": [
-    "flamov",
     "portfolio",
     "website"
   ],
   "author": "Samuel Kindler",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Flamov/flamov-portfolio/issues"
+    "url": "https://github.com/Flamov/portfolio/issues"
   },
-  "homepage": "https://github.com/Flamov/flamov-portfolio#readme",
+  "homepage": "https://github.com/Flamov/portfolio#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
