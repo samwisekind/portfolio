@@ -22,7 +22,7 @@ block main
         for article in articles
           .item
             h3
-              a(href=`/writing/${article.slug}`)= article.attributes.title
+              a(href=`writing/${article.slug}`)= article.attributes.title
             p.blurb= article.attributes.blurb
             p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
         .item.end
