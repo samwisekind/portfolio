@@ -21,7 +21,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: flamov/portfolio/portfolio
-        tags: test,${{ steps.hash.outputs.hash }}
+        tags: test
     - name: Deploy test image
       uses: appleboy/ssh-action@master
       with:
@@ -31,5 +31,5 @@ jobs:
         script: |
           cd flamov-portfolio-compose
           cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u Flamov --password-stdin
-          docker-compose pull app-test
+          docker-compose pull app-test:test
           docker-compose up --no-deps -d app-test
