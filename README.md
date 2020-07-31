@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-![Build and deploy test](https://github.com/Flamov/portfolio/actions?query=workflow%3A%22Build+and+deploy+test%22)(https://github.com/Flamov/portfolio/workflows/Build%20and%20deploy%20test/badge.svg)
+[![Build and deploy test](https://github.com/Flamov/portfolio/actions?query=workflow%3A%22Build+and+deploy+test%22)](https://github.com/Flamov/portfolio/workflows/Build%20and%20deploy%20test/badge.svg)
 
 Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
 
