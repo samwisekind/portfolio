@@ -16,17 +16,17 @@ block main
       +button({ text: "Hello", url: "/work" })
 
   if articles
-    section.journal
+    section.writing
       h2 Writing
       .wrapper
         for article in articles
           .item
             h3
-              a(href=`/journal/${article.slug}`)= article.attributes.title
+              a(href=`/writing/${article.slug}`)= article.attributes.title
             p.blurb= article.attributes.blurb
             p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
         .item.end
-          +button({ text: "More", url: "/journal" })
+          +button({ text: "More", url: "/writing" })
 
   if photos
     section.photography

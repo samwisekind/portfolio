@@ -1,4 +1,4 @@
-const JOURNAL_DATA_DIRECTORY = './src/data/journal/**.md';
+const JOURNAL_DATA_DIRECTORY = './src/data/writing/**.md';
 
 const PHOTOGRAPHY_DATA_PATH = './src/data/photography.yaml';
 

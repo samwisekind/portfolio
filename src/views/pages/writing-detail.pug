@@ -1,15 +1,15 @@
 extends ../layout.pug
 
 block variables
-  - const PAGE_SECTION = 'journal';
+  - const PAGE_SECTION = 'writing';
   - const PAGE_TITLE = attributes.title;
   - const PAGE_DESCRIPTION = attributes.description;
 
 block styles
-  link(rel='stylesheet' href='/public/styles/journal.css')
+  link(rel='stylesheet' href='/public/styles/writing.css')
 
 block main
-  article.journal-detail
+  article.writing-detail
     if content
       | !{content}
     if attributes && attributes.published

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-jest.mock('../helpers/journal', () => ({
+jest.mock('../helpers/writing', () => ({
   getJournalArticlesList: jest.fn(),
 }));
 
@@ -15,7 +15,7 @@ const request = require('supertest');
 
 const app = require('../app');
 
-const { getJournalArticlesList } = require('../helpers/journal');
+const { getJournalArticlesList } = require('../helpers/writing');
 const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
 
 beforeEach(() => {
@@ -144,12 +144,12 @@ it('shows home', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelectorAll('section.journal .item:not(.end)').length).toBe(2);
-  const [journal1, journal2] = document.body.querySelectorAll('section.journal .item:not(.end)');
+  expect(document.body.querySelectorAll('section.writing .item:not(.end)').length).toBe(2);
+  const [journal1, journal2] = document.body.querySelectorAll('section.writing .item:not(.end)');
 
-  expect(journal1.querySelector('h3 > a').getAttribute('href')).toBe('/journal/test-1');
+  expect(journal1.querySelector('h3 > a').getAttribute('href')).toBe('/writing/test-1');
   expect(journal1.querySelector('h3 > a').textContent).toBe('foo');
-  expect(journal2.querySelector('h3 > a').getAttribute('href')).toBe('/journal/test-2');
+  expect(journal2.querySelector('h3 > a').getAttribute('href')).toBe('/writing/test-2');
   expect(journal2.querySelector('h3 > a').textContent).toBe('hello');
 
   expect(document.body.querySelectorAll('section.photography .item:not(.end)').length).toBe(2);
@@ -171,8 +171,8 @@ it('shows home', async () => {
   expect(photo2.querySelector('figcaption .date').textContent).toBe('2020');
 });
 
-it('shows journal list', async () => {
-  const response = await request(app).get('/journal');
+it('shows writing list', async () => {
+  const response = await request(app).get('/writing');
 
   expect(getJournalArticlesList).toHaveBeenCalledTimes(1);
 
@@ -181,22 +181,22 @@ it('shows journal list', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelectorAll('section.journal > .item').length).toBe(2);
-  const [journal1, journal2] = document.body.querySelectorAll('section.journal > .item');
+  expect(document.body.querySelectorAll('section.writing > .item').length).toBe(2);
+  const [journal1, journal2] = document.body.querySelectorAll('section.writing > .item');
 
-  expect(journal1.querySelector('h2 > a').getAttribute('href')).toBe('/journal/test-1');
+  expect(journal1.querySelector('h2 > a').getAttribute('href')).toBe('/writing/test-1');
   expect(journal1.querySelector('h2 > a').textContent).toBe('foo');
   expect(journal1.querySelectorAll('p')[0].textContent).toBe('bar');
   expect(journal1.querySelectorAll('p')[1].textContent).toBe('1 January 2010');
 
-  expect(journal2.querySelector('h2 > a').getAttribute('href')).toBe('/journal/test-2');
+  expect(journal2.querySelector('h2 > a').getAttribute('href')).toBe('/writing/test-2');
   expect(journal2.querySelector('h2 > a').textContent).toBe('hello');
   expect(journal2.querySelectorAll('p')[0].textContent).toBe('world');
   expect(journal2.querySelectorAll('p')[1].textContent).toBe('5 May 2020');
 });
 
-it('shows journal list', async () => {
-  const response = await request(app).get('/journal/test-1');
+it('shows writing list', async () => {
+  const response = await request(app).get('/writing/test-1');
 
   expect(getJournalArticlesList).toHaveBeenCalledTimes(1);
 
@@ -205,7 +205,7 @@ it('shows journal list', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelector('.journal-detail').innerHTML).toBe('<p>Lorem ipsum</p><p class="footnote">Published 1 January 2010</p>');
+  expect(document.body.querySelector('.writing-detail').innerHTML).toBe('<p>Lorem ipsum</p><p class="footnote">Published 1 January 2010</p>');
 });
 
 it('shows photography', async () => {

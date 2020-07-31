@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const { JOURNAL_FEATURED_LIMIT } = require('../helpers/constants');
-const { getJournalArticlesList } = require('../helpers/journal');
+const { getJournalArticlesList } = require('../helpers/writing');
 const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
 const { getWork } = require('../helpers/work');
 
@@ -14,17 +14,17 @@ router.get('/', async (req, res) => {
   return res.render('pages/home', { articles, photos });
 });
 
-router.get('/journal', async (req, res) => {
+router.get('/writing', async (req, res) => {
   const articles = await getJournalArticlesList();
 
-  res.render('pages/journal', { articles });
+  res.render('pages/writing', { articles });
 });
 
-router.get('/journal/:slug', async (req, res) => {
+router.get('/writing/:slug', async (req, res) => {
   let article = await getJournalArticlesList();
   article = article.find((item) => item.slug === req.params.slug);
 
-  res.render('pages/journal-detail', article);
+  res.render('pages/writing-detail', article);
 });
 
 router.get('/photography', (req, res) => {
