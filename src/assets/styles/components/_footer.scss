@@ -21,18 +21,18 @@ footer > a {
   }
 
   > svg {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     fill: $colorPrimaryAlt;
 
     @include breakpoint("medium") {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
     }
 
     @include breakpoint("small") {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
     }
   }
 
