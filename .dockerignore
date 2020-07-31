@@ -1,7 +1,12 @@
-node_modules
-npm-debug.log
-coverage
-.env
+.cache
+.github
 .nyc_output
+.vscode
+coverage
+node_modules
 coverage
 reports
+
+.env
+README.md
+npm-debug.log
