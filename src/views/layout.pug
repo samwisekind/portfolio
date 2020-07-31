@@ -13,7 +13,7 @@ html(lang='en')
     title=(PAGE_TITLE ? `${PAGE_TITLE} | ${DEFAULT_PAGE_TITLE}` : DEFAULT_PAGE_TITLE)
     meta(name='description' content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     meta(name='subject' content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
-    base(href='/')
+    base(href=basePath)
     link(href='/public/styles/global.css' rel='stylesheet')
     block styles
 
