@@ -11,6 +11,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Get git hash
+      id: hash
+      run: echo "::set-output name=hash::$(git rev-parse --short=7 ${{ github.sha }})"
     - name: Build and push Docker image
       uses: docker/build-push-action@v1
       with:
@@ -18,5 +21,15 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: flamov/portfolio/portfolio
-        tag_with_sha: true
-        tags: test
+        tags: test,${{ steps.hash.outputs.hash }}
+    - name: Deploy test image
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_IP }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd flamov-portfolio-compose
+          cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u Flamov --password-stdin
+          docker-compose pull app-test
+          docker-compose up --no-deps -d app-test
