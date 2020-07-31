@@ -1,22 +1,22 @@
 extends ../layout.pug
 
-include ../components/link
+include ../components/button
 
 block variables
-  - const PAGE_SECTION = 'journal';
+  - const PAGE_SECTION = 'writing';
 
 block styles
-  link(rel='stylesheet' href='/public/styles/journal.css')
+  link(rel='stylesheet' href='/public/styles/writing.css')
 
 block main
 
   if articles
-    section.journal
-      h1 Journal
+    section.writing
+      h1 Writing
       for article in articles
         div.item
           h2
-            a(href=`/journal/${article.slug}`)= article.attributes.title
+            a(href=`/writing/${article.slug}`)= article.attributes.title
           p= article.attributes.blurb
           p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
-          +button({ text: "Read", url: `/journal/${article.slug}` })
+          +button({ text: "Read", url: `/writing/${article.slug}` })

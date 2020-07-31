@@ -10,13 +10,13 @@ $transition-timing: .1s;
   justify-content: center;
   padding: 0 20px;
   height: $height;
-  font-weight: 700;
   font-size: fontSize(16px);
   line-height: fontSize(16px);
   color: $colorPrimary;
   border-radius: $height;
   text-align: center;
   text-decoration: none;
+  text-transform: lowercase;
   white-space: nowrap;
   background: $colorSecondary;
   transition: background $transition-timing $easeStandard;
@@ -47,8 +47,8 @@ $transition-timing: .1s;
     transition: all $transition-timing $easeStandard;
   }
 
-  &:hover,
-  &:active {
+  &:hover {
+    color: $colorPrimary;
     background-color: $colorSecondaryAlt;
 
     &:before {
@@ -70,8 +70,7 @@ $transition-timing: .1s;
   }
 }
 
-.button:hover > svg,
-.button.active > svg {
+.button:hover > svg {
   transform: translateX(5px);
 
   @include breakpoint("medium") {

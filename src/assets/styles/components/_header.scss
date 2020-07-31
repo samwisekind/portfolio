@@ -4,7 +4,7 @@
 
 nav.header {
   display: flex;
-  align-items: end;
+  align-items: baseline;
   margin: 0 auto $spacingLarge;
   padding: ($spacingLarge * 2);
   max-width: $maxWidthExtra;
@@ -21,22 +21,19 @@ nav.header {
 }
 
 nav.header > a {
-  position: relative;
-  margin-right: 20px;
-  padding-bottom: 8px;
+  padding: 0 15px;
   font-weight: 700;
-  font-size: fontSize(24px);
-  line-height: fontSize(24px);
+  font-size: fontSize(26px);
+  line-height: fontSize(26px);
   text-decoration: none;
+  text-transform: lowercase;
   color: $colorPrimary;
   white-space: nowrap;
 
   @include breakpoint("medium") {
-    margin-right: 15px;
-
-    > span {
-      display: none;
-    }
+    padding: 0 10px;
+    font-size: fontSize(22px);
+    line-height: fontSize(22px);
   }
 
   @include breakpoint("small") {
@@ -45,79 +42,30 @@ nav.header > a {
     }
   }
 
-  &:before {
-    position: absolute;
-    bottom: -6px;
-    display: none;
-    width: 100%;
-    background: $colorPrimary;
-
-    @extend %line;
-
-    @include breakpoint("medium") {
-      bottom: -4px;
-    }
-
-    @include breakpoint("small") {
-      bottom: -2px;
-    }
-  }
-
   &:last-child {
-    margin-right: 0;
-  }
-  
-  &.title {
-    margin-right: 30px;
-    font-size: fontSize(30px);
-    line-height: fontSize(30px);
-    font-weight: 700;
+    margin-right: -15px;
 
     @include breakpoint("medium") {
-      margin-right: 20px;
-    }
-
-    @include breakpoint("small") {
-      margin-right: 0;
+      margin-right: -10px;
     }
   }
 
-  &.spacing {
-    margin-left: auto;
+  &.title {
+    margin-right: auto;
+    padding: 0;
+    font-weight: 700;
+    font-size: fontSize(32px);
+    line-height: fontSize(32px);
+
+    @include breakpoint("medium") {
+      font-size: fontSize(28px);
+      line-height: fontSize(28px);
+    }
   }
 
-  &:hover,
-  &.active {
-    border-bottom-color: $colorPrimary;
-  }
-
-  &:hover:before,
-  &.active:before {
-    display: block;
-  }
-
-  &.active {
+  &.active,
+  &:hover {
     color: $colorSecondary;
-    border-bottom-color: $colorSecondary;
-  }
-
-  &.active:before {
-    background: $colorSecondary;
-  }
-
-  &.active > svg {
-    fill: $colorSecondary;
   }
 }
 
-nav.header > a > .icon {
-  margin-right: 8px;
-  width: 24px;
-  height: 24px;
-  vertical-align: bottom;
-  fill: $colorPrimary;
-
-  @include breakpoint("medium") {
-    margin-right: 0;
-  }
-}

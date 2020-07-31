@@ -15,9 +15,9 @@ block main
   section.photography
     if albums
       .controls
-        label(for="albums") Select album:
-        select#albums.js-albums
-          option(value="all" selected) All
+        h1 Photography
+        select.js-albums
+          option(value="all" selected) All Photos
           for album in albums
             option(value=album.key)=album.name
     .gallery.js-gallery

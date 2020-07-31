@@ -1,7 +1,7 @@
 ---
 title: Creating an animated 3D globe using WebGL, Canvas, & SVG
 blurb: A step-by-step guide how to created an animated 3D globe using WebGL, Canvas, and SVG
-published: 2020-07-25T12:00:00.000Z
+published: 2020-07-25
 ---
 
 # Creating an animated 3D globe using WebGL, Canvas, & SVG

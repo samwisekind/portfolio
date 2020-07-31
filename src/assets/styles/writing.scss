@@ -2,20 +2,21 @@
 
 @import "common/mixins";
 
-/* JOURNAL LIST */
+/* WRITING LIST */
 
-main > .journal > h1 {
+main > .writing > h1 {
   margin-bottom: $spacingLarge;
   font-size: fontSize(48px);
   line-height: fontSize(48px);
   font-weight: 700;
+  text-transform: lowercase;
 
   @include breakpoint("small") {
     margin-bottom: $spacingSmall;
   }
 }
 
-main > .journal > .item {
+main > .writing > .item {
   position: relative;
   margin-bottom: $spacingLarge + 15px;
 
@@ -34,12 +35,12 @@ main > .journal > .item {
   }
 }
   
-main > .journal > .item > h2 {
+main > .writing > .item > h2 {
   margin-bottom: 10px;
   font-size: fontSize(24px);
 }
   
-main > .journal > .item > p.date {
+main > .writing > .item > p.date {
   margin-top: 15px;
   font-size: fontSize(14px);
   line-height: fontSize(14px);
@@ -48,7 +49,7 @@ main > .journal > .item > p.date {
   @extend %fontMonospace;
 }
 
-main > .journal > .item > .button {
+main > .writing > .item > .button {
   z-index: 1;
   position: absolute;
   right: 20px;
@@ -65,9 +66,9 @@ main > .journal > .item > .button {
   }
 }
 
-/* JOURNAL DETAIL */
+/* WRITING DETAIL */
 
-main > .journal-detail h1 {
+main > .writing-detail h1 {
   margin-bottom: $spacingLarge * 2;
   font-size: fontSize(48px);
   font-weight: 700;
@@ -81,7 +82,7 @@ main > .journal-detail h1 {
   }
 }
 
-main > .journal-detail h2 {
+main > .writing-detail h2 {
   margin-top: 60px;
   font-size: fontSize(32px);
 
@@ -111,7 +112,7 @@ main > .journal-detail h2 {
   }
 }
   
-main > .journal-detail h3 {
+main > .writing-detail h3 {
   margin-top: 40px;
   font-size: fontSize(28px);
 
@@ -124,7 +125,7 @@ main > .journal-detail h3 {
   }
 }
   
-main > .journal-detail h4 {
+main > .writing-detail h4 {
   margin-top: 30px;
   font-size: fontSize(24px);
 
@@ -137,7 +138,7 @@ main > .journal-detail h4 {
   }
 }
   
-main > .journal-detail h5 {
+main > .writing-detail h5 {
   margin-top: 20px;
   font-size: fontSize(22px);
 
@@ -150,7 +151,7 @@ main > .journal-detail h5 {
   }
 }
   
-main > .journal-detail h6 {
+main > .writing-detail h6 {
   margin-top: 20px;
   font-size: fontSize(18px);
   color: $colorPrimaryAlt;
@@ -164,7 +165,7 @@ main > .journal-detail h6 {
   }
 }
   
-main > .journal-detail p {
+main > .writing-detail p {
   margin-top: 20px;
   font-size: fontSize(24px);
 
@@ -181,7 +182,7 @@ main > .journal-detail p {
   }
 }
 
-main > .journal-detail p.footnote {
+main > .writing-detail p.footnote {
   margin-top: $spacingLarge * 3;
   font-size: fontSize(18px);
   color: $colorPrimaryAlt;
@@ -214,11 +215,11 @@ main > .journal-detail p.footnote {
   }
 }
 
-main > .journal-detail a:hover {
+main > .writing-detail a:hover {
   color: $colorSecondary;
 }
 
-main > .journal-detail blockquote {
+main > .writing-detail blockquote {
   position: relative;
   margin: 20px 0;
   padding: 5px 0 5px 30px;
@@ -248,7 +249,7 @@ main > .journal-detail blockquote {
   }
 }
 
-main > .journal-detail :not(pre) > code {
+main > .writing-detail :not(pre) > code {
   /* To-do: fix this up, make same colours as code block, etc. */
   padding: 2px 6px;
   border-radius: 5px;
@@ -261,7 +262,7 @@ main > .journal-detail :not(pre) > code {
   }
 }
 
-main > .journal-detail pre {
+main > .writing-detail pre {
   margin-top: $spacingLarge;
   padding: 0;
   font-size: fontSize(16px);
