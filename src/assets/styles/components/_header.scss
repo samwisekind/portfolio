@@ -42,6 +42,14 @@ nav.header > a {
     }
   }
 
+  &:last-child {
+    margin-right: -15px;
+
+    @include breakpoint("medium") {
+      margin-right: -10px;
+    }
+  }
+
   &.title {
     margin-right: auto;
     padding: 0;
