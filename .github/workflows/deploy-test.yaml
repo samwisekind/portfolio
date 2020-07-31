@@ -17,5 +17,5 @@ jobs:
         username: Flamov
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
-        repository: flamov/portfolio
+        repository: flamov/portfolio/portfolio
         tag_with_sha: true
