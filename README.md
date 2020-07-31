@@ -1,9 +1,6 @@
 # Personal Portfolio Website
 
-[![CircleCI](https://circleci.com/gh/Flamov/flamov-portfolio.svg?style=svg)](https://circleci.com/gh/Flamov/flamov-portfolio)
-[![Maintainability](https://api.codeclimate.com/v1/badges/bbb7d20257647f6ad669/maintainability)](https://codeclimate.com/github/Flamov/flamov-portfolio/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/bbb7d20257647f6ad669/test_coverage)](https://codeclimate.com/github/Flamov/flamov-portfolio/test_coverage)
-[![Issue Count](https://codeclimate.com/github/Flamov/flamov-portfolio/badges/issue_count.svg)](https://codeclimate.com/github/Flamov/flamov-portfolio)
+![Build and deploy test](https://github.com/Flamov/portfolio/actions?query=workflow%3A%22Build+and+deploy+test%22)(https://github.com/Flamov/portfolio/workflows/Build%20and%20deploy%20test/badge.svg)
 
 Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
 
