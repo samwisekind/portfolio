@@ -7,7 +7,7 @@ RUN npm ci \
     npm run assets:build \
     npm prune --production
 
-RUN rm -rf ./.cache ./config/test.js package-lock.json README.md ./mocks ./tests ./src/assets
+RUN rm -rf ./.cache ./config/test.js package-lock.json README.md ./src/assets
 
 ENV NODE_ENV=production
 

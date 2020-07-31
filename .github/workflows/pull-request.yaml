@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: 14
     - name: Install dependencies and build assets
-      run: npm ci --unsafe-perm && npm run assets:build
+      run: npm ci && npm run assets:build
     - name: Test eslint
       run: npm run eslint:report
     - name: Test stylelint
