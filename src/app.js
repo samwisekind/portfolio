@@ -37,6 +37,6 @@ app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\
 
 app.get('/status', (req, res) => res.sendStatus(200));
 
-app.get('*', (req, res) => res.redirect('/'));
+app.get('*', (req, res) => res.redirect(app.locals.basePath));
 
 module.exports = app;
