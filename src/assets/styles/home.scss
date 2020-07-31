@@ -22,7 +22,7 @@ section {
   }
 }
 
-section.work > h1,
+section.me > h1,
 section > h2 {
   margin-bottom: $spacingLarge;
   font-size: fontSize(32px);
@@ -82,11 +82,11 @@ section > .wrapper > .item {
   }
 }
 
-main > section.work > h1 > span {
+main > section.me > h1 > span {
   color: $colorSecondary;
 }
 
-main > section.work > .bottom {
+main > section.me > .bottom {
   display: flex;
   align-items: center;
 

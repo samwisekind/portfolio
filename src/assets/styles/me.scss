@@ -2,13 +2,13 @@
 
 @import "common/mixins";
 
-main > section.work > h1 {
+main > section.me > h1 {
   font-weight: 700;
   font-size: fontSize(48px);
   line-height: fontSize(48px);
 }
 
-main > section.work > p {
+main > section.me > p {
   margin-top: $spacingLarge;
   font-size: fontSize(20px);
 
@@ -24,7 +24,7 @@ main > section.work > p {
   }
 }
 
-main > section.work > p.greeting {
+main > section.me > p.greeting {
   display: flex;
   align-items: center;
 
@@ -63,7 +63,7 @@ main > section.work > p.greeting {
   }
 }
 
-main > section.work ul {
+main > section.me ul {
   position: relative;
   columns: 2;
   margin-top: $spacingLarge;
@@ -78,7 +78,7 @@ main > section.work ul {
   }
 }
 
-main > section.work ul > li {
+main > section.me ul > li {
   position: relative;
   display: flex;
   align-items: center;

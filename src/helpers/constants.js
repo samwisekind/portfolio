@@ -4,7 +4,7 @@ const PHOTOGRAPHY_DATA_PATH = './src/data/photography.yaml';
 
 const JOURNAL_FEATURED_LIMIT = 2;
 
-const WORK_DATA_PATH = './src/data/work.yaml';
+const WORK_DATA_PATH = './src/data/me.yaml';
 
 module.exports = {
   JOURNAL_DATA_DIRECTORY,
