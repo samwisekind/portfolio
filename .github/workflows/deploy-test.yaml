@@ -17,7 +17,7 @@ jobs:
       id: deployment
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_url: https://flamov.com/test
+        target_url: https://test.flamov.com
         environment: test
 
     - name: Get git hash
@@ -51,7 +51,7 @@ jobs:
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_url: https://flamov.com/test
+        target_url: https://test.flamov.com
         state: "success"
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
@@ -60,6 +60,6 @@ jobs:
       uses: chrnorm/deployment-status@releases/v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_url: https://flamov.com/test
+        target_url: https://test.flamov.com
         state: "failure"
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
