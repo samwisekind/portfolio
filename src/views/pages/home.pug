@@ -7,13 +7,13 @@ block variables
   - const PAGE_SECTION = 'home';
 
 block styles
-  link(href='public/styles/home.css' type='text/css' rel='stylesheet')
+  link(href='/public/styles/home.css' type='text/css' rel='stylesheet')
 
 block main
   section.me
     h1 A software engineer focusing on <span>frontend</span> & <span>backend</span> web development working as a <span>tech lead</span> in London
     .bottom
-      +button({ text: "Hello", url: "me" })
+      +button({ text: "Hello", url: "/me" })
 
   if articles
     section.writing
@@ -22,11 +22,11 @@ block main
         for article in articles
           .item
             h3
-              a(href=`writing/${article.slug}`)= article.attributes.title
+              a(href=`/writing/${article.slug}`)= article.attributes.title
             p.blurb= article.attributes.blurb
             p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
         .item.end
-          +button({ text: "More", url: "writing" })
+          +button({ text: "More", url: "/writing" })
 
   if photos
     section.photography
@@ -36,4 +36,4 @@ block main
           .item
             +photo(photo)
         .item.end
-          +button({ text: "More", url: "photography" })
+          +button({ text: "More", url: "/photography" })
