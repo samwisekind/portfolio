@@ -3,10 +3,10 @@ extends ../layout.pug
 include ../components/button
 
 block variables
-  - const PAGE_SECTION = 'writing';
+  - const PAGE_SECTION = "writing";
 
 block styles
-  link(href='/public/styles/writing.css' type='text/css' rel='stylesheet')
+  link(href="/public/styles/writing.css" type="text/css" rel="stylesheet")
 
 block main
 
@@ -16,7 +16,7 @@ block main
       for article in articles
         div.item
           h2
-            a(href=`/writing/${article.slug}`)= article.attributes.title
-          p= article.attributes.blurb
-          p.date= new Date(article.attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })
+            a(href=`/writing/${article.slug}`)=article.attributes.title
+          p=article.attributes.blurb
+          p.date=new Date(article.attributes.published).toLocaleDateString("en-gb", { year: "numeric", month: "long", day: "numeric" })
           +button({ text: "Read", url: `/writing/${article.slug}` })

@@ -1,12 +1,12 @@
 extends ../layout.pug
 
 block variables
-  - const PAGE_SECTION = 'writing';
+  - const PAGE_SECTION = "writing";
   - const PAGE_TITLE = attributes.title;
   - const PAGE_DESCRIPTION = attributes.description;
 
 block styles
-  link(href='/public/styles/writing.css' type='text/css' rel='stylesheet')
+  link(href="/public/styles/writing.css" type="text/css" rel="stylesheet")
 
 block main
   article.writing-detail
@@ -14,4 +14,4 @@ block main
       | !{content}
     if attributes && attributes.published
       p.footnote
-        =`Published ${new Date(attributes.published).toLocaleDateString('en-gb', { year: 'numeric', month: 'long', day: 'numeric' })}`
+        =`Published ${new Date(attributes.published).toLocaleDateString("en-gb", { year: "numeric", month: "long", day: "numeric" })}`

@@ -1,20 +1,20 @@
-- const DEFAULT_PAGE_TITLE = 'Sam\'s Portfolio';
-- const DEFAULT_PAGE_DESCRIPTION = 'Sam\'s web development and design portfolio.'
+- const DEFAULT_PAGE_TITLE = "Sam's Portfolio";
+- const DEFAULT_PAGE_DESCRIPTION = "Sam's web development and design portfolio."
 
 block variables
 
 doctype html
-html(lang='en')
+html(lang="en")
 
   head
-    meta(charset='utf-8')
-    meta(http-equiv='x-ua-compatible' content='ie=edge')
-    meta(name='viewport' content='width=device-width, height=device-height, initial-scale=1, user-scalable=no')
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no")
     title=(PAGE_TITLE ? `${PAGE_TITLE} | ${DEFAULT_PAGE_TITLE}` : DEFAULT_PAGE_TITLE)
-    meta(name='description' content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
-    meta(name='subject' content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
-    base(href='/')
-    link(href='/public/styles/global.css' type='text/css' rel='stylesheet')
+    meta(name="description" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
+    meta(name="subject" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
+    base(href="/")
+    link(href="/public/styles/global.css" type="text/css" rel="stylesheet")
     block styles
 
   body
@@ -22,5 +22,5 @@ html(lang='en')
     main
       block main
     include components/footer
-    script(src='/public/scripts/global.js' type='text/javascript' async defer)
+    script(src="/public/scripts/global.js" type="text/javascript" async defer)
     block scripts

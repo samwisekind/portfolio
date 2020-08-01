@@ -4,10 +4,10 @@ include ../components/button
 include ../components/icons
 
 block variables
-  - const PAGE_SECTION = 'me';
+  - const PAGE_SECTION = "me";
 
 block styles
-  link(href='/public/styles/me.css' type='text/css' rel='stylesheet')
+  link(href="/public/styles/me.css" type="text/css" rel="stylesheet")
 
 block main
   section.me
@@ -49,10 +49,10 @@ block main
                   a.website(href=project.links.website)
                     +external
     .items-more
-      a(href='https://github.com/Flamov').item
+      a(href="https://github.com/Flamov").item
         +github
         span More on <b>GitHub</b>
-      a(href='https://codepen.com/Flamov').item
+      a(href="https://codepen.com/Flamov").item
         +codepen
         span More on <b>CodePen</b>
 
