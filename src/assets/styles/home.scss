@@ -136,12 +136,12 @@ main > section.writing h3 {
 
   @include breakpoint("small") {
     margin-bottom: 5px;
-  }
-
-  > a:hover {
-    color: $colorSecondary;
-  }  
+  } 
 }
+
+main > section.writing h3 > a {
+  display: block;
+} 
 
 main > section.writing p.blurb {
   margin-bottom: 20px;

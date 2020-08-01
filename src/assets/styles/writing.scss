@@ -39,7 +39,11 @@ main > .writing > .item > h2 {
   margin-bottom: 10px;
   font-size: fontSize(24px);
 }
-  
+
+main > .writing > .item > h2 > a {
+  display: block;
+}
+
 main > .writing > .item > p.date {
   margin-top: 15px;
   font-size: fontSize(14px);
