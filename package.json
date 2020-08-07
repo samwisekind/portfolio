@@ -16,7 +16,7 @@
     "eslint": "eslint '**/*.js' --ignore-pattern public/",
     "eslint:report": "npm run eslint -- -f json -o reports/eslint.xml",
     "stylelint": "stylelint 'src/assets/**/*.scss'",
-    "test": "NODE_ENV=test && jest .*.spec.js --verbose",
+    "test": "export NODE_ENV=jest && jest .*.spec.js --verbose",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm run test -- --coverage"
   },
