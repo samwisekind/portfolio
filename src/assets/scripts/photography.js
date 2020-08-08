@@ -7,7 +7,16 @@ const photos = Array.from(document.querySelectorAll('.js-photo'));
 const gallery = document.querySelector('.js-gallery');
 const columns = Array.from(gallery.querySelectorAll('.js-column'));
 
-const breakpoint = 800;
+const breakpoint = 1000;
+
+const updateURL = () => {
+  let url = `${window.location.href}?album=${albums.value}`;
+  if (new URLSearchParams(window.location.search).get('album')) {
+    url = window.location.href.replace(/(album=)[^&]+/, `album=${albums.value}`);
+  }
+
+  window.history.replaceState(null, window.document.title, url);
+};
 
 /**
  * Filter and sort photos by albums
@@ -32,11 +41,6 @@ const sortColumns = () => {
     className = 'medium';
   }
 
-  // Don't do anything if columns don't need to be resorted
-  if (columns.length === number) {
-    return;
-  }
-
   // Nullify the element to ensure it's removed by the garbage collector
   columns.splice(0).forEach((element) => {
     element.remove();
@@ -54,9 +58,19 @@ const sortColumns = () => {
   sortPhotos();
 };
 
-albums.addEventListener('input', sortPhotos);
+const initialAlbum = new URLSearchParams(window.location.search).get('album');
+if (initialAlbum) {
+  albums.value = initialAlbum;
+  updateURL();
+}
+
+albums.addEventListener('input', () => {
+  sortPhotos();
+  updateURL();
+});
+
 window.addEventListener('resize', sortColumns);
 
-lazyLoad.update();
-
 sortColumns();
+
+lazyLoad.update();

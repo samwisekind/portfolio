@@ -1,16 +1,21 @@
 @import "../common/constants";
 
-figure.photo > .container {
-  background: rgba($colorPrimaryAlt, .3);
-}
 
-figure.photo > .container img {
+figure.photo img {
   display: block;
   width: 100%;
   height: auto;
+  will-change: opacity, transform;
 
   &:not(.loaded) {
-    padding-top: (9 / 16) * 100%;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  &.loaded {
+    opacity: 1;
+    padding-top: 0 !important;
+    transition: transform 1s $easeStandard, opacity 1s $easeStandard;
   }
   
   &:not([src]) {
