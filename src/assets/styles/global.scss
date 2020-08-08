@@ -19,108 +19,112 @@ body {
   background: $colorBackground;
 }
 
-body > .content {
-  opacity: 1;
-  z-index: 0;
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
-  transition: transform $timing $easeInOutCubic;
-  background: $colorBackground;
-  
-  @include breakpoint("mobile") {
-    will-change: transform;
-  }
-}
-
-body > .outer-menu {
-  opacity: 0;
-  pointer-events: none;
-  z-index: 20;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: none;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transform: translateY(-100vh);
-  transition: transform $timing $easeInOutCubic, opacity $timing $easeInOutCubic;
-
-  @include breakpoint("small") {
-    display: flex;
-    will-change: transform, opacity;
-  }
-
-  > a.link {
-    padding: $spacingSmall 0;
-    width: 100%;
-    font-size: fontSize(38px);
-    text-align: center;
-    text-decoration: none;
-    text-transform: lowercase;
-
-    &.active {
-      background: rgba($colorSecondary, .5);
-    }
-  }
-
-  > a.menu {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: $spacingSmall * 2;
-
-    > svg {
-      display: block;
-      width: 32px;
-      height: 32px;
-      fill: $colorPrimary;
-    }
-  }
-}
-
+body > .outer-menu,
 body > .stars {
-  pointer-events: none;
-  opacity: 0;
-  z-index: 10;
-  position: absolute;
-  left: 0;
-  top: 0;
   display: none;
-  width: 100%;
-  height: 100%;
-  transition: opacity ($timing / 2) $easeInOutCubic;
-
-  @include breakpoint("small") {
-    display: block;
-    will-change: opacity;
-  }
 }
 
-body.menu {
-  overflow: hidden;
+@include breakpoint("small") {
+  body > .content {
+    opacity: 1;
+    z-index: 0;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: transform $timing $easeInOutCubic;
+    background: $colorBackground;
+    
+    @include breakpoint("mobile") {
+      will-change: transform;
+    }
+  }
 
-  > .content {
+  body > .outer-menu {
+    opacity: 0;
     pointer-events: none;
+    z-index: 20;
     position: absolute;
     left: 0;
     top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
-    transform: translateY(100vh) translateZ(0);
+    transform: translateY(-100vh);
+    transition: transform $timing $easeInOutCubic, opacity $timing $easeInOutCubic;
+    will-change: transform, opacity;
+
+    > a.link {
+      padding: $spacingSmall 0;
+      width: 100%;
+      font-size: fontSize(38px);
+      text-align: center;
+      text-decoration: none;
+      text-transform: lowercase;
+
+      &:hover {
+        color: $colorPrimary;
+      }
+
+      &.active,
+      &:hover {
+        background: rgba($colorSecondary, .5);
+      }
+    }
+
+    > a.menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: $spacingSmall * 2;
+
+      > svg {
+        display: block;
+        width: 32px;
+        height: 32px;
+        fill: $colorPrimary;
+      }
+    }
   }
 
-  > .outer-menu {
-    pointer-events: auto;
-    opacity: 1;
-    transform: translateY(0) translateZ(0);
+  body > .stars {
+    pointer-events: none;
+    opacity: 0;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: opacity ($timing / 2) $easeInOutCubic;
+    will-change: opacity;
   }
 
-  > .stars {
-    opacity: 1;
+  body.menu {
+    overflow: hidden;
+
+    > .content {
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: translateY(100vh) translateZ(0);
+    }
+
+    > .outer-menu {
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(0) translateZ(0);
+    }
+
+    > .stars {
+      opacity: 1;
+    }
   }
 }
 
