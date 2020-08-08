@@ -18,9 +18,12 @@ html(lang="en")
     block styles
 
   body
-    include components/header
-    main
-      block main
-    include components/footer
+    .container.js-container
+      .container-wrapper
+        include components/header
+        main
+          block main
+        include components/footer
+    canvas.stars.js-stars
     script(src="/public/scripts/global.js" type="text/javascript" async defer)
     block scripts

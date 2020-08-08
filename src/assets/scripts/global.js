@@ -2,6 +2,8 @@
 
 import LazyLoad from 'vanilla-lazyload';
 
+import { openStars, closeStars } from './components/stars';
+
 const lazyLoad = new LazyLoad({
   elements_selector: '.js-lazy',
   use_native: true,
@@ -21,5 +23,17 @@ if (workGreeting) {
   ['webkitAnimationIteration', 'animationiteration']
     .forEach((event) => workGreeting.addEventListener(event, cycleEmoji));
 }
+
+document.querySelector('.js-menu').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  document.body.classList.toggle('menu');
+
+  if (document.body.classList.contains('menu')) {
+    openStars();
+  } else {
+    closeStars();
+  }
+});
 
 export default lazyLoad;

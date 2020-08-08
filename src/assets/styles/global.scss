@@ -17,6 +17,63 @@ body {
   background: $colorBackground;
 }
 
+body > .container {
+  z-index: 0;
+  position: relative;
+  min-height: 100vh;
+  perspective: 2000px;
+  backface-visibility: hidden;
+
+  > .container-wrapper {
+    overflow-x: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1500ms $easeInOutCubic;
+    background: $colorBackground;
+    will-change: transform;
+  }
+}
+
+body.menu {
+  overflow: hidden;
+
+  > .container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $colorBackground;
+
+    > .container-wrapper {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: translate3d(0, 100%, 0) scale3d(.9, .9, 1) rotateX(5deg);
+    }
+  }
+
+  > .stars {
+    opacity: 1;
+  }
+}
+
+body > .stars {
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 500ms $easeInOutCubic;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
 main {
   margin: 0 auto;
   padding: 0 ($spacingLarge * 2);

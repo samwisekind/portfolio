@@ -2,6 +2,10 @@ include icons
 
 nav.header
   a(href="/" class=(PAGE_SECTION === "home" ? "active" : false)).title Sam's Portfolio
-  a(href="/writing" class=(PAGE_SECTION === "writing" ? "active" : false)) Writing
-  a(href="/photography" class=(PAGE_SECTION === "photography" ? "active" : false)) Photography
-  a(href="/me" class=(PAGE_SECTION === "me" ? "active" : false)) Me
+
+  a(href="/writing" class=(PAGE_SECTION === "writing" ? "active" : false)).link Writing
+  a(href="/photography" class=(PAGE_SECTION === "photography" ? "active" : false)).link Photography
+  a(href="/me" class=(PAGE_SECTION === "me" ? "active" : false)).link Me
+
+  a(href="#").menu.js-menu
+    +menu
