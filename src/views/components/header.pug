@@ -1,7 +1,8 @@
 include icons
+include menu
 
 nav.header
   a(href="/" class=(PAGE_SECTION === "home" ? "active" : false)).title Sam's Portfolio
-  a(href="/writing" class=(PAGE_SECTION === "writing" ? "active" : false)) Writing
-  a(href="/photography" class=(PAGE_SECTION === "photography" ? "active" : false)) Photography
-  a(href="/me" class=(PAGE_SECTION === "me" ? "active" : false)) Me
+  +menu
+  a(href="#").menu.js-menu-open
+    +icon-menu-open

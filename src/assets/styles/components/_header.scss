@@ -6,17 +6,17 @@ nav.header {
   display: flex;
   align-items: baseline;
   margin: 0 auto $spacingLarge;
-  padding: ($spacingLarge * 2);
+  padding: $spacingLarge * 2;
   max-width: $maxWidthExtra;
 
   @include breakpoint("medium") {
-    margin: ($spacingMedium * 2) auto ($spacingMedium * 3);
-    padding: 0 ($spacingMedium * 2);
+    margin-bottom: $spacingMedium;
+    padding: $spacingMedium * 2;
   }
 
   @include breakpoint("small") {
-    margin: ($spacingSmall * 2) auto ($spacingSmall * 3);
-    padding: 0 ($spacingSmall * 2);
+    margin-bottom: $spacingSmall;
+    padding: $spacingSmall * 2;
   }
 }
 
@@ -37,16 +37,8 @@ nav.header > a {
   }
 
   @include breakpoint("small") {
-    &:not(.title) {
+    &.link {
       display: none;
-    }
-  }
-
-  &:last-child {
-    margin-right: -15px;
-
-    @include breakpoint("medium") {
-      margin-right: -10px;
     }
   }
 
@@ -60,6 +52,23 @@ nav.header > a {
     @include breakpoint("medium") {
       font-size: fontSize(28px);
       line-height: fontSize(28px);
+    }
+  }
+
+  &.link {
+    margin-right: -15px;
+
+    @include breakpoint("medium") {
+      margin-right: -10px;
+    }
+  }
+
+  &.menu {
+    display: none;
+    fill: $colorPrimary;
+
+    @include breakpoint("small") {
+      display: block;
     }
   }
 

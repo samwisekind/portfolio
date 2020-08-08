@@ -43,18 +43,18 @@ block main
             if project.links && (project.links.github || projects.links.website)
               .links
                 if project.links && project.links.github
-                  a.github(href=project.links.github)
-                    +github
+                  a.icon.github(href=project.links.github)
+                    +icon-github
                 if project.links && project.links.website
                   a.website(href=project.links.website)
-                    +external
+                    +icon-external
     .items-more
-      a(href="https://github.com/Flamov").item
-        +github
-        span More on <b>GitHub</b>
-      a(href="https://codepen.com/Flamov").item
-        +codepen
-        span More on <b>CodePen</b>
+      a(href="https://+icon-github.com/Flamov").item
+        +icon-github
+        span More on <b>+icon-github</b>
+      a(href="https://+icon-codepen.com/Flamov").item
+        +icon-codepen
+        span More on <b>+icon-codepen</b>
 
   if recognitions
     section.recognitions

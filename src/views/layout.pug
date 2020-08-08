@@ -3,6 +3,8 @@
 
 block variables
 
+include components/menu
+
 doctype html
 html(lang="en")
 
@@ -18,9 +20,15 @@ html(lang="en")
     block styles
 
   body
-    include components/header
-    main
-      block main
-    include components/footer
+    .content
+      include components/header
+      main
+        block main
+      include components/footer
+    .outer-menu
+      +menu
+      a(href="#").menu.js-menu-close
+        +icon-menu-close
+    canvas.stars.js-stars
     script(src="/public/scripts/global.js" type="text/javascript" async defer)
     block scripts
