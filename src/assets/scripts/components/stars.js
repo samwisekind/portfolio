@@ -4,6 +4,12 @@ const context = canvas.getContext('2d');
 let stars = []; // Array for the star objects
 const colors = [0, 60, 240]; // Hue range of stars
 
+let start;
+let direction;
+const duration = 1500; // ms
+
+const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1);
+
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const getRandomFloat = (min, max) => Math.random() * (max - min) + min;
 
@@ -20,12 +26,10 @@ const drawStar = ({
   context.fill();
 };
 
-const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1);
-
-let start;
-let direction;
-const duration = 1500; // ms
-
+/**
+ * Animates stars into or out of the canvas
+ * @param {number} timestamp Time to use as elapsed from duration
+ */
 const animateStars = (timestamp) => {
   if (!start) {
     start = timestamp;
@@ -36,7 +40,6 @@ const animateStars = (timestamp) => {
   context.clearRect(0, 0, canvas.width, canvas.height);
 
   let factor = easeInOutCubic(elapsed / duration);
-
   if (direction === 'close') {
     factor = -factor + 1;
   }
@@ -103,7 +106,5 @@ const closeStars = () => requestAnimationFrame((timestamp) => {
   direction = 'close';
   animateStars(timestamp, 'close');
 });
-
-// window.addEventListener('resize', openStars);
 
 export { openStars, closeStars };

@@ -30,13 +30,10 @@ body > .stars {
     z-index: 0;
     position: relative;
     min-height: 100vh;
+    background: $colorBackground;
     overflow-x: hidden;
     transition: transform $timing $easeInOutCubic;
-    background: $colorBackground;
-    
-    @include breakpoint("mobile") {
-      will-change: transform;
-    }
+    will-change: transform;
   }
 
   body > .outer-menu {
