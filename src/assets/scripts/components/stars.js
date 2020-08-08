@@ -24,7 +24,7 @@ const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) *
 
 let start;
 let direction;
-const duration = 1.5 * 1000; // 1s (1000ms)
+const duration = 1500; // ms
 
 const animateStars = (timestamp) => {
   if (!start) {

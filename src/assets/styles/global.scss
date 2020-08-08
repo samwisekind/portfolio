@@ -12,51 +12,73 @@
 
 @import "components/photo";
 
+$timing: 1500ms;
+
 body {
   color: $colorPrimary;
   background: $colorBackground;
 }
 
-body > .container {
+body > .content {
+  opacity: 1;
   z-index: 0;
   position: relative;
   min-height: 100vh;
-  perspective: 2000px;
-  backface-visibility: hidden;
-
-  > .container-wrapper {
-    overflow-x: hidden;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 1500ms $easeInOutCubic;
-    background: $colorBackground;
+  overflow-x: hidden;
+  transition: transform $timing $easeInOutCubic;
+  background: $colorBackground;
+  
+  @include breakpoint("mobile") {
     will-change: transform;
   }
 }
 
-body.menu {
-  overflow: hidden;
+body > .outer-menu {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100vh);
+  transition: transform $timing $easeInOutCubic, opacity $timing $easeInOutCubic;
 
-  > .container {
-    position: absolute;
-    left: 0;
-    top: 0;
+  @include breakpoint("small") {
+    display: flex;
+    will-change: transform, opacity;
+  }
+
+  > a.link {
+    padding: $spacingSmall 0;
     width: 100%;
-    height: 100%;
-    background: $colorBackground;
+    font-size: fontSize(38px);
+    text-align: center;
+    text-decoration: none;
+    text-transform: lowercase;
 
-    > .container-wrapper {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      transform: translate3d(0, 100%, 0) scale3d(.9, .9, 1) rotateX(5deg);
+    &.active {
+      background: rgba($colorSecondary, .5);
     }
   }
 
-  > .stars {
-    opacity: 1;
+  > a.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $spacingSmall * 2;
+
+    > svg {
+      display: block;
+      width: 32px;
+      height: 32px;
+      fill: $colorPrimary;
+    }
   }
 }
 
@@ -67,11 +89,39 @@ body > .stars {
   position: absolute;
   left: 0;
   top: 0;
+  display: none;
   width: 100%;
   height: 100%;
-  transition: opacity 500ms $easeInOutCubic;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  transition: opacity ($timing / 2) $easeInOutCubic;
+
+  @include breakpoint("small") {
+    display: block;
+    will-change: opacity;
+  }
+}
+
+body.menu {
+  overflow: hidden;
+
+  > .content {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100vh) translateZ(0);
+  }
+
+  > .outer-menu {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+
+  > .stars {
+    opacity: 1;
+  }
 }
 
 main {

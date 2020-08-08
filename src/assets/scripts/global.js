@@ -24,16 +24,18 @@ if (workGreeting) {
     .forEach((event) => workGreeting.addEventListener(event, cycleEmoji));
 }
 
-document.querySelector('.js-menu').addEventListener('click', (event) => {
+document.querySelector('.js-menu-open').addEventListener('click', (event) => {
   event.preventDefault();
 
-  document.body.classList.toggle('menu');
+  document.body.classList.add('menu');
+  openStars();
+});
 
-  if (document.body.classList.contains('menu')) {
-    openStars();
-  } else {
-    closeStars();
-  }
+document.querySelector('.js-menu-close').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  document.body.classList.remove('menu');
+  closeStars();
 });
 
 export default lazyLoad;

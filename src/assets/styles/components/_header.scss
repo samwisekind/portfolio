@@ -70,10 +70,6 @@ nav.header > a {
     @include breakpoint("small") {
       display: block;
     }
-
-    .close {
-      display: none;
-    }
   }
 
   &.active,
