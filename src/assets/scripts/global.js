@@ -2,7 +2,11 @@
 
 import LazyLoad from 'vanilla-lazyload';
 
-const lazyLoad = new LazyLoad({ elements_selector: '.js-lazy', use_native: true });
+const lazyLoad = new LazyLoad({
+  elements_selector: '.js-lazy',
+  use_native: true,
+  unobserve_entered: true,
+});
 
 const workGreeting = document.querySelector('.js-greeting');
 if (workGreeting) {

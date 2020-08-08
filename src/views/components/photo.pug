@@ -1,10 +1,9 @@
-mixin photo({ title, alt, location, album, date, src })
+mixin photo({ title, alt, location, album, date, src, size })
   figure(data-album=album).photo.js-photo
-    .container
-      picture
-        if src.webp
-          source(type="image/webp" data-srcset=src.webp)
-        img(data-src=src.jpg alt=alt).js-lazy
+    picture
+      if src.webp
+        source(type="image/webp" data-srcset=src.webp)
+      img(data-src=src.jpg alt=alt style=`padding-top: calc(${size.height} / ${size.width} * 100%)`).js-lazy
     figcaption
       div.info
         p.title=title
