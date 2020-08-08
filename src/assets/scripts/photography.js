@@ -9,6 +9,9 @@ const columns = Array.from(gallery.querySelectorAll('.js-column'));
 
 const breakpoint = 1000;
 
+/**
+ * Updates the URL based on the currently selected album key
+ */
 const updateURL = () => {
   let url = `${window.location.href}?album=${albums.value}`;
   if (new URLSearchParams(window.location.search).get('album')) {
