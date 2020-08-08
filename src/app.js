@@ -8,6 +8,7 @@ const { version } = require('../package.json');
 
 const routes = require('./routes');
 
+/* istanbul ignore next */
 const environment = process.env.NODE_ENV || 'production';
 
 const app = express();
@@ -38,6 +39,8 @@ app.use(routes);
 
 app.get('/robots.txt', (req, res) => {
   let robots = 'User-agent: *\nDisallow:';
+
+  /* istanbul ignore next */
   if (environment === 'test') {
     robots = 'User-agent: *\nDisallow: /';
   }
