@@ -26,6 +26,7 @@ html(lang="en")
         block main
       include components/footer
     .outer-menu
+      a(href="/" class=(PAGE_SECTION === "home" ? "active" : false)).link Home
       +menu
       a(href="#").menu.js-menu-close
         +icon-menu-close
