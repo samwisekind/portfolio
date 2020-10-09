@@ -1,8 +1,8 @@
-# Personal Portfolio Website
+# Personal Website
 
 [![Build and deploy test](https://github.com/Flamov/portfolio/workflows/Build%20and%20deploy%20test/badge.svg)](https://github.com/Flamov/portfolio/actions?query=workflow%3A%22Build+and+deploy+test%22)
 
-Source code for my personal web development and design portfolio, located at [https://www.flamov.com](https://www.flamov.com).
+Source code for my personal website located at [https://flamov.com](https://flamov.com).
 
 Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Jest for testing. Deployed with CircleCI and Docker Compose ([compose files can be found here](https://github.com/Flamov/flamov-portfolio-compose)).
 
