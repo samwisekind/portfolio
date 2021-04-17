@@ -1,3 +1,4 @@
+import path from 'path';
 import express from 'express';
 import helmet from 'helmet';
 // @ts-ignore
@@ -19,7 +20,7 @@ app.use(helmet());
 
 app.use(compression());
 app.set('view engine', 'pug');
-app.set('views', './src/views');
+app.set('views', path.join(__dirname, 'views'));
 app.use(minifyHTML({
   override: true,
   htmlMinifier: {
@@ -34,7 +35,7 @@ app.get('/status', (_req, res) => res.sendStatus(200));
 
 app.get('/robots.txt', (_req, res) => res.type('text/plain').send('User-agent: *\nDisallow:'));
 
-app.use('/public', express.static('./dist/public'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (_req, res) => {
   const photos = getFeaturedPhotos();
