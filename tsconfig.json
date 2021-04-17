@@ -20,16 +20,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "allowJs": true,
-    "checkJs": false
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/**/*"
-  ],
-  "exclude": [
-    "server.js",
-    "src/assets"
   ]
 }

@@ -39,7 +39,7 @@ app.get('/status', (_req, res) => res.sendStatus(200));
 
 app.get('/robots.txt', (_req, res) => res.type('text/plain').send('User-agent: *\nDisallow:'));
 
-app.use('/public', express.static('./src/public'));
+app.use('/public', express.static('./dist/public'));
 
 app.get('/', async (_req, res) => {
   const photos = getFeaturedPhotos();
@@ -57,5 +57,10 @@ app.get('/me', (_req, res) => {
 });
 
 app.get('*', (_req, res) => res.redirect('/'));
+
+const port = 3000;
+
+// eslint-disable-next-line no-console
+app.listen(port, () => console.log(`listening on port ${port}`));
 
 export default app;

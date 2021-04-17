@@ -1,4 +1,4 @@
-const app = require('./dist/app');
+const app = require('./dist/app').default;
 
 const port = 3000;
 

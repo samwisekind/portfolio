@@ -2,5 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false
-  }
+  },
+  "exclude": [
+    "src/assets",
+    "src/**/*.spec.ts",
+    "src/mocks"
+  ]
 }
