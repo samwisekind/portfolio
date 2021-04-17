@@ -1,5 +1,5 @@
-mixin button({ type, text, url })
-  a.button(href=url target=(type === "+icon-external" ? "_blank" : false) rel=(type === "+icon-external" ? "noopener noreferrer" : false), title=text)
+mixin button({ type, text, title, url })
+  a.button(href=url target=(type === "+icon-external" ? "_blank" : false) rel=(type === "+icon-external" ? "noopener noreferrer" : false), title=title)
     span.text=text
     if type === "+icon-external"
       svg.icon(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20")

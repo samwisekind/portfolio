@@ -6,7 +6,7 @@ main {
   max-width: $maxWidthExtra;
 }
 
-section {
+main > section {
   margin-bottom: $spacingLarge * 2;
 
   @include breakpoint("medium") {
@@ -17,16 +17,63 @@ section {
     margin-bottom: $spacingSmall * 2;
   }
 
+  &:not(:last-child):after {
+    @extend %line;
+    margin: 0 auto;
+    width: 50%;
+
+    margin-top: $spacingLarge * 2;
+
+    @include breakpoint("medium") {
+      margin-top: $spacingMedium * 2;
+    }
+
+    @include breakpoint("small") {
+      width: 100%;
+      margin-top: $spacingSmall * 2;
+    }
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
 }
 
-section.me > h1,
-section > h2 {
-  margin-bottom: $spacingLarge;
+main > section > h1,
+main > section > h2 {
   font-size: fontSize(32px);
   text-transform: lowercase;
+
+  > .button {
+    margin-left: $spacingLarge;
+    vertical-align: middle;
+
+    @include breakpoint("medium") {
+      margin-left: $spacingMedium;
+    }
+
+    @include breakpoint("small") {
+      margin-left: 0;
+    }
+  }
+}
+
+main > section h1 {
+  > span {
+    color: $colorSecondary;
+  }
+
+  > .button {
+    @include breakpoint("small") {
+      margin-top: $spacingSmall;
+      display: flex;
+      width: 50%;
+    }
+  }
+}
+
+main > section h2 {
+  margin-bottom: $spacingLarge;
 
   @include breakpoint("medium") {
     margin-bottom: $spacingMedium;
@@ -34,11 +81,10 @@ section > h2 {
 
   @include breakpoint("small") {
     margin-bottom: $spacingSmall;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-}
-
-section > h2 {
-  line-height: fontSize(32px);
 }
 
 section > .wrapper {
@@ -49,76 +95,22 @@ section > .wrapper {
   @include breakpoint("small") {
     display: block;
   }
-}
-
-section > .wrapper > .item {
-  display: flex;
-  flex-flow: column;
-  margin-right: $spacingLarge;
-  width: 100%;
-
-  @include breakpoint("medium") {
-    margin-right: $spacingMedium;
-  }
-
-  @include breakpoint("small") {
-    margin-right: 0;
-    margin-bottom: $spacingSmall;
-  }
-
-  &.end {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 150px;
-    background: none;
-
-    @include breakpoint("small") {
-      max-width: none;
-      align-items: end;
-    }
-  }
-}
-
-main > section.me > h1 > span {
-  color: $colorSecondary;
-}
-
-main > section.me > .bottom {
-  display: flex;
-  align-items: center;
-
-  &:before,
-  &:after {
-    @extend %line;
-  }
-
-  &:before {
+  
+  > figure {
     margin-right: $spacingLarge;
-    width: 100%;
 
     @include breakpoint("medium") {
       margin-right: $spacingMedium;
     }
-
+  
     @include breakpoint("small") {
-      margin-right: $spacingSmall;
-    }
-  }
-
-  &:after {
-    margin-left: $spacingLarge;
-    min-width: 90px;
-
-    @include breakpoint("medium") {
-      min-width: 60px;
+      margin-right: 0;
+      margin-bottom: $spacingSmall;
     }
 
-    @include breakpoint("small") {
-      display: none;
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
     }
   }
 }
-

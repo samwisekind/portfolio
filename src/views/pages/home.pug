@@ -11,16 +11,15 @@ block styles
 
 block main
   section.me
-    h1 A software engineer focusing on <span>frontend</span> & <span>backend</span> web development working as a <span>tech lead</span> in London
-    .bottom
-      +button({ text: "Hello", url: "/me" })
+    h1
+      | A <span>software engineer</span> and <span>tech lead</span> focusing on <span>frontend</span> & <span>backend</span> web development
+      +button({ text: "Hello", title: "Learn more", url: "/me" })
 
   if photos
     section.photography
-      h2 Photography
+      h2
+        | Photography
+        +button({ text: "More", title: "View photography", url: "/photography" })
       .wrapper
         for photo in photos
-          .item
-            +photo(photo)
-        .item.end
-          +button({ text: "More", url: "/photography" })
+          +photo(photo)
