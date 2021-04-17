@@ -54,21 +54,21 @@ it('shows home', async () => {
   const [photo1, photo2] = document.body.querySelectorAll('section.photography .item:not(.end)');
 
   expect(photo1.querySelectorAll('picture > source').length).toBe(1);
-  expect(photo1.querySelector('picture > source').getAttribute('data-srcset')).toBe('photo-1-src.webp');
-  expect(photo1.querySelector('picture > img').getAttribute('data-src')).toBe('photo-1-src.jpg');
-  expect(photo1.querySelector('picture > img').getAttribute('alt')).toBe('photo 1 alt');
-  expect(photo1.querySelector('picture > img').getAttribute('style')).toBe('padding-top: calc(200 / 100 * 100%)');
-  expect(photo1.querySelector('figcaption .title').textContent).toBe('photo 1 title');
-  expect(photo1.querySelector('figcaption .location').textContent).toBe('photo 1 location');
-  expect(photo1.querySelector('figcaption .date').textContent).toBe('2010');
+  expect(photo1.querySelector('picture > source')?.getAttribute('data-srcset')).toBe('photo-1-src.webp');
+  expect(photo1.querySelector('picture > img')?.getAttribute('data-src')).toBe('photo-1-src.jpg');
+  expect(photo1.querySelector('picture > img')?.getAttribute('alt')).toBe('photo 1 alt');
+  expect(photo1.querySelector('picture > img')?.getAttribute('style')).toBe('padding-top: calc(200 / 100 * 100%)');
+  expect(photo1.querySelector('figcaption .title')?.textContent).toBe('photo 1 title');
+  expect(photo1.querySelector('figcaption .location')?.textContent).toBe('photo 1 location');
+  expect(photo1.querySelector('figcaption .date')?.textContent).toBe('2010');
 
   expect(photo2.querySelectorAll('picture > source').length).toBe(0);
-  expect(photo2.querySelector('picture > img').getAttribute('data-src')).toBe('photo-2-src.jpg');
-  expect(photo2.querySelector('picture > img').getAttribute('alt')).toBe('photo 2 alt');
-  expect(photo2.querySelector('picture > img').getAttribute('style')).toBe('padding-top: calc(300 / 400 * 100%)');
-  expect(photo2.querySelector('figcaption .title').textContent).toBe('photo 2 title');
-  expect(photo2.querySelector('figcaption .location').textContent).toBe('photo 2 location');
-  expect(photo2.querySelector('figcaption .date').textContent).toBe('2020');
+  expect(photo2.querySelector('picture > img')?.getAttribute('data-src')).toBe('photo-2-src.jpg');
+  expect(photo2.querySelector('picture > img')?.getAttribute('alt')).toBe('photo 2 alt');
+  expect(photo2.querySelector('picture > img')?.getAttribute('style')).toBe('padding-top: calc(300 / 400 * 100%)');
+  expect(photo2.querySelector('figcaption .title')?.textContent).toBe('photo 2 title');
+  expect(photo2.querySelector('figcaption .location')?.textContent).toBe('photo 2 location');
+  expect(photo2.querySelector('figcaption .date')?.textContent).toBe('2020');
 });
 
 it('shows photography', async () => {
@@ -84,53 +84,53 @@ it('shows photography', async () => {
   expect(document.body.querySelectorAll('section.photography > .controls > select > option').length).toBe(3);
   const [albumAll, album1, album2] = document.body.querySelectorAll('section.photography > .controls > select > option');
 
-  expect(albumAll.value).toBe('all');
-  expect(albumAll.selected).toBe(true);
+  expect((albumAll as HTMLOptionElement).value).toBe('all');
+  expect((albumAll as HTMLOptionElement).selected).toBe(true);
 
-  expect(album1.value).toBe('test-album-1');
-  expect(album1.textContent).toBe('Test Album 1');
+  expect((album1 as HTMLOptionElement).value).toBe('test-album-1');
+  expect((album1 as HTMLOptionElement).textContent).toBe('Test Album 1');
 
-  expect(album2.value).toBe('test-album-2');
-  expect(album2.textContent).toBe('Test Album 2');
+  expect((album2 as HTMLOptionElement).value).toBe('test-album-2');
+  expect((album2 as HTMLOptionElement).textContent).toBe('Test Album 2');
 
   expect(document.body.querySelectorAll('section.photography > .gallery figure').length).toBe(4);
 
   const [photo1, photo2, photo3, photo4] = document.body.querySelectorAll('section.photography > .gallery figure');
 
   expect(photo1.querySelectorAll('picture > source').length).toBe(1);
-  expect(photo1.querySelector('picture > source').getAttribute('data-srcset')).toBe('photo-1-src.webp');
-  expect(photo1.querySelector('picture > img').getAttribute('data-src')).toBe('photo-1-src.jpg');
-  expect(photo1.querySelector('picture > img').getAttribute('alt')).toBe('photo 1 alt');
-  expect(photo1.querySelector('picture > img').getAttribute('style')).toBe('padding-top: calc(200 / 100 * 100%)');
-  expect(photo1.querySelector('figcaption > .info > .title').textContent).toBe('photo 1 title');
-  expect(photo1.querySelector('figcaption > .info > .location').textContent).toBe('photo 1 location');
-  expect(photo1.querySelector('figcaption > .date').textContent).toBe('2010');
+  expect(photo1.querySelector('picture > source')?.getAttribute('data-srcset')).toBe('photo-1-src.webp');
+  expect(photo1.querySelector('picture > img')?.getAttribute('data-src')).toBe('photo-1-src.jpg');
+  expect(photo1.querySelector('picture > img')?.getAttribute('alt')).toBe('photo 1 alt');
+  expect(photo1.querySelector('picture > img')?.getAttribute('style')).toBe('padding-top: calc(200 / 100 * 100%)');
+  expect(photo1.querySelector('figcaption > .info > .title')?.textContent).toBe('photo 1 title');
+  expect(photo1.querySelector('figcaption > .info > .location')?.textContent).toBe('photo 1 location');
+  expect(photo1.querySelector('figcaption > .date')?.textContent).toBe('2010');
 
   expect(photo2.querySelectorAll('picture > source').length).toBe(0);
-  expect(photo2.querySelector('picture > img').getAttribute('data-src')).toBe('photo-2-src.jpg');
-  expect(photo2.querySelector('picture > img').getAttribute('alt')).toBe('photo 2 alt');
-  expect(photo2.querySelector('picture > img').getAttribute('style')).toBe('padding-top: calc(300 / 400 * 100%)');
-  expect(photo2.querySelector('figcaption > .info > .title').textContent).toBe('photo 2 title');
-  expect(photo2.querySelector('figcaption > .info > .location').textContent).toBe('photo 2 location');
-  expect(photo2.querySelector('figcaption > .date').textContent).toBe('2020');
+  expect(photo2.querySelector('picture > img')?.getAttribute('data-src')).toBe('photo-2-src.jpg');
+  expect(photo2.querySelector('picture > img')?.getAttribute('alt')).toBe('photo 2 alt');
+  expect(photo2.querySelector('picture > img')?.getAttribute('style')).toBe('padding-top: calc(300 / 400 * 100%)');
+  expect(photo2.querySelector('figcaption > .info > .title')?.textContent).toBe('photo 2 title');
+  expect(photo2.querySelector('figcaption > .info > .location')?.textContent).toBe('photo 2 location');
+  expect(photo2.querySelector('figcaption > .date')?.textContent).toBe('2020');
 
   expect(photo3.querySelectorAll('picture > source').length).toBe(1);
-  expect(photo3.querySelector('picture > source').getAttribute('data-srcset')).toBe('photo-3-src.webp');
-  expect(photo3.querySelector('picture > img').getAttribute('data-src')).toBe('photo-3-src.jpg');
-  expect(photo3.querySelector('picture > img').getAttribute('alt')).toBe('photo 3 alt');
-  expect(photo3.querySelector('picture > img').getAttribute('style')).toBe('padding-top: calc(500 / 500 * 100%)');
-  expect(photo3.querySelector('figcaption > .info > .title').textContent).toBe('photo 3 title');
-  expect(photo3.querySelector('figcaption > .info > .location').textContent).toBe('photo 3 location');
-  expect(photo3.querySelector('figcaption > .date').textContent).toBe('2030');
+  expect(photo3.querySelector('picture > source')?.getAttribute('data-srcset')).toBe('photo-3-src.webp');
+  expect(photo3.querySelector('picture > img')?.getAttribute('data-src')).toBe('photo-3-src.jpg');
+  expect(photo3.querySelector('picture > img')?.getAttribute('alt')).toBe('photo 3 alt');
+  expect(photo3.querySelector('picture > img')?.getAttribute('style')).toBe('padding-top: calc(500 / 500 * 100%)');
+  expect(photo3.querySelector('figcaption > .info > .title')?.textContent).toBe('photo 3 title');
+  expect(photo3.querySelector('figcaption > .info > .location')?.textContent).toBe('photo 3 location');
+  expect(photo3.querySelector('figcaption > .date')?.textContent).toBe('2030');
 
   expect(photo4.querySelectorAll('picture > source').length).toBe(1);
-  expect(photo4.querySelector('picture > source').getAttribute('data-srcset')).toBe('photo-4-src.webp');
-  expect(photo4.querySelector('picture > img').getAttribute('data-src')).toBe('photo-4-src.jpg');
-  expect(photo4.querySelector('picture > img').getAttribute('alt')).toBe('photo 4 alt');
-  expect(photo4.querySelector('picture > img').getAttribute('style')).toBe('padding-top: calc(600 / 600 * 100%)');
-  expect(photo4.querySelector('figcaption > .info > .title').textContent).toBe('photo 4 title');
-  expect(photo4.querySelector('figcaption > .info > .location').textContent).toBe('photo 4 location');
-  expect(photo4.querySelector('figcaption > .date').textContent).toBe('2040');
+  expect(photo4.querySelector('picture > source')?.getAttribute('data-srcset')).toBe('photo-4-src.webp');
+  expect(photo4.querySelector('picture > img')?.getAttribute('data-src')).toBe('photo-4-src.jpg');
+  expect(photo4.querySelector('picture > img')?.getAttribute('alt')).toBe('photo 4 alt');
+  expect(photo4.querySelector('picture > img')?.getAttribute('style')).toBe('padding-top: calc(600 / 600 * 100%)');
+  expect(photo4.querySelector('figcaption > .info > .title')?.textContent).toBe('photo 4 title');
+  expect(photo4.querySelector('figcaption > .info > .location')?.textContent).toBe('photo 4 location');
+  expect(photo4.querySelector('figcaption > .date')?.textContent).toBe('2040');
 });
 
 it('shows me', async () => {
