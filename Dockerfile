@@ -4,10 +4,10 @@ WORKDIR /app
 COPY . /app
 
 RUN npm ci && \
+    npm run server:build && \
     npm run assets:build && \
     npm prune --production && \
-    rm -rf ./.cache ./src/assets package-lock.json && \
-    find ./src -type f -name '*.spec.js' -delete
+    rm -rf ./.cache ./coverage ./src package-lock.json tsconfig.build.json tsconfig.json
 
 EXPOSE 3000
 

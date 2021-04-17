@@ -12,7 +12,7 @@
     "server:watch": "nodemon src/app.ts",
     "assets:build": "parcel build src/assets/scripts/*.js src/assets/styles/*.scss -d dist/public --public-url ./ --detailed-report",
     "assets:watch": "parcel watch src/assets/scripts/*.js src/assets/styles/*.scss -d dist/public --public-url ./",
-    "test": "npm run test:eslint && npm run test:stylelint && npm run test:unit",
+    "test": "npm run test:eslint && npm run test:stylelint && npm run test:unit:coverage",
     "test:eslint": "eslint src/",
     "test:stylelint": "stylelint 'src/assets/**/*.scss'",
     "test:typescript": "tsc",
