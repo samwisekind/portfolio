@@ -1,156 +1,18 @@
-/**
- * @jest-environment jsdom
- */
+import request from 'supertest';
 
-jest.mock('../helpers/writing', () => ({
-  getJournalArticlesList: jest.fn(),
-}));
+import { mockedPhotos, mockedAlbums } from './mocks/photography-mock';
 
-jest.mock('../helpers/photography', () => ({
-  getPhotos: jest.fn(),
+import app from './app';
+import { getPhotographyData, getFeaturedPhotos } from './helpers/photography';
+
+jest.mock('./helpers/photography', () => ({
+  getPhotographyData: jest.fn(),
   getFeaturedPhotos: jest.fn(),
 }));
 
-const request = require('supertest');
-
-const app = require('../app');
-
-const { getJournalArticlesList } = require('../helpers/writing');
-const { getPhotos, getFeaturedPhotos } = require('../helpers/photography');
-
 beforeEach(() => {
-  getJournalArticlesList.mockImplementation(() => ([
-    {
-      slug: 'test-1',
-      attributes: {
-        title: 'foo',
-        blurb: 'bar',
-        published: '2010-01-01T12:00:00.000Z',
-      },
-      content: '<p>Lorem ipsum</p>',
-    },
-    {
-      slug: 'test-2',
-      attributes: {
-        title: 'hello',
-        blurb: 'world',
-        published: '2020-05-05T12:00:00.000Z',
-      },
-      content: '<p>Dolor sit amet</p>',
-    },
-  ]));
-
-  getPhotos.mockImplementation(() => ({
-    albums: [
-      {
-        name: 'Test Album 1',
-        key: 'test-album-1',
-      },
-      {
-        name: 'Test Album 2',
-        key: 'test-album-2',
-      },
-    ],
-    photos: [
-      {
-        order: 0,
-        title: 'photo 1 title',
-        alt: 'photo 1 alt',
-        location: 'photo 1 location',
-        album: 'test-album-1',
-        date: '2010',
-        src: {
-          jpg: 'photo-1-src.jpg',
-          webp: 'photo-1-src.webp',
-        },
-        size: {
-          width: 100,
-          height: 200,
-        },
-      },
-      {
-        order: 1,
-        title: 'photo 2 title',
-        alt: 'photo 2 alt',
-        location: 'photo 2 location',
-        album: 'test-album-1',
-        date: '2020',
-        src: {
-          jpg: 'photo-2-src.jpg',
-        },
-        size: {
-          width: 400,
-          height: 300,
-        },
-      },
-      {
-        order: 2,
-        title: 'photo 3 title',
-        alt: 'photo 3 alt',
-        location: 'photo 3 location',
-        album: 'test-album-2',
-        date: '2030',
-        src: {
-          jpg: 'photo-3-src.jpg',
-          webp: 'photo-3-src.webp',
-        },
-        size: {
-          width: 500,
-          height: 500,
-        },
-      },
-      {
-        order: 3,
-        title: 'photo 4 title',
-        alt: 'photo 4 alt',
-        location: 'photo 4 location',
-        album: 'test-album-2',
-        date: '2040',
-        src: {
-          jpg: 'photo-4-src.jpg',
-          webp: 'photo-4-src.webp',
-        },
-        size: {
-          width: 600,
-          height: 600,
-        },
-      },
-    ],
-  }));
-
-  getFeaturedPhotos.mockImplementation(() => ([
-    {
-      order: 0,
-      title: 'photo 1 title',
-      alt: 'photo 1 alt',
-      location: 'photo 1 location',
-      album: 'test-album-1',
-      date: '2010',
-      src: {
-        jpg: 'photo-1-src.jpg',
-        webp: 'photo-1-src.webp',
-      },
-      size: {
-        width: 100,
-        height: 200,
-      },
-    },
-    {
-      order: 1,
-      title: 'photo 2 title',
-      alt: 'photo 2 alt',
-      location: 'photo 2 location',
-      album: 'test-album-2',
-      date: '2020',
-      src: {
-        jpg: 'photo-2-src.jpg',
-      },
-      size: {
-        width: 400,
-        height: 300,
-      },
-    },
-  ]));
+  (getPhotographyData as jest.Mock).mockImplementation(() => mockedPhotos);
+  (getFeaturedPhotos as jest.Mock).mockImplementation(() => mockedAlbums);
 });
 
 afterEach(() => {
@@ -158,23 +20,35 @@ afterEach(() => {
   document.body.innerHTML = '';
 });
 
+it('gets robots', async () => {
+  const response = await request(app).get('/robots.txt');
+
+  expect(response.status).toBe(200);
+  expect(response.type).toBe('text/plain');
+  expect(response.text).toBe('User-agent: *\nDisallow:');
+});
+
+it('gets health check', async () => {
+  const response = await request(app).get('/status');
+
+  expect(response.status).toBe(200);
+  expect(response.text).toBe('OK');
+});
+
+it('gets 304 redirect for missing pages', async () => {
+  const response = await request(app).get('/foo');
+
+  expect(response.status).toBe(302);
+  expect(response.headers.location).toBe('/');
+});
+
 it('shows home', async () => {
   const response = await request(app).get('/');
-
-  expect(getJournalArticlesList).toHaveBeenCalledWith(2);
 
   expect(response.status).toBe(200);
   expect(response.type).toBe('text/html');
 
   document.body.innerHTML = response.text;
-
-  expect(document.body.querySelectorAll('section.writing .item:not(.end)').length).toBe(2);
-  const [journal1, journal2] = document.body.querySelectorAll('section.writing .item:not(.end)');
-
-  expect(journal1.querySelector('h3 > a').getAttribute('href')).toBe('/writing/test-1');
-  expect(journal1.querySelector('h3 > a').textContent).toBe('foo');
-  expect(journal2.querySelector('h3 > a').getAttribute('href')).toBe('/writing/test-2');
-  expect(journal2.querySelector('h3 > a').textContent).toBe('hello');
 
   expect(document.body.querySelectorAll('section.photography .item:not(.end)').length).toBe(2);
   const [photo1, photo2] = document.body.querySelectorAll('section.photography .item:not(.end)');
@@ -197,47 +71,10 @@ it('shows home', async () => {
   expect(photo2.querySelector('figcaption .date').textContent).toBe('2020');
 });
 
-it('shows writing list', async () => {
-  const response = await request(app).get('/writing');
-
-  expect(getJournalArticlesList).toHaveBeenCalledTimes(1);
-
-  expect(response.status).toBe(200);
-  expect(response.type).toBe('text/html');
-
-  document.body.innerHTML = response.text;
-
-  expect(document.body.querySelectorAll('section.writing > .item').length).toBe(2);
-  const [journal1, journal2] = document.body.querySelectorAll('section.writing > .item');
-
-  expect(journal1.querySelector('h2 > a').getAttribute('href')).toBe('/writing/test-1');
-  expect(journal1.querySelector('h2 > a').textContent).toBe('foo');
-  expect(journal1.querySelectorAll('p')[0].textContent).toBe('bar');
-  expect(journal1.querySelectorAll('p')[1].textContent).toBe('1 January 2010');
-
-  expect(journal2.querySelector('h2 > a').getAttribute('href')).toBe('/writing/test-2');
-  expect(journal2.querySelector('h2 > a').textContent).toBe('hello');
-  expect(journal2.querySelectorAll('p')[0].textContent).toBe('world');
-  expect(journal2.querySelectorAll('p')[1].textContent).toBe('5 May 2020');
-});
-
-it('shows writing list', async () => {
-  const response = await request(app).get('/writing/test-1');
-
-  expect(getJournalArticlesList).toHaveBeenCalledTimes(1);
-
-  expect(response.status).toBe(200);
-  expect(response.type).toBe('text/html');
-
-  document.body.innerHTML = response.text;
-
-  expect(document.body.querySelector('.writing-detail').innerHTML).toBe('<p>Lorem ipsum</p><p class="footnote">Published 1 January 2010</p>');
-});
-
 it('shows photography', async () => {
   const response = await request(app).get('/photography');
 
-  expect(getPhotos).toHaveBeenCalledTimes(1);
+  expect(getPhotographyData).toHaveBeenCalledTimes(1);
 
   expect(response.status).toBe(200);
   expect(response.type).toBe('text/html');

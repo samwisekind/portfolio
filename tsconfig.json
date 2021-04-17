@@ -6,6 +6,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
 
     "strict": true,
     "noImplicitAny": true,
@@ -29,8 +30,6 @@
   ],
   "exclude": [
     "server.js",
-    "src/assets",
-    "src/**/*.spec.js",
-    "src/**/*.spec.ts"
+    "src/assets"
   ]
 }
