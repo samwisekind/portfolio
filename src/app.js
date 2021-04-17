@@ -4,8 +4,6 @@ const morgan = require('morgan');
 const compression = require('compression');
 const minifyHTML = require('express-minify-html');
 
-const { version } = require('../package.json');
-
 const routes = require('./routes');
 
 /* istanbul ignore next */
@@ -14,7 +12,7 @@ const environment = process.env.NODE_ENV || 'production';
 const app = express();
 
 /* istanbul ignore next */
-if (process.env.NODE_ENV !== 'jest') {
+if (environment !== 'test') {
   app.use(morgan('combined'));
 }
 
@@ -33,28 +31,13 @@ app.use(minifyHTML({
   },
 }));
 
+app.get('/status', (req, res) => res.sendStatus(200));
+
+app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\nDisallow:'));
+
 app.use('/public', express.static('./src/public'));
 
 app.use(routes);
-
-app.get('/robots.txt', (req, res) => {
-  let robots = 'User-agent: *\nDisallow:';
-
-  /* istanbul ignore next */
-  if (environment === 'test') {
-    robots = 'User-agent: *\nDisallow: /';
-  }
-
-  res.type('text/plain').send(robots);
-});
-
-app.get('/version', (req, res) => res.json({
-  version,
-  environment,
-  viewCache: app.get('view cache'),
-}));
-
-app.get('/status', (req, res) => res.sendStatus(200));
 
 app.get('*', (req, res) => res.redirect('/'));
 
