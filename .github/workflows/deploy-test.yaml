@@ -1,24 +1,21 @@
-name: Build and deploy test
+name: Deploy test
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feature/redesign
 
 jobs:
-  build-deploy-test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+  deploy-test:
+    environment:
+      name: test
+      url: https://test.flamov.com
 
-    - uses: chrnorm/deployment-action@releases/v1
-      name: Create GitHub deployment
-      id: deployment
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        target_url: https://test.flamov.com
-        environment: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
 
     - name: Get git hash
       id: hash
@@ -45,21 +42,3 @@ jobs:
           echo ${{ secrets.PACKAGES_TOKEN }} | docker login docker.pkg.github.com -u Flamov --password-stdin
           docker-compose pull app-test
           docker-compose up --no-deps -d app-test
-
-    - name: Update deployment status (success)
-      if: success()
-      uses: chrnorm/deployment-status@releases/v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        target_url: https://test.flamov.com
-        state: "success"
-        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-
-    - name: Update deployment status (failure)
-      if: failure()
-      uses: chrnorm/deployment-status@releases/v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        target_url: https://test.flamov.com
-        state: "failure"
-        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
