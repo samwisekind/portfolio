@@ -15,11 +15,6 @@ const environment = process.env.NODE_ENV || 'production';
 
 const app = express();
 
-/* istanbul ignore next */
-if (environment !== 'test') {
-  app.use(morgan('combined'));
-}
-
 app.use(helmet());
 
 app.use(compression());
@@ -58,9 +53,12 @@ app.get('/me', (_req, res) => {
 
 app.get('*', (_req, res) => res.redirect('/'));
 
-const port = 3000;
-
-// eslint-disable-next-line no-console
-app.listen(port, () => console.log(`listening on port ${port}`));
+/* istanbul ignore next */
+if (environment !== 'test') {
+  const port = 3000;
+  app.use(morgan('combined'));
+  // eslint-disable-next-line no-console
+  app.listen(port, () => console.log(`listening on port ${port}`));
+}
 
 export default app;

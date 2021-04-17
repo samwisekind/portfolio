@@ -1,11 +1,7 @@
 {
   "private": true,
-  "main": "server.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
-    "start": "node server",
+    "start": "node dist/app.js",
     "build": "npm run server:build && npm run assets:build",
     "watch": "npm run server:watch & npm run assets:watch",
     "server:build": "tsc --build tsconfig.build.json && cp -r src/views dist/views",
@@ -55,9 +51,7 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "src/assets/*",
-      "src/public/*",
-      "tests/*"
+      "src/assets/*"
     ]
   },
   "babel": {
