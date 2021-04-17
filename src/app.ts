@@ -35,7 +35,12 @@ app.get('/status', (_req, res) => res.sendStatus(200));
 
 app.get('/robots.txt', (_req, res) => res.type('text/plain').send('User-agent: *\nDisallow:'));
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static('./dist/public'));
+
+app.use((_req, res, next) => {
+  res.set('Content-Security-Policy', 'img-src "self" https://cdn.flamov.com');
+  next();
+});
 
 app.get('/', async (_req, res) => {
   const photos = getFeaturedPhotos();

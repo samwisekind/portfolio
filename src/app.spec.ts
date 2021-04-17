@@ -47,6 +47,7 @@ it('shows home', async () => {
 
   expect(response.status).toBe(200);
   expect(response.type).toBe('text/html');
+  expect(response.headers['content-security-policy']).toBe('img-src "self" https://cdn.flamov.com');
 
   document.body.innerHTML = response.text;
 
@@ -78,6 +79,7 @@ it('shows photography', async () => {
 
   expect(response.status).toBe(200);
   expect(response.type).toBe('text/html');
+  expect(response.headers['content-security-policy']).toBe('img-src "self" https://cdn.flamov.com');
 
   document.body.innerHTML = response.text;
 
@@ -138,4 +140,5 @@ it('shows me', async () => {
 
   expect(response.status).toBe(200);
   expect(response.type).toBe('text/html');
+  expect(response.headers['content-security-policy']).toBe('img-src "self" https://cdn.flamov.com');
 });
