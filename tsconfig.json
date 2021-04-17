@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "outDir": "./dist",
+    "noEmit": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true, 
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "server.js",
+    "src/assets",
+    "src/**/*.spec.js",
+    "src/**/*.spec.ts"
+  ]
+}

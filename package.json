@@ -6,16 +6,18 @@
   },
   "scripts": {
     "start": "node server",
+    "build": "npm run server:build && assets:build",
     "watch": "npm run server:watch & npm run assets:watch",
-    "server:watch": "nodemon server.js --inspect",
+    "server:build": "tsc --build tsconfig.build.json",
     "assets:build": "parcel build src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --public-url ./ --detailed-report",
     "assets:watch": "parcel watch src/assets/scripts/*.js src/assets/styles/*.scss -d src/public --public-url ./",
-    "eslint": "eslint '**/*.js' --ignore-pattern public/",
-    "eslint:report": "npm run eslint -- -f json -o reports/eslint.xml",
-    "stylelint": "stylelint 'src/assets/**/*.scss'",
-    "test": "jest .*.spec.js --verbose",
-    "test:watch": "npm run test -- --watch",
-    "test:coverage": "npm run test -- --coverage"
+    "test:eslint": "eslint src/",
+    "test:stylelint": "stylelint 'src/assets/**/*.scss'",
+    "test:typescript": "tsc",
+    "test:typescript:watch": "tsc --watch",
+    "test:unit": "jest src/.*.spec.ts",
+    "test:unit:coverage": "npm run test:unit -- --coverage",
+    "test:unit:watch": "npm run test:unit:coverage -- --watch"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -32,9 +34,13 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.22",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
     "cheerio": "^1.0.0-rc.6",
     "eslint": "^7.24.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3",
     "nodemon": "^2.0.7",
@@ -46,6 +52,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0",
     "supertest": "^6.1.3",
+    "typescript": "^4.2.4",
     "vanilla-lazyload": "^17.3.1"
   },
   "nodemonConfig": {
@@ -55,12 +62,34 @@
       "tests/*"
     ]
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  },
   "eslintConfig": {
-    "extends": "airbnb-base",
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "airbnb-typescript/base"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
     "env": {
       "node": true,
-      "jest": true,
-      "browser": true
+      "browser": true,
+      "jest": true
     }
   },
   "stylelint": {
@@ -70,7 +99,10 @@
     }
   },
   "jest": {
-    "testEnvironment": "node"
+    "verbose": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
   },
   "browserslist": [
     "last 1 Chrome version"

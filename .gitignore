@@ -42,6 +42,7 @@ jspm_packages
 *.code-workspace
 
 # Assets
+dist/
 src/public/
 
 # Environment variables
