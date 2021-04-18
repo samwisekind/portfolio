@@ -16,19 +16,16 @@ import getWork from './helpers/me';
 /* istanbul ignore next */
 const environment = process.env.NODE_ENV || 'production';
 
-const resourceHashes = [
-  { name: 'globalCSSHash', file: './dist/public/styles/global.css' },
-  { name: 'globalJSHash', file: './dist/public/scripts/global.js' },
-  { name: 'homeCSSHash', file: './dist/public/styles/home.css' },
-  { name: 'photographyCSSHash', file: './dist/public/styles/photography.css' },
-  { name: 'photographyJSHash', file: './dist/public/scripts/photography.js' },
-  { name: 'meCSSHash', file: './dist/public/styles/me.css' },
-].reduce((accumulator, { name, file }) => ({
-  ...accumulator,
-  [name]: environment !== 'development' ? hashFileContents(fs.readFileSync(file, 'utf-8')) : '',
-}), {});
-
 const app = express();
+
+app.locals.resourceHashes = {
+  globalCSS: hashFileContents(fs.readFileSync('./dist/public/styles/global.css', 'utf-8')),
+  globalJS: hashFileContents(fs.readFileSync('./dist/public/scripts/global.js', 'utf-8')),
+  homeCSS: hashFileContents(fs.readFileSync('./dist/public/styles/home.css', 'utf-8')),
+  photographyCSS: hashFileContents(fs.readFileSync('./dist/public/styles/photography.css', 'utf-8')),
+  photographyJS: hashFileContents(fs.readFileSync('./dist/public/scripts/photography.js', 'utf-8')),
+  meCSS: hashFileContents(fs.readFileSync('./dist/public/styles/me.css', 'utf-8')),
+};
 
 app.use(helmet());
 app.use(compression());
@@ -51,7 +48,6 @@ app.get('/robots.txt', (_req, res) => res.type('text/plain').send('User-agent: *
 app.use('/public', express.static('./dist/public'));
 
 app.use((_req, res, next) => {
-  app.locals.resourceHashes = resourceHashes;
   res.set('Content-Security-Policy', 'img-src \'self\' https://cdn.flamov.com data:;');
   next();
 });
