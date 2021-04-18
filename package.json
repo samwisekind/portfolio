@@ -94,7 +94,8 @@
   "jest": {
     "verbose": true,
     "collectCoverageFrom": [
-      "src/**/*.ts"
+      "src/**/*.ts",
+      "!src/assets/**/*.ts"
     ]
   },
   "browserslist": [
