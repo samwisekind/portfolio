@@ -20,10 +20,10 @@ jobs:
         run: npm ci
 
       - name: Build server
-        run: npm run build:server
+        run: npm run server:build
 
       - name: Build assets
-        run: npm run build:assets
+        run: npm run assets:build
 
       - name: Test eslint
         run: npm run test:eslint
