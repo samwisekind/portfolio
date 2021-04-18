@@ -10,10 +10,7 @@
         "Adobe Soundbooth",
         "Apple Motion"
       ],
-      "links": {
-        "website": "https://thesteamchat.com",
-        "github": "https://github.com/Flamov/steamchat-website"
-      }
+      "link": "https://github.com/Flamov/steamchat-website"
     }
   ],
   "recognitions": [

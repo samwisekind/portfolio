@@ -2,15 +2,105 @@
 
 @import "common/mixins";
 
+main > section {
+  margin-bottom: $spacingL * 3;
+
+  @include breakpoint("medium") {
+    margin-bottom: $spacingM * 3;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingS * 3;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+main > section > h2 {
+  margin-bottom: $spacingL;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: fontSize($fontSizeL);
+  text-transform: lowercase;
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingS;
+  }
+
+  &:after {
+    margin-left: $spacingL;
+    width: 100%;
+    transform: translateY(2px);
+
+    @extend %line;
+
+    @include breakpoint("medium") {
+      margin-left: $spacingM;
+    }
+
+    @include breakpoint("small") {
+      margin-left: $spacingS;
+    }
+  }
+}
+
+main > section .item {
+  display: block;
+  position: relative;
+  margin-bottom: $spacingL;
+  font-weight: inherit;
+  text-decoration: none;
+
+  > ul,
+  > p.date {
+    font-size: fontSize($fontSizeXS);
+    color: $colorPrimaryAlt;
+  
+    @extend %fontMonospace;
+  }
+
+  &:hover {
+    color: inherit;
+    background: $colorSecondaryAlt;
+
+    > ul,
+    > p.date {
+      color: $colorPrimary;
+    }
+  }
+
+  @extend %box;
+
+  @include breakpoint("medium") {
+    margin-bottom: $spacingM;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingS;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+main > section > .item h3 {
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
 main > section.me > h1 {
+  font-size: fontSize($fontSizeXL);
+  line-height: fontSize($fontSizeXL);
   font-weight: 700;
-  font-size: fontSize(48px);
-  line-height: fontSize(48px);
 }
 
 main > section.me > p {
   margin-top: $spacingL;
-  font-size: fontSize(20px);
+  font-size: fontSize($fontSizeM);
 
   @include breakpoint("medium") {
     margin-top: $spacingM;
@@ -19,6 +109,7 @@ main > section.me > p {
   @include breakpoint("small") {
     margin-top: $spacingS;
   }
+
   > span.mono {
     @extend %fontMonospace;
   }
@@ -56,17 +147,16 @@ main > section.me > p.greeting {
     content: attr(data-current);
     display: inline-block;
     margin-left: 10px;
-    font-size: fontSize(28px);
-    line-height: fontSize(28px);
+    font-size: fontSize($fontSizeL);
+    line-height: fontSize($fontSizeL);
     animation: 3s cubic-bezier(.68, -.6, .32, 1.6) 0s infinite cycle;
     will-change: opacity, transform;
   }
 }
 
 main > section.me ul {
-  position: relative;
-  columns: 2;
   margin-top: $spacingL;
+  columns: 2;
   list-style: none;
 
   @include breakpoint("medium") {
@@ -79,10 +169,10 @@ main > section.me ul {
 }
 
 main > section.me ul > li {
-  position: relative;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  font-size: fontSize($fontSizeS);
   color: lighten($colorSecondary, 20%);
 
   @extend %fontMonospace;
@@ -114,125 +204,15 @@ main > section.me ul > li {
   }
 }
 
-main > section.projects,
-main > section.recognitions {
-  margin-top: $spacingL * 3;
-
-  @include breakpoint("medium") {
-    margin-top: $spacingM * 3;
-  }
-
-  @include breakpoint("small") {
-    margin-top: $spacingS * 3;
-  }
-}
-
-main > section.projects > h2,
-main > section.recognitions > h2 {
-  margin-bottom: $spacingL;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  text-transform: lowercase;
-
-  @include breakpoint("small") {
-    margin-bottom: $spacingS;
-  }
-
-  &:after {
-    margin-left: $spacingL;
-    width: 100%;
-    transform: translateY(2px);
-
-    @extend %line;
-
-    @include breakpoint("medium") {
-      margin-left: $spacingM;
-    }
-
-    @include breakpoint("small") {
-      margin-left: $spacingS;
-    }
-  }
-}
-
-main > section.projects > .item,
-main > section.recognitions > .item {
-  margin-bottom: $spacingL;
-
-  @extend %box;
-
-  @include breakpoint("medium") {
-    margin-bottom: $spacingM;
-  }
-
-  @include breakpoint("small") {
-    margin-bottom: $spacingS;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-main > section.projects > .item > h3,
-main > section.recognitions > .item > h3 {
-  margin-bottom: 10px;
-}
-
-main > section.projects > .item > p,
-main > section.recognitions > .item > h3 {
-  font-size: fontSize(18px);
-}
-
-main > section.projects > .item > h3 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-
-  > a {    
-    display: block;
-    margin-left: 15px;
-
-    &:first-child {
-      margin-left: auto;
-    }
-
-    > svg {
-      display: block;
-      fill: $colorPrimaryAlt;
-    }
-
-    &:hover > svg {
-      fill: $colorSecondaryAlt;
-    }
-  }
-}
-
-
-main > section.projects > .item > .bottom {
+main > section.projects .item > ul {
   margin-top: 10px;
-  display: flex;
-  align-items: center;
-
-  @include breakpoint("small") {
-    display: block;
-  }
-}
-
-main > section.projects .item > .bottom > .technologies {
   display: flex;
   list-style: none;
 }
 
-main > section.projects .item > .bottom > .technologies > li {
+main > section.projects .item > ul > li {
   margin-right: 15px;
-  font-size: fontSize(14px);
-  color: $colorPrimaryAlt;
 
-  @extend %fontMonospace;
-  
   @include breakpoint("small") {
     margin-right: 10px;
   }
@@ -242,50 +222,24 @@ main > section.projects .item > .bottom > .technologies > li {
   }
 }
 
-main > section.projects .item > .bottom > .links {
+main > section.projects > .more {
   display: flex;
-  align-items: center;
-  margin-left: auto;
-  
-  @include breakpoint("small") {
-    margin-top: 15px;
-  }
 }
 
-main > section.projects .item > .bottom > .links > a {
-  display: block;
-  margin-right: 15px;
-
-  @include breakpoint("small") {
-    margin-right: 10px;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
+main > section.projects > .more > .item {
+  margin-right: $spacingL;
+  margin-bottom: 0;
+  width: 50%;
+  min-height: 100%;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
 
   &:hover > svg {
     fill: $colorPrimary;
   }
 
-  > svg {
-    fill: $colorSecondary;
-  }
-}
-
-main > section.projects > .items-more {
-  display: flex;
-}
-
-main > section.projects > .items-more > .item {
-  margin-right: $spacingL;
-  margin-bottom: 0;
-  width: 50%;
-  min-height: 100%;
-  text-align: center;
-  text-decoration: none;
-
-  @extend %box, %fontMonospace;
+  @extend %fontMonospace;
 
   @include breakpoint("medium") {
     margin-right: $spacingM;
@@ -298,18 +252,9 @@ main > section.projects > .items-more > .item {
   &:last-child {
     margin-right: 0;
   }
-
-  &:hover {
-    color: $colorPrimary;
-    background: $colorSecondaryAlt;
-  }
-
-  &:hover > svg {
-    fill: $colorPrimary;
-  }
 }
 
-main > section.projects > .items-more > .item > svg {
+main > section.projects > .more > .item > svg {
   $size: 60px;
 
   display: block;
@@ -333,11 +278,4 @@ main > section.projects > .items-more > .item > svg {
     width: $size;
     height: $size;
   }
-}
-
-main > section.recognitions > .item > p.date {
-  font-size: fontSize(14px);
-  color: $colorPrimaryAlt;
-
-  @extend %fontMonospace;
 }

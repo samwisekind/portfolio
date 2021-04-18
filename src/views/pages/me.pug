@@ -32,33 +32,25 @@ block main
     if projects
       h2 Projects
       for project in projects
-        .item
-          h3
-            =project.title
-            if project.links && project.links.github
-              a.icon.github(href=project.links.github title="View project GitHub repository")
-                +icon-github
-            if project.links && project.links.website
-              a.website(href=project.links.website title="Visit project website")
-                +icon-external
+        a(href=project.link rel="noopener noreferrer" target="_blank").item
+          h3=project.title
           p=project.description
-          .bottom
-            ul.technologies
+          if (project.technologies)
+            ul
               for technology in project.technologies
                 li=technology
-    .items-more
-      a(href="https://github.com/Flamov" title="View GitHub profile").item
+    .more
+      a(href="https://github.com/Flamov" title="View GitHub profile" rel="noopener noreferrer" target="_blank").item
         +icon-github
-        span More on <b>GitHub</b>
-      a(href="https://codepen.com/Flamov" title="View CodePen profile").item
+        span More on GitHub
+      a(href="https://codepen.com/Flamov" title="View CodePen profile" rel="noopener noreferrer" target="_blank").item
         +icon-codepen
-        span More on <b>CodePen</b>
+        span More on CodePen
 
   if recognitions
     section.recognitions
       h2 Recognitions
       for item in recognitions
-        .item
-          h3
-            a(href=item.url alt="")=item.title
+        a(href=item.url rel="noopener noreferrer" target="_blank").item
+          h3=item.title
           p.date=item.date

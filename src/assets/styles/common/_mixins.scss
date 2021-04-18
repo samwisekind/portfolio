@@ -43,6 +43,7 @@ $boxPadding: 20px;
   padding: $boxPadding;
   border-radius: $boxBorderRadius;
   background: $colorBackgroundAlt;
+  overflow: hidden;
 
   @include breakpoint("medium") {
     padding: $spacingM;
