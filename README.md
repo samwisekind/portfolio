@@ -6,7 +6,7 @@ Source code for my personal website located at [https://flamov.com](https://flam
 
 Uses Node, Express, Parcel, Pug, and MongoDB. Also uses Jest for testing. Deployed with CircleCI and Docker Compose ([compose files can be found here](https://github.com/Flamov/flamov-portfolio-compose)).
 
-![Infrastructure diagram](https://cdn.flamov.com/misc/infrastructure-diagram.png?v4)
+![Infrastructure diagram](https://cdn.flamov.com/misc/infrastructure-diagram.png?v5)
 
 See the [next steps and technical roadmap of the project here](https://github.com/users/Flamov/projects/1).
 
