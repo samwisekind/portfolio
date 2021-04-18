@@ -1,13 +1,9 @@
 import data from '../data/photography.json';
 
-const getPhotographyData = () => {
-  const sortedPhotos = data.photos.sort((a, b) => a.order - b.order);
-
-  return {
-    albums: data.albums,
-    photos: sortedPhotos,
-  };
-};
+const getPhotographyData = () => ({
+  albums: data.albums,
+  photos: [...data.photos].sort((a, b) => a.order - b.order),
+});
 
 const getFeaturedPhotos = () => {
   const { photos } = getPhotographyData();
