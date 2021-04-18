@@ -51,7 +51,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "src/assets/*"
+      "src/assets/*",
+      "src/**/*.spec.ts"
     ]
   },
   "babel": {

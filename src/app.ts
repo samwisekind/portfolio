@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 import express from 'express';
 import helmet from 'helmet';
 // @ts-ignore
@@ -8,16 +9,28 @@ import compression from 'compression';
 // @ts-ignore
 import minifyHTML from 'express-minify-html';
 
+import hashFileContents from './helpers/hash';
 import { getPhotographyData, getFeaturedPhotos } from './helpers/photography';
 import getWork from './helpers/me';
 
 /* istanbul ignore next */
 const environment = process.env.NODE_ENV || 'production';
 
+const resourceHashes = [
+  { name: 'globalCSSHash', file: './dist/public/styles/global.css' },
+  { name: 'globalJSHash', file: './dist/public/scripts/global.js' },
+  { name: 'homeCSSHash', file: './dist/public/styles/home.css' },
+  { name: 'photographyCSSHash', file: './dist/public/styles/photography.css' },
+  { name: 'photographyJSHash', file: './dist/public/scripts/photography.js' },
+  { name: 'meCSSHash', file: './dist/public/styles/me.css' },
+].reduce((accumulator, { name, file }) => ({
+  ...accumulator,
+  [name]: environment !== 'development' ? hashFileContents(fs.readFileSync(file, 'utf-8')) : '',
+}), {});
+
 const app = express();
 
 app.use(helmet());
-
 app.use(compression());
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -38,24 +51,22 @@ app.get('/robots.txt', (_req, res) => res.type('text/plain').send('User-agent: *
 app.use('/public', express.static('./dist/public'));
 
 app.use((_req, res, next) => {
+  app.locals.resourceHashes = resourceHashes;
   res.set('Content-Security-Policy', 'img-src \'self\' https://cdn.flamov.com data:;');
   next();
 });
 
-app.get('/', async (_req, res) => {
-  const photos = getFeaturedPhotos();
-  return res.render('pages/home', { photos });
-});
+app.get('/', async (_req, res) => res.render('pages/home', {
+  data: getFeaturedPhotos(),
+}));
 
-app.get('/photography', (_req, res) => {
-  const data = getPhotographyData();
-  res.render('pages/photography', data);
-});
+app.get('/photography', (_req, res) => res.render('pages/photography', {
+  data: getPhotographyData(),
+}));
 
-app.get('/me', (_req, res) => {
-  const data = getWork();
-  res.render('pages/me', data);
-});
+app.get('/me', (_req, res) => res.render('pages/me', {
+  data: getWork(),
+}));
 
 app.get('*', (_req, res) => res.redirect('/'));
 

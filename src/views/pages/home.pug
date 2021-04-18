@@ -7,7 +7,7 @@ block variables
   - const PAGE_SECTION = "home";
 
 block styles
-  link(href="/public/styles/home.css" type="text/css" rel="stylesheet")
+  link(href=`/public/styles/home.css?${resourceHashes.homeCSS}` type="text/css" rel="stylesheet")
 
 block main
   section.me
@@ -16,11 +16,11 @@ block main
     .bottom
       +button({ text: "Hello", title: "Learn more", url: "/me" })
 
-  if photos
+  if data
     section.photography
       h2
         | Photography
         +button({ text: "More", title: "View photography", url: "/photography" })
       .wrapper
-        for photo in photos
+        for photo in data
           +photo(photo)

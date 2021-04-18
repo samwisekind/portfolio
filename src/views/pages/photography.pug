@@ -6,21 +6,21 @@ block variables
   - const PAGE_SECTION = "photography";
 
 block styles
-  link(href="/public/styles/photography.css" type="text/css" rel="stylesheet")
+  link(href=`/public/styles/photography.css?${resourceHashes.photographyCSSHash}` type="text/css" rel="stylesheet")
 
 block scripts
-  script(src="/public/scripts/photography.js" type="text/javascript" async defer)
+  script(src=`/public/scripts/photography.js?${resourceHashes.photographyJSHash}` type="text/javascript" async defer)
 
 block main
   section.photography
-    if albums
+    if data.albums
       .controls
         h1 Photography
         select.js-albums
           option(value="all" selected) All Photos
-          for album in albums
+          for album in data.albums
             option(value=album.key)=album.name
     .gallery.js-gallery
       .column.js-column
-        each photo in photos
+        each photo in data.photos
           +photo(photo)
