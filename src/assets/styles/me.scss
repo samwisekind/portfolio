@@ -54,12 +54,14 @@ main > section .item {
   font-weight: inherit;
   text-decoration: none;
 
-  > ul,
-  > p.date {
-    font-size: fontSize($fontSizeXS);
-    color: $colorPrimaryAlt;
-  
-    @extend %fontMonospace;
+  @extend %box;
+
+  @include breakpoint("medium") {
+    margin-bottom: $spacingM;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingS;
   }
 
   &:hover {
@@ -72,18 +74,16 @@ main > section .item {
     }
   }
 
-  @extend %box;
-
-  @include breakpoint("medium") {
-    margin-bottom: $spacingM;
-  }
-
-  @include breakpoint("small") {
-    margin-bottom: $spacingS;
-  }
-
   &:last-child {
     margin-bottom: 0;
+  }
+
+  > ul,
+  > p.date {
+    font-size: fontSize($fontSizeXS);
+    color: $colorPrimaryAlt;
+  
+    @extend %fontMonospace;
   }
 }
 
@@ -235,10 +235,6 @@ main > section.projects > .more > .item {
   text-align: center;
   text-decoration: underline;
 
-  &:hover > svg {
-    fill: $colorPrimary;
-  }
-
   @extend %fontMonospace;
 
   @include breakpoint("medium") {
@@ -247,6 +243,10 @@ main > section.projects > .more > .item {
 
   @include breakpoint("small") {
     margin-right: $spacingS;
+  }
+
+  &:hover > svg {
+    fill: $colorPrimary;
   }
 
   &:last-child {

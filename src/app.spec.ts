@@ -51,8 +51,8 @@ it('shows home', async () => {
 
   document.body.innerHTML = response.text;
 
-  expect(document.body.querySelectorAll('section.photography .item:not(.end)').length).toBe(2);
-  const [photo1, photo2] = document.body.querySelectorAll('section.photography .item:not(.end)');
+  expect(document.body.querySelectorAll('section.photography > .wrapper > .photo').length).toBe(2);
+  const [photo1, photo2] = document.body.querySelectorAll('section.photography > .wrapper > .photo');
 
   expect(photo1.querySelectorAll('picture > source').length).toBe(1);
   expect(photo1.querySelector('picture > source')?.getAttribute('data-srcset')).toBe('photo-1-src.webp');
