@@ -7,30 +7,14 @@ main {
 }
 
 main > section {
-  margin-bottom: $spacingLarge * 2;
+  margin-bottom: $spacingL * 3;
 
   @include breakpoint("medium") {
-    margin-bottom: $spacingMedium * 2;
+    margin-bottom: $spacingM * 3;
   }
 
   @include breakpoint("small") {
-    margin-bottom: $spacingSmall * 2;
-  }
-
-  &:not(:last-child):after {
-    margin: $spacingLarge * 2 auto 0;
-    width: 50%;
-
-    @extend %line;
-
-    @include breakpoint("medium") {
-      margin-top: $spacingMedium * 2;
-    }
-
-    @include breakpoint("small") {
-      width: 100%;
-      margin-top: $spacingSmall * 2;
-    }
+    margin-bottom: $spacingS * 3;
   }
 
   &:last-child {
@@ -40,15 +24,38 @@ main > section {
 
 main > section > h1,
 main > section > h2 {
-  font-size: fontSize(32px);
   text-transform: lowercase;
+}
+
+main > section > h1 {
+  font-size: fontSize($fontSizeXL);
+  color: $colorPrimaryAlt;
+
+  > span {
+    color: $colorPrimary;
+  }
+}
+
+main > section > h2 {
+  margin-bottom: $spacingL;
+  display: flex;
+  font-size: fontSize($fontSizeL);
+  line-height: fontSize($fontSizeL);
+
+  @include breakpoint("medium") {
+    margin-bottom: $spacingM;
+  }
+
+  @include breakpoint("small") {
+    margin-bottom: $spacingS;
+    justify-content: space-between;
+  }
 
   > .button {
-    margin-left: $spacingLarge;
-    vertical-align: middle;
+    margin-left: $spacingL;
 
     @include breakpoint("medium") {
-      margin-left: $spacingMedium;
+      margin-left: $spacingM;
     }
 
     @include breakpoint("small") {
@@ -57,38 +64,7 @@ main > section > h2 {
   }
 }
 
-main > section h1 {
-  color: rgba($colorPrimaryAlt, .7);
-
-  > span {
-    color: $colorPrimary;
-  }
-
-  > .button {
-    @include breakpoint("small") {
-      margin-top: $spacingSmall;
-      display: flex;
-      width: 50%;
-    }
-  }
-}
-
-main > section h2 {
-  margin-bottom: $spacingLarge;
-
-  @include breakpoint("medium") {
-    margin-bottom: $spacingMedium;
-  }
-
-  @include breakpoint("small") {
-    margin-bottom: $spacingSmall;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-section > .wrapper {
+main > section > .wrapper {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -98,20 +74,49 @@ section > .wrapper {
   }
   
   > figure {
-    margin-right: $spacingLarge;
+    margin-right: $spacingL;
 
     @include breakpoint("medium") {
-      margin-right: $spacingMedium;
+      margin-right: $spacingM;
     }
   
     @include breakpoint("small") {
       margin-right: 0;
-      margin-bottom: $spacingSmall;
+      margin-bottom: $spacingS;
     }
 
     &:last-child {
-      margin-right: 0;
-      margin-bottom: 0;
+      margin: 0;
+    }
+  }
+}
+
+main > section.me > .bottom {
+  margin-top: $spacingL;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include breakpoint("medium") {
+    margin-top: $spacingM;
+  }
+
+  @include breakpoint("small") {
+    margin-top: $spacingS;
+  }
+
+  &:after {
+    margin-left: $spacingL;
+    width: 100%;
+
+    @extend %line;
+
+    @include breakpoint("medium") {
+      margin-left: $spacingM;
+    }
+  
+    @include breakpoint("small") {
+      margin-left: $spacingS;
     }
   }
 }

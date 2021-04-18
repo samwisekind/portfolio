@@ -9,15 +9,15 @@ main > section.me > h1 {
 }
 
 main > section.me > p {
-  margin-top: $spacingLarge;
+  margin-top: $spacingL;
   font-size: fontSize(20px);
 
   @include breakpoint("medium") {
-    margin-top: $spacingMedium;
+    margin-top: $spacingM;
   }
 
   @include breakpoint("small") {
-    margin-top: $spacingSmall;
+    margin-top: $spacingS;
   }
   > span.mono {
     @extend %fontMonospace;
@@ -66,15 +66,15 @@ main > section.me > p.greeting {
 main > section.me ul {
   position: relative;
   columns: 2;
-  margin-top: $spacingLarge;
+  margin-top: $spacingL;
   list-style: none;
 
   @include breakpoint("medium") {
-    margin-top: $spacingMedium;
+    margin-top: $spacingM;
   }
 
   @include breakpoint("small") {
-    margin-top: $spacingSmall;
+    margin-top: $spacingS;
   }
 }
 
@@ -116,58 +116,58 @@ main > section.me ul > li {
 
 main > section.projects,
 main > section.recognitions {
-  margin-top: $spacingLarge * 3;
+  margin-top: $spacingL * 3;
 
   @include breakpoint("medium") {
-    margin-top: $spacingMedium * 3;
+    margin-top: $spacingM * 3;
   }
 
   @include breakpoint("small") {
-    margin-top: $spacingSmall * 3;
+    margin-top: $spacingS * 3;
   }
 }
 
 main > section.projects > h2,
 main > section.recognitions > h2 {
-  margin-bottom: $spacingLarge;
+  margin-bottom: $spacingL;
   display: flex;
   align-items: center;
   white-space: nowrap;
   text-transform: lowercase;
 
   @include breakpoint("small") {
-    margin-bottom: $spacingSmall;
+    margin-bottom: $spacingS;
   }
 
   &:after {
-    margin-left: $spacingLarge;
+    margin-left: $spacingL;
     width: 100%;
     transform: translateY(2px);
 
     @extend %line;
 
     @include breakpoint("medium") {
-      margin-left: $spacingMedium;
+      margin-left: $spacingM;
     }
 
     @include breakpoint("small") {
-      margin-left: $spacingSmall;
+      margin-left: $spacingS;
     }
   }
 }
 
 main > section.projects > .item,
 main > section.recognitions > .item {
-  margin-bottom: $spacingLarge;
+  margin-bottom: $spacingL;
 
   @extend %box;
 
   @include breakpoint("medium") {
-    margin-bottom: $spacingMedium;
+    margin-bottom: $spacingM;
   }
 
   @include breakpoint("small") {
-    margin-bottom: $spacingSmall;
+    margin-bottom: $spacingS;
   }
 
   &:last-child {
@@ -278,7 +278,7 @@ main > section.projects > .items-more {
 }
 
 main > section.projects > .items-more > .item {
-  margin-right: $spacingLarge;
+  margin-right: $spacingL;
   margin-bottom: 0;
   width: 50%;
   min-height: 100%;
@@ -288,11 +288,11 @@ main > section.projects > .items-more > .item {
   @extend %box, %fontMonospace;
 
   @include breakpoint("medium") {
-    margin-right: $spacingMedium;
+    margin-right: $spacingM;
   }
 
   @include breakpoint("small") {
-    margin-right: $spacingSmall;
+    margin-right: $spacingS;
   }
 
   &:last-child {

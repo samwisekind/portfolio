@@ -21,14 +21,13 @@
 }
 
 $lineSize: 6px;
-$lineColor: rgba($colorPrimaryAlt, .3);
 
 %line {
   content: "";
   display: block;
   height: $lineSize;
   border-radius: $lineSize;
-  background: $lineColor;
+  background: $colorLine;
 }
 
 %lineVertical {
@@ -46,16 +45,16 @@ $boxPadding: 20px;
   background: $colorBackgroundAlt;
 
   @include breakpoint("medium") {
-    padding: $spacingMedium;
+    padding: $spacingM;
   }
 
   @include breakpoint("small") {
-    padding: $spacingSmall;
+    padding: $spacingS;
   }
 }
 
-%fontMain {
-  font-family: $fontMain;
+%fontSansSerif {
+  font-family: $fontSansSerif;
 }
 
 %fontMonospace {

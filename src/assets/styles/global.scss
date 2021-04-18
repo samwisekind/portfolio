@@ -54,7 +54,7 @@ body > .stars {
     will-change: transform, opacity;
 
     > a.link {
-      padding: $spacingSmall 0;
+      padding: $spacingS 0;
       width: 100%;
       font-size: fontSize(38px);
       text-align: center;
@@ -75,7 +75,7 @@ body > .stars {
       position: absolute;
       top: 0;
       right: 0;
-      padding: $spacingSmall * 2;
+      padding: $spacingS * 2;
 
       > svg {
         display: block;
@@ -129,14 +129,14 @@ body > .stars {
 
 main {
   margin: 0 auto;
-  padding: 0 ($spacingLarge * 2);
+  padding: 0 ($spacingL * 2);
   max-width: $maxWidth;
 
   @include breakpoint("medium") {
-    padding: 0 ($spacingMedium * 2);
+    padding: 0 ($spacingM * 2);
   }
 
   @include breakpoint("small") {
-    padding: 0 ($spacingSmall * 2);
+    padding: 0 ($spacingS * 2);
   }
 }

@@ -5,26 +5,26 @@
 nav.header {
   display: flex;
   align-items: baseline;
-  margin: 0 auto $spacingLarge;
-  padding: $spacingLarge * 2;
+  margin: 0 auto $spacingL;
+  padding: $spacingL * 2;
   max-width: $maxWidthExtra;
 
   @include breakpoint("medium") {
-    margin-bottom: $spacingMedium;
-    padding: $spacingMedium * 2;
+    margin-bottom: $spacingM;
+    padding: $spacingM * 2;
   }
 
   @include breakpoint("small") {
-    margin-bottom: $spacingSmall;
-    padding: $spacingSmall * 2;
+    margin-bottom: $spacingS;
+    padding: $spacingS * 2;
   }
 }
 
 nav.header > a {
   padding: 0 15px;
   font-weight: 700;
-  font-size: fontSize(26px);
-  line-height: fontSize(26px);
+  font-size: fontSize($fontSizeL);
+  line-height: fontSize($fontSizeL);
   text-decoration: none;
   text-transform: lowercase;
   color: $colorPrimary;
@@ -32,8 +32,6 @@ nav.header > a {
 
   @include breakpoint("medium") {
     padding: 0 10px;
-    font-size: fontSize(22px);
-    line-height: fontSize(22px);
   }
 
   @include breakpoint("small") {
@@ -46,13 +44,6 @@ nav.header > a {
     margin-right: auto;
     padding: 0;
     font-weight: 700;
-    font-size: fontSize(32px);
-    line-height: fontSize(32px);
-
-    @include breakpoint("medium") {
-      font-size: fontSize(28px);
-      line-height: fontSize(28px);
-    }
   }
 
   &.link {
