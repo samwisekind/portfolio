@@ -18,11 +18,10 @@ main > section {
   }
 
   &:not(:last-child):after {
-    @extend %line;
-    margin: 0 auto;
+    margin: $spacingLarge * 2 auto 0;
     width: 50%;
 
-    margin-top: $spacingLarge * 2;
+    @extend %line;
 
     @include breakpoint("medium") {
       margin-top: $spacingMedium * 2;
