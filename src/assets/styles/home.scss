@@ -29,10 +29,9 @@ main > section > h2 {
 
 main > section > h1 {
   font-size: fontSize($fontSizeXL);
-  color: $colorPrimaryAlt;
 
   > span {
-    color: $colorPrimary;
+    color: $colorSpecial;
   }
 }
 

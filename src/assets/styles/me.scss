@@ -173,7 +173,7 @@ main > section.me ul > li {
   align-items: center;
   margin-bottom: 20px;
   font-size: fontSize($fontSizeS);
-  color: lighten($colorSecondary, 20%);
+  color: $colorSpecial;
 
   @extend %fontMonospace;
 
@@ -193,7 +193,7 @@ main > section.me ul > li {
     position: relative;
     margin-right: 15px;
     min-width: 30px;
-    background: $colorSecondary;
+    background: $colorSpecial;
 
     @extend %line;
 
