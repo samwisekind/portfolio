@@ -59,8 +59,10 @@ main > section > h2 {
 }
 
 main > section h1 {
+  color: rgba($colorPrimaryAlt, .7);
+
   > span {
-    color: $colorSecondary;
+    color: $colorPrimary;
   }
 
   > .button {

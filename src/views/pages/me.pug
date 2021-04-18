@@ -14,7 +14,7 @@ block main
     h1 me
     p(data-current="👋" data-emojis="👋|✌️|🤙|🖖|🤘|🤝|❤️").greeting.js-greeting Hello, you!
     p I'm a software engineer focusing on frontend and backend web development as well as a number of things in-between, currently as a Tech Lead in e-commerce.
-    p Here are some of the technologies I use the most:
+    p Here are some of the technologies I currently use the most:
     ul
       li Node.js
       li JavaScript (ES6+)
@@ -26,34 +26,33 @@ block main
       li Canvas / SVG
       li WebGL / three.js
       li MongoDB
-    p Feel free to <a href="mailto:sam@flamov.com">drop me an email</a> for a résumé or to get in touch! <span class="mono">:-)</span>
+    p Feel free to <a href="mailto:sam@flamov.com?subject=Hello!">drop me an email</a> for a résumé or to get in touch! <span class="mono">:-)</span>
 
   section.projects
     if projects
       h2 Projects
       for project in projects
         .item
-          h3=project.title
+          h3
+            =project.title
+            if project.links && project.links.github
+              a.icon.github(href=project.links.github title="View project GitHub repository")
+                +icon-github
+            if project.links && project.links.website
+              a.website(href=project.links.website title="Visit project website")
+                +icon-external
           p=project.description
           .bottom
             ul.technologies
               for technology in project.technologies
                 li=technology
-            if project.links && (project.links.github || projects.links.website)
-              .links
-                if project.links && project.links.github
-                  a.icon.github(href=project.links.github)
-                    +icon-github
-                if project.links && project.links.website
-                  a.website(href=project.links.website)
-                    +icon-external
     .items-more
-      a(href="https://github.com/Flamov").item
+      a(href="https://github.com/Flamov" title="View GitHub profile").item
         +icon-github
-        span More on <b>+icon-github</b>
-      a(href="https://codepen.com/Flamov").item
+        span More on <b>GitHub</b>
+      a(href="https://codepen.com/Flamov" title="View CodePen profile").item
         +icon-codepen
-        span More on <b>+icon-codepen</b>
+        span More on <b>CodePen</b>
 
   if recognitions
     section.recognitions

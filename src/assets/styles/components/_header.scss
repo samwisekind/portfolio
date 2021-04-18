@@ -76,5 +76,9 @@ nav.header > a {
   &:hover {
     color: $colorSecondary;
   }
+
+  &.active:hover {
+    color: $colorSecondaryAlt;
+  }
 }
 

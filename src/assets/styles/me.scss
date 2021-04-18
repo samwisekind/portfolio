@@ -185,6 +185,32 @@ main > section.recognitions > .item > h3 {
   font-size: fontSize(18px);
 }
 
+main > section.projects > .item > h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  > a {    
+    display: block;
+    margin-left: 15px;
+
+    &:first-child {
+      margin-left: auto;
+    }
+
+    > svg {
+      display: block;
+      fill: $colorPrimaryAlt;
+    }
+
+    &:hover > svg {
+      fill: $colorSecondaryAlt;
+    }
+  }
+}
+
+
 main > section.projects > .item > .bottom {
   margin-top: 10px;
   display: flex;
@@ -256,7 +282,6 @@ main > section.projects > .items-more > .item {
   margin-bottom: 0;
   width: 50%;
   min-height: 100%;
-  border: 2px solid transparent;
   text-align: center;
   text-decoration: none;
 
@@ -276,7 +301,7 @@ main > section.projects > .items-more > .item {
 
   &:hover {
     color: $colorPrimary;
-    border-color: $colorSecondary;
+    background: $colorSecondaryAlt;
   }
 
   &:hover > svg {

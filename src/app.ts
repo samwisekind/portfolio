@@ -38,7 +38,7 @@ app.get('/robots.txt', (_req, res) => res.type('text/plain').send('User-agent: *
 app.use('/public', express.static('./dist/public'));
 
 app.use((_req, res, next) => {
-  res.set('Content-Security-Policy', 'img-src "self" https://cdn.flamov.com');
+  res.set('Content-Security-Policy', 'img-src \'self\' https://cdn.flamov.com data:;');
   next();
 });
 
