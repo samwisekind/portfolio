@@ -1,16 +1,18 @@
 import data from '../data/photography.json';
 
-const getPhotographyData = () => ({
-  albums: data.albums,
-  photos: data.photos.sort((a, b) => a.order - b.order),
-});
+const getPhotographyData = () => {
+  const sortedPhotos = data.photos.sort((a, b) => a.order - b.order);
+
+  return {
+    albums: data.albums,
+    photos: sortedPhotos,
+  };
+};
 
 const getFeaturedPhotos = () => {
   const { photos } = getPhotographyData();
 
-  const featuredPhotos = photos.filter((photo) => photo.featured);
-
-  return featuredPhotos;
+  return photos.filter((photo) => photo.featured);
 };
 
 export {
