@@ -12,7 +12,7 @@ const lazyLoad = new LazyLoad({
 
 const workGreeting = document.querySelector('.js-greeting');
 if (workGreeting) {
-  const emojis = workGreeting.getAttribute('data-emojis').split('|');
+  const emojis = workGreeting?.getAttribute('data-emojis')?.split('|') || [];
 
   let index = 0;
   const cycleEmoji = () => {
@@ -21,17 +21,17 @@ if (workGreeting) {
   };
 
   ['webkitAnimationIteration', 'animationiteration']
-    .forEach((event) => workGreeting.addEventListener(event, cycleEmoji));
+    .forEach((event) => workGreeting?.addEventListener(event, cycleEmoji));
 }
 
-document.querySelector('.js-menu-open').addEventListener('click', (event) => {
+document.querySelector('.js-menu-open')?.addEventListener('click', (event) => {
   event.preventDefault();
 
   document.body.classList.add('menu');
   openStars();
 });
 
-document.querySelector('.js-menu-close').addEventListener('click', (event) => {
+document.querySelector('.js-menu-close')?.addEventListener('click', (event) => {
   event.preventDefault();
 
   document.body.classList.remove('menu');

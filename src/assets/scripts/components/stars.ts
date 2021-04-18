@@ -1,17 +1,35 @@
-const canvas = document.querySelector('.js-stars');
-const context = canvas.getContext('2d');
+const canvas = (document.querySelector('.js-stars') as HTMLCanvasElement);
+const context = (canvas.getContext('2d') as CanvasRenderingContext2D);
 
-let stars = []; // Array for the star objects
+type Star = {
+  x: number,
+  y: number,
+  targetY: number,
+  radius: number,
+  hue: number,
+  sat: number,
+};
+
+let stars: Array<Star> = []; // Array for the star objects
 const colors = [0, 60, 240]; // Hue range of stars
 
-let start;
-let direction;
+let start: number | null = null;
+let direction: 'open' | 'close';
 const duration = 1500; // ms
 
-const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1);
+const easeInOutCubic = (
+  t: number,
+) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1);
 
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-const getRandomFloat = (min, max) => Math.random() * (max - min) + min;
+const getRandomInt = (
+  min: number,
+  max: number,
+) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const getRandomFloat = (
+  min: number,
+  max: number,
+) => Math.random() * (max - min) + min;
 
 const drawStar = ({
   x,
@@ -19,7 +37,7 @@ const drawStar = ({
   radius,
   hue,
   sat,
-}) => {
+}: Star) => {
   context.beginPath();
   context.arc(x, y, radius, 0, 360);
   context.fillStyle = `hsl(${hue}, ${sat}%, 88%)`;
@@ -30,7 +48,9 @@ const drawStar = ({
  * Animates stars into or out of the canvas
  * @param {number} timestamp Time to use as elapsed from duration
  */
-const animateStars = (timestamp) => {
+const animateStars = (
+  timestamp: number,
+) => {
   if (!start) {
     start = timestamp;
   }
@@ -104,7 +124,7 @@ const openStars = () => {
 const closeStars = () => requestAnimationFrame((timestamp) => {
   start = null;
   direction = 'close';
-  animateStars(timestamp, 'close');
+  animateStars(timestamp);
 });
 
 export { openStars, closeStars };
