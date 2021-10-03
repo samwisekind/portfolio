@@ -12,15 +12,16 @@ block styles
 block main
   section.me
     h1
-      | A <span>software engineer</span> / <span>tech lead</span> focusing on <span>frontend</span> + <span>backend</span> web development
+      | I'm a <span>software engineer</span> / <span>tech lead</span> focusing on <span>frontend</span> + <span>backend</span> web development
     .bottom
       +button({ text: "Hello", title: "Learn more", url: "/me" })
 
   if data
     section.photography
-      h2
-        | Photography
-        +button({ text: "More", title: "View photography", url: "/photography" })
-      .wrapper
-        for photo in data
-          +photo(photo)
+      for photo in data
+        figure.photo.js-photo
+          +button({ text: "More", title: "View photography", url: "/photography" })
+          picture
+            if photo.src.webp
+              source(type="image/webp" data-srcset=photo.src.webp)
+            img(data-src=photo.src.jpg alt=photo.alt).js-lazy

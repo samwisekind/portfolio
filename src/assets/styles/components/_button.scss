@@ -1,9 +1,10 @@
 @import "../common/constants";
 
-$height: 40px;
 $transition-timing: .1s;
 
 .button {
+  $height: $borderRadiusL * 2;
+
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -22,13 +23,19 @@ $transition-timing: .1s;
   transition: background $transition-timing $easeStandard;
 
   @include breakpoint("medium") {
+    $height: $borderRadiusM * 2;
+
     padding: 0 18px;
-    height: 35px;
+    height: $height;
+    border-radius: $height;
   }
   
   @include breakpoint("small") {
+    $height: $borderRadiusS * 2;
+
     padding: 0 15px;
-    height: 30px;
+    height: $height;
+    border-radius: $height;
   }
 
   &:before {

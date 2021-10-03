@@ -90,6 +90,10 @@ main > section > .wrapper {
   }
 }
 
+main > section.me {
+  @extend %box;
+}
+
 main > section.me > .bottom {
   margin-top: $spacingL;
   display: flex;
@@ -104,18 +108,18 @@ main > section.me > .bottom {
     margin-top: $spacingS;
   }
 
-  &:after {
-    margin-left: $spacingL;
+  &:before {
+    margin-right: $spacingL;
     width: 100%;
 
     @extend %line;
 
     @include breakpoint("medium") {
-      margin-left: $spacingM;
+      margin-right: $spacingM;
     }
   
     @include breakpoint("small") {
-      margin-left: $spacingS;
+      margin-right: $spacingS;
     }
   }
 }

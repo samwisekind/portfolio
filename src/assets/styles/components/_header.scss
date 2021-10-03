@@ -26,6 +26,7 @@ nav.header > a {
   font-size: fontSize($fontSizeL);
   line-height: fontSize($fontSizeL);
   text-transform: lowercase;
+  text-decoration: none;
   color: $colorPrimary;
   white-space: nowrap;
 

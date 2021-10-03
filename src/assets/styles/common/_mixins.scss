@@ -36,21 +36,20 @@ $lineSize: 6px;
   @extend %line;
 }
 
-$boxBorderRadius: 10px;
-$boxPadding: 20px;
-
 %box {
-  padding: $boxPadding;
-  border-radius: $boxBorderRadius;
+  padding: $spacingL;
+  border-radius: $borderRadiusL;
   background: $colorBackgroundAlt;
   overflow: hidden;
 
   @include breakpoint("medium") {
     padding: $spacingM;
+    border-radius: $borderRadiusM;
   }
 
   @include breakpoint("small") {
     padding: $spacingS;
+    border-radius: $borderRadiusS;
   }
 }
 
