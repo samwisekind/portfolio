@@ -5,6 +5,7 @@ include ../components/photo
 
 block variables
   - const PAGE_SECTION = "home";
+  - const featuredPhotos = photography.photos.filter((photo) => photo.featured);
 
 block styles
   link(href="../../styles/home.scss" type="text/css" rel="stylesheet")
@@ -16,9 +17,9 @@ block main
     .bottom
       +button({ text: "Hello", title: "Learn more", url: "/me" })
 
-  if photography
+  if featuredPhotos
     section.photography
-      for photo in photography.photos
+      for photo in featuredPhotos
         figure.photo.js-photo
           +button({ text: "More", title: "View photography", url: "/photography" })
           picture
