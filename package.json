@@ -1,72 +1,30 @@
 {
   "private": true,
   "scripts": {
-    "start": "node dist/app.js",
-    "build": "npm run server:build && npm run assets:build",
-    "watch": "npm run server:watch & npm run assets:watch",
-    "server:build": "tsc --build tsconfig.build.json && cp -r src/views dist/views",
-    "server:watch": "nodemon src/app.ts",
-    "assets:build": "parcel build src/assets/scripts/*.ts src/assets/styles/*.scss -d dist/public --public-url ./ --detailed-report",
-    "assets:watch": "parcel watch src/assets/scripts/*.ts src/assets/styles/*.scss -d dist/public --public-url ./",
-    "test": "npm run test:eslint && npm run test:stylelint && npm run test:unit:coverage",
+    "build": "parcel build src/views/pages/*.pug --dist-dir dist --public-url ./ --detailed-report --no-cache --no-source-maps",
+    "serve": "parcel serve src/views/pages/*.pug --dist-dir dist --public-url ./",
+    "test": "npm run test:eslint && test:typescript && npm run test:stylelint && npm run test:unit:coverage",
     "test:eslint": "eslint src/",
-    "test:stylelint": "stylelint 'src/assets/**/*.scss'",
+    "test:stylelint": "stylelint 'src/**/*.scss'",
     "test:typescript": "tsc",
-    "test:typescript:watch": "tsc --watch",
-    "test:unit": "jest src/.*.spec.ts",
+    "test:typescript:watch": "tsc --noEmit --watch",
+    "test:unit": "jest src/**/.*.spec.ts",
     "test:unit:coverage": "npm run test:unit -- --coverage",
     "test:unit:watch": "npm run test:unit:coverage -- --watch"
   },
   "dependencies": {
-    "compression": "^1.7.4",
-    "express": "^4.17.1",
-    "express-minify-html": "^0.12.0",
-    "helmet": "^4.4.1",
-    "morgan": "^1.10.0",
-    "pug": "^3.0.2"
+    "vanilla-lazyload": "^17.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/preset-typescript": "^7.13.0",
-    "@types/express": "^4.17.11",
-    "@types/jest": "^26.0.22",
-    "@types/supertest": "^2.0.11",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "eslint": "^7.24.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-plugin-import": "^2.22.1",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.7",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.32.10",
-    "stylelint": "^13.12.0",
-    "stylelint-config-airbnb": "0.0.0",
+    "@parcel/transformer-pug": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "jest": "^27.2.4",
+    "parcel": "^2.0.0-rc.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.19.0",
-    "supertest": "^6.1.3",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4",
-    "vanilla-lazyload": "^17.3.1"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "src/assets/*",
-      "src/**/*.spec.ts"
-    ]
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "@babel/preset-typescript"
-    ]
+    "stylelint-scss": "^3.21.0",
+    "typescript": "^4.4.3"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -80,7 +38,6 @@
       "project": "./tsconfig.json"
     },
     "env": {
-      "node": true,
       "browser": true,
       "jest": true
     }
@@ -98,7 +55,5 @@
       "!src/assets/**/*.ts"
     ]
   },
-  "browserslist": [
-    "last 1 Chrome version"
-  ]
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }

@@ -15,7 +15,7 @@ html(lang="en")
     meta(name="description" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     meta(name="subject" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     title=(PAGE_TITLE ? `${PAGE_TITLE} | ${DEFAULT_PAGE_TITLE}` : DEFAULT_PAGE_TITLE)
-    link(href=`/public/styles/global.css?${resourceHashes.globalCSSHash}` type="text/css" rel="stylesheet")
+    link(href="../../styles/global.scss" type="text/css" rel="stylesheet")
     base(href="/")
     block styles
 
@@ -31,5 +31,5 @@ html(lang="en")
       a(href="#").menu.js-menu-close
         +icon-menu-close
     canvas.stars.js-stars
-    script(src=`/public/scripts/global.js?${resourceHashes.globalJSHash}` type="text/javascript" async defer)
+    script(src="../../scripts/global.ts" type="module" async defer)
     block scripts

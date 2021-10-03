@@ -1,14 +1,14 @@
-FROM node:14-alpine
-
+# Install dependencies and build app
+FROM node:16-alpine AS build
 WORKDIR /app
 COPY . /app
-
 RUN npm ci && \
-    npm run server:build && \
-    npm run assets:build && \
-    npm prune --production && \
-    rm -rf ./.cache ./coverage ./src package-lock.json tsconfig.build.json tsconfig.json
+    npm run build
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+# Run app in a nginx server
+FROM nginx:latest
+COPY --from=build ./app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx
+RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

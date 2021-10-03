@@ -96,8 +96,8 @@ body > .stars {
     display: block;
     width: 100%;
     height: 100%;
-    transition: opacity ($timing / 2) $easeInOutCubic;
-    transition-delay: ($timing / 2);
+    transition: opacity ($timing * 0.5) $easeInOutCubic;
+    transition-delay: ($timing * 0.5);
     will-change: opacity;
   }
 

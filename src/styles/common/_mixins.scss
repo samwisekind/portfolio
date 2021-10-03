@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "constants";
 
 @mixin breakpoint($size) {
@@ -62,7 +64,7 @@ $lineSize: 6px;
 }
 
 @function fontSize($size) {
-  @return ($size / 10px) * 1rem;
+  @return math.div($size, 10px) * 1rem;
 }
 
 @function lineHeight($size) {
