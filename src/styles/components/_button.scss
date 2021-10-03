@@ -1,78 +1,78 @@
-@import "../common/constants";
+@import '../common/constants';
 
-$transition-timing: .1s;
+$transition-timing: 0.1s;
 
 .button {
-  $height: $borderRadiusL * 2;
+  $height: $border-radius-l * 2;
+  align-items: center;
+  background: $color-secondary;
+  border-radius: $height;
+  color: $color-primary;
+  display: inline-flex;
+  font-size: font-size($font-size-s);
+  height: $height;
+  justify-content: center;
+  line-height: font-size($font-size-s);
+  padding: 0 20px;
 
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  height: $height;
-  font-size: fontSize($fontSizeS);
-  line-height: fontSize($fontSizeS);
-  color: $colorPrimary;
-  border-radius: $height;
   text-align: center;
   text-decoration: none;
   text-transform: lowercase;
+  transition: background $transition-timing $ease-standard;
   white-space: nowrap;
-  background: $colorSecondary;
-  transition: background $transition-timing $easeStandard;
 
-  @include breakpoint("medium") {
-    $height: $borderRadiusM * 2;
+  @include breakpoint('medium') {
+    $height: $border-radius-m * 2;
+    border-radius: $height;
+    height: $height;
 
     padding: 0 18px;
-    height: $height;
-    border-radius: $height;
   }
   
-  @include breakpoint("small") {
-    $height: $borderRadiusS * 2;
+  @include breakpoint('small') {
+    $height: $border-radius-s * 2;
+    border-radius: $height;
+    height: $height;
 
     padding: 0 15px;
-    height: $height;
-    border-radius: $height;
   }
 
-  &:before {
-    z-index: -1;
-    opacity: 0;
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: calc(100%);
-    height: calc(100%);
-    display: block;
+  &::before {
+    border: 2px solid $color-primary;
     border-radius: $height;
-    border: 2px solid $colorPrimary;
+    content: '';
+    display: block;
+    height: calc(100%);
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
     transform: translate(-50%, -50%);
-    transition: all $transition-timing $easeStandard;
+    transition: all $transition-timing $ease-standard;
+    width: calc(100%);
+    z-index: -1;
   }
 
   &:hover {
+    background-color: $color-secondary-alt;
     color: inherit;
-    background-color: $colorSecondaryAlt;
 
-    &:before {
+    &::before {
+      height: calc(100% + 10px);
       opacity: 1;
       width: calc(100% + 10px);
-      height: calc(100% + 10px);
     }
   }
 }
 
 .button > svg {
-  margin-top: 1px;
+  fill: $color-primary;
   margin-left: 8px;
-  fill: $colorPrimary;
-  transition: transform $transition-timing $easeStandard;
+  margin-top: 1px;
+  transition: transform $transition-timing $ease-standard;
 
-  @include breakpoint("small") {
+  @include breakpoint('small') {
     width: 15px;
   }
 }
@@ -80,11 +80,11 @@ $transition-timing: .1s;
 .button:hover > svg {
   transform: translateX(5px);
 
-  @include breakpoint("medium") {
+  @include breakpoint('medium') {
     transform: translateX(4px);
   }
 
-  @include breakpoint("small") {
+  @include breakpoint('small') {
     transform: translateX(3px);
   }
 }

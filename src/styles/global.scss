@@ -1,22 +1,22 @@
-@import "common/constants";
+@import 'common/constants';
 
-@import "common/resets";
+@import 'common/resets';
 
-@import "common/typography";
+@import 'common/typography';
 
-@import "components/header";
+@import 'components/header';
 
-@import "components/footer";
+@import 'components/footer';
 
-@import "components/button";
+@import 'components/button';
 
-@import "components/photo";
+@import 'components/photo';
 
 $timing: 1500ms;
 
 body {
-  color: $colorPrimary;
-  background: $colorBackground;
+  background: $color-background;
+  color: $color-primary;
 }
 
 body > .outer-menu,
@@ -24,99 +24,99 @@ body > .stars {
   display: none;
 }
 
-@include breakpoint("small") {
+@include breakpoint('small') {
   body > .content {
-    opacity: 1;
-    z-index: 0;
-    position: relative;
+    background: $color-background;
     min-height: 100vh;
-    background: $colorBackground;
+    opacity: 1;
     overflow-x: hidden;
-    transition: transform $timing $easeInOutCubic;
+    position: relative;
+    transition: transform $timing $ease-in-out-cubic;
     will-change: transform;
+    z-index: 0;
   }
 
   body > .outer-menu {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
     opacity: 0;
     pointer-events: none;
-    z-index: 20;
     position: absolute;
-    left: 0;
     top: 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
     transform: translateY(-100vh);
-    transition: transform $timing $easeInOutCubic, opacity $timing $easeInOutCubic;
+    transition: transform $timing $ease-in-out-cubic, opacity $timing $ease-in-out-cubic;
+    width: 100%;
     will-change: transform, opacity;
+    z-index: 20;
 
     > a.link {
-      padding: $spacingS 0;
-      width: 100%;
-      font-size: fontSize(38px);
+      font-size: font-size(38px);
+      padding: $spacing-s 0;
       text-align: center;
       text-decoration: none;
       text-transform: lowercase;
+      width: 100%;
 
       &:hover {
-        color: $colorPrimary;
+        color: $color-primary;
       }
 
       &.active,
       &:hover {
-        background: rgba($colorSecondary, .5);
+        background: rgba($color-secondary, 0.5);
       }
     }
 
     > a.menu {
+      padding: $spacing-s * 2;
       position: absolute;
-      top: 0;
       right: 0;
-      padding: $spacingS * 2;
+      top: 0;
 
       > svg {
         display: block;
-        width: 32px;
+        fill: $color-primary;
         height: 32px;
-        fill: $colorPrimary;
+        width: 32px;
       }
     }
   }
 
   body > .stars {
-    pointer-events: none;
-    opacity: 0;
-    z-index: 10;
-    position: absolute;
-    left: 0;
-    top: 0;
     display: block;
-    width: 100%;
     height: 100%;
-    transition: opacity ($timing * 0.5) $easeInOutCubic;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity ($timing * 0.5) $ease-in-out-cubic;
     transition-delay: ($timing * 0.5);
+    width: 100%;
     will-change: opacity;
+    z-index: 10;
   }
 
   body.menu {
     overflow: hidden;
 
     > .content {
+      height: 100%;
+      left: 0;
       pointer-events: none;
       position: absolute;
-      left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
       transform: translateY(100vh) translateZ(0);
+      width: 100%;
     }
 
     > .outer-menu {
-      pointer-events: auto;
       opacity: 1;
+      pointer-events: auto;
       transform: translateY(0) translateZ(0);
     }
 
@@ -129,14 +129,14 @@ body > .stars {
 
 main {
   margin: 0 auto;
-  padding: 0 ($spacingL * 2);
-  max-width: $maxWidth;
+  max-width: $max-width;
+  padding: 0 ($spacing-l * 2);
 
-  @include breakpoint("medium") {
-    padding: 0 ($spacingM * 2);
+  @include breakpoint('medium') {
+    padding: 0 ($spacing-m * 2);
   }
 
-  @include breakpoint("small") {
-    padding: 0 ($spacingS * 2);
+  @include breakpoint('small') {
+    padding: 0 ($spacing-s * 2);
   }
 }

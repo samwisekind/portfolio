@@ -1,72 +1,71 @@
-@use "sass:math";
+@use 'sass:math';
 
-@import "constants";
+@import 'constants';
 
 @mixin breakpoint($size) {
-  @if $size == "large" {
-    @media screen and (min-width: $breakpointLarge + 1px) {
+  @if $size == 'large' {
+    @media screen and (min-width: $breakpoint-large + 1px) {
       @content;
     }
   }
 
-  @else if $size == "medium" {
-    @media screen and (min-width: $breakpointSmall + 1px) and (max-width: $breakpointLarge) {
+  @else if $size == 'medium' {
+    @media screen and (min-width: $breakpoint-small + 1px) and (max-width: $breakpoint-large) {
       @content;
     }
   }
 
-  @else if $size == "small" {
-    @media screen and (max-width: $breakpointSmall) {
+  @else if $size == 'small' {
+    @media screen and (max-width: $breakpoint-small) {
       @content;
     }
   }
 }
 
-$lineSize: 6px;
+$line-size: 6px;
 
 %line {
-  content: "";
+  background: $color-line;
+  border-radius: $line-size;
+  content: '';
   display: block;
-  height: $lineSize;
-  border-radius: $lineSize;
-  background: $colorLine;
+  height: $line-size;
 }
 
-%lineVertical {
-  width: $lineSize;
-
+%line-vertical {
   @extend %line;
+  width: $line-size;
 }
 
 %box {
-  padding: $spacingL;
-  border-radius: $borderRadiusL;
-  background: $colorBackgroundAlt;
+  background: $color-background-alt;
+  border-radius: $border-radius-l;
   overflow: hidden;
+  padding: $spacing-l;
 
-  @include breakpoint("medium") {
-    padding: $spacingM;
-    border-radius: $borderRadiusM;
+  @include breakpoint('medium') {
+    border-radius: $border-radius-m;
+    padding: $spacing-m;
   }
 
-  @include breakpoint("small") {
-    padding: $spacingS;
-    border-radius: $borderRadiusS;
+  @include breakpoint('small') {
+    border-radius: $border-radius-s;
+    padding: $spacing-s;
   }
 }
 
-%fontSansSerif {
-  font-family: $fontSansSerif;
+%font-sans-serif {
+  font-family: $font-sans-serif;
 }
 
-%fontMonospace {
-  font-family: $fontMonospace;
+%font-monospace {
+  font-family: $font-monospace;
 }
 
-@function fontSize($size) {
+@function font-size($size) {
   @return math.div($size, 10px) * 1rem;
 }
 
-@function lineHeight($size) {
-  @return fontSize($size) * 1.6;
+@function line-height($size) {
+  @return font-size($size) * 1.6;
 }

@@ -1,16 +1,16 @@
-@import "common/constants";
+@import 'common/constants';
 
-@import "common/mixins";
+@import 'common/mixins';
 
 main > section {
-  margin-bottom: $spacingL * 3;
+  margin-bottom: $spacing-l * 3;
 
-  @include breakpoint("medium") {
-    margin-bottom: $spacingM * 3;
+  @include breakpoint('medium') {
+    margin-bottom: $spacing-m * 3;
   }
 
-  @include breakpoint("small") {
-    margin-bottom: $spacingS * 3;
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s * 3;
   }
 
   &:last-child {
@@ -19,58 +19,58 @@ main > section {
 }
 
 main > section > h2 {
-  margin-bottom: $spacingL;
-  display: flex;
   align-items: center;
-  white-space: nowrap;
-  font-size: fontSize($fontSizeL);
+  display: flex;
+  font-size: font-size($font-size-l);
+  margin-bottom: $spacing-l;
   text-transform: lowercase;
+  white-space: nowrap;
 
-  @include breakpoint("small") {
-    margin-bottom: $spacingS;
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s;
   }
 
-  &:after {
-    margin-left: $spacingL;
-    width: 100%;
-    transform: translateY(2px);
+  &::after {
 
     @extend %line;
+    margin-left: $spacing-l;
+    transform: translateY(2px);
+    width: 100%;
 
-    @include breakpoint("medium") {
-      margin-left: $spacingM;
+    @include breakpoint('medium') {
+      margin-left: $spacing-m;
     }
 
-    @include breakpoint("small") {
-      margin-left: $spacingS;
+    @include breakpoint('small') {
+      margin-left: $spacing-s;
     }
   }
 }
 
 main > section .item {
-  display: block;
-  position: relative;
-  margin-bottom: $spacingL;
-  font-weight: inherit;
-  text-decoration: none;
 
   @extend %box;
+  display: block;
+  font-weight: inherit;
+  margin-bottom: $spacing-l;
+  position: relative;
+  text-decoration: none;
 
-  @include breakpoint("medium") {
-    margin-bottom: $spacingM;
+  @include breakpoint('medium') {
+    margin-bottom: $spacing-m;
   }
 
-  @include breakpoint("small") {
-    margin-bottom: $spacingS;
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s;
   }
 
   &:hover {
+    background: $color-secondary-alt;
     color: inherit;
-    background: $colorSecondaryAlt;
 
     > ul,
     > p.date {
-      color: $colorPrimary;
+      color: $color-primary;
     }
   }
 
@@ -80,10 +80,10 @@ main > section .item {
 
   > ul,
   > p.date {
-    font-size: fontSize($fontSizeXS);
-    color: $colorPrimaryAlt;
   
-    @extend %fontMonospace;
+    @extend %font-monospace;
+    color: $color-primary-alt;
+    font-size: font-size($font-size-xs);
   }
 }
 
@@ -93,33 +93,43 @@ main > section > .item h3 {
 }
 
 main > section.me > h1 {
-  font-size: fontSize($fontSizeXL);
-  line-height: fontSize($fontSizeXL);
+  font-size: font-size($font-size-xl);
   font-weight: 700;
+  line-height: font-size($font-size-xl);
 }
 
 main > section.me > p {
-  margin-top: $spacingL;
-  font-size: fontSize($fontSizeM);
+  font-size: font-size($font-size-m);
+  margin-top: $spacing-l;
 
-  @include breakpoint("medium") {
-    margin-top: $spacingM;
+  @include breakpoint('medium') {
+    margin-top: $spacing-m;
   }
 
-  @include breakpoint("small") {
-    margin-top: $spacingS;
+  @include breakpoint('small') {
+    margin-top: $spacing-s;
   }
 
   > span.mono {
-    @extend %fontMonospace;
+    @extend %font-monospace;
   }
 }
 
 main > section.me > p.greeting {
-  display: flex;
-  align-items: center;
 
   $rotation: 20deg;
+  align-items: center;
+  display: flex;
+
+  &::after {
+    animation: 3s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s infinite cycle;
+    content: attr(data-current);
+    display: inline-block;
+    font-size: font-size($font-size-l);
+    line-height: font-size($font-size-l);
+    margin-left: 10px;
+    will-change: opacity, transform;
+  }
 
   @keyframes cycle {
     0% {
@@ -142,46 +152,36 @@ main > section.me > p.greeting {
       transform: scale(0) rotate($rotation);
     }
   }
-
-  &:after {
-    content: attr(data-current);
-    display: inline-block;
-    margin-left: 10px;
-    font-size: fontSize($fontSizeL);
-    line-height: fontSize($fontSizeL);
-    animation: 3s cubic-bezier(.68, -.6, .32, 1.6) 0s infinite cycle;
-    will-change: opacity, transform;
-  }
 }
 
 main > section.me ul {
-  margin-top: $spacingL;
   columns: 2;
   list-style: none;
+  margin-top: $spacing-l;
 
-  @include breakpoint("medium") {
-    margin-top: $spacingM;
+  @include breakpoint('medium') {
+    margin-top: $spacing-m;
   }
 
-  @include breakpoint("small") {
-    margin-top: $spacingS;
+  @include breakpoint('small') {
+    margin-top: $spacing-s;
   }
 }
 
 main > section.me ul > li {
-  display: flex;
+
+  @extend %font-monospace;
   align-items: center;
+  color: $color-special;
+  display: flex;
+  font-size: font-size($font-size-s);
   margin-bottom: 20px;
-  font-size: fontSize($fontSizeS);
-  color: $colorSpecial;
 
-  @extend %fontMonospace;
-
-  @include breakpoint("medium") {
+  @include breakpoint('medium') {
     margin-bottom: 15px;
   }
 
-  @include breakpoint("small") {
+  @include breakpoint('small') {
     margin-bottom: 8px;
   }
 
@@ -189,15 +189,15 @@ main > section.me ul > li {
     margin: 0;
   }
 
-  &:before {
-    position: relative;
-    margin-right: 15px;
-    min-width: 30px;
-    background: $colorSpecial;
+  &::before {
 
     @extend %line;
+    background: $color-special;
+    margin-right: 15px;
+    min-width: 30px;
+    position: relative;
 
-    @include breakpoint("small") {
+    @include breakpoint('small') {
       margin-right: 8px;
       min-width: 15px;
     }
@@ -205,15 +205,15 @@ main > section.me ul > li {
 }
 
 main > section.projects .item > ul {
-  margin-top: 10px;
   display: flex;
   list-style: none;
+  margin-top: 10px;
 }
 
 main > section.projects .item > ul > li {
   margin-right: 15px;
 
-  @include breakpoint("small") {
+  @include breakpoint('small') {
     margin-right: 10px;
   }
 
@@ -227,26 +227,26 @@ main > section.projects > .more {
 }
 
 main > section.projects > .more > .item {
-  margin-right: $spacingL;
-  margin-bottom: 0;
-  width: 50%;
-  min-height: 100%;
+
+  @extend %font-monospace;
   font-weight: 700;
+  margin-bottom: 0;
+  margin-right: $spacing-l;
+  min-height: 100%;
   text-align: center;
   text-decoration: underline;
+  width: 50%;
 
-  @extend %fontMonospace;
-
-  @include breakpoint("medium") {
-    margin-right: $spacingM;
+  @include breakpoint('medium') {
+    margin-right: $spacing-m;
   }
 
-  @include breakpoint("small") {
-    margin-right: $spacingS;
+  @include breakpoint('small') {
+    margin-right: $spacing-s;
   }
 
   &:hover > svg {
-    fill: $colorPrimary;
+    fill: $color-primary;
   }
 
   &:last-child {
@@ -258,24 +258,24 @@ main > section.projects > .more > .item > svg {
   $size: 60px;
 
   display: block;
+  fill: $color-primary-alt;
+  height: $size;
   margin: 0 auto 15px;
   width: $size;
-  height: $size;
-  fill: $colorPrimaryAlt;
 
-  @include breakpoint("medium") {
+  @include breakpoint('medium') {
     $size: 48px;
+    height: $size;
 
     margin-bottom: 10px;
     width: $size;
-    height: $size;
   }
 
-  @include breakpoint("small") {
+  @include breakpoint('small') {
     $size: 32px;
+    height: $size;
 
     margin-bottom: 8px;
     width: $size;
-    height: $size;
   }
 }

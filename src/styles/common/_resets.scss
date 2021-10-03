@@ -3,19 +3,19 @@ html {
 }
 
 body {
-  min-width: 320px;
-  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga' on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
+  min-width: 320px;
+  text-rendering: optimizeLegibility;
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
 }
 
 a {

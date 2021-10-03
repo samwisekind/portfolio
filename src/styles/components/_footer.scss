@@ -1,44 +1,44 @@
-@import "../common/constants";
+@import '../common/constants';
 
 footer {
-  padding: ($spacingL * 5) 0 $spacingL * 2;
+  padding: ($spacing-l * 5) 0 $spacing-l * 2;
   text-align: center;
 
-  @include breakpoint("medium") {
-    padding: ($spacingM * 5) 0 ($spacingM * 2);
+  @include breakpoint('medium') {
+    padding: ($spacing-m * 5) 0 ($spacing-m * 2);
   }
 
-  @include breakpoint("small") {
-    padding: ($spacingS * 5) 0 ($spacingS * 2);
+  @include breakpoint('small') {
+    padding: ($spacing-s * 5) 0 ($spacing-s * 2);
   }
 }
 
 footer > a {
   display: inline-flex;
-  margin-right: $spacingL;
+  margin-right: $spacing-l;
 
   &:last-child {
     margin-right: 0;
   }
 
   > svg {
-    width: 38px;
+    fill: $color-primary-alt;
     height: 38px;
-    fill: $colorPrimaryAlt;
+    width: 38px;
 
-    @include breakpoint("medium") {
-      width: 32px;
+    @include breakpoint('medium') {
       height: 32px;
+      width: 32px;
     }
 
-    @include breakpoint("small") {
-      width: 26px;
+    @include breakpoint('small') {
       height: 26px;
+      width: 26px;
     }
   }
 
   &:hover > svg,
   &:focus > svg {
-    fill: $colorPrimary;
+    fill: $color-primary;
   }
 }

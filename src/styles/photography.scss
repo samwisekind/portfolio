@@ -1,72 +1,72 @@
-@import "common/constants";
+@import 'common/constants';
 
-@import "common/mixins";
+@import 'common/mixins';
 
 main {
   max-width: 2000px;
 }
 
 main > section.photography > .controls {
-  display: flex;
   align-items: end;
-  margin-bottom: $spacingL * 3;
+  display: flex;
+  margin-bottom: $spacing-l * 3;
 
-  @include breakpoint("medium") {
-    margin-bottom: $spacingM * 3;
+  @include breakpoint('medium') {
+    margin-bottom: $spacing-m * 3;
   }
 
-  @include breakpoint("small") {
+  @include breakpoint('small') {
     display: block;
-    margin-bottom: $spacingS * 3;
+    margin-bottom: $spacing-s * 3;
   }
 }
 
 main > section.photography > .controls > h1 {
-  font-size: fontSize(48px);
-  line-height: fontSize(48px);
+  font-size: font-size(48px);
   font-weight: 700;
+  line-height: font-size(48px);
   text-transform: lowercase;
 
-  @include breakpoint("small") {
-    margin-bottom: $spacingS;
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s;
   }
 }
 
 main > section.photography > .controls > select {
-  margin-left: auto;
-  padding: 0 40px 0 20px;
-  height: 40px;
-  font-weight: 700;
-  font-size: fontSize(18px);
-  color: $colorPrimary;
-  border-radius: 40px;
-  text-transform: lowercase;
-  -webkit-appearance: none;
   appearance: none;
-  outline: none;
-  border: 0;
-  background: no-repeat $colorSecondary url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4LjU3IiB2aWV3Qm94PSIwIDAgMTUgOC41NyI+CiAgPHBhdGggZD0iTTcuNSw4LjU3YTEuMDcsMS4wNywwLDAsMS0uNzYtLjMxTC4zMSwxLjgzQTEuMDcsMS4wNywwLDAsMSwxLjgzLjMxTDcuNSw2LDEzLjE3LjMxYTEuMDcsMS4wNywwLDAsMSwxLjUyLDEuNTJMOC4yNiw4LjI2QTEuMDcsMS4wNywwLDAsMSw3LjUsOC41N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIHN0eWxlPSJmaWxsOiAjRkZGIiAvPgo8L3N2Zz4K");
+  appearance: none;
+  background: no-repeat $color-secondary url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4LjU3IiB2aWV3Qm94PSIwIDAgMTUgOC41NyI+CiAgPHBhdGggZD0iTTcuNSw4LjU3YTEuMDcsMS4wNywwLDAsMS0uNzYtLjMxTC4zMSwxLjgzQTEuMDcsMS4wNywwLDAsMSwxLjgzLjMxTDcuNSw2LDEzLjE3LjMxYTEuMDcsMS4wNywwLDAsMSwxLjUyLDEuNTJMOC4yNiw4LjI2QTEuMDcsMS4wNywwLDAsMSw3LjUsOC41N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIHN0eWxlPSJmaWxsOiAjRkZGIiAvPgo8L3N2Zz4K');
   background-position: calc(100% - 20px) center;
-  transition: background-color .1s $easeStandard;
+  border: 0;
+  border-radius: 40px;
+  color: $color-primary;
+  font-size: font-size(18px);
+  font-weight: 700;
+  height: 40px;
+  margin-left: auto;
+  outline: none;
+  padding: 0 40px 0 20px;
+  text-transform: lowercase;
+  transition: background-color 0.1s $ease-standard;
 
-  @include breakpoint("medium") {
-    padding: 0 40px 0 15px;
-    height: 35px;
-    border-radius: 35px;
+  @include breakpoint('medium') {
     background-position: calc(100% - 15px) center;
+    border-radius: 35px;
+    height: 35px;
+    padding: 0 40px 0 15px;
   }
 
-  @include breakpoint("small") {
-    margin-top: $spacingS;
-    padding: 0 40px 0 15px;
-    height: 35px;
-    border-radius: 35px;
+  @include breakpoint('small') {
     background-position: calc(100% - 15px) center;
+    border-radius: 35px;
+    height: 35px;
+    margin-top: $spacing-s;
+    padding: 0 40px 0 15px;
   }
 
   &:hover,
   &:active {
-    background-color: $colorSecondaryAlt;
+    background-color: $color-secondary-alt;
   }
 
   &:hover {
@@ -75,10 +75,10 @@ main > section.photography > .controls > select {
 }
 
 main > section.photography > .controls > select > option {
-  -webkit-appearance: unset;
   appearance: unset;
-  outline: unset;
+  appearance: unset;
   background: unset;
+  outline: unset;
 }
 
 main > section.photography > .gallery {
@@ -90,11 +90,11 @@ main > section.photography > .gallery > .column {
   width: 100%;
 
   &.large {
-    margin-right: $spacingL * 2;
+    margin-right: $spacing-l * 2;
   }
 
   &.medium {
-    margin-right: $spacingM * 2;
+    margin-right: $spacing-m * 2;
   }
 
   &:last-child {
@@ -103,27 +103,27 @@ main > section.photography > .gallery > .column {
 }
 
 main > section.photography > .gallery figure {
-  display: block;
   break-inside: avoid;
-  margin-bottom: $spacingL * 2;
+  display: block;
+  margin-bottom: $spacing-l * 2;
 
-  @include breakpoint("medium") {
-    margin-bottom: $spacingM * 2;
+  @include breakpoint('medium') {
+    margin-bottom: $spacing-m * 2;
   }
 
-  @include breakpoint("small") {
-    margin-bottom: $spacingS * 2;
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s * 2;
 
     > .container {
-      margin-left: -($spacingS * 2);
+      margin-left: -($spacing-s * 2);
       width: 100vw;
     }
   }
 }
 
 main > section.photography figure img {
-  margin: 0 auto;
   display: block;
-  width: 100%;
   height: auto;
+  margin: 0 auto;
+  width: 100%;
 }
