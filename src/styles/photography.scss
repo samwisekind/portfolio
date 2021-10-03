@@ -34,7 +34,6 @@ main > section.photography > .controls > h1 {
 
 main > section.photography > .controls > select {
   appearance: none;
-  appearance: none;
   background: no-repeat $color-secondary url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4LjU3IiB2aWV3Qm94PSIwIDAgMTUgOC41NyI+CiAgPHBhdGggZD0iTTcuNSw4LjU3YTEuMDcsMS4wNywwLDAsMS0uNzYtLjMxTC4zMSwxLjgzQTEuMDcsMS4wNywwLDAsMSwxLjgzLjMxTDcuNSw2LDEzLjE3LjMxYTEuMDcsMS4wNywwLDAsMSwxLjUyLDEuNTJMOC4yNiw4LjI2QTEuMDcsMS4wNywwLDAsMSw3LjUsOC41N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIHN0eWxlPSJmaWxsOiAjRkZGIiAvPgo8L3N2Zz4K');
   background-position: calc(100% - 20px) center;
   border: 0;
@@ -75,7 +74,6 @@ main > section.photography > .controls > select {
 }
 
 main > section.photography > .controls > select > option {
-  appearance: unset;
   appearance: unset;
   background: unset;
   outline: unset;
