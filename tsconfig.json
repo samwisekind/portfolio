@@ -1,12 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "outDir": "./dist",
     "noEmit": true,
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
 
     "strict": true,
     "noImplicitAny": true,
@@ -21,8 +15,5 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }

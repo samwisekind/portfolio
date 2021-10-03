@@ -7,7 +7,7 @@ block variables
   - const PAGE_SECTION = "me";
 
 block styles
-  link(href="/public/styles/me.css" type="text/css" rel="stylesheet")
+  link(href="../../styles/me.scss" type="text/css" rel="stylesheet")
 
 block main
   section.me
@@ -29,9 +29,9 @@ block main
     p Feel free to <a href="mailto:sam@flamov.com?subject=Hello!">drop me an email</a> for a résumé or to get in touch! <span class="mono">:-)</span>
 
   section.projects
-    if data.projects
+    if about.projects
       h2 Projects
-      for project in data.projects
+      for project in about.projects
         a(href=project.link rel="noopener noreferrer" target="_blank").item
           h3=project.title
           p=project.description
@@ -47,10 +47,10 @@ block main
         +icon-codepen
         span More on CodePen
 
-  if data.recognitions
+  if about.recognitions
     section.recognitions
       h2 Recognitions
-      for item in data.recognitions
+      for item in about.recognitions
         a(href=item.url rel="noopener noreferrer" target="_blank").item
           h3=item.title
           p.date=item.date

@@ -1,0 +1,71 @@
+@use 'sass:math';
+
+@import 'constants';
+
+@mixin breakpoint($size) {
+  @if $size == 'large' {
+    @media screen and (min-width: $breakpoint-large + 1px) {
+      @content;
+    }
+  }
+
+  @else if $size == 'medium' {
+    @media screen and (min-width: $breakpoint-small + 1px) and (max-width: $breakpoint-large) {
+      @content;
+    }
+  }
+
+  @else if $size == 'small' {
+    @media screen and (max-width: $breakpoint-small) {
+      @content;
+    }
+  }
+}
+
+$line-size: 6px;
+
+%line {
+  background: $color-line;
+  border-radius: $line-size;
+  content: '';
+  display: block;
+  height: $line-size;
+}
+
+%line-vertical {
+  @extend %line;
+  width: $line-size;
+}
+
+%box {
+  background: $color-background-alt;
+  border-radius: $border-radius-l;
+  overflow: hidden;
+  padding: $spacing-l;
+
+  @include breakpoint('medium') {
+    border-radius: $border-radius-m;
+    padding: $spacing-m;
+  }
+
+  @include breakpoint('small') {
+    border-radius: $border-radius-s;
+    padding: $spacing-s;
+  }
+}
+
+%font-sans-serif {
+  font-family: $font-sans-serif;
+}
+
+%font-monospace {
+  font-family: $font-monospace;
+}
+
+@function font-size($size) {
+  @return math.div($size, 10px) * 1rem;
+}
+
+@function line-height($size) {
+  @return font-size($size) * 1.6;
+}

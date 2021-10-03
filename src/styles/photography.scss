@@ -1,0 +1,127 @@
+@import 'common/constants';
+
+@import 'common/mixins';
+
+main {
+  max-width: 2000px;
+}
+
+main > section.photography > .controls {
+  align-items: end;
+  display: flex;
+  margin-bottom: $spacing-l * 3;
+
+  @include breakpoint('medium') {
+    margin-bottom: $spacing-m * 3;
+  }
+
+  @include breakpoint('small') {
+    display: block;
+    margin-bottom: $spacing-s * 3;
+  }
+}
+
+main > section.photography > .controls > h1 {
+  font-size: font-size(48px);
+  font-weight: 700;
+  line-height: font-size(48px);
+  text-transform: lowercase;
+
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s;
+  }
+}
+
+main > section.photography > .controls > select {
+  appearance: none;
+  background: no-repeat $color-secondary url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4LjU3IiB2aWV3Qm94PSIwIDAgMTUgOC41NyI+CiAgPHBhdGggZD0iTTcuNSw4LjU3YTEuMDcsMS4wNywwLDAsMS0uNzYtLjMxTC4zMSwxLjgzQTEuMDcsMS4wNywwLDAsMSwxLjgzLjMxTDcuNSw2LDEzLjE3LjMxYTEuMDcsMS4wNywwLDAsMSwxLjUyLDEuNTJMOC4yNiw4LjI2QTEuMDcsMS4wNywwLDAsMSw3LjUsOC41N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIHN0eWxlPSJmaWxsOiAjRkZGIiAvPgo8L3N2Zz4K');
+  background-position: calc(100% - 20px) center;
+  border: 0;
+  border-radius: 40px;
+  color: $color-primary;
+  font-size: font-size(18px);
+  font-weight: 700;
+  height: 40px;
+  margin-left: auto;
+  outline: none;
+  padding: 0 40px 0 20px;
+  text-transform: lowercase;
+  transition: background-color 0.1s $ease-standard;
+
+  @include breakpoint('medium') {
+    background-position: calc(100% - 15px) center;
+    border-radius: 35px;
+    height: 35px;
+    padding: 0 40px 0 15px;
+  }
+
+  @include breakpoint('small') {
+    background-position: calc(100% - 15px) center;
+    border-radius: 35px;
+    height: 35px;
+    margin-top: $spacing-s;
+    padding: 0 40px 0 15px;
+  }
+
+  &:hover,
+  &:active {
+    background-color: $color-secondary-alt;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+main > section.photography > .controls > select > option {
+  appearance: unset;
+  background: unset;
+  outline: unset;
+}
+
+main > section.photography > .gallery {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+main > section.photography > .gallery > .column {
+  width: 100%;
+
+  &.large {
+    margin-right: $spacing-l * 2;
+  }
+
+  &.medium {
+    margin-right: $spacing-m * 2;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+main > section.photography > .gallery figure {
+  break-inside: avoid;
+  display: block;
+  margin-bottom: $spacing-l * 2;
+
+  @include breakpoint('medium') {
+    margin-bottom: $spacing-m * 2;
+  }
+
+  @include breakpoint('small') {
+    margin-bottom: $spacing-s * 2;
+
+    > .container {
+      margin-left: -($spacing-s * 2);
+      width: 100vw;
+    }
+  }
+}
+
+main > section.photography figure img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+}

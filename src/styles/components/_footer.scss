@@ -1,0 +1,44 @@
+@import '../common/constants';
+
+footer {
+  padding: ($spacing-l * 5) 0 $spacing-l * 2;
+  text-align: center;
+
+  @include breakpoint('medium') {
+    padding: ($spacing-m * 5) 0 ($spacing-m * 2);
+  }
+
+  @include breakpoint('small') {
+    padding: ($spacing-s * 5) 0 ($spacing-s * 2);
+  }
+}
+
+footer > a {
+  display: inline-flex;
+  margin-right: $spacing-l;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  > svg {
+    fill: $color-primary-alt;
+    height: 38px;
+    width: 38px;
+
+    @include breakpoint('medium') {
+      height: 32px;
+      width: 32px;
+    }
+
+    @include breakpoint('small') {
+      height: 26px;
+      width: 26px;
+    }
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    fill: $color-primary;
+  }
+}

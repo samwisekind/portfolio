@@ -8,6 +8,8 @@ on:
 
 jobs:
   build-test:
+    skip: true
+
     runs-on: ubuntu-latest
 
     steps:

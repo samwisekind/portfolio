@@ -1,0 +1,142 @@
+@import 'common/constants';
+
+@import 'common/resets';
+
+@import 'common/typography';
+
+@import 'components/header';
+
+@import 'components/footer';
+
+@import 'components/button';
+
+@import 'components/photo';
+
+$timing: 1500ms;
+
+body {
+  background: $color-background;
+  color: $color-primary;
+}
+
+body > .outer-menu,
+body > .stars {
+  display: none;
+}
+
+@include breakpoint('small') {
+  body > .content {
+    background: $color-background;
+    min-height: 100vh;
+    opacity: 1;
+    overflow-x: hidden;
+    position: relative;
+    transition: transform $timing $ease-in-out-cubic;
+    will-change: transform;
+    z-index: 0;
+  }
+
+  body > .outer-menu {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translateY(-100vh);
+    transition: transform $timing $ease-in-out-cubic, opacity $timing $ease-in-out-cubic;
+    width: 100%;
+    will-change: transform, opacity;
+    z-index: 20;
+
+    > a.link {
+      font-size: font-size(38px);
+      padding: $spacing-s 0;
+      text-align: center;
+      text-decoration: none;
+      text-transform: lowercase;
+      width: 100%;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.active,
+      &:hover {
+        background: rgba($color-secondary, 0.5);
+      }
+    }
+
+    > a.menu {
+      padding: $spacing-s * 2;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      > svg {
+        display: block;
+        fill: $color-primary;
+        height: 32px;
+        width: 32px;
+      }
+    }
+  }
+
+  body > .stars {
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity ($timing * 0.5) $ease-in-out-cubic;
+    transition-delay: ($timing * 0.5);
+    width: 100%;
+    will-change: opacity;
+    z-index: 10;
+  }
+
+  body.menu {
+    overflow: hidden;
+
+    > .content {
+      height: 100%;
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      transform: translateY(100vh) translateZ(0);
+      width: 100%;
+    }
+
+    > .outer-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) translateZ(0);
+    }
+
+    > .stars {
+      opacity: 1;
+      transition-delay: 0ms;
+    }
+  }
+}
+
+main {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 ($spacing-l * 2);
+
+  @include breakpoint('medium') {
+    padding: 0 ($spacing-m * 2);
+  }
+
+  @include breakpoint('small') {
+    padding: 0 ($spacing-s * 2);
+  }
+}

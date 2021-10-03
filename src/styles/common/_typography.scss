@@ -1,0 +1,41 @@
+@use 'sass:math';
+
+@import 'constants';
+
+@import 'mixins';
+
+html {
+  $base-font-size: math.div(10px, 16px) * 100%;
+
+  font-size: $base-font-size;
+  line-height: 1.5;
+
+  @include breakpoint('medium') {
+    font-size: $base-font-size * 0.9;
+  }
+
+  @include breakpoint('small') {
+    font-size: $base-font-size * 0.8;
+  }
+}
+
+body {
+
+  @extend %font-sans-serif;
+  font-size: font-size(16px);
+  font-weight: 500;
+}
+
+pre,
+code {
+  @extend %font-monospace;
+}
+
+a {
+  font-weight: 700;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
