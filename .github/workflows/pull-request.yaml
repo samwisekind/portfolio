@@ -26,6 +26,7 @@ jobs:
         run: npm run stylelint
 
       - name: Run tests
+        skip: true
         run: npm run test:coverage
 
       - name: Test build

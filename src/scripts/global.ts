@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import LazyLoad from 'vanilla-lazyload';
 
 import { openStars, closeStars } from './components/stars';
