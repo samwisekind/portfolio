@@ -1,7 +1,6 @@
 // Sizes
 
-$max-width: 700px;
-$max-width-extra: 1000px;
+$max-width: 800px;
 
 $spacing-l: 25px;
 $spacing-m: 15px;
@@ -16,14 +15,14 @@ $border-radius-s: 12px;
 
 // Colors
 
-$color-primary: #fff;
-$color-primary-alt: #999;
-$color-secondary: #803cff;
-$color-secondary-alt: #7120eb;
-$color-special: #f72585;
-$color-background: #000;
-$color-background-alt: #171717;
-$color-line: #2b2b2b;
+$color-primary: #000;
+$color-secondary: #fff;
+$color-background: #192bc2;
+$color-background-alt: #150578;
+
+$color-photography-primary: #fff;
+$color-photography-background: #000;
+$color-photography-background-alt: #111;
 
 // Fonts
 
@@ -34,9 +33,3 @@ $font-size-xl: 38px;
 $font-size-l: 32px;
 $font-size-m: 20px;
 $font-size-s: 16px;
-$font-size-xs: 14px;
-
-// Animations / transitions
-
-$ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-$ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);

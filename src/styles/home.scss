@@ -1,20 +1,85 @@
-@import 'common/constants';
-
-@import 'common/mixins';
-
 main {
-  max-width: $max-width-extra;
+  display: grid;
+  gap: 20px 20px;
+  grid-template-areas:
+    'intro intro'
+    'about about'
+    'photography github'
+    'photography codepen'
+    'recognitions recognitions';
+  grid-template-columns: 1.2fr 0.8fr;
 }
 
-main > section {
-  margin-bottom: $spacing-l * 3;
+main section,
+main a.link {
+  background: #fff;
+  border-radius: 20px;
+  color: $color-primary;
+  padding: 20px;
 
-  @include breakpoint('medium') {
-    margin-bottom: $spacing-m * 3;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// INTRO
+
+main h1.intro {
+  $rotation: 20deg;
+
+  align-items: center;
+  color: $color-secondary;
+  display: flex;
+  font-size: font-size($font-size-xl);
+  font-weight: 700;
+  grid-area: intro;
+  margin-bottom: $spacing-l;
+
+  &::after {
+    animation: 3s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s infinite cycle;
+    content: attr(data-current);
+    display: inline-block;
+    font-size: font-size($font-size-l);
+    line-height: font-size($font-size-l);
+    margin-left: 10px;
+    will-change: opacity, transform;
   }
 
-  @include breakpoint('small') {
-    margin-bottom: $spacing-s * 3;
+  @keyframes cycle {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(-$rotation);
+    }
+
+    15% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+
+    85% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: scale(0) rotate($rotation);
+    }
+  }
+}
+
+// ABOUT
+
+main section.about {
+  grid-area: about;
+}
+
+main section.about > p {
+  font-size: font-size($font-size-m);
+  margin-bottom: 15px;
+
+  > span.mono {
+    @extend %font-monospace;
   }
 
   &:last-child {
@@ -22,104 +87,77 @@ main > section {
   }
 }
 
-main > section > h1,
-main > section > h2 {
-  text-transform: lowercase;
-}
-
-main > section > h1 {
-  font-size: font-size($font-size-xl);
-
-  > span {
-    color: $color-special;
-  }
-}
-
-main > section > h2 {
+main section.about ul {
   display: flex;
-  font-size: font-size($font-size-l);
-  line-height: font-size($font-size-l);
-  margin-bottom: $spacing-l;
-
-  @include breakpoint('medium') {
-    margin-bottom: $spacing-m;
-  }
-
-  @include breakpoint('small') {
-    justify-content: space-between;
-    margin-bottom: $spacing-s;
-  }
-
-  > .button {
-    margin-left: $spacing-l;
-
-    @include breakpoint('medium') {
-      margin-left: $spacing-m;
-    }
-
-    @include breakpoint('small') {
-      margin-left: 0;
-    }
-  }
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 15px 0;
 }
 
-main > section > .wrapper {
-  align-items: stretch;
-  display: flex;
-  justify-content: space-between;
+main section.about ul > li {
+  @extend %font-monospace;
 
-  @include breakpoint('small') {
-    display: block;
-  }
-  
-  > figure {
-    margin-right: $spacing-l;
-
-    @include breakpoint('medium') {
-      margin-right: $spacing-m;
-    }
-  
-    @include breakpoint('small') {
-      margin-bottom: $spacing-s;
-      margin-right: 0;
-    }
-
-    &:last-child {
-      margin: 0;
-    }
-  }
+  background: #192bc2;
+  border-radius: 20px;
+  color: #fff;
+  display: inline-flex;
+  font-size: font-size($font-size-s);
+  font-weight: 700;
+  margin: 5px 10px 5px 0;
+  padding: 5px 20px;
 }
 
-main > section.me {
-  @extend %box;
+// PHOTOGRAPHY
+
+main section.photography {
+  grid-area: photography;
+  padding: 0;
 }
 
-main > section.me > .bottom {
+// GITHUB + CODEPEN
+
+main a.link {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-  margin-top: $spacing-l;
+  flex-direction: row;
+  font-size: font-size($font-size-l);
+  font-weight: 700;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  text-align: center;
 
-  @include breakpoint('medium') {
-    margin-top: $spacing-m;
+  &:hover {
+    background: #000;
+    color: #fff;
+    fill: #fff;
   }
 
-  @include breakpoint('small') {
-    margin-top: $spacing-s;
+  > svg {
+    $size: 64px;
+
+    display: block;
+    height: $size;
+    margin-right: 20px;
+    width: $size;
   }
 
-  &::before {
-
-    @extend %line;
-    margin-right: $spacing-l;
-    width: 100%;
-
-    @include breakpoint('medium') {
-      margin-right: $spacing-m;
-    }
-  
-    @include breakpoint('small') {
-      margin-right: $spacing-s;
-    }
+  > span {
+    margin-right: auto;
   }
+}
+
+main a.github {
+  grid-area: github;
+}
+
+main a.codepen {
+  grid-area: codepen;
+}
+
+// RECOGNITIONS
+
+main section.recognitions {
+  grid-area: recognitions;
 }

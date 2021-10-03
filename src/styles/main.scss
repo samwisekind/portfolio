@@ -1,0 +1,72 @@
+// COMMON
+
+@import 'common/constants';
+
+@import 'common/mixins';
+
+@import 'common/resets';
+
+@import 'common/typography';
+
+// PAGES
+
+@import 'home';
+
+@import 'photography';
+
+// GLOBAL
+
+body {
+  background: $color-background;
+  color: $color-primary;
+
+  &.photography {
+    background: $color-photography-background;
+    color: $color-photography-primary;
+  }
+}
+
+nav.header {
+  align-content: center;
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: rgba($color-background-alt, 0.5);
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  margin-bottom: $spacing-l * 2;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  body.photography & {
+    background-color: rgba($color-photography-background-alt, 0.5);
+  }
+}
+
+nav.header > a {
+  align-items: center;
+  color: $color-secondary;
+  display: flex;
+  font-size: font-size($font-size-m);
+  font-weight: 700;
+  padding: 0 15px;
+  text-transform: lowercase;
+  white-space: nowrap;
+
+  &:hover,
+  &.active {
+    background-color: $color-background-alt;
+
+    body.photography & {
+      background-color: $color-photography-background-alt;
+    }
+  }
+}
+
+main {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 $spacing-l $spacing-l * 4;
+}

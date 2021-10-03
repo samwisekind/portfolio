@@ -1,26 +1,7 @@
 extends ../layout.pug
 
-include ../components/photo
-
 block variables
   - const PAGE_SECTION = "photography";
 
-block styles
-  link(href="../../styles/photography.scss" type="text/css" rel="stylesheet")
-
-block scripts
-  script(src="../../scripts/photography.ts" type="module" async defer)
-
 block main
-  section.photography
-    if photography.albums
-      .controls
-        h1 Photography
-        select.js-albums
-          option(value="all" selected) All Photos
-          for album in photography.albums
-            option(value=album.key)=album.name
-    .gallery.js-gallery
-      .column.js-column
-        each photo in photography.photos
-          +photo(photo)
+  

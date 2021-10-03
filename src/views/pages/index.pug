@@ -1,28 +1,45 @@
 extends ../layout.pug
 
-include ../components/button
-include ../components/photo
+include ../components/icons
 
 block variables
   - const PAGE_SECTION = "home";
   - const featuredPhotos = photography.photos.filter((photo) => photo.featured);
 
-block styles
-  link(href="../../styles/home.scss" type="text/css" rel="stylesheet")
-
 block main
-  section.me
-    h1
-      | I'm a <span>software engineer</span> / <span>tech lead</span> focusing on <span>frontend</span> + <span>backend</span> web development
-    .bottom
-      +button({ text: "Hello", title: "Learn more", url: "/me" })
+  h1(data-current="👋" data-emojis="👋|✌️|🤙|🖖|🤘|🤝|❤️").intro.js-greeting Hello, you!
 
-  if featuredPhotos
-    section.photography
-      for photo in featuredPhotos
-        figure.photo.js-photo
-          +button({ text: "More", title: "View photography", url: "/photography" })
-          picture
-            if photo.src.webp
-              source(type="image/webp" data-srcset=photo.src.webp)
-            img(data-src=photo.src.jpg alt=photo.alt).js-lazy
+  section.about
+    p <b>I'm a software engineer</b> focusing on web development, <b>currently as a Tech Lead in e-commerce</b>, using technologies such as:
+    ul
+      li Node.js
+      li TypeScript / ES6+
+      li React / NextJS
+      li WebSockets
+      li (S)CSS
+      li Docker / Kubernetes
+      li AWS
+      li Canvas / SVG
+      li WebGL / three.js
+      li MongoDB
+    p Feel free to <a href="mailto:sam@flamov.com?subject=Hello!">drop me an email</a> for a résumé or to get in touch! <span class="mono">:-)</span>
+
+  section.photography
+    img(src="https://via.placeholder.com/350x150" alt="" crossorigin="anonymous")
+
+  a(href="https://github.com/Flamov" title="View GitHub profile" rel="noopener noreferrer" target="_blank").link.github
+    +icon-github
+    span GitHub
+  
+  a(href="https://codepen.com/Flamov" title="View CodePen profile" rel="noopener noreferrer" target="_blank").link.codepen
+    +icon-codepen
+    span CodePen
+
+  section.recognitions
+      h2 Recognitions
+      a(href="https://awwwards.com/sites/tng-fintech-group" rel="noopener noreferrer" target="_blank")
+        h3 Awwwards – User Approved award
+        p.date 5th September 2017
+      a(href="https://cssdesignawards.com/sites/tng-fintech-group/31268" rel="noopener noreferrer" target="_blank")
+        h3 CSS Design Awards – Special Kudos award
+        p.date 5th September 2017

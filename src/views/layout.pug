@@ -3,8 +3,6 @@
 
 block variables
 
-include components/menu
-
 doctype html
 html(lang="en")
 
@@ -15,21 +13,12 @@ html(lang="en")
     meta(name="description" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     meta(name="subject" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
     title=(PAGE_TITLE ? `${PAGE_TITLE} | ${DEFAULT_PAGE_TITLE}` : DEFAULT_PAGE_TITLE)
-    link(href="../../styles/global.scss" type="text/css" rel="stylesheet")
+    link(href="../../styles/main.scss" type="text/css" rel="stylesheet")
     base(href="/")
-    block styles
 
-  body
-    .content
-      include components/header
-      main
-        block main
-      include components/footer
-    .outer-menu
+  body(class=PAGE_SECTION)
+    nav.header
       a(href="/" class=(PAGE_SECTION === "home" ? "active" : false)).link Home
-      +menu
-      a(href="#").menu.js-menu-close
-        +icon-menu-close
-    canvas.stars.js-stars
-    script(src="../../scripts/global.ts" type="module" async defer)
-    block scripts
+      a(href="/photography" class=(PAGE_SECTION === "photography" ? "active" : false)).link Photography
+    main
+      block main
