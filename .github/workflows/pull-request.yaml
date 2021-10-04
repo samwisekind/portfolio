@@ -27,7 +27,6 @@ jobs:
 
       - name: Run tests
         run: npm run test:coverage
-        if: false
 
       - name: Test build
         run: npm run build
