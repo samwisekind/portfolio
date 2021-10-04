@@ -12,7 +12,7 @@ main {
 
 main section,
 main a.link {
-  background: #fff;
+  background: $color-secondary;
   border-radius: 20px;
   color: $color-primary;
   padding: 20px;
@@ -23,6 +23,28 @@ main a.link {
 }
 
 // INTRO
+
+@keyframes cycle {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-$rotation);
+  }
+
+  15% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate($rotation);
+  }
+}
 
 main h1.intro {
   $rotation: 20deg;
@@ -43,28 +65,6 @@ main h1.intro {
     line-height: font-size($font-size-l);
     margin-left: 10px;
     will-change: opacity, transform;
-  }
-
-  @keyframes cycle {
-    0% {
-      opacity: 0;
-      transform: scale(0) rotate(-$rotation);
-    }
-
-    15% {
-      opacity: 1;
-      transform: scale(1) rotate(0);
-    }
-
-    85% {
-      opacity: 1;
-      transform: scale(1) rotate(0);
-    }
-  
-    100% {
-      opacity: 0;
-      transform: scale(0) rotate($rotation);
-    }
   }
 }
 
@@ -100,7 +100,7 @@ main section.about ul > li {
 
   background: #192bc2;
   border-radius: 20px;
-  color: #fff;
+  color: $color-secondary;
   display: inline-flex;
   font-size: font-size($font-size-s);
   font-weight: 700;
@@ -128,9 +128,9 @@ main a.link {
   text-align: center;
 
   &:hover {
-    background: #000;
-    color: #fff;
-    fill: #fff;
+    background: $color-primary;
+    color: $color-secondary;
+    fill: $color-secondary;
   }
 
   > svg {

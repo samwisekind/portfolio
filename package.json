@@ -47,9 +47,16 @@
       "stylelint-order"
     ],
     "rules": {
-      "max-nesting-depth": 2,
       "selector-max-compound-selectors": null,
-      "selector-no-qualifying-type": null
+      "selector-no-qualifying-type": null,
+      "property-no-vendor-prefix": [
+        true,
+        {
+          "ignoreProperties": [
+            "backdrop-filter"
+          ]
+        }
+      ]
     }
   },
   "jest": {

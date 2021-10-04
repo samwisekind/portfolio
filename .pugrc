@@ -46,8 +46,7 @@
             "width": 1500,
             "height": 1000
           },
-          "order": 0,
-          "featured": true
+          "order": 0
         },
         {
           "title": "Surprised Fox",
@@ -63,8 +62,7 @@
             "width": 1500,
             "height": 1000
           },
-          "order": 1,
-          "featured": true
+          "order": 1
         },
         {
           "title": "Vietnamese Fisherman",

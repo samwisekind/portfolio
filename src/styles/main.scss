@@ -28,7 +28,6 @@ body {
 
 nav.header {
   align-content: center;
-  /* stylelint-disable property-no-vendor-prefix */
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background-color: rgba($color-background-alt, 0.5);
@@ -58,10 +57,11 @@ nav.header > a {
   &:hover,
   &.active {
     background-color: $color-background-alt;
+  }
 
-    body.photography & {
-      background-color: $color-photography-background-alt;
-    }
+  body.photography &:hover,
+  body.photography &.active {
+    background-color: $color-photography-background-alt;
   }
 }
 
