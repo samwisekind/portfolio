@@ -1,18 +1,18 @@
-// COMMON
+// BASE
 
-@import 'common/constants';
+@import 'base/constants';
 
-@import 'common/mixins';
+@import 'base/mixins';
 
-@import 'common/resets';
+@import 'base/resets';
 
-@import 'common/typography';
+@import 'base/typography';
 
 // PAGES
 
-@import 'home';
+@import 'pages/home';
 
-@import 'photography';
+@import 'pages/photography';
 
 // GLOBAL
 

@@ -24,6 +24,8 @@ main a.link {
 
 // INTRO
 
+$rotation: 20deg;
+
 @keyframes cycle {
   0% {
     opacity: 0;
@@ -47,8 +49,6 @@ main a.link {
 }
 
 main h1.intro {
-  $rotation: 20deg;
-
   align-items: center;
   color: $color-secondary;
   display: flex;

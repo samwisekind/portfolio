@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 
-import lazyLoad from './global';
+import lazyLoad from './main';
 
 const albums = (document.querySelector('.js-albums') as HTMLSelectElement);
 const photos = Array.from(document.querySelectorAll('.js-photo'));
