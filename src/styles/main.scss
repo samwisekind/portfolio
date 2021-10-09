@@ -19,18 +19,13 @@
 body {
   background: $color-background;
   color: $color-primary;
-
-  &.photography {
-    background: $color-photography-background;
-    color: $color-photography-primary;
-  }
 }
 
 nav.header {
   align-content: center;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  background-color: rgba($color-background-alt, 0.5);
+  background-color: rgba($color-background, 0.5);
   display: flex;
   height: 70px;
   justify-content: center;
@@ -38,15 +33,11 @@ nav.header {
   position: sticky;
   top: 0;
   z-index: 10;
-
-  body.photography & {
-    background-color: rgba($color-photography-background-alt, 0.5);
-  }
 }
 
 nav.header > a {
   align-items: center;
-  color: $color-secondary;
+  color: $color-primary;
   display: flex;
   font-size: font-size($font-size-m);
   font-weight: 700;
@@ -57,11 +48,6 @@ nav.header > a {
   &:hover,
   &.active {
     background-color: $color-background-alt;
-  }
-
-  body.photography &:hover,
-  body.photography &.active {
-    background-color: $color-photography-background-alt;
   }
 }
 
