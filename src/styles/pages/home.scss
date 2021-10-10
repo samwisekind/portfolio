@@ -94,19 +94,33 @@ main section.about ul {
   justify-content: flex-start;
   list-style: none;
   margin: 15px 0;
+
+  > li {
+    @extend %font-monospace;
+  
+    border: 2px solid $color-primary;
+    border-radius: 20px;
+    color: $color-primary;
+    display: inline-flex;
+    font-size: font-size($font-size-s);
+    font-weight: 700;
+    margin: 5px 10px 5px 0;
+    padding: 5px 20px;
+  }
 }
 
-main section.about ul > li {
-  @extend %font-monospace;
-
-  border: 2px solid $color-secondary;
-  border-radius: 20px;
-  color: $color-secondary;
+main section.about a {
+  align-items: center;
   display: inline-flex;
-  font-size: font-size($font-size-s);
-  font-weight: 700;
-  margin: 5px 10px 5px 0;
-  padding: 5px 20px;
+
+  > svg {
+    $size: 8px;
+
+    fill: $color-primary;
+    height: $size;
+    margin-left: 5px;
+    width: $size;
+  }
 }
 
 // PHOTOGRAPHY
@@ -154,11 +168,16 @@ main section.photography {
   }
 
   a > img {
+    aspect-ratio: 3 / 2;
     display: block;
     height: auto;
     position: relative;
     width: 100%;
     z-index: 0;
+  }
+
+  img:not([src]) {
+    visibility: hidden;
   }
 }
 
@@ -184,17 +203,24 @@ main a.link {
   }
 
   > svg {
-    $size: 64px;
-
     display: block;
     fill: $color-primary;
+  }
+
+  > svg.logo {
+    $size: 48px;
+
     height: $size;
     margin-right: 20px;
     width: $size;
   }
 
-  > span {
-    margin-right: auto;
+  > svg.arrow {
+    $size: 14px;
+
+    height: $size;
+    margin-left: auto;
+    width: $size;
   }
 }
 
@@ -210,4 +236,42 @@ main a.codepen {
 
 main section.recognitions {
   grid-area: recognitions;
+}
+
+main section.recognitions > ul {
+  list-style: none;
+  margin-top: $spacing-m;
+}
+
+main section.recognitions > ul > li {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: $spacing-s;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+main section.recognitions > ul > li > span {
+  @extend %font-monospace;
+
+  color: darken($color-primary, 50%);
+
+  &::after {
+    content: '–';
+    display: inline-block;
+    margin-right: $spacing-s;
+    padding-left: $spacing-s;
+  }
+}
+
+main section.recognitions > ul > li > a > svg.arrow {
+  $size: 10px;
+
+  fill: $color-primary;
+  height: $size;
+  margin-left: $spacing-s;
+  width: $size;
 }

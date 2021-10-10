@@ -1,7 +1,6 @@
-- const DEFAULT_PAGE_TITLE = "Portfolio";
-- const DEFAULT_PAGE_DESCRIPTION = "Web development and design portfolio."
-
 block variables
+- const PAGE_TITLE = "Portfolio";
+- const PAGE_DESCRIPTION = "Web development and design portfolio."
 
 doctype html
 html(lang="en")
@@ -10,9 +9,9 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
     meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no")
-    meta(name="description" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
-    meta(name="subject" content=(PAGE_DESCRIPTION || DEFAULT_PAGE_DESCRIPTION))
-    title=(PAGE_TITLE ? `${PAGE_TITLE} | ${DEFAULT_PAGE_TITLE}` : DEFAULT_PAGE_TITLE)
+    meta(name="description" content=(PAGE_DESCRIPTION))
+    meta(name="subject" content=(PAGE_DESCRIPTION))
+    title=(PAGE_TITLE)
     script(src="../../scripts/main.ts" type="module" async defer)
     base(href="/")
 
