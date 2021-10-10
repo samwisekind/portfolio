@@ -8,6 +8,17 @@ main {
     'photography codepen'
     'recognitions recognitions';
   grid-template-columns: 1.2fr 0.8fr;
+
+  @media (max-width: $breakpoint-small) {
+    gap: 10px;
+    grid-template-areas:
+      'intro intro'
+      'about about'
+      'photography photography'
+      'github codepen'
+      'recognitions recognitions';
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 main section,
@@ -20,6 +31,10 @@ main a.link {
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    padding: 15px;
   }
 }
 
@@ -58,6 +73,10 @@ main h1.intro {
   grid-area: intro;
   margin-bottom: $spacing-l;
 
+  @media (max-width: $breakpoint-small) {
+    margin-bottom: $spacing-s;
+  }
+
   &::after {
     animation: 3s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s infinite cycle;
     content: attr(data-current);
@@ -77,10 +96,14 @@ main section.about {
 
 main section.about > p {
   font-size: font-size($font-size-m);
-  margin-bottom: 15px;
+  margin-bottom: $spacing-m;
 
   > span.mono {
     @extend %font-monospace;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    margin-bottom: $spacing-s;
   }
 
   &:last-child {
@@ -106,6 +129,11 @@ main section.about ul {
     font-weight: 700;
     margin: 5px 10px 5px 0;
     padding: 5px 20px;
+
+    @media (max-width: $breakpoint-small) {
+      margin-right: 8px;
+      padding: 5px 10px;
+    }
   }
 }
 
@@ -148,6 +176,12 @@ main section.photography {
     position: absolute;
     right: 20px;
     z-index: 10;
+
+    @media (max-width: $breakpoint-small) {
+      padding: 8px 12px;
+      right: 15px;
+      bottom: 15px;
+    }
   }
 
   a:hover > span {
@@ -193,6 +227,10 @@ main a.link {
   padding: 20px;
   text-align: center;
 
+  @media (max-width: $breakpoint-small) {
+    font-size: font-size($font-size-m);
+  }
+
   &:hover {
     background: $color-primary;
     color: $color-background-alt;
@@ -211,8 +249,14 @@ main a.link {
     $size: 48px;
 
     height: $size;
-    margin-right: 20px;
+    margin-right: $spacing-m;
     width: $size;
+
+    @media (max-width: $breakpoint-small) {
+      height: 12px;
+      margin-right: $spacing-s;
+      width: 12px;
+    }
   }
 
   > svg.arrow {
@@ -221,6 +265,11 @@ main a.link {
     height: $size;
     margin-left: auto;
     width: $size;
+
+    @media (max-width: $breakpoint-small) {
+      height: 8px;
+      width: 8px;
+    }
   }
 }
 
