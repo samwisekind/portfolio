@@ -1,6 +1,6 @@
 main {
   display: grid;
-  gap: 20px 20px;
+  gap: $spacing-l $spacing-l;
   grid-template-areas:
     'intro intro'
     'about about'
@@ -9,8 +9,8 @@ main {
     'recognitions recognitions';
   grid-template-columns: 1.2fr 0.8fr;
 
-  @media (max-width: $breakpoint-small) {
-    gap: 10px;
+  @media (max-width: $breakpoint-medium) {
+    gap: $spacing-m;
     grid-template-areas:
       'intro intro'
       'about about'
@@ -19,22 +19,32 @@ main {
       'recognitions recognitions';
     grid-template-columns: 1fr 1fr;
   }
+
+  @media (max-width: $breakpoint-small) {
+    gap: $spacing-s;
+  }
 }
 
 main section,
 main a.link {
   background: $color-background-alt;
-  border-radius: 20px;
+  border-radius: $border-radius-l;
   color: $color-primary;
   overflow: hidden;
-  padding: 20px;
+  padding: $spacing-l;
 
   &:last-child {
     margin-bottom: 0;
   }
 
+  @media (max-width: $breakpoint-medium) {
+    border-radius: $border-radius-m;
+    padding: $spacing-m;
+  }
+
   @media (max-width: $breakpoint-small) {
-    padding: 15px;
+    border-radius: $border-radius-s;
+    padding: $spacing-s;
   }
 }
 
@@ -66,12 +76,22 @@ $rotation: 20deg;
 
 main h1.intro {
   align-items: center;
-  color: $color-primary;
   display: flex;
-  font-size: font-size($font-size-xl);
-  font-weight: 700;
   grid-area: intro;
   margin-bottom: $spacing-l;
+
+  > span {
+    background: linear-gradient(45deg, #7effdb, #892cdc);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: $color-primary;
+    font-size: font-size($font-size-xl);
+    font-weight: 700;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    
+  }
 
   @media (max-width: $breakpoint-small) {
     margin-bottom: $spacing-s;
@@ -178,9 +198,9 @@ main section.photography {
     z-index: 10;
 
     @media (max-width: $breakpoint-small) {
+      bottom: 15px;
       padding: 8px 12px;
       right: 15px;
-      bottom: 15px;
     }
   }
 
@@ -224,11 +244,16 @@ main a.link {
   font-size: font-size($font-size-l);
   font-weight: 700;
   justify-content: center;
-  padding: 20px;
   text-align: center;
 
-  @media (max-width: $breakpoint-small) {
+  @media (max-width: $breakpoint-medium) {
     font-size: font-size($font-size-m);
+    height: 80px;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    font-size: font-size($font-size-s);
+    height: 60px;
   }
 
   &:hover {
@@ -252,10 +277,20 @@ main a.link {
     margin-right: $spacing-m;
     width: $size;
 
+    @media (max-width: $breakpoint-medium) {
+      $size: 24px;
+
+      height: $size;
+      margin-right: $spacing-m;
+      width: $size;
+    }
+
     @media (max-width: $breakpoint-small) {
-      height: 12px;
+      $size: 12px;
+
+      height: $size;
       margin-right: $spacing-s;
-      width: 12px;
+      width: $size;
     }
   }
 
@@ -266,9 +301,18 @@ main a.link {
     margin-left: auto;
     width: $size;
 
+    @media (max-width: $breakpoint-medium) {
+      $size: 10px;
+
+      height: $size;
+      width: $size;
+    }
+
     @media (max-width: $breakpoint-small) {
-      height: 8px;
-      width: 8px;
+      $size: 8px;
+
+      height: $size;
+      width: $size;
     }
   }
 }
@@ -298,6 +342,10 @@ main section.recognitions > ul > li {
   flex-direction: row;
   margin-bottom: $spacing-s;
 
+  @media (max-width: $breakpoint-medium) {
+    display: block;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -308,11 +356,19 @@ main section.recognitions > ul > li > span {
 
   color: darken($color-primary, 50%);
 
+  @media (max-width: $breakpoint-medium) {
+    display: block;
+  }
+
   &::after {
     content: '–';
     display: inline-block;
     margin-right: $spacing-s;
     padding-left: $spacing-s;
+
+    @media (max-width: $breakpoint-medium) {
+      display: none;
+    }
   }
 }
 
@@ -323,4 +379,11 @@ main section.recognitions > ul > li > a > svg.arrow {
   height: $size;
   margin-left: $spacing-s;
   width: $size;
+
+  @media (max-width: $breakpoint-small) {
+    $size: 6px;
+
+    height: $size;
+    width: $size;
+  }
 }

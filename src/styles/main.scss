@@ -55,4 +55,8 @@ main {
   margin: 0 auto;
   max-width: $max-width;
   padding: 0 $spacing-l $spacing-l * 4;
+
+  @media (max-width: $breakpoint-small) {
+    padding: 0 $spacing-s $spacing-s * 2;
+  }
 }

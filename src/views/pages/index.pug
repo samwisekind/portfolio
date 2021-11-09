@@ -7,7 +7,8 @@ block variables
   - const featuredPhotos = photography.photos.filter((photo) => photo.featured);
 
 block main
-  h1(data-current="👋" data-emojis="👋|✌️|🤙|🖖|🤘|🤝|❤️").intro.js-greeting Hello, you!
+  h1(data-current="👋" data-emojis="👋|✌️|🤙|🖖|🤘|🤝|❤️").intro.js-greeting
+    span="Hello, you!"
 
   section.about
     p <b>I'm a software engineer</b> focusing on web development, <b>currently as a Tech Lead in e-commerce</b>, using technologies such as:
@@ -32,7 +33,7 @@ block main
         +icon-internal
       img(data-src="https://portfolio-cdn.ams3.digitaloceanspaces.com/test.jpg" alt="" crossorigin="anonymous").js-lazy
 
-  a(href="https://github.com/Flamov" title="View GitHub profile" rel="noopener noreferrer" target="_blank").link.github
+  a(href="https://github.com/samwisekind" title="View GitHub profile" rel="noopener noreferrer" target="_blank").link.github
     +icon-github
     ="GitHub"
     +icon-external

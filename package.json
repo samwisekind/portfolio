@@ -53,7 +53,8 @@
         true,
         {
           "ignoreProperties": [
-            "backdrop-filter"
+            "backdrop-filter",
+            "background-clip"
           ]
         }
       ]
